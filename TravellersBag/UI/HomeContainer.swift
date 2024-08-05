@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import MMKV
 
 struct ContentView: View {
     var body: some View {
@@ -16,6 +17,8 @@ struct ContentView: View {
             Text("app.name")
         }
         .padding()
+        .onAppear {
+        }
     }
 }
 
