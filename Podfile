@@ -10,5 +10,6 @@ target 'TravellersBag' do
   pod 'MMKV'
   pod 'Kingfisher', '~> 7.0'
   pod 'WaterfallGrid', '~> 1.1.0'
+  pod 'AlertToast'
 
 end

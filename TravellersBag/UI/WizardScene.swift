@@ -6,8 +6,12 @@
 //
 
 import SwiftUI
+import AlertToast
+import MMKV
 
 struct WizardScene: View {
+    @State private var finishToast = false
+    
     var body: some View {
         VStack {
             Image("app_logo")
@@ -37,6 +41,9 @@ struct WizardScene: View {
                     Text("wizard.cancel")
                 }).padding(.trailing, 8)
                 Button(action: {
+                    MMKV.default()!.set("0.0.1", forKey: "appVersion") // 完成初始化
+                    finishToast.toggle()
+                    exit(0)
                 }, label: {
                     Text("wizard.ok")
                 })
@@ -46,6 +53,7 @@ struct WizardScene: View {
         .onAppear {
             LocalNotification.shared.requestPermission() //发起通知权限请求
         }
+        .toast(isPresenting: $finishToast, alert: { AlertToast(type: .regular, title: "wizard.toask.finished")} )
     }
 }
 

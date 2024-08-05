@@ -14,6 +14,7 @@
 		5D0A6EC72C608F5D00D9F15C /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 5D0A6EC62C608F5D00D9F15C /* Localizable.xcstrings */; };
 		5D0A6ECB2C60903F00D9F15C /* WizardScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0A6ECA2C60903F00D9F15C /* WizardScene.swift */; };
 		5D0A6ECE2C6091B900D9F15C /* LocalNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0A6ECD2C6091B900D9F15C /* LocalNotification.swift */; };
+		5D0A6ED12C60982C00D9F15C /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0A6ED02C60982C00D9F15C /* SwiftyJSON.swift */; };
 		F309F153B34169226895213A /* Pods_TravellersBag.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 158B90E0A23313B1CEBF1F38 /* Pods_TravellersBag.framework */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +29,8 @@
 		5D0A6EC62C608F5D00D9F15C /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		5D0A6ECA2C60903F00D9F15C /* WizardScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WizardScene.swift; sourceTree = "<group>"; };
 		5D0A6ECD2C6091B900D9F15C /* LocalNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalNotification.swift; sourceTree = "<group>"; };
+		5D0A6ED02C60982C00D9F15C /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
+		5D0A6ED32C60B1CD00D9F15C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		DA8F82AA502AA961DDB29A28 /* Pods-TravellersBag.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravellersBag.debug.xcconfig"; path = "Target Support Files/Pods-TravellersBag/Pods-TravellersBag.debug.xcconfig"; sourceTree = "<group>"; };
 		E2B1210722043EC60AAACB6E /* Pods-TravellersBag.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravellersBag.release.xcconfig"; path = "Target Support Files/Pods-TravellersBag/Pods-TravellersBag.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -47,6 +50,7 @@
 		5D0A6EAB2C6075A000D9F15C = {
 			isa = PBXGroup;
 			children = (
+				5D0A6ED32C60B1CD00D9F15C /* README.md */,
 				5D0A6EB62C6075A000D9F15C /* TravellersBag */,
 				5D0A6EB52C6075A000D9F15C /* Products */,
 				9BE62A3C9596D429C368C5E8 /* Pods */,
@@ -65,6 +69,8 @@
 		5D0A6EB62C6075A000D9F15C /* TravellersBag */ = {
 			isa = PBXGroup;
 			children = (
+				5D0A6ED22C609D8A00D9F15C /* Features */,
+				5D0A6ECF2C60981500D9F15C /* Libs */,
 				5D0A6ECC2C60919000D9F15C /* Services */,
 				5D0A6EC82C60902000D9F15C /* UI */,
 				5D0A6EB72C6075A000D9F15C /* TravellersBagApp.swift */,
@@ -99,6 +105,21 @@
 				5D0A6ECD2C6091B900D9F15C /* LocalNotification.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		5D0A6ECF2C60981500D9F15C /* Libs */ = {
+			isa = PBXGroup;
+			children = (
+				5D0A6ED02C60982C00D9F15C /* SwiftyJSON.swift */,
+			);
+			path = Libs;
+			sourceTree = "<group>";
+		};
+		5D0A6ED22C609D8A00D9F15C /* Features */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Features;
 			sourceTree = "<group>";
 		};
 		9BE62A3C9596D429C368C5E8 /* Pods */ = {
@@ -237,6 +258,7 @@
 				5D0A6ECE2C6091B900D9F15C /* LocalNotification.swift in Sources */,
 				5D0A6ECB2C60903F00D9F15C /* WizardScene.swift in Sources */,
 				5D0A6EBA2C6075A000D9F15C /* ContentView.swift in Sources */,
+				5D0A6ED12C60982C00D9F15C /* SwiftyJSON.swift in Sources */,
 				5D0A6EB82C6075A000D9F15C /* TravellersBagApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

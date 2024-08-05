@@ -7,7 +7,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "欢迎你使用《旅者行囊》。你可以使用本应用以实现查看你的《原神》游戏数据等的功能。在使用本应用的过程中，我们将联网提供必要服务。"
+            "value" : "欢迎你使用《旅者行囊》。你可以使用本应用以实现查看你的《原神》游戏数据等的功能。在使用本应用的过程中，我们将联网提供必要服务。在你同意后，我们会先关闭软件以应用若干更改。"
           }
         }
       }
@@ -88,6 +88,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "同意"
+          }
+        }
+      }
+    },
+    "wizard.toask.finished" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "应用将关闭以应用更改，你可以在这之后打开以继续使用。"
           }
         }
       }

@@ -19,9 +19,10 @@ struct TravellersBagApp: App {
         WindowGroup {
             if MMKV.defaultMMKV(withCryptKey: nil)!.string(forKey: "appVersion", defaultValue: "0.0.0")! == "0.0.1" {
                 ContentView()
+                    .frame(width: 1024, height: 600)
             } else {
                 WizardScene()
-                    .frame(width: 600, height: 600)
+                    .frame(width: 1024, height: 600)
             }
         }
     }
