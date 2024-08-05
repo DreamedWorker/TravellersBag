@@ -1,0 +1,97 @@
+{
+  "sourceLanguage" : "zh-Hans",
+  "strings" : {
+    "app.description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "欢迎你使用《旅者行囊》。你可以使用本应用以实现查看你的《原神》游戏数据等的功能。在使用本应用的过程中，我们将联网提供必要服务。"
+          }
+        }
+      }
+    },
+    "app.description.2" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在使用的过程中，为获得更多服务，我们可能还将随时读取位于你的文件系统上的本应用的沙盘中的全部文件。为确保安全，建议你不要在「系统设置」中对你不确认权限行为的软件开放「完全磁盘访问权限」以保证 Apple 的沙盘机制发挥作用。此外，本应用系开源软件，你的使用、修改、复制等行为均系自愿，本应用不含任何担保。"
+          }
+        }
+      }
+    },
+    "app.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "旅者行囊"
+          }
+        }
+      }
+    },
+    "Hello, world!" : {
+
+    },
+    "wizard.cancel" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "不同意"
+          }
+        }
+      }
+    },
+    "wizard.look_gpl" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "查看开源证书（GNU GPLv3.0）"
+          }
+        }
+      }
+    },
+    "wizard.look_gpl.tip" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "你在使用本应用及其副本时，应当在GPLv3.0协议的许可范围内进行，共同享受阳光的开源软件社区氛围。"
+          }
+        }
+      }
+    },
+    "wizard.look_repo" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "查看项目仓库"
+          }
+        }
+      }
+    },
+    "wizard.ok" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "同意"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}

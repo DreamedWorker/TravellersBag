@@ -1,0 +1,28 @@
+PODS:
+  - Kingfisher (7.12.0)
+  - MMKV (1.3.9):
+    - MMKVCore (~> 1.3.9)
+  - MMKVCore (1.3.9)
+  - WaterfallGrid (1.1.0)
+
+DEPENDENCIES:
+  - Kingfisher (~> 7.0)
+  - MMKV
+  - WaterfallGrid (~> 1.1.0)
+
+SPEC REPOS:
+  https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git:
+    - Kingfisher
+    - MMKV
+    - MMKVCore
+    - WaterfallGrid
+
+SPEC CHECKSUMS:
+  Kingfisher: 53a10ea35051a436b5fb626ca2dd8f3144d755e9
+  MMKV: 817ba1eea17421547e01e087285606eb270a8dcb
+  MMKVCore: af055b00e27d88cd92fad301c5fecd1ff9b26dd9
+  WaterfallGrid: 07f6295f13a07b26843808606eda753559a9680d
+
+PODFILE CHECKSUM: bc8cb07d186cc8eeb0272dd558bea973089b6dd1
+
+COCOAPODS: 1.13.0

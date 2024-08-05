@@ -1,0 +1,5 @@
+${PODS_ROOT}/Target Support Files/Pods-TravellersBag/Pods-TravellersBag-frameworks.sh
+${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework
+${BUILT_PRODUCTS_DIR}/MMKV/MMKV.framework
+${BUILT_PRODUCTS_DIR}/MMKVCore/MMKVCore.framework
+${BUILT_PRODUCTS_DIR}/WaterfallGrid/WaterfallGrid.framework
