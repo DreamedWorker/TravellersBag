@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+struct EventMessager {
+    let evtState: Bool
+    let data: Any
+}

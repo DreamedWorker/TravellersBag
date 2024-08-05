@@ -8,13 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		5D0A6EB82C6075A000D9F15C /* TravellersBagApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0A6EB72C6075A000D9F15C /* TravellersBagApp.swift */; };
-		5D0A6EBA2C6075A000D9F15C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0A6EB92C6075A000D9F15C /* ContentView.swift */; };
 		5D0A6EBC2C6075A200D9F15C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D0A6EBB2C6075A200D9F15C /* Assets.xcassets */; };
 		5D0A6EBF2C6075A200D9F15C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D0A6EBE2C6075A200D9F15C /* Preview Assets.xcassets */; };
 		5D0A6EC72C608F5D00D9F15C /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 5D0A6EC62C608F5D00D9F15C /* Localizable.xcstrings */; };
 		5D0A6ECB2C60903F00D9F15C /* WizardScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0A6ECA2C60903F00D9F15C /* WizardScene.swift */; };
 		5D0A6ECE2C6091B900D9F15C /* LocalNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0A6ECD2C6091B900D9F15C /* LocalNotification.swift */; };
 		5D0A6ED12C60982C00D9F15C /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0A6ED02C60982C00D9F15C /* SwiftyJSON.swift */; };
+		5D0A6ED52C60C27700D9F15C /* LocalEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0A6ED42C60C27700D9F15C /* LocalEnvironment.swift */; };
+		5D0A6ED82C61254200D9F15C /* ApiEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0A6ED72C61254200D9F15C /* ApiEndpoints.swift */; };
+		5D0A6EDA2C612D0900D9F15C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0A6ED92C612D0900D9F15C /* ContentView.swift */; };
+		5D0A6EDC2C612D6D00D9F15C /* HttpRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0A6EDB2C612D6D00D9F15C /* HttpRequests.swift */; };
+		5D0A6EDE2C6131C200D9F15C /* DynamicSecret.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0A6EDD2C6131C200D9F15C /* DynamicSecret.swift */; };
+		5D0A6EE12C61351100D9F15C /* EventMessager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0A6EE02C61351100D9F15C /* EventMessager.swift */; };
 		F309F153B34169226895213A /* Pods_TravellersBag.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 158B90E0A23313B1CEBF1F38 /* Pods_TravellersBag.framework */; };
 /* End PBXBuildFile section */
 
@@ -22,7 +27,6 @@
 		158B90E0A23313B1CEBF1F38 /* Pods_TravellersBag.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TravellersBag.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D0A6EB42C6075A000D9F15C /* 旅者行囊.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "旅者行囊.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D0A6EB72C6075A000D9F15C /* TravellersBagApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravellersBagApp.swift; sourceTree = "<group>"; };
-		5D0A6EB92C6075A000D9F15C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		5D0A6EBB2C6075A200D9F15C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5D0A6EBE2C6075A200D9F15C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		5D0A6EC02C6075A200D9F15C /* TravellersBag.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TravellersBag.entitlements; sourceTree = "<group>"; };
@@ -31,6 +35,12 @@
 		5D0A6ECD2C6091B900D9F15C /* LocalNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalNotification.swift; sourceTree = "<group>"; };
 		5D0A6ED02C60982C00D9F15C /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		5D0A6ED32C60B1CD00D9F15C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		5D0A6ED42C60C27700D9F15C /* LocalEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalEnvironment.swift; sourceTree = "<group>"; };
+		5D0A6ED72C61254200D9F15C /* ApiEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiEndpoints.swift; sourceTree = "<group>"; };
+		5D0A6ED92C612D0900D9F15C /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		5D0A6EDB2C612D6D00D9F15C /* HttpRequests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpRequests.swift; sourceTree = "<group>"; };
+		5D0A6EDD2C6131C200D9F15C /* DynamicSecret.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicSecret.swift; sourceTree = "<group>"; };
+		5D0A6EE02C61351100D9F15C /* EventMessager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventMessager.swift; sourceTree = "<group>"; };
 		DA8F82AA502AA961DDB29A28 /* Pods-TravellersBag.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravellersBag.debug.xcconfig"; path = "Target Support Files/Pods-TravellersBag/Pods-TravellersBag.debug.xcconfig"; sourceTree = "<group>"; };
 		E2B1210722043EC60AAACB6E /* Pods-TravellersBag.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravellersBag.release.xcconfig"; path = "Target Support Files/Pods-TravellersBag/Pods-TravellersBag.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -69,12 +79,13 @@
 		5D0A6EB62C6075A000D9F15C /* TravellersBag */ = {
 			isa = PBXGroup;
 			children = (
+				5D0A6EDF2C6134E900D9F15C /* Data */,
 				5D0A6ED22C609D8A00D9F15C /* Features */,
 				5D0A6ECF2C60981500D9F15C /* Libs */,
 				5D0A6ECC2C60919000D9F15C /* Services */,
 				5D0A6EC82C60902000D9F15C /* UI */,
 				5D0A6EB72C6075A000D9F15C /* TravellersBagApp.swift */,
-				5D0A6EB92C6075A000D9F15C /* ContentView.swift */,
+				5D0A6ED92C612D0900D9F15C /* ContentView.swift */,
 				5D0A6EBB2C6075A200D9F15C /* Assets.xcassets */,
 				5D0A6EC02C6075A200D9F15C /* TravellersBag.entitlements */,
 				5D0A6EBD2C6075A200D9F15C /* Preview Content */,
@@ -110,6 +121,7 @@
 		5D0A6ECF2C60981500D9F15C /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				5D0A6ED62C611F6F00D9F15C /* LibHoyoKit */,
 				5D0A6ED02C60982C00D9F15C /* SwiftyJSON.swift */,
 			);
 			path = Libs;
@@ -118,8 +130,27 @@
 		5D0A6ED22C609D8A00D9F15C /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				5D0A6EDD2C6131C200D9F15C /* DynamicSecret.swift */,
+				5D0A6ED42C60C27700D9F15C /* LocalEnvironment.swift */,
 			);
 			path = Features;
+			sourceTree = "<group>";
+		};
+		5D0A6ED62C611F6F00D9F15C /* LibHoyoKit */ = {
+			isa = PBXGroup;
+			children = (
+				5D0A6ED72C61254200D9F15C /* ApiEndpoints.swift */,
+				5D0A6EDB2C612D6D00D9F15C /* HttpRequests.swift */,
+			);
+			path = LibHoyoKit;
+			sourceTree = "<group>";
+		};
+		5D0A6EDF2C6134E900D9F15C /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				5D0A6EE02C61351100D9F15C /* EventMessager.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 		9BE62A3C9596D429C368C5E8 /* Pods */ = {
@@ -255,11 +286,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D0A6EDE2C6131C200D9F15C /* DynamicSecret.swift in Sources */,
 				5D0A6ECE2C6091B900D9F15C /* LocalNotification.swift in Sources */,
+				5D0A6EDC2C612D6D00D9F15C /* HttpRequests.swift in Sources */,
 				5D0A6ECB2C60903F00D9F15C /* WizardScene.swift in Sources */,
-				5D0A6EBA2C6075A000D9F15C /* ContentView.swift in Sources */,
+				5D0A6EDA2C612D0900D9F15C /* ContentView.swift in Sources */,
+				5D0A6EE12C61351100D9F15C /* EventMessager.swift in Sources */,
+				5D0A6ED82C61254200D9F15C /* ApiEndpoints.swift in Sources */,
 				5D0A6ED12C60982C00D9F15C /* SwiftyJSON.swift in Sources */,
 				5D0A6EB82C6075A000D9F15C /* TravellersBagApp.swift in Sources */,
+				5D0A6ED52C60C27700D9F15C /* LocalEnvironment.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
