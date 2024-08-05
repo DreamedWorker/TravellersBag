@@ -13,6 +13,7 @@ struct TravellersBagApp: App {
     
     init() {
         MMKV.initialize(rootDir: nil) //默认库 用于存储全局性的kv对
+        LocalNotification.shared.requestPermission()
         LocalEnvironment.shared.checkEnvironment()
     }
     

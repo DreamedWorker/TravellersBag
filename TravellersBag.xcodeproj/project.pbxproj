@@ -16,7 +16,7 @@
 		5D0A6ED12C60982C00D9F15C /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0A6ED02C60982C00D9F15C /* SwiftyJSON.swift */; };
 		5D0A6ED52C60C27700D9F15C /* LocalEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0A6ED42C60C27700D9F15C /* LocalEnvironment.swift */; };
 		5D0A6ED82C61254200D9F15C /* ApiEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0A6ED72C61254200D9F15C /* ApiEndpoints.swift */; };
-		5D0A6EDA2C612D0900D9F15C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0A6ED92C612D0900D9F15C /* ContentView.swift */; };
+		5D0A6EDA2C612D0900D9F15C /* HomeContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0A6ED92C612D0900D9F15C /* HomeContainer.swift */; };
 		5D0A6EDC2C612D6D00D9F15C /* HttpRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0A6EDB2C612D6D00D9F15C /* HttpRequests.swift */; };
 		5D0A6EDE2C6131C200D9F15C /* DynamicSecret.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0A6EDD2C6131C200D9F15C /* DynamicSecret.swift */; };
 		5D0A6EE12C61351100D9F15C /* EventMessager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0A6EE02C61351100D9F15C /* EventMessager.swift */; };
@@ -37,7 +37,7 @@
 		5D0A6ED32C60B1CD00D9F15C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		5D0A6ED42C60C27700D9F15C /* LocalEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalEnvironment.swift; sourceTree = "<group>"; };
 		5D0A6ED72C61254200D9F15C /* ApiEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiEndpoints.swift; sourceTree = "<group>"; };
-		5D0A6ED92C612D0900D9F15C /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		5D0A6ED92C612D0900D9F15C /* HomeContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeContainer.swift; sourceTree = "<group>"; };
 		5D0A6EDB2C612D6D00D9F15C /* HttpRequests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpRequests.swift; sourceTree = "<group>"; };
 		5D0A6EDD2C6131C200D9F15C /* DynamicSecret.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicSecret.swift; sourceTree = "<group>"; };
 		5D0A6EE02C61351100D9F15C /* EventMessager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventMessager.swift; sourceTree = "<group>"; };
@@ -85,7 +85,6 @@
 				5D0A6ECC2C60919000D9F15C /* Services */,
 				5D0A6EC82C60902000D9F15C /* UI */,
 				5D0A6EB72C6075A000D9F15C /* TravellersBagApp.swift */,
-				5D0A6ED92C612D0900D9F15C /* ContentView.swift */,
 				5D0A6EBB2C6075A200D9F15C /* Assets.xcassets */,
 				5D0A6EC02C6075A200D9F15C /* TravellersBag.entitlements */,
 				5D0A6EBD2C6075A200D9F15C /* Preview Content */,
@@ -106,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				5D0A6ECA2C60903F00D9F15C /* WizardScene.swift */,
+				5D0A6ED92C612D0900D9F15C /* HomeContainer.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -290,7 +290,7 @@
 				5D0A6ECE2C6091B900D9F15C /* LocalNotification.swift in Sources */,
 				5D0A6EDC2C612D6D00D9F15C /* HttpRequests.swift in Sources */,
 				5D0A6ECB2C60903F00D9F15C /* WizardScene.swift in Sources */,
-				5D0A6EDA2C612D0900D9F15C /* ContentView.swift in Sources */,
+				5D0A6EDA2C612D0900D9F15C /* HomeContainer.swift in Sources */,
 				5D0A6EE12C61351100D9F15C /* EventMessager.swift in Sources */,
 				5D0A6ED82C61254200D9F15C /* ApiEndpoints.swift in Sources */,
 				5D0A6ED12C60982C00D9F15C /* SwiftyJSON.swift in Sources */,

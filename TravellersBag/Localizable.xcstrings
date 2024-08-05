@@ -34,8 +34,16 @@
         }
       }
     },
-    "Hello, world!" : {
-
+    "home.container" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "等待设备指纹"
+          }
+        }
+      }
     },
     "wizard.cancel" : {
       "extractionState" : "manual",
