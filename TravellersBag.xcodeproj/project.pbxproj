@@ -20,6 +20,9 @@
 		5D0A6EDC2C612D6D00D9F15C /* HttpRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0A6EDB2C612D6D00D9F15C /* HttpRequests.swift */; };
 		5D0A6EDE2C6131C200D9F15C /* DynamicSecret.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0A6EDD2C6131C200D9F15C /* DynamicSecret.swift */; };
 		5D0A6EE12C61351100D9F15C /* EventMessager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0A6EE02C61351100D9F15C /* EventMessager.swift */; };
+		5DDDABBB2C61B51200D4FA0B /* TravellersModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5DDDABB92C61B51200D4FA0B /* TravellersModel.xcdatamodeld */; };
+		5DDDABBD2C61B8E100D4FA0B /* AppPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDDABBC2C61B8E100D4FA0B /* AppPersistence.swift */; };
+		5DDDABBF2C61BE5300D4FA0B /* HoyoAccounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDDABBE2C61BE5300D4FA0B /* HoyoAccounts.swift */; };
 		F309F153B34169226895213A /* Pods_TravellersBag.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 158B90E0A23313B1CEBF1F38 /* Pods_TravellersBag.framework */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +44,9 @@
 		5D0A6EDB2C612D6D00D9F15C /* HttpRequests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpRequests.swift; sourceTree = "<group>"; };
 		5D0A6EDD2C6131C200D9F15C /* DynamicSecret.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicSecret.swift; sourceTree = "<group>"; };
 		5D0A6EE02C61351100D9F15C /* EventMessager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventMessager.swift; sourceTree = "<group>"; };
+		5DDDABBA2C61B51200D4FA0B /* TravellersModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TravellersModel.xcdatamodel; sourceTree = "<group>"; };
+		5DDDABBC2C61B8E100D4FA0B /* AppPersistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPersistence.swift; sourceTree = "<group>"; };
+		5DDDABBE2C61BE5300D4FA0B /* HoyoAccounts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoyoAccounts.swift; sourceTree = "<group>"; };
 		DA8F82AA502AA961DDB29A28 /* Pods-TravellersBag.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravellersBag.debug.xcconfig"; path = "Target Support Files/Pods-TravellersBag/Pods-TravellersBag.debug.xcconfig"; sourceTree = "<group>"; };
 		E2B1210722043EC60AAACB6E /* Pods-TravellersBag.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravellersBag.release.xcconfig"; path = "Target Support Files/Pods-TravellersBag/Pods-TravellersBag.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -89,6 +95,7 @@
 				5D0A6EC02C6075A200D9F15C /* TravellersBag.entitlements */,
 				5D0A6EBD2C6075A200D9F15C /* Preview Content */,
 				5D0A6EC62C608F5D00D9F15C /* Localizable.xcstrings */,
+				5DDDABB92C61B51200D4FA0B /* TravellersModel.xcdatamodeld */,
 			);
 			path = TravellersBag;
 			sourceTree = "<group>";
@@ -132,6 +139,7 @@
 			children = (
 				5D0A6EDD2C6131C200D9F15C /* DynamicSecret.swift */,
 				5D0A6ED42C60C27700D9F15C /* LocalEnvironment.swift */,
+				5DDDABBC2C61B8E100D4FA0B /* AppPersistence.swift */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -149,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				5D0A6EE02C61351100D9F15C /* EventMessager.swift */,
+				5DDDABBE2C61BE5300D4FA0B /* HoyoAccounts.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -286,14 +295,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5DDDABBF2C61BE5300D4FA0B /* HoyoAccounts.swift in Sources */,
 				5D0A6EDE2C6131C200D9F15C /* DynamicSecret.swift in Sources */,
 				5D0A6ECE2C6091B900D9F15C /* LocalNotification.swift in Sources */,
 				5D0A6EDC2C612D6D00D9F15C /* HttpRequests.swift in Sources */,
 				5D0A6ECB2C60903F00D9F15C /* WizardScene.swift in Sources */,
 				5D0A6EDA2C612D0900D9F15C /* HomeContainer.swift in Sources */,
 				5D0A6EE12C61351100D9F15C /* EventMessager.swift in Sources */,
+				5DDDABBB2C61B51200D4FA0B /* TravellersModel.xcdatamodeld in Sources */,
 				5D0A6ED82C61254200D9F15C /* ApiEndpoints.swift in Sources */,
 				5D0A6ED12C60982C00D9F15C /* SwiftyJSON.swift in Sources */,
+				5DDDABBD2C61B8E100D4FA0B /* AppPersistence.swift in Sources */,
 				5D0A6EB82C6075A000D9F15C /* TravellersBagApp.swift in Sources */,
 				5D0A6ED52C60C27700D9F15C /* LocalEnvironment.swift in Sources */,
 			);
@@ -506,6 +518,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		5DDDABB92C61B51200D4FA0B /* TravellersModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				5DDDABBA2C61B51200D4FA0B /* TravellersModel.xcdatamodel */,
+			);
+			currentVersion = 5DDDABBA2C61B51200D4FA0B /* TravellersModel.xcdatamodel */;
+			name = TravellersModel.xcdatamodeld;
+			path = /Users/yuanshine/Documents/TravellersBag/TravellersBag/TravellersModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 5D0A6EAC2C6075A000D9F15C /* Project object */;
 }

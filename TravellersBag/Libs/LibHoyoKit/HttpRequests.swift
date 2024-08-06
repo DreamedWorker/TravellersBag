@@ -28,7 +28,7 @@ extension URLRequest {
             } else {
                 self.httpMethod = "GET"
             }
-            let (data, response) = try await session.data(for: self)
+            let (data, _) = try await session.data(for: self)
             return EventMessager(evtState: true, data: String(data: data, encoding: .utf8)!)
         } catch {
             return EventMessager(evtState: false, data: error.localizedDescription)
@@ -39,49 +39,42 @@ extension URLRequest {
 // 处理几个常用请求头
 extension URLRequest {
     /// 设置设备基本信息
-    mutating func setDeviceInfoHeaders() -> URLRequest {
+    mutating func setDeviceInfoHeaders() {
         self.setValue("", forHTTPHeaderField: "x-rpc-device_fp")
         self.setValue("Unknown Android SDK built for arm64", forHTTPHeaderField: "x-rpc-device_name")
         self.setValue(MMKV.default()!.string(forKey: LocalEnvironment.DEVICE_ID)!, forHTTPHeaderField: "x-rpc-device_id")
         self.setValue("Android SDK built for arm64", forHTTPHeaderField: "x-rpc-device_model")
-        return self
     }
     
     /// 设置动态密钥
-    mutating func setDS(version: SaltVersion, type: SaltType, body: String = "", q: String = "") -> URLRequest {
+    mutating func setDS(version: SaltVersion, type: SaltType, body: String = "", q: String = "") {
         self.setValue(getDynamicSecret(version: version, saltType: type, query: q, body: body), forHTTPHeaderField: "DS")
-        return self
     }
     
     /// 设置 Host
-    mutating func setHost(host: String) -> URLRequest {
+    mutating func setHost(host: String) {
         self.setValue(host, forHTTPHeaderField: "Host")
-        return self
     }
     
     /// 设置 Referer
-    mutating func setReferer(referer: String) -> URLRequest {
+    mutating func setReferer(referer: String) {
         self.setValue(referer, forHTTPHeaderField: "Referer")
-        return self
     }
     
     /// 设置用户信息
-    // TODO: 待Cookie存储完成后
-    mutating func setUser() -> URLRequest {
-        return self
+    mutating func setUser(singleUser: HoyoAccounts) {
+        self.setValue("stuid=\(singleUser.stuid!);stoken=\(singleUser.stoken!);mid=\(singleUser.mid!);", forHTTPHeaderField: "cookie")
     }
     
     /// 设置UA
-    mutating func setUA() -> URLRequest {
+    mutating func setUA() {
         self.setValue(LocalEnvironment.hoyoUA, forHTTPHeaderField: "User-Agent")
-        return self
     }
     
     /// 设置请求头app信息
-    mutating func setXRPCAppInfo(appID: String = "bll8iq97cem8") -> URLRequest {
+    mutating func setXRPCAppInfo(appID: String = "bll8iq97cem8") {
         self.setValue(appID, forHTTPHeaderField: "x-rpc-app_id")
         self.setValue("2", forHTTPHeaderField: "x-rpc-client_type")
         self.setValue(LocalEnvironment.xrpcVersion, forHTTPHeaderField: "x-rpc-app_version")
-        return self
     }
 }

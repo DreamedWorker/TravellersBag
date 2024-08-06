@@ -10,6 +10,7 @@ import MMKV
 
 @main
 struct TravellersBagApp: App {
+    @StateObject private var appDataStack = AppPersistence.shared
     
     init() {
         MMKV.initialize(rootDir: nil) //默认库 用于存储全局性的kv对
@@ -21,6 +22,7 @@ struct TravellersBagApp: App {
         WindowGroup {
             if MMKV.defaultMMKV(withCryptKey: nil)!.string(forKey: "appVersion", defaultValue: "0.0.0")! == "0.0.1" {
                 ContentView()
+                    .environment(\.managedObjectContext, appDataStack.persistentContainer.viewContext)
                     .frame(width: 1024, height: 600)
             } else {
                 WizardScene()
