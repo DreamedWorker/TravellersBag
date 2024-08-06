@@ -2,7 +2,10 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22758" systemVersion="23E224" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
     <entity name="HoyoAccounts" representedClassName="HoyoAccounts" syncable="YES" codeGenerationType="class">
         <attribute name="activeAccount" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="genshinHead" optional="YES" attributeType="String"/>
+        <attribute name="genshinUID" optional="YES" attributeType="String"/>
         <attribute name="mid" optional="YES" attributeType="String"/>
+        <attribute name="misheHead" optional="YES" attributeType="String"/>
         <attribute name="stoken" optional="YES" attributeType="String"/>
         <attribute name="stuid" optional="YES" attributeType="String"/>
     </entity>

@@ -7,7 +7,7 @@
 
 import Foundation
 
-// 我们约定：链接尽量不对外开放，开放hoyoXXX的方法供URLSession使用
+// 我们约定：链接尽量不对外开放
 // TODO: 本类随项目的完善而不断补充
 /// 本类存储了米哈游所有已经由社区提供使用方法的API。 本类是单例类
 class ApiEndpoints {
@@ -96,5 +96,18 @@ class ApiEndpoints {
         return "\(ApiEndpoints.PublicDataApi)/device-fp/api/getExtList?platform=${platform}"
     }
     
+    /// 获取登录二维码
+    func getFetchQRCode() -> String {
+        return "\(ApiEndpoints.Hk4eSdk)/hk4e_cn/combo/panda/qrcode/fetch"
+    }
     
+    /// 查询登录二维码状态
+    func getQueryQRState() -> String {
+        return "\(ApiEndpoints.Hk4eSdk)/hk4e_cn/combo/panda/qrcode/query"
+    }
+    
+    /// 获取SToken(V2?)通过GameToken
+    func getSTokenByGameToken() -> String {
+        return "\(ApiEndpoints.ApiTakumi)/account/ma-cn-session/app/getTokenByGameToken"
+    }
 }

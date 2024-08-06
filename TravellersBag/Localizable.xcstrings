@@ -1,6 +1,108 @@
 {
   "sourceLanguage" : "zh-Hans",
   "strings" : {
+    "" : {
+
+    },
+    "account.add.by_cookie" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "通过填写Cookie登录（推荐）"
+          }
+        }
+      }
+    },
+    "account.add.by_qr" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "通过扫描二维码登录"
+          }
+        }
+      }
+    },
+    "account.qrcode.finished" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "完成扫码"
+          }
+        }
+      }
+    },
+    "account.qrcode.refresh" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "刷新二维码"
+          }
+        }
+      }
+    },
+    "account.qrcode.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "扫描二维码以继续"
+          }
+        }
+      }
+    },
+    "account.table_mishe.load_err" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "读取米社账号列表异常！"
+          }
+        }
+      }
+    },
+    "account.table_mishe.sub" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "激活米社账号的同时将会把绑定的游戏账号设为默认。"
+          }
+        }
+      }
+    },
+    "account.table_mishe.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "米游社账号"
+          }
+        }
+      }
+    },
+    "app.cancel" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "取消"
+          }
+        }
+      }
+    },
     "app.description" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -40,7 +142,40 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "等待设备指纹"
+            "value" : "等待设备指纹生成"
+          }
+        }
+      }
+    },
+    "home.sider.account" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "米社账号"
+          }
+        }
+      }
+    },
+    "home.sider.notice" : {
+      "comment" : "主页用于展示公告和用户信息",
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "主页"
+          }
+        }
+      }
+    },
+    "stuid=%@&stoken=%@&mid=%@" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "stuid=%1$@&stoken=%2$@&mid=%3$@"
           }
         }
       }
