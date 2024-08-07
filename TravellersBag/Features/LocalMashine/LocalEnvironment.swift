@@ -43,6 +43,11 @@ class LocalEnvironment {
         // if envKV.string(forKey: "deviceID40", defaultValue: "")! == "" {} 我们不需要这个ID，因为我们扫码时不采用app_id=4这个参数，而采用「未定事件簿」的
     }
     
+    /// 向环境中插入值
+    func setStringValue(key: String, value: String) {
+        envKV.set(value, forKey: key)
+    }
+    
     /// 用于生成设备指纹
     /// 只能应用于HomeContainer的onAppear上 在应用主逻辑开始之前加载
     func checkFigurePointer() async {

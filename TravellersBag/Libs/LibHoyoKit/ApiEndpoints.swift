@@ -110,4 +110,25 @@ class ApiEndpoints {
     func getSTokenByGameToken() -> String {
         return "\(ApiEndpoints.ApiTakumi)/account/ma-cn-session/app/getTokenByGameToken"
     }
+    
+    /// 获取社区账号的基本信息
+    func getSheUserInfo(uid: String) -> String {
+        return "\(ApiEndpoints.BbsApi)/user/api/getUserFullInfo?uid=\(uid)"
+    }
+    
+    /// 获取原神的基本信息 （UID，服务器这些）
+    func getGameBasic() -> String {
+        return "\(ApiEndpoints.ApiTaKumiBindingApi)/getUserGameRolesByStoken"
+    }
+    
+    /// 获取原神的详细信息，默认是国服
+    /// # 第三方不可用
+    func getGameDetail(game: String = "cn_gf01", roleID: String) -> String {
+        return "\(ApiEndpoints.ApiTakumiRecordApi)/index?server=\(game)&role_id=\(roleID)"
+    }
+    
+    /// 通过Stoken获取Ltoken
+    func getLTokenBySToken() -> String {
+        return "\(ApiEndpoints.PassportApiAccountAuthApi)/getLTokenBySToken"
+    }
 }

@@ -14,7 +14,7 @@ class AccountManagerModel : ObservableObject {
     @Published var context: NSManagedObjectContext? = nil
     @Published var showFetchFatalToast = false
     @Published var fatalInfo = ""
-    @Published var accountsHoyo: [HoyoAccounts] = []
+    @Published var accountsHoyo: [HoyoAccounts] = [] // 水社账号列表
     @Published var showQRCodeWindow = false
     @Published var qrCodeImg: NSImage = NSImage()
     private var picURL: String = ""
@@ -102,6 +102,22 @@ class AccountManagerModel : ObservableObject {
         fatalInfo = ""
         qrScanState = ""
         showFetchFatalToast = false
+    }
+    
+    /// 完善账号条目
+    func updateGameData(user: HoyoAccounts) async {
+        let result = await AccountService.shared.pullUserSheInfo(uid: user.stuid!) // 需要转义头像链接的url，把反斜杠去掉
+        if result.evtState {
+            print(String(data: (result.data as! Data), encoding: .utf8)!)
+            let genshinBasic = await AccountService.shared.pullHk4eBasic(user: user)
+            if genshinBasic.evtState {
+                print(String(data: (genshinBasic.data as! Data), encoding: .utf8)!)
+                let ltokenPull = await AccountService.shared.pullUserLtoken(user: user)
+                if ltokenPull.evtState {
+                    print(ltokenPull.data as! String)
+                }
+            }
+        }
     }
     
     private func dealImg(pic: String) {

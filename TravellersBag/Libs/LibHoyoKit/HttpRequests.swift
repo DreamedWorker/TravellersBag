@@ -40,15 +40,16 @@ extension URLRequest {
 extension URLRequest {
     /// 设置设备基本信息
     mutating func setDeviceInfoHeaders() {
-        self.setValue("", forHTTPHeaderField: "x-rpc-device_fp")
+        self.setValue(MMKV.default()!.string(forKey: LocalEnvironment.DEVICE_FP)!, forHTTPHeaderField: "x-rpc-device_fp")
         self.setValue("Unknown Android SDK built for arm64", forHTTPHeaderField: "x-rpc-device_name")
         self.setValue(MMKV.default()!.string(forKey: LocalEnvironment.DEVICE_ID)!, forHTTPHeaderField: "x-rpc-device_id")
         self.setValue("Android SDK built for arm64", forHTTPHeaderField: "x-rpc-device_model")
+        self.setValue("12", forHTTPHeaderField: "x-rpc-sys_version")
     }
     
     /// 设置动态密钥
-    mutating func setDS(version: SaltVersion, type: SaltType, body: String = "", q: String = "") {
-        self.setValue(getDynamicSecret(version: version, saltType: type, query: q, body: body), forHTTPHeaderField: "DS")
+    mutating func setDS(version: SaltVersion, type: SaltType, body: String = "", q: String = "", include: Bool = true) {
+        self.setValue(getDynamicSecret(version: version, saltType: type, includeChars: include, query: q, body: body), forHTTPHeaderField: "DS")
     }
     
     /// 设置 Host
@@ -72,9 +73,14 @@ extension URLRequest {
     }
     
     /// 设置请求头app信息
-    mutating func setXRPCAppInfo(appID: String = "bll8iq97cem8") {
+    mutating func setXRPCAppInfo(appID: String = "bll8iq97cem8", client: String = "2") {
         self.setValue(appID, forHTTPHeaderField: "x-rpc-app_id")
-        self.setValue("2", forHTTPHeaderField: "x-rpc-client_type")
+        self.setValue(client, forHTTPHeaderField: "x-rpc-client_type")
         self.setValue(LocalEnvironment.xrpcVersion, forHTTPHeaderField: "x-rpc-app_version")
+    }
+    
+    /// 设置 X-Requested-With
+    mutating func setXRequestWith() {
+        self.setValue("com.mihoyo.hyperion", forHTTPHeaderField: "X-Requested-With")
     }
 }

@@ -59,6 +59,28 @@
         }
       }
     },
+    "account.table_mishe.check_in" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "核验账号"
+          }
+        }
+      }
+    },
+    "account.table_mishe.delete" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "删除"
+          }
+        }
+      }
+    },
     "account.table_mishe.load_err" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -76,7 +98,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "激活米社账号的同时将会把绑定的游戏账号设为默认。"
+            "value" : "完成登录后需要手动查验游戏账号。"
           }
         }
       }
@@ -88,6 +110,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "米游社账号"
+          }
+        }
+      }
+    },
+    "account.table_mishe.use_default" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "用作默认"
           }
         }
       }
@@ -166,16 +199,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "主页"
-          }
-        }
-      }
-    },
-    "stuid=%@&stoken=%@&mid=%@" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "stuid=%1$@&stoken=%2$@&mid=%3$@"
           }
         }
       }
