@@ -50,7 +50,6 @@ class AccountService {
         if result.evtState {
             let data = result.data as! String
             if data.contains("Confirmed") {
-                print(data)
                 return EventMessager(evtState: true, data: data)
             } else {
                 return EventMessager(evtState: false, data: "未扫码或已过期。")
@@ -69,7 +68,6 @@ class AccountService {
             let innerJSON = try JSON(data: json["data"]["payload"]["raw"].stringValue.data(using: .utf8)!)
             let sheID = innerJSON["uid"].stringValue
             let gameToken = innerJSON["token"].stringValue
-            print("sheID:\(sheID)&gameToken:\(gameToken)")
             var req = URLRequest(url: URL(string: ApiEndpoints.shared.getSTokenByGameToken())!)
             req.setValue("bll8iq97cem8", forHTTPHeaderField: "x-rpc-app_id")
             let result = await req.receiveData(

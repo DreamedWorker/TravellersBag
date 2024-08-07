@@ -53,15 +53,15 @@ class AccountManagerModel : ObservableObject {
         if let ticket = comps?.queryItems?.filter({$0.name == "ticket"}).first {
             let result = await AccountService.shared.queryCodeState(ticket: ticket.value!)
             if result.evtState {
-                // TODO: 应该在这里设置相同账号拦截事件
-                // 代码区
-                // ENDTODO
-                let stokenResult = await AccountService.shared.pullUserSToken(gameTokenData: result.data as! String)
-                if stokenResult.evtState {
-                    let stokenStruct = stokenResult.data as! HoyoUser
-                    DispatchQueue.main.async {
-                        let hasSame = self.accountsHoyo.filter({$0.stuid! == stokenStruct.stuid}).count
-                        if hasSame == 0 {
+                // 应该在这里设置相同账号拦截事件
+                let checkForRepeating = try! JSON(data: (result.data as! String).data(using: .utf8)!)
+                let checkSame = try! JSON(data: checkForRepeating["data"]["payload"]["raw"].stringValue.data(using: .utf8)!)
+                let sameCount = self.accountsHoyo.filter({$0.stuid! == checkSame["uid"].stringValue}).count
+                if sameCount == 0 {
+                    let stokenResult = await AccountService.shared.pullUserSToken(gameTokenData: result.data as! String)
+                    if stokenResult.evtState {
+                        let stokenStruct = stokenResult.data as! HoyoUser
+                        DispatchQueue.main.async {
                             let newUser = HoyoAccounts(context: self.context!)
                             newUser.stuid = stokenStruct.stuid
                             newUser.stoken = stokenStruct.stoken
@@ -73,13 +73,15 @@ class AccountManagerModel : ObservableObject {
                             } else {
                                 self.qrScanState = save.data as! String
                             }
-                        } else {
-                            self.qrScanState = "存在重复账号，我们将仅更新该账号的stoken."
+                        }
+                    } else {
+                        DispatchQueue.main.async {
+                            self.qrScanState = stokenResult.data as! String
                         }
                     }
                 } else {
                     DispatchQueue.main.async {
-                        self.qrScanState = stokenResult.data as! String
+                        self.qrScanState = "发现重复账号，已阻止本次登录。"
                     }
                 }
             } else {
