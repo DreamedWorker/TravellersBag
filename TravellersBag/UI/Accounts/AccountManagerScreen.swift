@@ -61,7 +61,6 @@ struct AccountManagerScreen: View {
             .onAppear {
                 viewModel.context = context
                 viewModel.fetchAccounts()
-                viewModel.fetchGameAccounts()
             }
             .toast(isPresenting: $viewModel.showFetchFatalToast, alert: { AlertToast(type: .error(Color.red), title: viewModel.fatalInfo) })
             .sheet(isPresented: $viewModel.showQRCodeWindow, content: { qrcodeStage })
@@ -120,7 +119,7 @@ private struct AccountTile : View {
                 .aspectRatio(contentMode: .fill)
                 .clipShape(Circle())
                 .padding(.trailing, 8)
-            Text(account.misheNicname ?? "请核验: \(account.mid!)").font(.headline)
+            Text(/*account.misheNicname ??*/ "请核验: \(account.mid!)").font(.headline)
             Spacer()
             Button("account.table_mishe.check_in", action: { checkIn() })
             Button("account.table_mishe.use_default", action: {

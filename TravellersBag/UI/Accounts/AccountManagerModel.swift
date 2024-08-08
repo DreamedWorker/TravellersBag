@@ -33,16 +33,15 @@ class AccountManagerModel : ObservableObject {
     
     /// 显示一张二维码
     func fetchQRCode() async {
-        let result = await AccountService.shared.fetchQRCode()
-        if result.evtState {
+        do {
+            let result = try await AccountService.shared.fetchQRCode()
             DispatchQueue.main.async {
-                let pic = result.data as! String
-                self.picURL = pic
-                self.dealImg(pic: pic)
+                self.picURL = result
+                self.dealImg(pic: result)
             }
-        } else {
+        } catch {
             DispatchQueue.main.async {
-                self.qrScanState = result.data as! String
+                self.qrScanState = error.localizedDescription
             }
         }
     }
@@ -50,48 +49,54 @@ class AccountManagerModel : ObservableObject {
     /// 查询二维码状态 并进行后续操作
     func queryQRState() async {
         let comps = URLComponents(string: picURL)
-        if let ticket = comps?.queryItems?.filter({$0.name == "ticket"}).first {
-            let result = await AccountService.shared.queryCodeState(ticket: ticket.value!)
-            if result.evtState {
-                // 应该在这里设置相同账号拦截事件
-                let checkForRepeating = try! JSON(data: (result.data as! String).data(using: .utf8)!)
-                let checkSame = try! JSON(data: checkForRepeating["data"]["payload"]["raw"].stringValue.data(using: .utf8)!)
-                let sameCount = self.accountsHoyo.filter({$0.stuid! == checkSame["uid"].stringValue}).count
+        do {
+            if let ticket = comps?.queryItems?.filter({$0.name == "ticket"}).first { //智能获取ticket
+                let result = try await JSON(data: AccountService.shared.queryCodeState(ticket: ticket.value!))
+                let sameCount = self.accountsHoyo.filter({$0.stuid! == result["uid"].stringValue}).count
                 if sameCount == 0 {
-                    let stokenResult = await AccountService.shared.pullUserSToken(gameTokenData: result.data as! String)
-                    if stokenResult.evtState {
-                        let stokenStruct = stokenResult.data as! HoyoUser
-                        DispatchQueue.main.async {
-                            let newUser = HoyoAccounts(context: self.context!)
-                            newUser.stuid = stokenStruct.stuid
-                            newUser.stoken = stokenStruct.stoken
-                            newUser.mid = stokenStruct.mid
-                            let save = AppPersistence.shared.save()
-                            if save.evtState {
-                                self.showQRCodeWindow = false
-                                self.fetchAccounts()
-                            } else {
-                                self.qrScanState = save.data as! String
-                            }
-                        }
-                    } else {
-                        DispatchQueue.main.async {
-                            self.qrScanState = stokenResult.data as! String
-                        }
+                    // 已经拿到了水社id和game_token（似乎是长期的），记得入库。
+                    let gameToken = result["game_token"].stringValue
+                    // 获取stoken，顺带获取到mid -> Data can be formed to JSON
+                    let stoken = try await JSON(data: AccountService.shared.pullUserSToken(uid: result["uid"].stringValue, token: gameToken))
+                    // 获取cookie_token -> String
+                    let cookieToken = try await AccountService.shared.pullUserCookieToken(uid: result["uid"].stringValue, token: gameToken)
+                    // 获取米社账号头像和昵称 -> Data can be formed to JSON
+                    let sheBasic = try await JSON(data: AccountService.shared.pullUserSheInfo(uid: result["uid"].stringValue))
+                    // 获取原神账号基本和区服信息 -> Data can be formed to JSON
+                    let hk4e = try await JSON(data: AccountService.shared.pullHk4eBasic(uid: result["uid"].stringValue, stoken: stoken["stoken"].stringValue, mid: stoken["mid"].stringValue))
+                    // 获取Ltoken -> String
+                    let ltoken = try await AccountService.shared.pullUserLtoken(uid: result["uid"].stringValue, stoken: stoken["stoken"].stringValue, mid: stoken["mid"].stringValue)
+                    DispatchQueue.main.async { //写入账号到数据库
+                        let newData = HoyoAccounts(context: self.context!)
+                        newData.cookieToken = cookieToken
+                        newData.gameToken = gameToken
+                        newData.genshinServer = hk4e["region"].stringValue
+                        newData.genshinServerName = hk4e["genshinName"].stringValue
+                        newData.genshinUID = hk4e["genshinUid"].stringValue
+                        newData.level = hk4e["level"].stringValue
+                        newData.ltoken = ltoken
+                        newData.mid = stoken["mid"].stringValue
+                        newData.misheHead = sheBasic["avatar_url"].stringValue
+                        newData.misheNicname = sheBasic["nickname"].stringValue
+                        newData.stoken = stoken["stoken"].stringValue
+                        newData.stuid = result["uid"].stringValue
+                        let _ = AppPersistence.shared.save()
+                        self.fetchAccounts()
+                        self.showQRCodeWindow = false
                     }
                 } else {
-                    DispatchQueue.main.async {
-                        self.qrScanState = "发现重复账号，已阻止本次登录。"
-                    }
+                    throw NSError(domain: "ui.login.with.qr", code: -1, userInfo: [
+                        NSLocalizedDescriptionKey: NSLocalizedString("account.service.repeated_acc", comment: "")
+                    ])
                 }
             } else {
-                DispatchQueue.main.async {
-                    self.qrScanState = result.data as! String
-                }
+                throw NSError(domain: "ui.login.with.qr", code: -2, userInfo: [
+                    NSLocalizedDescriptionKey: NSLocalizedString("account.service.qr_no_token", comment: "")
+                ])
             }
-        } else {
+        } catch {
             DispatchQueue.main.async {
-                self.qrScanState = "二维码参数为空，无法查询状态。"
+                self.qrScanState = error.localizedDescription
             }
         }
     }
@@ -106,18 +111,6 @@ class AccountManagerModel : ObservableObject {
     
     /// 完善账号条目
     func updateGameData(user: HoyoAccounts) async {
-        let result = await AccountService.shared.pullUserSheInfo(uid: user.stuid!) // 需要转义头像链接的url，把反斜杠去掉
-        if result.evtState {
-            print(String(data: (result.data as! Data), encoding: .utf8)!)
-            let genshinBasic = await AccountService.shared.pullHk4eBasic(user: user)
-            if genshinBasic.evtState {
-                print(String(data: (genshinBasic.data as! Data), encoding: .utf8)!)
-                let ltokenPull = await AccountService.shared.pullUserLtoken(user: user)
-                if ltokenPull.evtState {
-                    print(ltokenPull.data as! String)
-                }
-            }
-        }
     }
     
     private func dealImg(pic: String) {

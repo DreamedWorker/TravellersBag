@@ -59,6 +59,50 @@
         }
       }
     },
+    "account.service.cannot_copy_hk4e_detail" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法获取游戏账号信息，你可能没有绑定账号或尚未成为「旅行者」。"
+          }
+        }
+      }
+    },
+    "account.service.qr_no_token" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "二维码参数为空，无法查询状态。"
+          }
+        }
+      }
+    },
+    "account.service.qrcode_state_err" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "二维码状态为%@，不合法！"
+          }
+        }
+      }
+    },
+    "account.service.repeated_acc" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "发现重复账号，已阻止本次登录。"
+          }
+        }
+      }
+    },
     "account.table_mishe.check_in" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -268,6 +312,9 @@
           }
         }
       }
+    },
+    "请核验: %@" : {
+
     }
   },
   "version" : "1.0"

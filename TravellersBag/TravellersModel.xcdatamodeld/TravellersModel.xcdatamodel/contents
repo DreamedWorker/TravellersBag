@@ -2,9 +2,12 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22758" systemVersion="23E224" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
     <entity name="HoyoAccounts" representedClassName="HoyoAccounts" syncable="YES" codeGenerationType="class">
         <attribute name="activeAccount" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="cookieToken" optional="YES" attributeType="String"/>
+        <attribute name="gameToken" optional="YES" attributeType="String"/>
         <attribute name="genshinServer" optional="YES" attributeType="String"/>
         <attribute name="genshinServerName" optional="YES" attributeType="String"/>
         <attribute name="genshinUID" optional="YES" attributeType="String"/>
+        <attribute name="level" optional="YES" attributeType="String"/>
         <attribute name="ltoken" optional="YES" attributeType="String"/>
         <attribute name="mid" optional="YES" attributeType="String"/>
         <attribute name="misheHead" optional="YES" attributeType="String"/>

@@ -131,4 +131,9 @@ class ApiEndpoints {
     func getLTokenBySToken() -> String {
         return "\(ApiEndpoints.PassportApiAccountAuthApi)/getLTokenBySToken"
     }
+    
+    /// 通过GameToken获取CookieToken
+    func getCookieToken(aid: Int, token: String) -> String {
+        return "\(ApiEndpoints.ApiTakumiAuthApi)/getCookieAccountInfoByGameToken?account_id=\(aid)&game_token=\(token)"
+    }
 }

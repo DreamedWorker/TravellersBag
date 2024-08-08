@@ -34,6 +34,31 @@ extension URLRequest {
             return EventMessager(evtState: false, data: error.localizedDescription)
         }
     }
+    
+    /// 通用的获取json响应内容的方法。 【用于替代receiveData】
+    /// - Parameters:
+    ///   - isPost 是否采用POST方法 默认采用GET
+    ///   - reqBody 请求体，在前者为false时无需理会
+    /// - Returns:
+    ///   - JSON 的data部分，类型为JSON
+    /// - Throws:
+    ///   - 从返回值中提取并手动抛出，或在解析json、发出http请求时自动抛出
+    mutating func receiveOrThrow(isPost: Bool = false, reqBody: Data? = nil) async throws -> JSON {
+        if isPost { // 设定请求方法 已知水社只需要下面两个方法就够了
+            self.httpMethod = "POST"
+            self.httpBody = reqBody
+        } else {
+            self.httpMethod = "GET"
+        }
+        let (data, _) = try await httpSession().data(for: self)
+        let json = try JSON(data: data)
+        if json["retcode"].intValue == 0 {
+            return json["data"]
+        } else {
+            print(String(data: data, encoding: .utf8)!)
+            throw NSError(domain: "http.request", code: json["retcode"].intValue, userInfo: [NSLocalizedDescriptionKey: "\(json["message"].string ?? "未知错误")"])
+        }
+    }
 }
 
 // 处理几个常用请求头
@@ -65,6 +90,10 @@ extension URLRequest {
     /// 设置用户信息
     mutating func setUser(singleUser: HoyoAccounts) {
         self.setValue("stuid=\(singleUser.stuid!);stoken=\(singleUser.stoken!);mid=\(singleUser.mid!);", forHTTPHeaderField: "cookie")
+    }
+    
+    mutating func setUser(uid: String, stoken: String, mid: String) {
+        self.setValue("stuid=\(uid);stoken=\(stoken);mid=\(mid);", forHTTPHeaderField: "cookie")
     }
     
     /// 设置UA
