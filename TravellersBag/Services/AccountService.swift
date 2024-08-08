@@ -61,41 +61,39 @@ class AccountService {
             "stuid": result["user_info"]["aid"].stringValue, "stoken": result["token"]["token"].stringValue,
             "mid": result["user_info"]["mid"].stringValue
         ])
-//        do {
-//            let json = try JSON(data: gameTokenData.data(using: .utf8)!) // 吐槽一下下面两行 一段json埋这么深干嘛
-//            let innerJSON = try JSON(data: json["data"]["payload"]["raw"].stringValue.data(using: .utf8)!)
-//            let sheID = innerJSON["uid"].stringValue
-//            let gameToken = innerJSON["token"].stringValue
-//            var req = URLRequest(url: URL(string: ApiEndpoints.shared.getSTokenByGameToken())!)
-//            req.setValue("bll8iq97cem8", forHTTPHeaderField: "x-rpc-app_id")
-//            let result = await req.receiveData(
-//                session: httpSession(),
-//                isPost: true,
-//                reqBody: try! JSONSerialization.data(withJSONObject: ["account_id": Int(sheID)!, "game_token": gameToken]))
-//            if result.evtState {
-//                let data = result.data as! String
-//                if data.contains("OK") {
-//                    // 先拿到数据 关于头像和绑定的原神数据什么的 之后再通过判断对应参数是否为空来获取
-//                    let tokenJSON = try JSON(data: data.data(using: .utf8)!)
-//                    let stoken = tokenJSON["data"]["token"]["token"].stringValue
-//                    let stuid = tokenJSON["data"]["user_info"]["aid"].stringValue // aid实际上就是stuid 就是米社id
-//                    let mid = tokenJSON["data"]["user_info"]["mid"].stringValue
-//                    return EventMessager(evtState: true, data: HoyoUser(stuid: stuid, stoken: stoken, mid: mid))
-//                } else {
-//                    return EventMessager(evtState: false, data: data)
-//                }
-//            } else {
-//                return EventMessager(evtState: false, data: "pullUserSToken:\(result.data as! String)")
-//            }
-//        } catch {
-//            return EventMessager(evtState: false, data: "pullUserSToken:\(error.localizedDescription)")
-//        }
     }
     
+    /// 通过GameToken获取CookieToken
     func pullUserCookieToken(uid: String, token: String) async throws -> String {
         var req = URLRequest(url: URL(string: ApiEndpoints.shared.getCookieToken(aid: Int(uid)!, token: token))!)
         let result = try await req.receiveOrThrow()
         return result["cookie_token"].stringValue
+    }
+    
+    /// 通过Stoken获取CookieToken
+    func pullUserCookieToken(uid: String, stoken: String, mid: String) async throws -> String {
+        var req = URLRequest(url: URL(string: ApiEndpoints.shared.getCookieTokenByStoken())!)
+        req.setValue("stoken=\(stoken)==.CAE=;mid=\(mid)", forHTTPHeaderField: "Cookie")
+        // 写的时候没有注意到split方法把token的尾部给干掉了，难怪之前一直调不通
+        req.setDS(version: SaltVersion.V2, type: SaltType.PROD)
+        req.setDeviceInfoHeaders()
+        req.setXRPCAppInfo()
+        req.setValue("okhttp/4.9.3", forHTTPHeaderField: "User-Agent")
+        req.setValue("bbs_cn", forHTTPHeaderField: "x-rpc-game_biz")
+        req.setValue("2.20.2", forHTTPHeaderField: "x-rpc-sdk_version")
+        req.setValue("2.20.2", forHTTPHeaderField: "x-rpc-account_version")
+        req.setValue(UUID().uuidString.lowercased(), forHTTPHeaderField: "x-rpc-lifecycle_id")
+        req.setHost(host: "passport-api.mihoyo.com")
+        let result = try await req.receiveOrThrow()
+        return result["cookie_token"].stringValue
+    }
+    
+    /// 通过Stoken获取GameToken
+    func pullUserGameToken(stoken: String, mid: String) async throws -> String {
+        var req = URLRequest(url: URL(string: ApiEndpoints.shared.getGameTokenByStoken())!)
+        req.setValue("stoken=\(stoken)==.CAE=;mid=\(mid)", forHTTPHeaderField: "Cookie")
+        let result = try await req.receiveOrThrow()
+        return result["game_token"].stringValue
     }
     
     /// 获取用户的Ltoken
@@ -104,23 +102,6 @@ class AccountService {
         req.setUser(uid: uid, stoken: stoken, mid: mid)
         let result = try await req.receiveOrThrow()
         return result["ltoken"].stringValue
-//        req.setUser(singleUser: user)
-//        let result = await req.receiveData(session: httpSession(), reqBody: nil)
-//        if result.evtState {
-//            let data = result.data as! String
-//            if data.contains("OK") {
-//                do {
-//                    let json = try JSON(data: data.data(using: .utf8)!)
-//                    return EventMessager(evtState: true, data: json["data"]["ltoken"].stringValue)
-//                } catch {
-//                    return EventMessager(evtState: false, data: error.localizedDescription)
-//                }
-//            } else {
-//                return EventMessager(evtState: false, data: "服务器返回数据异常，请重新登录或检查网络。")
-//            }
-//        } else {
-//            return result
-//        }
     }
     
     /// 获取用户的水社昵称和头像 成功则返回一个JSON的Data
@@ -160,42 +141,5 @@ class AccountService {
                 NSLocalizedDescriptionKey: NSLocalizedString("account.service.cannot_copy_hk4e_detail", comment: "")
             ])
         }
-        
-//        var req = URLRequest(url: URL(string: ApiEndpoints.shared.getGameBasic())!)
-//        req.setHost(host: "api-takumi.miyoushe.com")
-//        req.setReferer(referer: "https://app.mihoyo.com")
-//        req.setValue("https://api-takumi.miyoushe.com", forHTTPHeaderField: "Origin")
-//        req.setUA()
-//        req.setDS(version: SaltVersion.V1, type: SaltType.K2)
-//        req.setDeviceInfoHeaders()
-//        req.setUser(singleUser: user)
-//        req.setXRPCAppInfo()
-//        req.setXRequestWith()
-//        let result = await req.receiveData(session: httpSession(), reqBody: nil)
-//        if result.evtState {
-//            let data = result.data as! String
-//            if data.contains("OK") {
-//                do {
-//                    let genshin = try JSON(data: data.data(using: .utf8)!)
-//                    let role = genshin["data"]["list"].arrayValue.filter({$0["game_biz"].stringValue == "hk4e_cn"}).first
-//                    if let role = role {
-//                        let jsonResult = try JSONSerialization.data(withJSONObject: [
-//                            "genshinServer": role["region"].stringValue,
-//                            "genshinName": role["region_name"].stringValue,
-//                            "genshinUid": role["game_uid"].stringValue
-//                        ])
-//                        return EventMessager(evtState: true, data: jsonResult)
-//                    } else {
-//                        return EventMessager(evtState: false, data: "没有找到你绑定的原神账号！")
-//                    }
-//                } catch {
-//                    return EventMessager(evtState: false, data: error.localizedDescription)
-//                }
-//            } else {
-//                return EventMessager(evtState: false, data: "服务器返回数据异常，请检查网络或重新登录。")
-//            }
-//        } else {
-//            return result
-//        }
     }
 }

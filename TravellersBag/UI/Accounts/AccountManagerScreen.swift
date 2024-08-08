@@ -27,11 +27,7 @@ struct AccountManagerScreen: View {
                     AccountTile(
                         account: account,
                         refresh: { viewModel.fetchAccounts() },
-                        checkIn: {
-                            Task {
-                                await viewModel.updateGameData(user: account)
-                            }
-                        }
+                        checkIn: {}
                     )
                 }
             }.formStyle(.grouped).scrollDisabled(true)
@@ -66,7 +62,7 @@ struct AccountManagerScreen: View {
                 })
                 ToolbarItem(content: {
                     Button(
-                        action: {},
+                        action: { viewModel.showCookieWindow = true },
                         label: { Image(systemName: "square.and.pencil").help("account.add.by_cookie") }
                     )
                 })
@@ -77,6 +73,7 @@ struct AccountManagerScreen: View {
             }
             .toast(isPresenting: $viewModel.showFetchFatalToast, alert: { AlertToast(type: .error(Color.red), title: viewModel.fatalInfo) })
             .sheet(isPresented: $viewModel.showQRCodeWindow, content: { qrcodeStage })
+            .sheet(isPresented: $viewModel.showCookieWindow, content: { cookieStage })
     }
     
     var qrcodeStage : some View {
@@ -108,6 +105,37 @@ struct AccountManagerScreen: View {
             Text(viewModel.qrScanState).foregroundStyle(Color.red)
         }
         .padding() // 不再允许轮询 需要手动确认完成扫码
+    }
+    
+    var cookieStage : some View {
+        VStack {
+            Text("account.qrcode.title")
+                .font(.title2).bold()
+                .padding(.bottom, 8)
+            TextField(
+                text: $viewModel.cookieInput,
+                label: { Label("account.cookie.input_label", systemImage: "key.viewfinder") }
+            ).padding(.bottom, 2).frame(maxWidth: 460)
+            HStack {
+                Text("account.cookie.input_helper").font(.footnote)
+                Spacer()
+            }
+            ZStack {} // 占位用的 让窗口大小看起来合理
+                .background(Color.clear)
+                .frame(width: 1, height: 120)
+            HStack {
+                Button("app.cancel", action: {
+                    viewModel.cookieInput = ""
+                    viewModel.showCookieWindow = false
+                }).padding(.trailing, 2)
+                Button("app.confirm", action: {
+                    Task {
+                        await viewModel.checkCookieContent()
+                    }
+                })
+            }.padding(.bottom, 2)
+            Text(viewModel.qrScanState).foregroundStyle(Color.red)
+        }.padding()
     }
 }
 

@@ -15,7 +15,9 @@ class AccountManagerModel : ObservableObject {
     @Published var showFetchFatalToast = false
     @Published var fatalInfo = ""
     @Published var accountsHoyo: [HoyoAccounts] = [] // 水社账号列表
-    @Published var showQRCodeWindow = false
+    @Published var showQRCodeWindow = false // 二维码登录弹窗
+    @Published var showCookieWindow = false // cookie登录弹窗
+    @Published var cookieInput = ""
     @Published var qrCodeImg: NSImage = NSImage()
     private var picURL: String = ""
     @Published var qrScanState = ""
@@ -67,29 +69,22 @@ class AccountManagerModel : ObservableObject {
                     // 获取Ltoken -> String
                     let ltoken = try await AccountService.shared.pullUserLtoken(uid: result["uid"].stringValue, stoken: stoken["stoken"].stringValue, mid: stoken["mid"].stringValue)
                     DispatchQueue.main.async { //写入账号到数据库
-                        let newData = HoyoAccounts(context: self.context!)
-                        if self.accountsHoyo.count == 0 { // 如果没有账号则自动将刚添加的用作默认
-                            newData.activeAccount = true
-                        }
-                        newData.cookieToken = cookieToken
-                        newData.gameToken = gameToken
-                        newData.genshinServer = hk4e["region"].stringValue
-                        newData.genshinServerName = hk4e["genshinName"].stringValue
-                        newData.genshinUID = hk4e["genshinUid"].stringValue
-                        newData.genshinNicname = hk4e["genshinNicname"].stringValue
-                        newData.level = hk4e["level"].stringValue
-                        newData.ltoken = ltoken
-                        newData.mid = stoken["mid"].stringValue
-                        newData.misheHead = sheBasic["avatar_url"].stringValue
-                        newData.misheNicname = sheBasic["nickname"].stringValue
-                        newData.stoken = stoken["stoken"].stringValue
-                        newData.stuid = result["uid"].stringValue
-                        let _ = AppPersistence.shared.save()
-                        LocalEnvironment.shared.setStringValue(key: "default_account_stuid", value: result["uid"].stringValue)
-                        LocalEnvironment.shared.setStringValue(key: "default_account_stoken", value: stoken["stoken"].stringValue)
-                        LocalEnvironment.shared.setStringValue(key: "default_account_mid", value: stoken["mid"].stringValue)
-                        self.fetchAccounts()
-                        self.showQRCodeWindow = false
+                        self.writeAccount(
+                            cookieToken: cookieToken,
+                            gameToken: gameToken,
+                            genshinServer: hk4e["region"].stringValue,
+                            genshinServerName: hk4e["genshinName"].stringValue,
+                            genshinUID: hk4e["genshinUid"].stringValue,
+                            genshinNicname: hk4e["genshinNicname"].stringValue,
+                            level: hk4e["level"].stringValue,
+                            ltoken: ltoken,
+                            mid: stoken["mid"].stringValue,
+                            misheHead: sheBasic["avatar_url"].stringValue,
+                            misheNicname: sheBasic["nickname"].stringValue,
+                            stoken: stoken["stoken"].stringValue,
+                            stuid: result["uid"].stringValue
+                        )
+                        self.cancelOp() // 此方法亦具有关闭窗口的效果
                     }
                 } else {
                     throw NSError(domain: "ui.login.with.qr", code: -1, userInfo: [
@@ -108,6 +103,58 @@ class AccountManagerModel : ObservableObject {
         }
     }
     
+    /// 检查cookie的内容 并进行后续的操作
+    func checkCookieContent() async {
+        let cookieGroup = self.cookieInput.split(separator: ";")
+        let stuid = cookieGroup.filter({$0.starts(with: "stuid")}).first?.split(separator: "=")[1]
+        let stoken = cookieGroup.filter({$0.starts(with: "stoken")}).first?.split(separator: "=")[1]
+        let mid = cookieGroup.filter({$0.starts(with: "mid")}).first?.split(separator: "=")[1]
+        if stuid != nil && stoken != nil && mid != nil {
+            // 进行账号相同的判断
+            do {
+                let sameCount = self.accountsHoyo.filter({$0.stuid! == String(stuid!)}).count
+                if sameCount == 0 {
+                    let cookieToken = try await AccountService.shared.pullUserCookieToken(uid: String(stuid!), stoken: String(stoken!), mid: String(mid!))
+                    let gameToken = try await AccountService.shared.pullUserGameToken(stoken: String(stoken!), mid: String(mid!))
+                    let sheBasic = try await JSON(data: AccountService.shared.pullUserSheInfo(uid: String(stuid!)))
+                    let hk4e = try await JSON(data: AccountService.shared.pullHk4eBasic(uid: String(stuid!), stoken: "\(String(stoken!))==.CAE=", mid: String(mid!)))
+                    let ltoken = try await AccountService.shared.pullUserLtoken(uid: String(stuid!), stoken: "\(String(stoken!))==.CAE=", mid: String(mid!))
+                    DispatchQueue.main.async {
+                        self.writeAccount(
+                            cookieToken: cookieToken,
+                            gameToken: gameToken,
+                            genshinServer: hk4e["region"].stringValue,
+                            genshinServerName: hk4e["genshinName"].stringValue,
+                            genshinUID: hk4e["genshinUid"].stringValue,
+                            genshinNicname: hk4e["genshinNicname"].stringValue,
+                            level: hk4e["level"].stringValue,
+                            ltoken: ltoken,
+                            mid: String(mid!),
+                            misheHead: sheBasic["avatar_url"].stringValue,
+                            misheNicname: sheBasic["nickname"].stringValue,
+                            stoken: "\(String(stoken!))==.CAE=",
+                            stuid: String(stuid!)
+                        )
+                        self.cookieInput = ""
+                        self.showCookieWindow = false
+                    }
+                } else {
+                    throw NSError(domain: "ui.login.with.qr", code: -1, userInfo: [
+                        NSLocalizedDescriptionKey: NSLocalizedString("account.service.repeated_acc", comment: "")
+                    ])
+                }
+            } catch {
+                DispatchQueue.main.async {
+                    self.qrScanState = error.localizedDescription
+                }
+            }
+        } else {
+            DispatchQueue.main.async {
+                self.qrScanState = NSLocalizedString("account.cookie.type_error", comment: "")
+            }
+        }
+    }
+    
     func cancelOp() {
         qrCodeImg = NSImage()
         picURL = ""
@@ -117,8 +164,8 @@ class AccountManagerModel : ObservableObject {
     }
     
     /// 完善账号条目
-    func updateGameData(user: HoyoAccounts) async {
-    }
+//    func updateGameData(user: HoyoAccounts) async {
+//    }
     
     private func dealImg(pic: String) {
         qrCodeImg = NSImage() // clear it
@@ -130,5 +177,34 @@ class AccountManagerModel : ObservableObject {
             let ci = context.createCGImage(output, from: output.extent)
         else { return }
         qrCodeImg = NSImage(cgImage: ci, size: NSSize(width: 250, height: 250))
+    }
+    
+    private func writeAccount(
+        cookieToken: String, gameToken: String, genshinServer: String, genshinServerName: String, genshinUID: String,
+        genshinNicname: String, level: String, ltoken: String, mid: String, misheHead: String, misheNicname: String,
+        stoken: String, stuid: String
+    ) {
+        let newData = HoyoAccounts(context: context!)
+        if accountsHoyo.count == 0 { // 如果没有账号则自动将刚添加的用作默认
+            newData.activeAccount = true
+            LocalEnvironment.shared.setStringValue(key: "default_account_stuid", value: stuid)
+            LocalEnvironment.shared.setStringValue(key: "default_account_stoken", value: stoken)
+            LocalEnvironment.shared.setStringValue(key: "default_account_mid", value: mid)
+        }
+        newData.cookieToken = cookieToken
+        newData.gameToken = gameToken
+        newData.genshinServer = genshinServer
+        newData.genshinServerName = genshinServerName
+        newData.genshinUID = genshinUID
+        newData.genshinNicname = genshinNicname
+        newData.level = level
+        newData.ltoken = ltoken
+        newData.mid = mid
+        newData.misheHead = misheHead
+        newData.misheNicname = misheNicname
+        newData.stoken = stoken
+        newData.stuid = stuid
+        let _ = AppPersistence.shared.save()
+        fetchAccounts()
     }
 }

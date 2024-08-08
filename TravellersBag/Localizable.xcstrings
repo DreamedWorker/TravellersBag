@@ -26,6 +26,50 @@
         }
       }
     },
+    "account.cookie.input_helper" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "你输入的Cookie应当同时包含stuid、stoken、mid这三个值，并按照stuid=;stoken=;mid=;表示。"
+          }
+        }
+      }
+    },
+    "account.cookie.input_label" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "输入有效Cookie"
+          }
+        }
+      }
+    },
+    "account.cookie.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "通过填写Cookie登录"
+          }
+        }
+      }
+    },
+    "account.cookie.type_error" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "输入的Cookie不合法"
+          }
+        }
+      }
+    },
     "account.qrcode.finished" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -208,6 +252,17 @@
         }
       }
     },
+    "app.confirm" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "确认"
+          }
+        }
+      }
+    },
     "app.description" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -340,6 +395,9 @@
           }
         }
       }
+    },
+    "测试用" : {
+
     }
   },
   "version" : "1.0"
