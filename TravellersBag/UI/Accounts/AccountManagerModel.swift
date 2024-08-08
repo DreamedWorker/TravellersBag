@@ -68,11 +68,15 @@ class AccountManagerModel : ObservableObject {
                     let ltoken = try await AccountService.shared.pullUserLtoken(uid: result["uid"].stringValue, stoken: stoken["stoken"].stringValue, mid: stoken["mid"].stringValue)
                     DispatchQueue.main.async { //写入账号到数据库
                         let newData = HoyoAccounts(context: self.context!)
+                        if self.accountsHoyo.count == 0 { // 如果没有账号则自动将刚添加的用作默认
+                            newData.activeAccount = true
+                        }
                         newData.cookieToken = cookieToken
                         newData.gameToken = gameToken
                         newData.genshinServer = hk4e["region"].stringValue
                         newData.genshinServerName = hk4e["genshinName"].stringValue
                         newData.genshinUID = hk4e["genshinUid"].stringValue
+                        newData.genshinNicname = hk4e["genshinNicname"].stringValue
                         newData.level = hk4e["level"].stringValue
                         newData.ltoken = ltoken
                         newData.mid = stoken["mid"].stringValue
@@ -81,6 +85,9 @@ class AccountManagerModel : ObservableObject {
                         newData.stoken = stoken["stoken"].stringValue
                         newData.stuid = result["uid"].stringValue
                         let _ = AppPersistence.shared.save()
+                        LocalEnvironment.shared.setStringValue(key: "default_account_stuid", value: result["uid"].stringValue)
+                        LocalEnvironment.shared.setStringValue(key: "default_account_stoken", value: stoken["stoken"].stringValue)
+                        LocalEnvironment.shared.setStringValue(key: "default_account_mid", value: stoken["mid"].stringValue)
                         self.fetchAccounts()
                         self.showQRCodeWindow = false
                     }

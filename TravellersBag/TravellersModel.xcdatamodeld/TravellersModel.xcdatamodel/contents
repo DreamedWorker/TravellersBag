@@ -4,6 +4,7 @@
         <attribute name="activeAccount" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
         <attribute name="cookieToken" optional="YES" attributeType="String"/>
         <attribute name="gameToken" optional="YES" attributeType="String"/>
+        <attribute name="genshinNicname" optional="YES" attributeType="String"/>
         <attribute name="genshinServer" optional="YES" attributeType="String"/>
         <attribute name="genshinServerName" optional="YES" attributeType="String"/>
         <attribute name="genshinUID" optional="YES" attributeType="String"/>

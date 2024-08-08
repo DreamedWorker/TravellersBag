@@ -103,6 +103,45 @@
         }
       }
     },
+    "account.table_hk4e.single_helper" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ | Lv.%@"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ | Lv.%@"
+          }
+        }
+      }
+    },
+    "account.table_hk4e.sub" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "将米社账号设为激活账号时将同时把游戏角色用作默认。"
+          }
+        }
+      }
+    },
+    "account.table_hk4e.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "角色信息"
+          }
+        }
+      }
+    },
     "account.table_mishe.check_in" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -132,17 +171,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "读取米社账号列表异常！"
-          }
-        }
-      }
-    },
-    "account.table_mishe.sub" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "完成登录后需要手动查验游戏账号。"
           }
         }
       }
@@ -312,9 +340,6 @@
           }
         }
       }
-    },
-    "请核验: %@" : {
-
     }
   },
   "version" : "1.0"

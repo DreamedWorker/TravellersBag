@@ -152,7 +152,8 @@ class AccountService {
                 "region": role["region"].stringValue,
                 "genshinName": role["region_name"].stringValue,
                 "genshinUid": role["game_uid"].stringValue,
-                "level": String(role["level"].intValue)
+                "level": String(role["level"].intValue),
+                "genshinNicname": role["nickname"].stringValue
             ])
         } else {
             throw NSError(domain: "account.query.kh4e_info", code: -1, userInfo: [
