@@ -330,6 +330,116 @@
         }
       }
     },
+    "notice.card.daily.expedition" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "探索派遣情况"
+          }
+        }
+      }
+    },
+    "notice.card.daily.fetch" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "从米社读取"
+          }
+        }
+      }
+    },
+    "notice.card.daily.home_coin" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "洞天宝钱"
+          }
+        }
+      }
+    },
+    "notice.card.daily.nothing_to_show" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "没有要展示的日记内容"
+          }
+        }
+      }
+    },
+    "notice.card.daily.resin" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "浓缩树脂存量"
+          }
+        }
+      }
+    },
+    "notice.card.daily.tasks" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "每日任务"
+          }
+        }
+      }
+    },
+    "notice.card.daily.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ 的便签"
+          }
+        }
+      }
+    },
+    "notice.card.launching.start" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "打开兼容层"
+          }
+        }
+      }
+    },
+    "notice.card.launching.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "启动游戏（兼容层）"
+          }
+        }
+      }
+    },
+    "notice.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "旅行者，欢迎来到麦金塔上的提瓦特大陆！"
+          }
+        }
+      }
+    },
     "wizard.cancel" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -395,9 +505,6 @@
           }
         }
       }
-    },
-    "测试用" : {
-
     }
   },
   "version" : "1.0"

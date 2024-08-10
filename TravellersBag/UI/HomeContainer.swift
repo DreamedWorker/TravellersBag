@@ -28,7 +28,7 @@ struct ContentView: View {
             } detail: {
                 switch selectedFeat {
                 case .Notice:
-                    VStack {}
+                    NoticeScreen()
                 case .Account:
                     AccountManagerScreen()
                 }

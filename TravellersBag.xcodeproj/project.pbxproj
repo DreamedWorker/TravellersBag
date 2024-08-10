@@ -20,6 +20,10 @@
 		5D0A6EDC2C612D6D00D9F15C /* HttpRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0A6EDB2C612D6D00D9F15C /* HttpRequests.swift */; };
 		5D0A6EDE2C6131C200D9F15C /* DynamicSecret.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0A6EDD2C6131C200D9F15C /* DynamicSecret.swift */; };
 		5D0A6EE12C61351100D9F15C /* EventMessager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0A6EE02C61351100D9F15C /* EventMessager.swift */; };
+		5D2F030A2C65B44A00C9672C /* NoticeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2F03092C65B44A00C9672C /* NoticeModel.swift */; };
+		5D2F030D2C66672D00C9672C /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2F030B2C66672D00C9672C /* CardView.swift */; };
+		5D2F030F2C66798400C9672C /* FileHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2F030E2C66798400C9672C /* FileHandler.swift */; };
+		5D2F03112C675D1E00C9672C /* DailyNoteTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2F03102C675D1E00C9672C /* DailyNoteTile.swift */; };
 		5DDDABBB2C61B51200D4FA0B /* TravellersModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5DDDABB92C61B51200D4FA0B /* TravellersModel.xcdatamodeld */; };
 		5DDDABBD2C61B8E100D4FA0B /* AppPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDDABBC2C61B8E100D4FA0B /* AppPersistence.swift */; };
 		5DDDABBF2C61BE5300D4FA0B /* HoyoAccounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDDABBE2C61BE5300D4FA0B /* HoyoAccounts.swift */; };
@@ -48,6 +52,10 @@
 		5D0A6EDB2C612D6D00D9F15C /* HttpRequests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpRequests.swift; sourceTree = "<group>"; };
 		5D0A6EDD2C6131C200D9F15C /* DynamicSecret.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicSecret.swift; sourceTree = "<group>"; };
 		5D0A6EE02C61351100D9F15C /* EventMessager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventMessager.swift; sourceTree = "<group>"; };
+		5D2F03092C65B44A00C9672C /* NoticeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeModel.swift; sourceTree = "<group>"; };
+		5D2F030B2C66672D00C9672C /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		5D2F030E2C66798400C9672C /* FileHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileHandler.swift; sourceTree = "<group>"; };
+		5D2F03102C675D1E00C9672C /* DailyNoteTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyNoteTile.swift; sourceTree = "<group>"; };
 		5DDDABBA2C61B51200D4FA0B /* TravellersModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TravellersModel.xcdatamodel; sourceTree = "<group>"; };
 		5DDDABBC2C61B8E100D4FA0B /* AppPersistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPersistence.swift; sourceTree = "<group>"; };
 		5DDDABBE2C61BE5300D4FA0B /* HoyoAccounts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoyoAccounts.swift; sourceTree = "<group>"; };
@@ -119,6 +127,7 @@
 		5D0A6EC82C60902000D9F15C /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				5D2F030C2C66672D00C9672C /* Compositions */,
 				5DDDABE32C61E88D00D4FA0B /* Accounts */,
 				5DDDABE02C61E1AE00D4FA0B /* Notices */,
 				5D0A6ECA2C60903F00D9F15C /* WizardScene.swift */,
@@ -138,6 +147,7 @@
 		5D0A6ECF2C60981500D9F15C /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				5D2F030E2C66798400C9672C /* FileHandler.swift */,
 				5D0A6ED62C611F6F00D9F15C /* LibHoyoKit */,
 				5D0A6ED02C60982C00D9F15C /* SwiftyJSON.swift */,
 			);
@@ -172,10 +182,20 @@
 			path = Data;
 			sourceTree = "<group>";
 		};
+		5D2F030C2C66672D00C9672C /* Compositions */ = {
+			isa = PBXGroup;
+			children = (
+				5D2F030B2C66672D00C9672C /* CardView.swift */,
+				5D2F03102C675D1E00C9672C /* DailyNoteTile.swift */,
+			);
+			path = Compositions;
+			sourceTree = "<group>";
+		};
 		5DDDABE02C61E1AE00D4FA0B /* Notices */ = {
 			isa = PBXGroup;
 			children = (
 				5DDDABE12C61E1E400D4FA0B /* NoticeScreen.swift */,
+				5D2F03092C65B44A00C9672C /* NoticeModel.swift */,
 			);
 			path = Notices;
 			sourceTree = "<group>";
@@ -346,15 +366,19 @@
 				5D0A6EDC2C612D6D00D9F15C /* HttpRequests.swift in Sources */,
 				5D0A6ECB2C60903F00D9F15C /* WizardScene.swift in Sources */,
 				5D0A6EDA2C612D0900D9F15C /* HomeContainer.swift in Sources */,
+				5D2F030D2C66672D00C9672C /* CardView.swift in Sources */,
 				5D0A6EE12C61351100D9F15C /* EventMessager.swift in Sources */,
 				5DDDABBB2C61B51200D4FA0B /* TravellersModel.xcdatamodeld in Sources */,
+				5D2F030A2C65B44A00C9672C /* NoticeModel.swift in Sources */,
 				5DDDABEB2C6227EB00D4FA0B /* AccountService.swift in Sources */,
 				5D0A6ED82C61254200D9F15C /* ApiEndpoints.swift in Sources */,
 				5D0A6ED12C60982C00D9F15C /* SwiftyJSON.swift in Sources */,
 				5DDDABBD2C61B8E100D4FA0B /* AppPersistence.swift in Sources */,
+				5D2F03112C675D1E00C9672C /* DailyNoteTile.swift in Sources */,
 				5D0A6EB82C6075A000D9F15C /* TravellersBagApp.swift in Sources */,
 				5DDDABE72C620CF700D4FA0B /* AccountManagerModel.swift in Sources */,
 				5D0A6ED52C60C27700D9F15C /* LocalEnvironment.swift in Sources */,
+				5D2F030F2C66798400C9672C /* FileHandler.swift in Sources */,
 				5DDDABE22C61E1E400D4FA0B /* NoticeScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
