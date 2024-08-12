@@ -10,6 +10,7 @@ import SwiftUI
 /// 容器的功能分区
 private enum Functions {
     case Notice //主页
+    case Launcher //启动项
     case Account //账号管理
 }
 
@@ -23,14 +24,14 @@ struct ContentView: View {
                 List(selection: $selectedFeat) {
                     NavigationLink(value: Functions.Notice, label: { Label("home.sider.notice", systemImage: "house")} )
                     Spacer()
+                    NavigationLink(value: Functions.Launcher, label: { Label("home.sider.launcher", systemImage: "play")} )
                     NavigationLink(value: Functions.Account, label: { Label("home.sider.account", systemImage: "person.circle")} )
                 }
             } detail: {
                 switch selectedFeat {
-                case .Notice:
-                    NoticeScreen()
-                case .Account:
-                    AccountManagerScreen()
+                case .Notice: NoticeScreen()
+                case .Account: AccountManagerScreen()
+                case .Launcher: LauncherScreen()
                 }
             }
         } else {

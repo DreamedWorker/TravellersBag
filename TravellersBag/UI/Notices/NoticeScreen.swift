@@ -7,7 +7,6 @@
 
 import SwiftUI
 import CoreData
-import WaterfallGrid
 import AlertToast
 
 private enum NoticePart {

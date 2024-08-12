@@ -318,6 +318,17 @@
         }
       }
     },
+    "home.sider.launcher" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "启动选项"
+          }
+        }
+      }
+    },
     "home.sider.notice" : {
       "comment" : "主页用于展示公告和用户信息",
       "extractionState" : "manual",
@@ -326,6 +337,105 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "主页"
+          }
+        }
+      }
+    },
+    "launcher.global.error_test_command" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "读取命令输出时出现问题，或命令输入有问题导致。"
+          }
+        }
+      }
+    },
+    "launcher.global.run_result" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "运行结果：%@"
+          }
+        }
+      }
+    },
+    "launcher.global.tip" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "输入完成后请按下「回车」按键保存"
+          }
+        }
+      }
+    },
+    "launcher.method.command" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "使用自定义命令"
+          }
+        }
+      }
+    },
+    "launcher.method.command_detail" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "命令内容（我们会在最前面自动生成「/bin/zsh -c」）"
+          }
+        }
+      }
+    },
+    "launcher.method.command_test" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "测试命令"
+          }
+        }
+      }
+    },
+    "launcher.method.command_tip" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "自定义命令适用于在本地已经配置好了运行环境的旅行者（常见于完全按照Apple的GPTK README步骤安装的），我们建议你将启动方式编写在一个.sh文件中，因为旅者行囊只能执行一行式命令。"
+          }
+        }
+      }
+    },
+    "launcher.method.layer" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "使用常见兼容层软件"
+          }
+        }
+      }
+    },
+    "launcher.method.layer_name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "兼容层软件名（一般为xxx.app）"
           }
         }
       }

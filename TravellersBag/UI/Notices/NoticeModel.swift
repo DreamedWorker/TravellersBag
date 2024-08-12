@@ -34,10 +34,20 @@ class NoticeModel : ObservableObject {
     
     /// 打开本机的兼容层软件
     func openWineApp() {
-        let task = Process()
-        task.launchPath = "/bin/zsh"
-        task.arguments = ["-c", "open -a CrossOver.app"]
-        task.launch()
+        if MMKV.default()!.bool(forKey: "use_layer", defaultValue: true) {
+            let task = Process()
+            task.launchPath = "/bin/zsh"
+            task.arguments = ["-c", "open -a \(MMKV.default()!.string(forKey: "layer_name", defaultValue: "CrossOver.app")!)"]
+            task.launch()
+            return
+        }
+        if MMKV.default()!.bool(forKey: "use_command", defaultValue: false) {
+            let task = Process()
+            task.launchPath = "/bin/zsh"
+            task.arguments = ["-c", MMKV.default()!.string(forKey: "command_detail", defaultValue: "echo hello") ?? "echo hello"]
+            task.launch()
+            return
+        }
     }
     
     /// 获取实时便签
