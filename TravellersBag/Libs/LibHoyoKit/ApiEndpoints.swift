@@ -146,4 +146,9 @@ class ApiEndpoints {
     func getGameTokenByStoken() -> String {
         return "\(ApiEndpoints.ApiTakumiAuthApi)/getGameToken"
     }
+    
+    /// 获取游戏启动器上显示的公告？
+    func getHk4eAnnouncement() -> String {
+        return "\(ApiEndpoints.Hk4eApiAnnouncementApi)/getAnnList?\(ApiEndpoints.AnnouncementQuery)"
+    }
 }

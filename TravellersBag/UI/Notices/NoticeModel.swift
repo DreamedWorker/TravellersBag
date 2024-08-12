@@ -14,6 +14,7 @@ class NoticeModel : ObservableObject {
     @Published var context: NSManagedObjectContext? = nil
     @Published var showDailyNote: Bool = false
     @Published var noteJSON: JSON? = nil
+    @Published var announcements: [Announcement] = []
     
     @Published var showError = false
     @Published var errMsg = ""
@@ -39,6 +40,7 @@ class NoticeModel : ObservableObject {
         task.launch()
     }
     
+    /// 获取实时便签
     func fetchDailyNote() async throws {
         let localFile = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
             .appending(component: "daily_note.json")
@@ -95,6 +97,14 @@ class NoticeModel : ObservableObject {
         let list = noteJSON!["expeditions"].arrayValue
         let filterIt = list.filter({ $0["status"].stringValue == "Finished" })
         return filterIt.count
+    }
+    
+    /// 获取通知列表
+    func fetchAnnouncement() async throws {
+        let result = try await AnnouncementService.shared.fetchAnnouncement()
+        DispatchQueue.main.async {
+            self.announcements = result
+        }
     }
     
     private func getDailyNote(user: HoyoAccounts) async throws -> JSON {

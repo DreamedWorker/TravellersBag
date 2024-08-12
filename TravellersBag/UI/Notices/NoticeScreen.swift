@@ -10,9 +10,15 @@ import CoreData
 import WaterfallGrid
 import AlertToast
 
+private enum NoticePart {
+    case GameActivity
+    case GameNotice
+}
+
 struct NoticeScreen: View {
     @StateObject private var viewModel = NoticeModel()
     @Environment(\.managedObjectContext) private var context
+    @State private var selectedScope: NoticePart = .GameNotice
     
     func viewFetchDaily() {
         Task {
@@ -39,10 +45,28 @@ struct NoticeScreen: View {
                     dailyNote.onAppear { viewFetchDaily() }
                 }
             }.frame(maxWidth: .infinity)
+            TabView(selection: $selectedScope, content: {
+                AnnouncementPart(specificList: viewModel.announcements.filter{ $0.typeLabel == "活动公告" })
+                    .tabItem({ Text("notice.container.tab_note") })
+                    .tag(NoticePart.GameNotice)
+                AnnouncementPart(specificList: viewModel.announcements.filter{ $0.typeLabel == "游戏公告" })
+                    .tabItem({ Text("notice.container.tab_game") })
+                    .tag(NoticePart.GameActivity)
+            }).padding(.vertical, 8)
         }.padding(16)
         .onAppear {
             viewModel.context = context
             viewModel.fetchList()  // 即使这么做，依然需要判断是否为空
+            Task {
+                do {
+                    try await viewModel.fetchAnnouncement()
+                } catch {
+                    DispatchQueue.main.async {
+                        self.viewModel.errMsg = error.localizedDescription
+                        self.viewModel.showError = true
+                    }
+                }
+            }
         }
         .toast(isPresenting: $viewModel.showError, alert: { AlertToast(type: .error(.red), title: viewModel.errMsg) })
     }

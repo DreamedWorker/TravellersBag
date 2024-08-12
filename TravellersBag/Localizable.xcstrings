@@ -429,6 +429,28 @@
         }
       }
     },
+    "notice.container.tab_game" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "游戏活动"
+          }
+        }
+      }
+    },
+    "notice.container.tab_note" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "通知公告"
+          }
+        }
+      }
+    },
     "notice.title" : {
       "extractionState" : "manual",
       "localizations" : {
