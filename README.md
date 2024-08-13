@@ -25,4 +25,11 @@ It provides relatively complete functionality through the official interface, an
 Make sure you have Xcode 15.0 or above, or macOS SDK 14.0 or above, which is the development environment we rely on when writing this program. We suggest that you go to the Apple Store to download the latest Xcode.
 ** Note that you should not use Swift6.0 as the Swift language version, otherwise the SwiftlyJSON library that this project relies on will not be able to compile. **
 
+## 开发时的借鉴和参考
+本应用的诞生离不开来自官方（米哈游天命科技有限公司）开发的高质量游戏《原神》，并通过其的OpenAPI访问数据；此外，开源社区的很多成熟的项目已经在这个方面做出了很好的实践，
+在开发的过程中也参考和使用了它们的优秀成果，它们是：
+1. UIGF.org - 祈愿和成就等数据的交换标准化组织
+2. Snap.Hutao - 一款优秀的 Windows 端原神工具箱软件
+3. GenshinPizzaHelper - 一款优秀的 Apple 平台的原神工具软件
+
 # Have fun with Genshin Impact and TravellersBag!
