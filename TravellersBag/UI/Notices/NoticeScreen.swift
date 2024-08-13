@@ -52,7 +52,28 @@ struct NoticeScreen: View {
                     .tabItem({ Text("notice.container.tab_game") })
                     .tag(NoticePart.GameActivity)
             }).padding(.vertical, 8)
-        }.padding(16)
+        }
+        .toolbar(content: {
+            ToolbarItem(content: {
+                Button(
+                    action: {
+                        viewModel.announcements.removeAll()
+                        Task {
+                            do {
+                                try await viewModel.refreshAnnouncement()
+                            } catch {
+                                DispatchQueue.main.async {
+                                    self.viewModel.showError = true
+                                    self.viewModel.errMsg = error.localizedDescription
+                                }
+                            }
+                        }
+                    },
+                    label: { Image(systemName: "arrow.clockwise").help("notice.toolbar.refresh") }
+                )
+            })
+        })
+        .padding(16)
         .onAppear {
             viewModel.context = context
             viewModel.fetchList()  // 即使这么做，依然需要判断是否为空

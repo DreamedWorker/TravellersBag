@@ -572,6 +572,17 @@
         }
       }
     },
+    "notice.toolbar.refresh" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "刷新通知"
+          }
+        }
+      }
+    },
     "wizard.cancel" : {
       "extractionState" : "manual",
       "localizations" : {

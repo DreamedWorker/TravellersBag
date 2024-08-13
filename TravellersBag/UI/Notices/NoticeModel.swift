@@ -117,6 +117,21 @@ class NoticeModel : ObservableObject {
         }
     }
     
+    /// 刷新通知列表
+    func refreshAnnouncement() async throws {
+        let localFile = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+            .appending(component: "announcement.json").path().removingPercentEncoding!
+        if FileManager.default.fileExists(atPath: localFile) {
+            FileHandler.shared.writeUtf8String(path: localFile, context: "")
+        } else {
+            FileManager.default.createFile(atPath: localFile, contents: "".data(using: .utf8))
+        }
+        let result = try await AnnouncementService.shared.fetchFromNetwork()
+        DispatchQueue.main.async {
+            self.announcements = result
+        }
+    }
+    
     private func getDailyNote(user: HoyoAccounts) async throws -> JSON {
         var req = URLRequest(url: URL(string: "https://api-takumi-record.mihoyo.com/game_record/app/genshin/aapi/widget/v2?")!)
         req.setHost(host: "api-takumi-record.mihoyo.com")
