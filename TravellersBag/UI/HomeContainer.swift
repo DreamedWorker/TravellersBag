@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AlertToast
 
 /// 容器的功能分区
 private enum Functions {
@@ -15,9 +16,31 @@ private enum Functions {
     case Character //游戏角色
 }
 
+/// 全局消息弹出管理
+class ContentMessager : ObservableObject { // 这个类必须是单例类
+    static let shared = ContentMessager()
+    
+    @Published var showErrDialog: Bool = false // 显示错误弹窗
+    @Published var errDialogMessage: String = ""
+    
+    @Published var showInfoDialog: Bool = false // 显示基本消息弹窗
+    @Published var infoDialogMessage: String = ""
+    
+    /// 呼出一个错误弹窗 【必须在UI线程执行】
+    func showErrorDialog(msg: String) {
+        showErrDialog = true; errDialogMessage = msg
+    }
+    
+    /// 呼出一个基本信息弹窗 【必须在UI线程执行】
+    func showInfomationDialog(msg: String) {
+        showInfoDialog = true; infoDialogMessage = msg
+    }
+}
+
 struct ContentView: View {
     @State private var showUI = false
     @State private var selectedFeat: Functions = .Notice
+    @StateObject private var msgHelper = ContentMessager.shared
     
     var body: some View {
         if showUI {
@@ -38,6 +61,9 @@ struct ContentView: View {
                 case .Character: CharacterScreen()
                 }
             }
+            // 注册上述两个全局信息弹窗
+            .toast(isPresenting: $msgHelper.showErrDialog, alert: { AlertToast(type: .error(.red), title: msgHelper.errDialogMessage) })
+            .toast(isPresenting: $msgHelper.showInfoDialog, alert: { AlertToast(type: .complete(.green), title: msgHelper.infoDialogMessage) })
         } else {
             VStack {
                 Image(systemName: "timer").font(.system(size: 32))
