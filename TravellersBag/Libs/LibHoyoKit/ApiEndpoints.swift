@@ -151,4 +151,14 @@ class ApiEndpoints {
     func getHk4eAnnouncement() -> String {
         return "\(ApiEndpoints.Hk4eApiAnnouncementApi)/getAnnList?\(ApiEndpoints.AnnouncementQuery)"
     }
+    
+    /// 获取人机验证必要的两个参数
+    func getGeetestRequired() -> String {
+        return "\(ApiEndpoints.ApiTakumiCardWApi)/createVerification?is_high=true"
+    }
+    
+    /// 提交人机验证结果判断是否通过
+    func getGeetestResult() -> String {
+        return "\(ApiEndpoints.ApiTakumiCardWApi)/verifyVerification"
+    }
 }

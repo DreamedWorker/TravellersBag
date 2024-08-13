@@ -296,6 +296,28 @@
         }
       }
     },
+    "character.toolbar.verify" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "执行无感验证"
+          }
+        }
+      }
+    },
+    "character.verify.window_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "完成人机认证任务"
+          }
+        }
+      }
+    },
     "home.container" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -314,6 +336,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "米社账号"
+          }
+        }
+      }
+    },
+    "home.sider.characters" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "我的角色"
           }
         }
       }

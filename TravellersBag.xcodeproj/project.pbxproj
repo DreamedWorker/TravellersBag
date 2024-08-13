@@ -28,6 +28,10 @@
 		5D8127D02C69A22700A53230 /* Announcement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8127CF2C69A22700A53230 /* Announcement.swift */; };
 		5D8127D22C69A4BE00A53230 /* AnnouncementService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8127D12C69A4BE00A53230 /* AnnouncementService.swift */; };
 		5D8127D52C69BD2000A53230 /* LauncherScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8127D42C69BD2000A53230 /* LauncherScreen.swift */; };
+		5DCFE65C2C6AEB08002E8C01 /* CharacterScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCFE65B2C6AEB08002E8C01 /* CharacterScreen.swift */; };
+		5DCFE65E2C6B1B74002E8C01 /* VerificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCFE65D2C6B1B74002E8C01 /* VerificationView.swift */; };
+		5DCFE6602C6B4FAF002E8C01 /* CharacterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCFE65F2C6B4FAF002E8C01 /* CharacterModel.swift */; };
+		5DCFE6622C6B4FE6002E8C01 /* Character+Verification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCFE6612C6B4FE6002E8C01 /* Character+Verification.swift */; };
 		5DDDABBB2C61B51200D4FA0B /* TravellersModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5DDDABB92C61B51200D4FA0B /* TravellersModel.xcdatamodeld */; };
 		5DDDABBD2C61B8E100D4FA0B /* AppPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDDABBC2C61B8E100D4FA0B /* AppPersistence.swift */; };
 		5DDDABBF2C61BE5300D4FA0B /* HoyoAccounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDDABBE2C61BE5300D4FA0B /* HoyoAccounts.swift */; };
@@ -64,6 +68,10 @@
 		5D8127CF2C69A22700A53230 /* Announcement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Announcement.swift; sourceTree = "<group>"; };
 		5D8127D12C69A4BE00A53230 /* AnnouncementService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementService.swift; sourceTree = "<group>"; };
 		5D8127D42C69BD2000A53230 /* LauncherScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LauncherScreen.swift; sourceTree = "<group>"; };
+		5DCFE65B2C6AEB08002E8C01 /* CharacterScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterScreen.swift; sourceTree = "<group>"; };
+		5DCFE65D2C6B1B74002E8C01 /* VerificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationView.swift; sourceTree = "<group>"; };
+		5DCFE65F2C6B4FAF002E8C01 /* CharacterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterModel.swift; sourceTree = "<group>"; };
+		5DCFE6612C6B4FE6002E8C01 /* Character+Verification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Character+Verification.swift"; sourceTree = "<group>"; };
 		5DDDABBA2C61B51200D4FA0B /* TravellersModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TravellersModel.xcdatamodel; sourceTree = "<group>"; };
 		5DDDABBC2C61B8E100D4FA0B /* AppPersistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPersistence.swift; sourceTree = "<group>"; };
 		5DDDABBE2C61BE5300D4FA0B /* HoyoAccounts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoyoAccounts.swift; sourceTree = "<group>"; };
@@ -135,6 +143,7 @@
 		5D0A6EC82C60902000D9F15C /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				5DCFE65A2C6AE8E0002E8C01 /* Characters */,
 				5D8127D32C69BD0200A53230 /* Launcher */,
 				5D2F030C2C66672D00C9672C /* Compositions */,
 				5DDDABE32C61E88D00D4FA0B /* Accounts */,
@@ -150,6 +159,7 @@
 			children = (
 				5DDDABEA2C6227EB00D4FA0B /* AccountService.swift */,
 				5D8127D12C69A4BE00A53230 /* AnnouncementService.swift */,
+				5DCFE6612C6B4FE6002E8C01 /* Character+Verification.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -199,6 +209,7 @@
 				5D2F030B2C66672D00C9672C /* CardView.swift */,
 				5D2F03102C675D1E00C9672C /* DailyNoteTile.swift */,
 				5D8127CD2C69A1BC00A53230 /* AnnouncementPart.swift */,
+				5DCFE65D2C6B1B74002E8C01 /* VerificationView.swift */,
 			);
 			path = Compositions;
 			sourceTree = "<group>";
@@ -209,6 +220,15 @@
 				5D8127D42C69BD2000A53230 /* LauncherScreen.swift */,
 			);
 			path = Launcher;
+			sourceTree = "<group>";
+		};
+		5DCFE65A2C6AE8E0002E8C01 /* Characters */ = {
+			isa = PBXGroup;
+			children = (
+				5DCFE65B2C6AEB08002E8C01 /* CharacterScreen.swift */,
+				5DCFE65F2C6B4FAF002E8C01 /* CharacterModel.swift */,
+			);
+			path = Characters;
 			sourceTree = "<group>";
 		};
 		5DDDABE02C61E1AE00D4FA0B /* Notices */ = {
@@ -384,7 +404,9 @@
 				5D0A6EDE2C6131C200D9F15C /* DynamicSecret.swift in Sources */,
 				5D0A6ECE2C6091B900D9F15C /* LocalNotification.swift in Sources */,
 				5D0A6EDC2C612D6D00D9F15C /* HttpRequests.swift in Sources */,
+				5DCFE6602C6B4FAF002E8C01 /* CharacterModel.swift in Sources */,
 				5D0A6ECB2C60903F00D9F15C /* WizardScene.swift in Sources */,
+				5DCFE65E2C6B1B74002E8C01 /* VerificationView.swift in Sources */,
 				5D8127D02C69A22700A53230 /* Announcement.swift in Sources */,
 				5D0A6EDA2C612D0900D9F15C /* HomeContainer.swift in Sources */,
 				5D2F030D2C66672D00C9672C /* CardView.swift in Sources */,
@@ -394,6 +416,7 @@
 				5DDDABEB2C6227EB00D4FA0B /* AccountService.swift in Sources */,
 				5D0A6ED82C61254200D9F15C /* ApiEndpoints.swift in Sources */,
 				5D0A6ED12C60982C00D9F15C /* SwiftyJSON.swift in Sources */,
+				5DCFE65C2C6AEB08002E8C01 /* CharacterScreen.swift in Sources */,
 				5DDDABBD2C61B8E100D4FA0B /* AppPersistence.swift in Sources */,
 				5D8127D22C69A4BE00A53230 /* AnnouncementService.swift in Sources */,
 				5D2F03112C675D1E00C9672C /* DailyNoteTile.swift in Sources */,
@@ -404,6 +427,7 @@
 				5D2F030F2C66798400C9672C /* FileHandler.swift in Sources */,
 				5DDDABE22C61E1E400D4FA0B /* NoticeScreen.swift in Sources */,
 				5D8127CE2C69A1BC00A53230 /* AnnouncementPart.swift in Sources */,
+				5DCFE6622C6B4FE6002E8C01 /* Character+Verification.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

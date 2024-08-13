@@ -12,6 +12,7 @@ private enum Functions {
     case Notice //主页
     case Launcher //启动项
     case Account //账号管理
+    case Character //游戏角色
 }
 
 struct ContentView: View {
@@ -25,6 +26,8 @@ struct ContentView: View {
                     NavigationLink(value: Functions.Notice, label: { Label("home.sider.notice", systemImage: "house")} )
                     Spacer()
                     NavigationLink(value: Functions.Launcher, label: { Label("home.sider.launcher", systemImage: "play")} )
+                    NavigationLink(value: Functions.Character, label: { Label("home.sider.characters", systemImage: "figure.walk")} )
+                    Spacer()
                     NavigationLink(value: Functions.Account, label: { Label("home.sider.account", systemImage: "person.circle")} )
                 }
             } detail: {
@@ -32,6 +35,7 @@ struct ContentView: View {
                 case .Notice: NoticeScreen()
                 case .Account: AccountManagerScreen()
                 case .Launcher: LauncherScreen()
+                case .Character: CharacterScreen()
                 }
             }
         } else {

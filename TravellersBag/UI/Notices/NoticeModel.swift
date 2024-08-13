@@ -28,7 +28,8 @@ class NoticeModel : ObservableObject {
                 defaultHoyo = surelyResult.filter({$0.stuid! == MMKV.default()!.string(forKey: "default_account_stuid")!}).first!
             }
         } catch {
-            print(error.localizedDescription)
+            errMsg = error.localizedDescription
+            showError = true
         }
     }
     
