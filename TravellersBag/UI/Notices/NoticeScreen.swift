@@ -7,7 +7,6 @@
 
 import SwiftUI
 import CoreData
-import AlertToast
 
 private enum NoticePart {
     case GameActivity
@@ -25,8 +24,7 @@ struct NoticeScreen: View {
                 try await viewModel.fetchDailyNote()
             } catch {
                 DispatchQueue.main.async {
-                    self.viewModel.errMsg = error.localizedDescription
-                    self.viewModel.showError = true
+                    ContentMessager.shared.showErrorDialog(msg: error.localizedDescription)
                 }
             }
         }
@@ -63,8 +61,7 @@ struct NoticeScreen: View {
                                 try await viewModel.refreshAnnouncement()
                             } catch {
                                 DispatchQueue.main.async {
-                                    self.viewModel.showError = true
-                                    self.viewModel.errMsg = error.localizedDescription
+                                    ContentMessager.shared.showErrorDialog(msg: error.localizedDescription)
                                 }
                             }
                         }
@@ -82,13 +79,11 @@ struct NoticeScreen: View {
                     try await viewModel.fetchAnnouncement()
                 } catch {
                     DispatchQueue.main.async {
-                        self.viewModel.errMsg = error.localizedDescription
-                        self.viewModel.showError = true
+                        ContentMessager.shared.showErrorDialog(msg: error.localizedDescription)
                     }
                 }
             }
         }
-        .toast(isPresenting: $viewModel.showError, alert: { AlertToast(type: .error(.red), title: viewModel.errMsg) })
     }
     
     var launchWine: some View { // 打开兼容层的卡片

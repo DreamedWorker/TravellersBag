@@ -16,9 +16,6 @@ class NoticeModel : ObservableObject {
     @Published var noteJSON: JSON? = nil
     @Published var announcements: [Announcement] = []
     
-    @Published var showError = false
-    @Published var errMsg = ""
-    
     /// 获取被设为默认的账号
     func fetchList() {
         defaultHoyo = nil
@@ -28,8 +25,7 @@ class NoticeModel : ObservableObject {
                 defaultHoyo = surelyResult.filter({$0.stuid! == MMKV.default()!.string(forKey: "default_account_stuid")!}).first!
             }
         } catch {
-            errMsg = error.localizedDescription
-            showError = true
+            ContentMessager.shared.showErrorDialog(msg: error.localizedDescription)
         }
     }
     
@@ -96,8 +92,7 @@ class NoticeModel : ObservableObject {
                 try await fetchDailyNote()
             } catch {
                 DispatchQueue.main.async {
-                    self.errMsg = error.localizedDescription
-                    self.showError = true
+                    ContentMessager.shared.showErrorDialog(msg: error.localizedDescription)
                 }
             }
         }
