@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import AlertToast
 
 struct CharacterScreen: View {
     @StateObject private var viewModel = CharacterModel()
@@ -69,7 +68,6 @@ struct CharacterScreen: View {
                 }).frame(width: 600, height: 400)
             }
         })
-        .toast(isPresenting: $viewModel.showError, alert: { AlertToast(type: .error(.red), title: viewModel.errMsg) })
     }
     
     private struct SimpleTableItem : View {

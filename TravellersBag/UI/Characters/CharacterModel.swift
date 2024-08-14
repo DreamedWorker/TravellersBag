@@ -13,8 +13,6 @@ class CharacterModel : ObservableObject {
     @Published var context: NSManagedObjectContext? = nil
     
     @Published var showWeb: Bool = false
-    @Published var showError: Bool = false
-    @Published var errMsg: String = ""
     
     @Published var gt = ""
     @Published var challenge = ""
@@ -34,8 +32,7 @@ class CharacterModel : ObservableObject {
                 print("没有默认用户")
             }
         } catch {
-            errMsg = "showWebErr:\(error.localizedDescription)"
-            showError = true
+            ContentMessager.shared.showErrorDialog(msg: NSLocalizedString("character.error.cannot_found_user", comment: ""))
         }
     }
     
@@ -75,8 +72,7 @@ class CharacterModel : ObservableObject {
     
     private func showErrorAsync(err: String) async {
         DispatchQueue.main.async {
-            self.errMsg = err
-            self.showError = true
+            ContentMessager.shared.showErrorDialog(msg: err)
         }
     }
 }

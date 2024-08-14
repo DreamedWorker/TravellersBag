@@ -296,6 +296,17 @@
         }
       }
     },
+    "character.error.cannot_found_user" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "读取本地账户信息时发生未知问题"
+          }
+        }
+      }
+    },
     "character.table.get_from_home" : {
       "extractionState" : "manual",
       "localizations" : {
