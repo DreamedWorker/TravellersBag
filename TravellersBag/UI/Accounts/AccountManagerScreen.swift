@@ -7,7 +7,6 @@
 
 import SwiftUI
 import CoreData
-import AlertToast
 import Kingfisher
 
 struct AccountManagerScreen: View {
@@ -71,7 +70,6 @@ struct AccountManagerScreen: View {
                 viewModel.context = context
                 viewModel.fetchAccounts()
             }
-            .toast(isPresenting: $viewModel.showFetchFatalToast, alert: { AlertToast(type: .error(Color.red), title: viewModel.fatalInfo) })
             .sheet(isPresented: $viewModel.showQRCodeWindow, content: { qrcodeStage })
             .sheet(isPresented: $viewModel.showCookieWindow, content: { cookieStage })
     }

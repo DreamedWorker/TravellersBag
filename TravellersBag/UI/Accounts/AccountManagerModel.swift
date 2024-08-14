@@ -12,8 +12,6 @@ import CoreImage.CIFilterBuiltins
 
 class AccountManagerModel : ObservableObject {
     @Published var context: NSManagedObjectContext? = nil
-    @Published var showFetchFatalToast = false
-    @Published var fatalInfo = ""
     @Published var accountsHoyo: [HoyoAccounts] = [] // 水社账号列表
     @Published var showQRCodeWindow = false // 二维码登录弹窗
     @Published var showCookieWindow = false // cookie登录弹窗
@@ -28,8 +26,7 @@ class AccountManagerModel : ObservableObject {
             let result = try context?.fetch(HoyoAccounts.fetchRequest())
             accountsHoyo = result ?? []
         } catch {
-            fatalInfo = error.localizedDescription
-            showFetchFatalToast = true
+            ContentMessager.shared.showErrorDialog(msg: error.localizedDescription)
         }
     }
     
@@ -158,9 +155,7 @@ class AccountManagerModel : ObservableObject {
     func cancelOp() {
         qrCodeImg = NSImage()
         picURL = ""
-        fatalInfo = ""
         qrScanState = ""
-        showFetchFatalToast = false
     }
     
     /// 完善账号条目
