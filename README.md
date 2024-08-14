@@ -28,8 +28,9 @@ Make sure you have Xcode 15.0 or above, or macOS SDK 14.0 or above, which is the
 ## 开发时的借鉴和参考
 本应用的诞生离不开来自官方（米哈游天命科技有限公司）开发的高质量游戏《原神》，并通过其的OpenAPI访问数据；此外，开源社区的很多成熟的项目已经在这个方面做出了很好的实践，
 在开发的过程中也参考和使用了它们的优秀成果，它们是：
-1. UIGF.org - 祈愿和成就等数据的交换标准化组织
+1. [UIGF.org](https://uigf.org) - 祈愿和成就等数据的交换标准化组织
 2. Snap.Hutao - 一款优秀的 Windows 端原神工具箱软件
 3. GenshinPizzaHelper - 一款优秀的 Apple 平台的原神工具软件
+4. [Enka.network](https://enka.network)(see also [境内镜像站](https://profile.microgg.cn)) - 用于获取玩家角色橱窗数据的网站（括号内的为境内镜像站）
 
 # Have fun with Genshin Impact and TravellersBag!

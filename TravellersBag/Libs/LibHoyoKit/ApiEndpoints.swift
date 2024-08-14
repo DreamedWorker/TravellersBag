@@ -161,4 +161,9 @@ class ApiEndpoints {
     func getGeetestResult() -> String {
         return "\(ApiEndpoints.ApiTakumiCardWApi)/verifyVerification"
     }
+    
+    /// 从水社原神首页获取所有角色信息
+    func getCharactersFromHoyo() -> String {
+        return "\(ApiEndpoints.ApiTakumiRecordApi)/character?"
+    }
 }

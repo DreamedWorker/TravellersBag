@@ -11,13 +11,24 @@ import Foundation
 class CharacterService {
     static let shared = CharacterService()
     
-    func testCode(user: HoyoAccounts) async {
-        do {
-            let result = try await createVerificationCode(user: user)
-            print(result.rawString()!)
-        } catch {
-            print(error.localizedDescription)
-        }
+    /// 尝试从社区获取角色数据 大概率会报错 需要人机验证作为前提
+    func getAllCharacterFromMiyoushe(user: HoyoAccounts) async throws -> JSON {
+        var req = URLRequest(url: URL(string: ApiEndpoints.shared.getCharactersFromHoyo())!)
+        req.setHost(host: "api-takumi-record.mihoyo.com")
+        req.setValue(
+            "stuid=\(user.stuid!);stoken=\(user.stoken!);ltuid=\(user.stuid!);ltoken=\(user.ltoken!);mid=\(user.mid!)",
+            forHTTPHeaderField: "Cookie")
+        req.setValue("zh-cn", forHTTPHeaderField: "x-rpc-language")
+        req.setUA()
+        req.setDS(version: SaltVersion.V2, type: SaltType.X4, body: "role_id=\(user.genshinUID!)&server=cn_gf01", include: false)
+        req.setReferer(referer: "https://webstatic.mihoyo.com")
+        req.setValue("v4.1.5-ys_#/ys/daily", forHTTPHeaderField: "x-rpc-page")
+        req.setValue("https://webstatic.mihoyo.com", forHTTPHeaderField: "Origin")
+        req.setXRPCAppInfo(client: "5")
+        req.setDeviceInfoHeaders()
+        return try await req.receiveOrThrow(isPost: true, reqBody: JSONSerialization.data(withJSONObject: [
+            "server": "cn_gf01", "role_id": user.genshinUID!
+        ]))
     }
 }
 

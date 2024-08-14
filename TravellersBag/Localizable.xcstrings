@@ -296,6 +296,50 @@
         }
       }
     },
+    "character.table.get_from_home" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "从社区主页获取"
+          }
+        }
+      }
+    },
+    "character.table.get_from_showcase" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "从「角色橱窗」获取"
+          }
+        }
+      }
+    },
+    "character.table.get_tip" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "当你选择「从社区主页获取」时，极大概率会报错。这时你可以尝试通过点按屏幕右上角菜单按钮「执行人机验证」尝试获取信息，但这依然有概率会失败。"
+          }
+        }
+      }
+    },
+    "character.table.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "获取或刷新角色数据"
+          }
+        }
+      }
+    },
     "character.toolbar.verify" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -303,6 +347,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "执行无感验证"
+          }
+        }
+      }
+    },
+    "character.verify.pass_it" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "人机验证通过"
           }
         }
       }

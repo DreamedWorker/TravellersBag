@@ -20,6 +20,8 @@ class CharacterModel : ObservableObject {
     @Published var challenge = ""
     
     var currentUser: HoyoAccounts? = nil
+    let hoyoCharacters = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+        .appending(component: "hoyo_characters.json").path().removingPercentEncoding!
     
     /// 获取默认用户
     func fetchDefaultUser() {
@@ -57,6 +59,9 @@ class CharacterModel : ObservableObject {
         // 这里就不需要判断默认账号是否存在了 因为如果不存在的话根本不会呼出验证sheet
         do {
             let result = try await tryGeetestCode(user: currentUser!, validate: validate, challenge: challenge)
+            DispatchQueue.main.async {
+                ContentMessager.shared.showInfomationDialog(msg: NSLocalizedString("character.verify.pass_it", comment: ""))
+            }
             print("验证结果：\(result.rawString() as Any)")
         } catch {
             await showErrorAsync(err: "showWebErr:\(error.localizedDescription)")
