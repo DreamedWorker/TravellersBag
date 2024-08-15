@@ -30,6 +30,13 @@ class CharacterService {
             "server": "cn_gf01", "role_id": user.genshinUID!
         ]))
     }
+    
+    /// 从Enka.network的镜像站获取角色橱窗的信息
+    func pullCharactersFromEnka(gameUID: String) async throws -> Data {
+        let req = URLRequest(url: URL(string: "https://profile.microgg.cn/api/uid/\(Int(gameUID)!)")!)
+        let (data, _) = try await httpSession().data(for: req)
+        return data
+    }
 }
 
 /// # 下面的代码用于尝试解决 api-takumi-record.mihoyo.com 域名下部分api的风控问题

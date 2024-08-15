@@ -28,6 +28,7 @@
 		5D8127D02C69A22700A53230 /* Announcement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8127CF2C69A22700A53230 /* Announcement.swift */; };
 		5D8127D22C69A4BE00A53230 /* AnnouncementService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8127D12C69A4BE00A53230 /* AnnouncementService.swift */; };
 		5D8127D52C69BD2000A53230 /* LauncherScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8127D42C69BD2000A53230 /* LauncherScreen.swift */; };
+		5DB1E6BE2C6D171100F251C1 /* pfps.json in Resources */ = {isa = PBXBuildFile; fileRef = 5DB1E6BD2C6D171100F251C1 /* pfps.json */; };
 		5DCFE65C2C6AEB08002E8C01 /* CharacterScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCFE65B2C6AEB08002E8C01 /* CharacterScreen.swift */; };
 		5DCFE65E2C6B1B74002E8C01 /* VerificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCFE65D2C6B1B74002E8C01 /* VerificationView.swift */; };
 		5DCFE6602C6B4FAF002E8C01 /* CharacterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCFE65F2C6B4FAF002E8C01 /* CharacterModel.swift */; };
@@ -68,6 +69,7 @@
 		5D8127CF2C69A22700A53230 /* Announcement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Announcement.swift; sourceTree = "<group>"; };
 		5D8127D12C69A4BE00A53230 /* AnnouncementService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementService.swift; sourceTree = "<group>"; };
 		5D8127D42C69BD2000A53230 /* LauncherScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LauncherScreen.swift; sourceTree = "<group>"; };
+		5DB1E6BD2C6D171100F251C1 /* pfps.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pfps.json; sourceTree = "<group>"; };
 		5DCFE65B2C6AEB08002E8C01 /* CharacterScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterScreen.swift; sourceTree = "<group>"; };
 		5DCFE65D2C6B1B74002E8C01 /* VerificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationView.swift; sourceTree = "<group>"; };
 		5DCFE65F2C6B4FAF002E8C01 /* CharacterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterModel.swift; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 		5D0A6EDF2C6134E900D9F15C /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				5DB1E6BD2C6D171100F251C1 /* pfps.json */,
 				5D8127CF2C69A22700A53230 /* Announcement.swift */,
 				5D0A6EE02C61351100D9F15C /* EventMessager.swift */,
 				5DDDABBE2C61BE5300D4FA0B /* HoyoAccounts.swift */,
@@ -346,6 +349,7 @@
 			files = (
 				5D0A6EBF2C6075A200D9F15C /* Preview Assets.xcassets in Resources */,
 				5D0A6EBC2C6075A200D9F15C /* Assets.xcassets in Resources */,
+				5DB1E6BE2C6D171100F251C1 /* pfps.json in Resources */,
 				5D0A6EC72C608F5D00D9F15C /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

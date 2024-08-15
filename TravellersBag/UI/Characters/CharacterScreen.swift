@@ -19,7 +19,21 @@ struct CharacterScreen: View {
                     SimpleTableItem(
                         title: NSLocalizedString("character.table.get_from_showcase", comment: ""),
                         sysImg: "macwindow.badge.plus",
-                        onClick: {}
+                        onClick: {
+                            if viewModel.currentUser != nil {
+                                Task {
+                                    do {
+                                        try await viewModel.handleEnkaCharacters(uid: viewModel.currentUser!.genshinUID!)
+                                    } catch {
+                                        DispatchQueue.main.async {
+                                            ContentMessager.shared.showErrorDialog(msg: "从橱窗加载角色数据失败，原因：\(error.localizedDescription)")
+                                        }
+                                    }
+                                }
+                            } else {
+                                ContentMessager.shared.showErrorDialog(msg: "当前没有登录！")
+                            }
+                        }
                     )
                     SimpleTableItem(
                         title: NSLocalizedString("character.table.get_from_home", comment: ""),
@@ -30,6 +44,13 @@ struct CharacterScreen: View {
                         .padding(.horizontal, 16)
                 }.formStyle(.grouped)
                     .scrollDisabled(true)
+                Form {
+                    ForEach(viewModel.characters){ single in
+                        Text(String(single.avatarID)).onTapGesture {
+                            print(single)
+                        }
+                    }
+                }
             }
         }
         .toolbar(content: {
@@ -38,6 +59,8 @@ struct CharacterScreen: View {
                     action: {
                         Task {
                             await viewModel.showWebOrNot()
+//                            let d = try await CharacterService.shared.pullCharactersFromEnka(gameUID: viewModel.currentUser!.genshinUID!)
+//                            print(String(data: d, encoding: .utf8))
                         }
                     },
                     label: { Image(systemName: "barcode.viewfinder").help("character.toolbar.verify") }
@@ -48,6 +71,7 @@ struct CharacterScreen: View {
         .onAppear {
             viewModel.context = managed
             viewModel.fetchDefaultUser()
+            viewModel.fetchCharacter()
         }
         .sheet(isPresented: $viewModel.showWeb, content: {
             VStack {
@@ -60,7 +84,7 @@ struct CharacterScreen: View {
                     Task {
                         await viewModel.verifyGeetestCode(validate: con)
                         do {
-                            try await CharacterService.shared.getAllCharacterFromMiyoushe(user: viewModel.currentUser!)
+                            let _ = try await CharacterService.shared.getAllCharacterFromMiyoushe(user: viewModel.currentUser!)
                         } catch {
                             print(error.localizedDescription)
                         }

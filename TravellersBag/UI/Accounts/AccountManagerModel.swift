@@ -83,6 +83,7 @@ class AccountManagerModel : ObservableObject {
                         )
                         self.cancelOp() // 此方法亦具有关闭窗口的效果
                     }
+                    // 在这里尝试将原神账号的头像，角色橱窗的信息获取出来
                 } else {
                     throw NSError(domain: "ui.login.with.qr", code: -1, userInfo: [
                         NSLocalizedDescriptionKey: NSLocalizedString("account.service.repeated_acc", comment: "")
@@ -135,6 +136,7 @@ class AccountManagerModel : ObservableObject {
                         self.cookieInput = ""
                         self.showCookieWindow = false
                     }
+                    // 在这里尝试将原神账号的头像，角色橱窗的信息获取出来
                 } else {
                     throw NSError(domain: "ui.login.with.qr", code: -1, userInfo: [
                         NSLocalizedDescriptionKey: NSLocalizedString("account.service.repeated_acc", comment: "")
