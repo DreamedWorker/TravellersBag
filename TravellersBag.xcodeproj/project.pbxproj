@@ -7,53 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5D00F59B2C6E392C00FD7E52 /* TravellersBagApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D00F59A2C6E392C00FD7E52 /* TravellersBagApp.swift */; };
-		5D00F59F2C6E392D00FD7E52 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D00F59E2C6E392D00FD7E52 /* Assets.xcassets */; };
-		5D00F5A22C6E392D00FD7E52 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D00F5A12C6E392D00FD7E52 /* Preview Assets.xcassets */; };
-		5D00F5AA2C6E3A3600FD7E52 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 5D00F5A92C6E3A3600FD7E52 /* Localizable.xcstrings */; };
-		5D00F5AD2C6E3BE000FD7E52 /* TravellersBagModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5D00F5AB2C6E3BE000FD7E52 /* TravellersBagModel.xcdatamodeld */; };
-		5D00F5B02C6E3C8100FD7E52 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D00F5AF2C6E3C8100FD7E52 /* CoreDataHelper.swift */; };
-		5D00F5B22C6E46AD00FD7E52 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D00F5B12C6E46AD00FD7E52 /* SwiftyJSON.swift */; };
-		5D00F5B52C6E482900FD7E52 /* HomeContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D00F5B42C6E482900FD7E52 /* HomeContainer.swift */; };
-		5D00F5B72C6E5C9D00FD7E52 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D00F5B62C6E5C9D00FD7E52 /* HomeController.swift */; };
-		5D00F5BA2C6E5EC300FD7E52 /* AccountScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D00F5B92C6E5EC300FD7E52 /* AccountScreen.swift */; };
-		5D00F5BE2C6E610700FD7E52 /* MDLikeTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D00F5BD2C6E610700FD7E52 /* MDLikeTile.swift */; };
-		5D00F5C02C6E656400FD7E52 /* FileHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D00F5BF2C6E656400FD7E52 /* FileHandler.swift */; };
-		5D00F5C42C6E659E00FD7E52 /* ApiEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D00F5C12C6E659E00FD7E52 /* ApiEndpoints.swift */; };
-		5D00F5C52C6E659E00FD7E52 /* HttpRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D00F5C22C6E659E00FD7E52 /* HttpRequests.swift */; };
-		5D00F5C72C6E662500FD7E52 /* EventMessager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D00F5C62C6E662500FD7E52 /* EventMessager.swift */; };
-		5D00F5C92C6E664400FD7E52 /* DynamicSecret.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D00F5C82C6E664400FD7E52 /* DynamicSecret.swift */; };
-		5D00F5CB2C6E668400FD7E52 /* LocalEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D00F5CA2C6E668400FD7E52 /* LocalEnvironment.swift */; };
 		5D00F5CD2C6E695400FD7E52 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 5D00F5CC2C6E695400FD7E52 /* README.md */; };
 		5D00F5CF2C6E696400FD7E52 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 5D00F5CE2C6E696400FD7E52 /* LICENSE */; };
-		D668016BB33768F072987505 /* Pods_TravellersBag.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74D54BCC0EE39638B2FB0D55 /* Pods_TravellersBag.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		44F75FED7A97374CEF511300 /* Pods-TravellersBag.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravellersBag.debug.xcconfig"; path = "Target Support Files/Pods-TravellersBag/Pods-TravellersBag.debug.xcconfig"; sourceTree = "<group>"; };
-		5D00F5972C6E392C00FD7E52 /* TravellersBag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravellersBag.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		5D00F59A2C6E392C00FD7E52 /* TravellersBagApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravellersBagApp.swift; sourceTree = "<group>"; };
-		5D00F59E2C6E392D00FD7E52 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		5D00F5A12C6E392D00FD7E52 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		5D00F5A32C6E392D00FD7E52 /* TravellersBag.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TravellersBag.entitlements; sourceTree = "<group>"; };
-		5D00F5A92C6E3A3600FD7E52 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
-		5D00F5AC2C6E3BE000FD7E52 /* TravellersBagModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TravellersBagModel.xcdatamodel; sourceTree = "<group>"; };
-		5D00F5AF2C6E3C8100FD7E52 /* CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
-		5D00F5B12C6E46AD00FD7E52 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
-		5D00F5B42C6E482900FD7E52 /* HomeContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeContainer.swift; sourceTree = "<group>"; };
-		5D00F5B62C6E5C9D00FD7E52 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
-		5D00F5B92C6E5EC300FD7E52 /* AccountScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountScreen.swift; sourceTree = "<group>"; };
-		5D00F5BD2C6E610700FD7E52 /* MDLikeTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDLikeTile.swift; sourceTree = "<group>"; };
-		5D00F5BF2C6E656400FD7E52 /* FileHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileHandler.swift; sourceTree = "<group>"; };
-		5D00F5C12C6E659E00FD7E52 /* ApiEndpoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiEndpoints.swift; sourceTree = "<group>"; };
-		5D00F5C22C6E659E00FD7E52 /* HttpRequests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpRequests.swift; sourceTree = "<group>"; };
-		5D00F5C62C6E662500FD7E52 /* EventMessager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventMessager.swift; sourceTree = "<group>"; };
-		5D00F5C82C6E664400FD7E52 /* DynamicSecret.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicSecret.swift; sourceTree = "<group>"; };
-		5D00F5CA2C6E668400FD7E52 /* LocalEnvironment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalEnvironment.swift; sourceTree = "<group>"; };
 		5D00F5CC2C6E695400FD7E52 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		5D00F5CE2C6E696400FD7E52 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		74D54BCC0EE39638B2FB0D55 /* Pods_TravellersBag.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TravellersBag.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B1A4EF2D5D494A8BA24CAC33 /* Pods-TravellersBag.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravellersBag.release.xcconfig"; path = "Target Support Files/Pods-TravellersBag/Pods-TravellersBag.release.xcconfig"; sourceTree = "<group>"; };
+		5D00F5D02C6E6BBA00FD7E52 /* TravellersBag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = TravellersBag.app; path = /Users/yuanshine/Documents/TravellersBag/build/Debug/TravellersBag.app; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,129 +22,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D668016BB33768F072987505 /* Pods_TravellersBag.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		08CCDF9FA9A0E5A7C4EB8432 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				44F75FED7A97374CEF511300 /* Pods-TravellersBag.debug.xcconfig */,
-				B1A4EF2D5D494A8BA24CAC33 /* Pods-TravellersBag.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
-		100522F900F381E406051260 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				74D54BCC0EE39638B2FB0D55 /* Pods_TravellersBag.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		5D00F58E2C6E392C00FD7E52 = {
 			isa = PBXGroup;
 			children = (
 				5D00F5CC2C6E695400FD7E52 /* README.md */,
-				5D00F5C32C6E659E00FD7E52 /* LibHoyoKit */,
-				5D00F5992C6E392C00FD7E52 /* TravellersBag */,
 				5D00F5CE2C6E696400FD7E52 /* LICENSE */,
-				5D00F5982C6E392C00FD7E52 /* Products */,
-				08CCDF9FA9A0E5A7C4EB8432 /* Pods */,
-				100522F900F381E406051260 /* Frameworks */,
 			);
-			sourceTree = "<group>";
-		};
-		5D00F5982C6E392C00FD7E52 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				5D00F5972C6E392C00FD7E52 /* TravellersBag.app */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		5D00F5992C6E392C00FD7E52 /* TravellersBag */ = {
-			isa = PBXGroup;
-			children = (
-				5D00F5B32C6E474600FD7E52 /* UI */,
-				5D00F5AE2C6E3C6C00FD7E52 /* Features */,
-				5D00F59A2C6E392C00FD7E52 /* TravellersBagApp.swift */,
-				5D00F59E2C6E392D00FD7E52 /* Assets.xcassets */,
-				5D00F5A32C6E392D00FD7E52 /* TravellersBag.entitlements */,
-				5D00F5A02C6E392D00FD7E52 /* Preview Content */,
-				5D00F5A92C6E3A3600FD7E52 /* Localizable.xcstrings */,
-				5D00F5AB2C6E3BE000FD7E52 /* TravellersBagModel.xcdatamodeld */,
-			);
-			path = TravellersBag;
-			sourceTree = "<group>";
-		};
-		5D00F5A02C6E392D00FD7E52 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				5D00F5A12C6E392D00FD7E52 /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		5D00F5AE2C6E3C6C00FD7E52 /* Features */ = {
-			isa = PBXGroup;
-			children = (
-				5D00F5CA2C6E668400FD7E52 /* LocalEnvironment.swift */,
-				5D00F5BF2C6E656400FD7E52 /* FileHandler.swift */,
-				5D00F5B12C6E46AD00FD7E52 /* SwiftyJSON.swift */,
-				5D00F5AF2C6E3C8100FD7E52 /* CoreDataHelper.swift */,
-			);
-			path = Features;
-			sourceTree = "<group>";
-		};
-		5D00F5B32C6E474600FD7E52 /* UI */ = {
-			isa = PBXGroup;
-			children = (
-				5D00F5BC2C6E60EB00FD7E52 /* Compisitions */,
-				5D00F5BB2C6E60D500FD7E52 /* Screens */,
-				5D00F5B42C6E482900FD7E52 /* HomeContainer.swift */,
-				5D00F5B62C6E5C9D00FD7E52 /* HomeController.swift */,
-			);
-			path = UI;
-			sourceTree = "<group>";
-		};
-		5D00F5B82C6E5EA400FD7E52 /* AccountPart */ = {
-			isa = PBXGroup;
-			children = (
-				5D00F5B92C6E5EC300FD7E52 /* AccountScreen.swift */,
-			);
-			path = AccountPart;
-			sourceTree = "<group>";
-		};
-		5D00F5BB2C6E60D500FD7E52 /* Screens */ = {
-			isa = PBXGroup;
-			children = (
-				5D00F5B82C6E5EA400FD7E52 /* AccountPart */,
-			);
-			path = Screens;
-			sourceTree = "<group>";
-		};
-		5D00F5BC2C6E60EB00FD7E52 /* Compisitions */ = {
-			isa = PBXGroup;
-			children = (
-				5D00F5BD2C6E610700FD7E52 /* MDLikeTile.swift */,
-			);
-			path = Compisitions;
-			sourceTree = "<group>";
-		};
-		5D00F5C32C6E659E00FD7E52 /* LibHoyoKit */ = {
-			isa = PBXGroup;
-			children = (
-				5D00F5C82C6E664400FD7E52 /* DynamicSecret.swift */,
-				5D00F5C62C6E662500FD7E52 /* EventMessager.swift */,
-				5D00F5C12C6E659E00FD7E52 /* ApiEndpoints.swift */,
-				5D00F5C22C6E659E00FD7E52 /* HttpRequests.swift */,
-			);
-			path = LibHoyoKit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -205,7 +55,7 @@
 			);
 			name = TravellersBag;
 			productName = TravellersBag;
-			productReference = 5D00F5972C6E392C00FD7E52 /* TravellersBag.app */;
+			productReference = 5D00F5D02C6E6BBA00FD7E52 /* TravellersBag.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -233,7 +83,7 @@
 				"zh-Hans",
 			);
 			mainGroup = 5D00F58E2C6E392C00FD7E52;
-			productRefGroup = 5D00F5982C6E392C00FD7E52 /* Products */;
+			productRefGroup = 5D00F58E2C6E392C00FD7E52;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -247,10 +97,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5D00F5A22C6E392D00FD7E52 /* Preview Assets.xcassets in Resources */,
-				5D00F59F2C6E392D00FD7E52 /* Assets.xcassets in Resources */,
 				5D00F5CD2C6E695400FD7E52 /* README.md in Resources */,
-				5D00F5AA2C6E3A3600FD7E52 /* Localizable.xcstrings in Resources */,
 				5D00F5CF2C6E696400FD7E52 /* LICENSE in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -304,20 +151,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5D00F5C92C6E664400FD7E52 /* DynamicSecret.swift in Sources */,
-				5D00F59B2C6E392C00FD7E52 /* TravellersBagApp.swift in Sources */,
-				5D00F5B02C6E3C8100FD7E52 /* CoreDataHelper.swift in Sources */,
-				5D00F5B72C6E5C9D00FD7E52 /* HomeController.swift in Sources */,
-				5D00F5C02C6E656400FD7E52 /* FileHandler.swift in Sources */,
-				5D00F5C52C6E659E00FD7E52 /* HttpRequests.swift in Sources */,
-				5D00F5B22C6E46AD00FD7E52 /* SwiftyJSON.swift in Sources */,
-				5D00F5CB2C6E668400FD7E52 /* LocalEnvironment.swift in Sources */,
-				5D00F5BA2C6E5EC300FD7E52 /* AccountScreen.swift in Sources */,
-				5D00F5C72C6E662500FD7E52 /* EventMessager.swift in Sources */,
-				5D00F5B52C6E482900FD7E52 /* HomeContainer.swift in Sources */,
-				5D00F5C42C6E659E00FD7E52 /* ApiEndpoints.swift in Sources */,
-				5D00F5AD2C6E3BE000FD7E52 /* TravellersBagModel.xcdatamodeld in Sources */,
-				5D00F5BE2C6E610700FD7E52 /* MDLikeTile.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -448,7 +281,6 @@
 		};
 		5D00F5A72C6E392D00FD7E52 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 44F75FED7A97374CEF511300 /* Pods-TravellersBag.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -481,7 +313,6 @@
 		};
 		5D00F5A82C6E392D00FD7E52 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B1A4EF2D5D494A8BA24CAC33 /* Pods-TravellersBag.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -534,20 +365,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		5D00F5AB2C6E3BE000FD7E52 /* TravellersBagModel.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				5D00F5AC2C6E3BE000FD7E52 /* TravellersBagModel.xcdatamodel */,
-			);
-			currentVersion = 5D00F5AC2C6E3BE000FD7E52 /* TravellersBagModel.xcdatamodel */;
-			name = TravellersBagModel.xcdatamodeld;
-			path = /Users/yuanshine/Documents/TravellersBag/TravellersBag/TravellersBagModel.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 5D00F58F2C6E392C00FD7E52 /* Project object */;
 }
