@@ -88,7 +88,7 @@ extension URLRequest {
     }
     
     /// 设置用户信息
-    mutating func setUser(singleUser: HoyoAccounts) {
+    mutating func setUser(singleUser: ShequAccount) {
         self.setValue("stuid=\(singleUser.stuid!);stoken=\(singleUser.stoken!);mid=\(singleUser.mid!);", forHTTPHeaderField: "cookie")
     }
     

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22758" systemVersion="23G93" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
+    <entity name="ShequAccount" representedClassName="ShequAccount" syncable="YES" codeGenerationType="class">
+        <attribute name="active" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="cookieToken" optional="YES" attributeType="String"/>
+        <attribute name="gameToken" optional="YES" attributeType="String"/>
+        <attribute name="genshinNicname" optional="YES" attributeType="String"/>
+        <attribute name="genshinPicID" optional="YES" attributeType="String"/>
+        <attribute name="genshinUID" optional="YES" attributeType="String"/>
+        <attribute name="level" optional="YES" attributeType="String"/>
+        <attribute name="ltoken" optional="YES" attributeType="String"/>
+        <attribute name="mid" optional="YES" attributeType="String"/>
+        <attribute name="serverName" optional="YES" attributeType="String"/>
+        <attribute name="serverRegion" optional="YES" attributeType="String"/>
+        <attribute name="shequHead" optional="YES" attributeType="String"/>
+        <attribute name="shequNicname" optional="YES" attributeType="String"/>
+        <attribute name="stoken" optional="YES" attributeType="String"/>
+        <attribute name="stuid" optional="YES" attributeType="String"/>
+    </entity>
+</model>

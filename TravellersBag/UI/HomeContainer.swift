@@ -1,12 +1,35 @@
 //
-//  ContentView.swift
+//  HomeContainer.swift
 //  TravellersBag
 //
-//  Created by 鸳汐 on 2024/8/5.
+//  Created by 鸳汐 on 2024/8/15.
 //
 
 import SwiftUI
 import AlertToast
+
+struct HomeContainer: View {
+    @AppStorage("currentAppVersion") var currentVersion: String = "0.0.0"
+    @StateObject private var controller = HomeController.shared
+    @Environment(\.managedObjectContext) private var dataManager
+    
+    var body: some View {
+        if currentVersion != "0.0.1" {
+            WizardPart(changeVersion: { currentVersion = "0.0.1" })
+        } else {
+            HomePart()
+                .onAppear {
+                    controller.initSomething(inContext: dataManager)
+                }
+                .toast(
+                    isPresenting: $controller.showErrDialog,
+                    alert: { AlertToast(type: .error(.red), title: controller.errDialogMessage) })
+                .toast(
+                    isPresenting: $controller.showInfoDialog,
+                    alert: { AlertToast(type: .complete(.green), title: controller.infoDialogMessage) })
+        }
+    }
+}
 
 /// 容器的功能分区
 private enum Functions {
@@ -16,31 +39,9 @@ private enum Functions {
     case Character //游戏角色
 }
 
-/// 全局消息弹出管理
-class ContentMessager : ObservableObject { // 这个类必须是单例类
-    static let shared = ContentMessager()
-    
-    @Published var showErrDialog: Bool = false // 显示错误弹窗
-    @Published var errDialogMessage: String = ""
-    
-    @Published var showInfoDialog: Bool = false // 显示基本消息弹窗
-    @Published var infoDialogMessage: String = ""
-    
-    /// 呼出一个错误弹窗 【必须在UI线程执行】
-    func showErrorDialog(msg: String) {
-        showErrDialog = true; errDialogMessage = msg
-    }
-    
-    /// 呼出一个基本信息弹窗 【必须在UI线程执行】
-    func showInfomationDialog(msg: String) {
-        showInfoDialog = true; infoDialogMessage = msg
-    }
-}
-
-struct ContentView: View {
-    @State private var showUI = false
+private struct HomePart: View {
     @State private var selectedFeat: Functions = .Notice
-    @StateObject private var msgHelper = ContentMessager.shared
+    @State private var showUI: Bool = false
     
     var body: some View {
         if showUI {
@@ -55,33 +56,69 @@ struct ContentView: View {
                 }
             } detail: {
                 switch selectedFeat {
-                case .Notice: NoticeScreen()
-                case .Account: AccountManagerScreen()
-                case .Launcher: LauncherScreen()
-                case .Character: CharacterScreen()
+                case .Account: AccountScreen()
+                default: Text("app.developing")
                 }
             }
-            // 注册上述两个全局信息弹窗
-            .toast(isPresenting: $msgHelper.showErrDialog, alert: { AlertToast(type: .error(.red), title: msgHelper.errDialogMessage) })
-            .toast(isPresenting: $msgHelper.showInfoDialog, alert: { AlertToast(type: .complete(.green), title: msgHelper.infoDialogMessage) })
         } else {
             VStack {
                 Image(systemName: "timer").font(.system(size: 32))
                     .padding(.bottom, 8)
                 Text("home.container").font(.headline)
-            }.padding()
-                .onAppear {
-                    Task {
-                        await LocalEnvironment.shared.checkFigurePointer()
-                        DispatchQueue.main.async {
-                            showUI.toggle()
-                        }
-                    }
+            }
+            .padding()
+            .onAppear {
+                Task {
+                    await LocalEnvironment.shared.checkFigurePointer()
+                    DispatchQueue.main.async { self.showUI.toggle() }
                 }
+            }
         }
     }
 }
 
+private struct WizardPart: View {
+    let changeVersion: () -> Void
+    
+    var body: some View {
+        VStack {
+            Image("app_logo")
+                .resizable()
+                .frame(width: 48, height: 48)
+                .scaledToFit()
+                .padding(.vertical, 8)
+            Text("app.name").font(.title2).padding(.bottom, 8)
+            Text("app.description").multilineTextAlignment(.leading).padding(4)
+            VStack {
+                Link(destination: URL(string: "https://www.gnu.org/licenses/gpl-3.0.html")!, label: {
+                    Label("wizard.look_gpl", systemImage: "licenseplate")
+                })
+                ZStack {}.frame(height: 4)
+                Link(destination: URL(string: "https://github.com/DreamedWorker/TravellersBag")!, label: {
+                    Label("wizard.look_repo", systemImage: "opticaldiscdrive")
+                })
+            }.padding(.bottom, 4)
+            Spacer()
+            Text("app.description_2").font(.footnote).multilineTextAlignment(.leading).padding(4)
+            Text("wizard.look_gpl.tip").font(.footnote).multilineTextAlignment(.leading)
+            Divider()
+            HStack {
+                Button(action: {
+                    exit(0) //不同意者直接退出
+                }, label: {
+                    Text("wizard.cancel")
+                }).padding(.trailing, 8)
+                    .buttonStyle(BorderedProminentButtonStyle())
+                Button(action: {
+                    changeVersion()
+                }, label: {
+                    Text("wizard.ok")
+                })
+            }.padding(.bottom, 8)
+        }.frame(maxWidth: 450)
+    }
+}
+
 #Preview {
-    ContentView()
+    HomeContainer()
 }

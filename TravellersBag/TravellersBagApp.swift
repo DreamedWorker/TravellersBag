@@ -2,7 +2,7 @@
 //  TravellersBagApp.swift
 //  TravellersBag
 //
-//  Created by 鸳汐 on 2024/8/5.
+//  Created by 鸳汐 on 2024/8/15.
 //
 
 import SwiftUI
@@ -10,24 +10,17 @@ import MMKV
 
 @main
 struct TravellersBagApp: App {
-    @StateObject private var appDataStack = AppPersistence.shared
+    @StateObject private var coreDataHelper = CoreDataHelper.shared
     
     init() {
-        MMKV.initialize(rootDir: nil) //默认库 用于存储全局性的kv对
-        LocalNotification.shared.requestPermission()
+        MMKV.initialize(rootDir: nil) // 默认库 用于存储全局性的kv对
         LocalEnvironment.shared.checkEnvironment()
     }
     
     var body: some Scene {
         WindowGroup {
-            if MMKV.defaultMMKV(withCryptKey: nil)!.string(forKey: "appVersion", defaultValue: "0.0.0")! == "0.0.1" {
-                ContentView()
-                    .environment(\.managedObjectContext, appDataStack.persistentContainer.viewContext)
-                    .frame(width: 1024, height: 600)
-            } else {
-                WizardScene()
-                    .frame(width: 1024, height: 600)
-            }
+            HomeContainer()
+                .environment(\.managedObjectContext, coreDataHelper.persistentContainer.viewContext)
         }
     }
 }
