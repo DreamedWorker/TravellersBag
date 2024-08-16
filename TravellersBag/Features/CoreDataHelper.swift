@@ -55,4 +55,9 @@ extension CoreDataHelper {
             return nil
         }
     }
+    
+    /// 删除账号
+    func deleteUser(single: ShequAccount) {
+        persistentContainer.viewContext.delete(single)
+    }
 }

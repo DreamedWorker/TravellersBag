@@ -46,7 +46,7 @@ private struct HomePart: View {
     var body: some View {
         if showUI {
             NavigationSplitView {
-                List(selection: $selectedFeat) {
+                List(selection: $selectedFeat) { // 这里会有一个奇怪的报错，但我们忽视它，因为苹果自己的示例项目也报了相同的错误。
                     NavigationLink(value: Functions.Notice, label: { Label("home.sider.notice", systemImage: "house")} )
                     Spacer()
                     NavigationLink(value: Functions.Launcher, label: { Label("home.sider.launcher", systemImage: "play")} )
@@ -55,9 +55,10 @@ private struct HomePart: View {
                     NavigationLink(value: Functions.Account, label: { Label("home.sider.account", systemImage: "person.circle")} )
                 }
             } detail: {
-                switch selectedFeat {
-                case .Account: AccountScreen()
-                default: Text("app.developing")
+                if selectedFeat == .Account {
+                    AccountScreen()
+                } else {
+                    Text("app.developing")
                 }
             }
         } else {

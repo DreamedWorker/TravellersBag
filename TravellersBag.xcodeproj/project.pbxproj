@@ -26,6 +26,11 @@
 		5D00F5CB2C6E668400FD7E52 /* LocalEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D00F5CA2C6E668400FD7E52 /* LocalEnvironment.swift */; };
 		5D00F5CD2C6E695400FD7E52 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 5D00F5CC2C6E695400FD7E52 /* README.md */; };
 		5D00F5CF2C6E696400FD7E52 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 5D00F5CE2C6E696400FD7E52 /* LICENSE */; };
+		5D82B01D2C6EEB2000C585EC /* AccountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D82B01C2C6EEB2000C585EC /* AccountModel.swift */; };
+		5D82B0202C6F13E800C585EC /* AccountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D82B01F2C6F13E800C585EC /* AccountService.swift */; };
+		5D82B0222C6F3D6200C585EC /* Character+Verification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D82B0212C6F3D6200C585EC /* Character+Verification.swift */; };
+		5D82B0252C6F4C0D00C585EC /* pfps.json in Resources */ = {isa = PBXBuildFile; fileRef = 5D82B0242C6F4C0D00C585EC /* pfps.json */; };
+		5D82B0272C6F4F8F00C585EC /* AccountTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D82B0262C6F4F8F00C585EC /* AccountTile.swift */; };
 		D668016BB33768F072987505 /* Pods_TravellersBag.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74D54BCC0EE39638B2FB0D55 /* Pods_TravellersBag.framework */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +57,11 @@
 		5D00F5CA2C6E668400FD7E52 /* LocalEnvironment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalEnvironment.swift; sourceTree = "<group>"; };
 		5D00F5CC2C6E695400FD7E52 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		5D00F5CE2C6E696400FD7E52 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		5D82B01C2C6EEB2000C585EC /* AccountModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountModel.swift; sourceTree = "<group>"; };
+		5D82B01F2C6F13E800C585EC /* AccountService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountService.swift; sourceTree = "<group>"; };
+		5D82B0212C6F3D6200C585EC /* Character+Verification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Character+Verification.swift"; sourceTree = "<group>"; };
+		5D82B0242C6F4C0D00C585EC /* pfps.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pfps.json; sourceTree = "<group>"; };
+		5D82B0262C6F4F8F00C585EC /* AccountTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTile.swift; sourceTree = "<group>"; };
 		74D54BCC0EE39638B2FB0D55 /* Pods_TravellersBag.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TravellersBag.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1A4EF2D5D494A8BA24CAC33 /* Pods-TravellersBag.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravellersBag.release.xcconfig"; path = "Target Support Files/Pods-TravellersBag/Pods-TravellersBag.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -109,6 +119,7 @@
 		5D00F5992C6E392C00FD7E52 /* TravellersBag */ = {
 			isa = PBXGroup;
 			children = (
+				5D82B01E2C6F13D400C585EC /* Services */,
 				5D00F5B32C6E474600FD7E52 /* UI */,
 				5D00F5AE2C6E3C6C00FD7E52 /* Features */,
 				5D00F59A2C6E392C00FD7E52 /* TravellersBagApp.swift */,
@@ -155,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				5D00F5B92C6E5EC300FD7E52 /* AccountScreen.swift */,
+				5D82B01C2C6EEB2000C585EC /* AccountModel.swift */,
 			);
 			path = AccountPart;
 			sourceTree = "<group>";
@@ -171,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				5D00F5BD2C6E610700FD7E52 /* MDLikeTile.swift */,
+				5D82B0262C6F4F8F00C585EC /* AccountTile.swift */,
 			);
 			path = Compisitions;
 			sourceTree = "<group>";
@@ -178,12 +191,30 @@
 		5D00F5C32C6E659E00FD7E52 /* LibHoyoKit */ = {
 			isa = PBXGroup;
 			children = (
+				5D82B0232C6F4AD600C585EC /* EnkaResources */,
 				5D00F5C82C6E664400FD7E52 /* DynamicSecret.swift */,
 				5D00F5C62C6E662500FD7E52 /* EventMessager.swift */,
 				5D00F5C12C6E659E00FD7E52 /* ApiEndpoints.swift */,
 				5D00F5C22C6E659E00FD7E52 /* HttpRequests.swift */,
 			);
 			path = LibHoyoKit;
+			sourceTree = "<group>";
+		};
+		5D82B01E2C6F13D400C585EC /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				5D82B0212C6F3D6200C585EC /* Character+Verification.swift */,
+				5D82B01F2C6F13E800C585EC /* AccountService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		5D82B0232C6F4AD600C585EC /* EnkaResources */ = {
+			isa = PBXGroup;
+			children = (
+				5D82B0242C6F4C0D00C585EC /* pfps.json */,
+			);
+			path = EnkaResources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -249,6 +280,7 @@
 			files = (
 				5D00F5A22C6E392D00FD7E52 /* Preview Assets.xcassets in Resources */,
 				5D00F59F2C6E392D00FD7E52 /* Assets.xcassets in Resources */,
+				5D82B0252C6F4C0D00C585EC /* pfps.json in Resources */,
 				5D00F5CD2C6E695400FD7E52 /* README.md in Resources */,
 				5D00F5AA2C6E3A3600FD7E52 /* Localizable.xcstrings in Resources */,
 				5D00F5CF2C6E696400FD7E52 /* LICENSE in Resources */,
@@ -312,12 +344,16 @@
 				5D00F5C52C6E659E00FD7E52 /* HttpRequests.swift in Sources */,
 				5D00F5B22C6E46AD00FD7E52 /* SwiftyJSON.swift in Sources */,
 				5D00F5CB2C6E668400FD7E52 /* LocalEnvironment.swift in Sources */,
+				5D82B0222C6F3D6200C585EC /* Character+Verification.swift in Sources */,
 				5D00F5BA2C6E5EC300FD7E52 /* AccountScreen.swift in Sources */,
 				5D00F5C72C6E662500FD7E52 /* EventMessager.swift in Sources */,
+				5D82B01D2C6EEB2000C585EC /* AccountModel.swift in Sources */,
 				5D00F5B52C6E482900FD7E52 /* HomeContainer.swift in Sources */,
 				5D00F5C42C6E659E00FD7E52 /* ApiEndpoints.swift in Sources */,
+				5D82B0202C6F13E800C585EC /* AccountService.swift in Sources */,
 				5D00F5AD2C6E3BE000FD7E52 /* TravellersBagModel.xcdatamodeld in Sources */,
 				5D00F5BE2C6E610700FD7E52 /* MDLikeTile.swift in Sources */,
+				5D82B0272C6F4F8F00C585EC /* AccountTile.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
