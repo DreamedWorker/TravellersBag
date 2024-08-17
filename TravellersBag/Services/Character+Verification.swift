@@ -33,7 +33,7 @@ class CharacterService {
     
     /// 从Enka.network的镜像站获取角色橱窗的信息
     func pullCharactersFromEnka(gameUID: String) async throws -> Data {
-        let req = URLRequest(url: URL(string: "https://profile.microgg.cn/api/uid/\(Int(gameUID)!)")!)
+        let req = URLRequest(url: URL(string: "https://enka.network/api/uid/\(Int(gameUID)!)")!)
         let (data, _) = try await httpSession().data(for: req)
         return data
     }
