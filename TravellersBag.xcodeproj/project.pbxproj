@@ -31,6 +31,8 @@
 		5D82B0222C6F3D6200C585EC /* Character+Verification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D82B0212C6F3D6200C585EC /* Character+Verification.swift */; };
 		5D82B0252C6F4C0D00C585EC /* pfps.json in Resources */ = {isa = PBXBuildFile; fileRef = 5D82B0242C6F4C0D00C585EC /* pfps.json */; };
 		5D82B0272C6F4F8F00C585EC /* AccountTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D82B0262C6F4F8F00C585EC /* AccountTile.swift */; };
+		5DA091472C70700300751E6A /* LaunchOptionScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA091462C70700300751E6A /* LaunchOptionScreen.swift */; };
+		5DA091492C7071C800751E6A /* LauncherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA091482C7071C800751E6A /* LauncherModel.swift */; };
 		D668016BB33768F072987505 /* Pods_TravellersBag.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74D54BCC0EE39638B2FB0D55 /* Pods_TravellersBag.framework */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +64,8 @@
 		5D82B0212C6F3D6200C585EC /* Character+Verification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Character+Verification.swift"; sourceTree = "<group>"; };
 		5D82B0242C6F4C0D00C585EC /* pfps.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pfps.json; sourceTree = "<group>"; };
 		5D82B0262C6F4F8F00C585EC /* AccountTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTile.swift; sourceTree = "<group>"; };
+		5DA091462C70700300751E6A /* LaunchOptionScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchOptionScreen.swift; sourceTree = "<group>"; };
+		5DA091482C7071C800751E6A /* LauncherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LauncherModel.swift; sourceTree = "<group>"; };
 		74D54BCC0EE39638B2FB0D55 /* Pods_TravellersBag.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TravellersBag.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1A4EF2D5D494A8BA24CAC33 /* Pods-TravellersBag.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravellersBag.release.xcconfig"; path = "Target Support Files/Pods-TravellersBag/Pods-TravellersBag.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -174,6 +178,7 @@
 		5D00F5BB2C6E60D500FD7E52 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				5DA091452C706E3100751E6A /* LauncherPart */,
 				5D00F5B82C6E5EA400FD7E52 /* AccountPart */,
 			);
 			path = Screens;
@@ -215,6 +220,15 @@
 				5D82B0242C6F4C0D00C585EC /* pfps.json */,
 			);
 			path = EnkaResources;
+			sourceTree = "<group>";
+		};
+		5DA091452C706E3100751E6A /* LauncherPart */ = {
+			isa = PBXGroup;
+			children = (
+				5DA091462C70700300751E6A /* LaunchOptionScreen.swift */,
+				5DA091482C7071C800751E6A /* LauncherModel.swift */,
+			);
+			path = LauncherPart;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -340,6 +354,8 @@
 				5D00F59B2C6E392C00FD7E52 /* TravellersBagApp.swift in Sources */,
 				5D00F5B02C6E3C8100FD7E52 /* CoreDataHelper.swift in Sources */,
 				5D00F5B72C6E5C9D00FD7E52 /* HomeController.swift in Sources */,
+				5DA091472C70700300751E6A /* LaunchOptionScreen.swift in Sources */,
+				5DA091492C7071C800751E6A /* LauncherModel.swift in Sources */,
 				5D00F5C02C6E656400FD7E52 /* FileHandler.swift in Sources */,
 				5D00F5C52C6E659E00FD7E52 /* HttpRequests.swift in Sources */,
 				5D00F5B22C6E46AD00FD7E52 /* SwiftyJSON.swift in Sources */,

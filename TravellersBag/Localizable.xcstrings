@@ -153,6 +153,94 @@
         }
       }
     },
+    "launcher.global.error_test_command" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "命令运行时出现问题"
+          }
+        }
+      }
+    },
+    "launcher.global.tip" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "你需要在完成输入后敲击回车以保存。"
+          }
+        }
+      }
+    },
+    "launcher.method.command" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "通过自定义命令"
+          }
+        }
+      }
+    },
+    "launcher.method.command_detail" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "命令内容"
+          }
+        }
+      }
+    },
+    "launcher.method.command_test" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "测试命令"
+          }
+        }
+      }
+    },
+    "launcher.method.command_tip" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "我们会在你输入的命令开头加上「/bin/zsh -c」以使其执行。"
+          }
+        }
+      }
+    },
+    "launcher.method.layer" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "通过兼容层"
+          }
+        }
+      }
+    },
+    "launcher.method.layer_name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "你的兼容层软件名称（应当是xxxx.app）"
+          }
+        }
+      }
+    },
     "user.add_successfully" : {
       "extractionState" : "manual",
       "localizations" : {

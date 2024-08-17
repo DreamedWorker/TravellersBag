@@ -55,10 +55,11 @@ private struct HomePart: View {
                     NavigationLink(value: Functions.Account, label: { Label("home.sider.account", systemImage: "person.circle")} )
                 }
             } detail: {
-                if selectedFeat == .Account {
+                switch selectedFeat {
+                case .Account:
                     AccountScreen()
-                } else {
-                    Text("app.developing")
+                case .Launcher: LaunchOptionScreen()
+                default: Text("app.developing")
                 }
             }
         } else {
