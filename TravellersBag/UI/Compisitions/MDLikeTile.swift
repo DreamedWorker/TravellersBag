@@ -15,14 +15,17 @@ struct MDLikeTile: View {
     let onClick: () -> Void
     
     var body: some View {
-        HStack {
-            Image(systemName: leadingIcon).padding(.trailing, 8)
-            Text(title)
-            Spacer()
-            Image(systemName: endIcon)
-        }.onTapGesture {
-            onClick()
-        }
+        Button(
+            action: { onClick() },
+            label: {
+                HStack {
+                    Image(systemName: leadingIcon).padding(.trailing, 8)
+                    Text(title)
+                    Spacer()
+                    Image(systemName: endIcon)
+                }.padding()
+            }
+        )
     }
 }
 

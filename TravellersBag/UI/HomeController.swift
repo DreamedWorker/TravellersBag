@@ -23,10 +23,7 @@ class HomeController : ObservableObject { // 这个类必须是单例类
     
     func initSomething(inContext: NSManagedObjectContext) {
         context = inContext
-        currentUser = CoreDataHelper.shared.fetchDefaultUser()
-        if currentUser == nil {
-            print("you have not set a default account yet.")
-        }
+        refreshLoginState()
     }
     
     /// 呼出一个错误弹窗 【必须在UI线程执行】
@@ -37,5 +34,12 @@ class HomeController : ObservableObject { // 这个类必须是单例类
     /// 呼出一个基本信息弹窗 【必须在UI线程执行】
     func showInfomationDialog(msg: String) {
         showInfoDialog = true; infoDialogMessage = msg
+    }
+    
+    func refreshLoginState() {
+        currentUser = CoreDataHelper.shared.fetchDefaultUser()
+        if currentUser == nil {
+            print("you have not set a default account yet.")
+        }
     }
 }

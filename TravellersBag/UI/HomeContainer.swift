@@ -59,6 +59,7 @@ private struct HomePart: View {
                 case .Account:
                     AccountScreen()
                 case .Launcher: LaunchOptionScreen()
+                case .Character: CharacterScreen()
                 default: Text("app.developing")
                 }
             }

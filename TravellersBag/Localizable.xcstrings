@@ -87,6 +87,149 @@
         }
       }
     },
+    "character.detail.fetter" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "好感度：%@"
+          }
+        }
+      }
+    },
+    "character.detail.level" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lv.%@"
+          }
+        }
+      }
+    },
+    "character.detail.select_first" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请先选择一个角色以查看详情"
+          }
+        }
+      }
+    },
+    "character.detail.talents" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已激活的命座数：%@命"
+          }
+        }
+      }
+    },
+    "character.forbid.no_user" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "你当前未登录账号，无法查看本页！"
+          }
+        }
+      }
+    },
+    "character.forbid.rerfresh" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "刷新登录状态"
+          }
+        }
+      }
+    },
+    "character.sheet_update.enka" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "从Enka获取橱窗数据"
+          }
+        }
+      }
+    },
+    "character.sheet_update.miyoushe" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "从米游社主页获取全部角色"
+          }
+        }
+      }
+    },
+    "character.sheet_update.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "从数据源更新角色信息"
+          }
+        }
+      }
+    },
+    "character.toast.refresh_failed" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "拉取角色数据失败，%@"
+          }
+        }
+      }
+    },
+    "character.toast.refresh_successful" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "拉取角色数据成功！"
+          }
+        }
+      }
+    },
+    "character.toolbar.sync" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "同步角色数据"
+          }
+        }
+      }
+    },
+    "character.toolbar.verify" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "申请人机验证任务"
+          }
+        }
+      }
+    },
     "error.fetch_default_user" : {
       "extractionState" : "manual",
       "localizations" : {
