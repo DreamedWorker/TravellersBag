@@ -30,6 +30,10 @@ class CharacterModel: ObservableObject {
     @Published var characterDetail: EnkaAvatar? = nil
     @Published var uiState: CharacterUIState = .Loading
     @Published var showUpdateWindow = false
+    @Published var showVerifyWindow = false
+    
+    @Published var challenge: String = ""
+    @Published var gt: String = ""
     
     /// 让界面显示内容 在初始化或者刷新内容时使用
     @MainActor func showCharacters(uid: String) {
@@ -87,6 +91,7 @@ class CharacterModel: ObservableObject {
         }
     }
     
+    /// 从enka 重新获取数据并更新UI （会覆盖本地文件）
     func updateCharactersFromEnka(uid: String) async {
         do {
             let newData = try await CharacterService.shared.pullCharactersFromEnka(
@@ -156,6 +161,43 @@ class CharacterModel: ObservableObject {
         return "https://enka.network/ui/\(name).png"
     }
     
+    /// 在点按「人机验证」按钮后判断是否要打开sheet，打开之前需要已经加载好了验证所需的两个参数
+    func showWebOrNot() async {
+        if let surelyUser = HomeController.shared.currentUser {
+            do {
+                let data = try await createVerificationCode(user: surelyUser)
+                DispatchQueue.main.async {
+                    self.gt = data["gt"].stringValue
+                    self.challenge = data["challenge"].stringValue
+                    self.showVerifyWindow = true
+                }
+            } catch {
+                await showErrorDialog(msg: error.localizedDescription)
+            }
+        } else {
+            await showErrorDialog(msg: NSLocalizedString("character.verify.error_no_user", comment: ""))
+        }
+    }
+    
+    /// 向水社发送极验结果
+    func verifyGeetestCode(validate: String) async {
+        // 这里就不需要判断默认账号是否存在了 因为如果不存在的话根本不会呼出验证sheet
+        do {
+            let result = try await tryGeetestCode(user: HomeController.shared.currentUser!, validate: validate, challenge: challenge)
+            DispatchQueue.main.async {
+                HomeController.shared.showInfomationDialog(msg: NSLocalizedString("character.verify.pass_it", comment: ""))
+            }
+            print("验证结果：\(result.rawString() as Any)")
+        } catch {
+            await showErrorDialog(msg: error.localizedDescription)
+        }
+        DispatchQueue.main.async { //无论如何都先关闭这个sheet
+            self.challenge = ""
+            self.gt = ""
+            self.showVerifyWindow = false
+        }
+    }
+    
     private func getEquipArtifactFromEnka(data: [JSON]) -> [EnkaArtifact] {
         var artifacts: [EnkaArtifact] = []
         for single in data {
@@ -208,5 +250,11 @@ class CharacterModel: ObservableObject {
             }
         }
         return tempWeapon
+    }
+    
+    private func showErrorDialog(msg: String) async {
+        DispatchQueue.main.async {
+            HomeController.shared.showErrorDialog(msg: msg)
+        }
     }
 }

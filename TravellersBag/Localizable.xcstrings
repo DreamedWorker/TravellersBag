@@ -175,6 +175,17 @@
         }
       }
     },
+    "character.sheet_update.tips" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "从社区主页拉取数据可能需要进行人机验证，你可以点按屏幕右上角的小人图标进行，但是人机验证也有大概率无法通过。"
+          }
+        }
+      }
+    },
     "character.sheet_update.title" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -226,6 +237,39 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "申请人机验证任务"
+          }
+        }
+      }
+    },
+    "character.verify.error_no_user" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "你尚未登录！"
+          }
+        }
+      }
+    },
+    "character.verify.pass_it" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "人机校验通过"
+          }
+        }
+      }
+    },
+    "character.verify.window_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "完成人机验证"
           }
         }
       }

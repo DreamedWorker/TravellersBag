@@ -33,6 +33,7 @@
 		5D82B0272C6F4F8F00C585EC /* AccountTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D82B0262C6F4F8F00C585EC /* AccountTile.swift */; };
 		5D9F4EBE2C71BBF700EBD936 /* CharacterDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9F4EBD2C71BBF700EBD936 /* CharacterDetail.swift */; };
 		5D9F4EC02C71E46600EBD936 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9F4EBF2C71E46600EBD936 /* CardView.swift */; };
+		5D9F4EC22C72535900EBD936 /* VerificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9F4EC12C72535900EBD936 /* VerificationView.swift */; };
 		5DA091472C70700300751E6A /* LaunchOptionScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA091462C70700300751E6A /* LaunchOptionScreen.swift */; };
 		5DA091492C7071C800751E6A /* LauncherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA091482C7071C800751E6A /* LauncherModel.swift */; };
 		5DA0914C2C709B3800751E6A /* CharacterScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA0914B2C709B3800751E6A /* CharacterScreen.swift */; };
@@ -73,6 +74,7 @@
 		5D82B0262C6F4F8F00C585EC /* AccountTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTile.swift; sourceTree = "<group>"; };
 		5D9F4EBD2C71BBF700EBD936 /* CharacterDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetail.swift; sourceTree = "<group>"; };
 		5D9F4EBF2C71E46600EBD936 /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		5D9F4EC12C72535900EBD936 /* VerificationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerificationView.swift; sourceTree = "<group>"; };
 		5DA091462C70700300751E6A /* LaunchOptionScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchOptionScreen.swift; sourceTree = "<group>"; };
 		5DA091482C7071C800751E6A /* LauncherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LauncherModel.swift; sourceTree = "<group>"; };
 		5DA0914B2C709B3800751E6A /* CharacterScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterScreen.swift; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 		5D00F5BC2C6E60EB00FD7E52 /* Compisitions */ = {
 			isa = PBXGroup;
 			children = (
+				5D9F4EC12C72535900EBD936 /* VerificationView.swift */,
 				5D9F4EBF2C71E46600EBD936 /* CardView.swift */,
 				5D00F5BD2C6E610700FD7E52 /* MDLikeTile.swift */,
 				5D82B0262C6F4F8F00C585EC /* AccountTile.swift */,
@@ -390,6 +393,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D9F4EBE2C71BBF700EBD936 /* CharacterDetail.swift in Sources */,
+				5D9F4EC22C72535900EBD936 /* VerificationView.swift in Sources */,
 				5D00F5C92C6E664400FD7E52 /* DynamicSecret.swift in Sources */,
 				5D00F59B2C6E392C00FD7E52 /* TravellersBagApp.swift in Sources */,
 				5D00F5B02C6E3C8100FD7E52 /* CoreDataHelper.swift in Sources */,

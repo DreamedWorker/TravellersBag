@@ -59,7 +59,9 @@ struct CharacterScreen: View {
         .navigationTitle(Text("home.sider.characters"))
         .toolbar {
             ToolbarItem(content: {
-                Button(action: {}, label: { Image(systemName: "figure.stand").help("character.toolbar.verify") })
+                Button(action: {
+                    Task { await viewModel.showWebOrNot() }
+                }, label: { Image(systemName: "figure.stand").help("character.toolbar.verify") })
             })
             ToolbarItem(content: {
                 Button(action: {
@@ -68,6 +70,42 @@ struct CharacterScreen: View {
             })
         }
         .sheet(isPresented: $viewModel.showUpdateWindow, content: { updateDataScouceChoice })
+        .sheet(isPresented: $viewModel.showVerifyWindow, content: { finishVerificationTask })
+    }
+    
+    var finishVerificationTask: some View {
+        NavigationStack {
+            VStack {
+                Text("character.verify.window_title").font(.title)
+                VerificationView(challenge: viewModel.challenge, gt: viewModel.gt, completion: { con in
+                    Task {
+                        await viewModel.verifyGeetestCode(validate: con)
+                        do {
+                            let user = HomeController.shared.currentUser!
+                            let shequCharacterInfo = try await CharacterService.shared.getAllCharacterFromMiyoushe(user: user)
+                            let shequFile = try FileManager.default.url(
+                                for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+                                .appending(component: "characters_from_shequ-\(user.genshinUID!).json")
+                                .path().removingPercentEncoding!
+                            if !FileManager.default.fileExists(atPath: shequFile) {
+                                FileManager.default.createFile(atPath: shequFile, contents: nil)
+                            }
+                            FileHandler.shared.writeUtf8String(path: shequFile, context: shequCharacterInfo.rawString()!)
+                            // 有数据了就执行加载 不确定是否成功
+                        } catch {
+                            print(error.localizedDescription)
+                        }
+                    }
+                })
+            }.padding()
+        }
+        .frame(width: 600, height: 400)
+        .toolbar(content: {
+            ToolbarItem(placement: .cancellationAction, content: {
+                Button("app.cancel", action: { viewModel.showVerifyWindow = false })
+                    .buttonStyle(BorderedProminentButtonStyle())
+            })
+        })
     }
     
     var updateDataScouceChoice: some View {
@@ -94,6 +132,7 @@ struct CharacterScreen: View {
                         onClick: {}
                     )
                 }
+                Text("character.sheet_update.tips").font(.footnote).multilineTextAlignment(.leading)
             }.padding()
         }
         .frame(minWidth: 400, minHeight: 300)
