@@ -11,10 +11,11 @@ import Kingfisher
 struct CharacterScreen: View {
     @Environment(\.managedObjectContext) private var dataManager
     @StateObject private var viewModel = CharacterModel.shared
+    @State private var showUI = false
     
     var body: some View {
         VStack {
-            if HomeController.shared.currentUser != nil {
+            if showUI {
                 switch viewModel.uiState {
                 case .Loading:
                     VStack {
@@ -56,21 +57,35 @@ struct CharacterScreen: View {
                 noDefaultUser
             }
         }
+        .onAppear {
+            changeUiState()
+        }
         .navigationTitle(Text("home.sider.characters"))
         .toolbar {
-            ToolbarItem(content: {
+            ToolbarItem {
                 Button(action: {
                     Task { await viewModel.showWebOrNot() }
                 }, label: { Image(systemName: "figure.stand").help("character.toolbar.verify") })
-            })
-            ToolbarItem(content: {
+                .disabled(HomeController.shared.currentUser == nil)
+            }
+            ToolbarItem {
                 Button(action: {
                     viewModel.showUpdateWindow = true
                 }, label: { Image(systemName: "arrow.triangle.2.circlepath").help("character.toolbar.sync") })
-            })
+                .disabled(HomeController.shared.currentUser == nil)
+            }
         }
         .sheet(isPresented: $viewModel.showUpdateWindow, content: { updateDataScouceChoice })
         .sheet(isPresented: $viewModel.showVerifyWindow, content: { finishVerificationTask })
+    }
+    
+    private func changeUiState(refresh: Bool = false) {
+        if refresh {
+            HomeController.shared.refreshLoginState()
+        }
+        if HomeController.shared.currentUser != nil {
+            showUI = true
+        }
     }
     
     var finishVerificationTask: some View {
@@ -151,7 +166,7 @@ struct CharacterScreen: View {
                 .font(.system(size: 32)).foregroundStyle(.accent)
             Text("character.forbid.no_user").padding(.vertical, 8)
                 .font(.title3).bold()
-            Button("character.forbid.rerfresh", action: { HomeController.shared.refreshLoginState() })
+            Button("character.forbid.rerfresh", action: { changeUiState(refresh: true) })
                 .buttonStyle(BorderedProminentButtonStyle())
         }.padding()
     }

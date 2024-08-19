@@ -77,12 +77,25 @@ struct AccountTile: View {
                     LocalEnvironment.shared.setStringValue(key: "default_account_stuid", value: "")
                     LocalEnvironment.shared.setStringValue(key: "default_account_stoken", value: "")
                     LocalEnvironment.shared.setStringValue(key: "default_account_mid", value: "")
+                    removeSomeFile()
                     let acc = account
                     let _ = CoreDataHelper.shared.deleteUser(single: acc)
                     let _ = CoreDataHelper.shared.save()
+                    HomeController.shared.currentUser = nil
                     refresh()
                 })
             }
         }.padding(4)
+    }
+    
+    /// 删除账号时删除一些相关文件
+    private func removeSomeFile() {
+        let user = HomeController.shared.currentUser!
+        let enkaData = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+            .appending(component: "characters_from_enka-\(user.genshinUID!).json").path().removingPercentEncoding!
+        let shequData = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+            .appending(component: "characters_from_shequ-\(user.genshinUID!).json").path().removingPercentEncoding!
+        if FileManager.default.fileExists(atPath: enkaData){ try! FileManager.default.removeItem(atPath: enkaData) }
+        if FileManager.default.fileExists(atPath: shequData){ try! FileManager.default.removeItem(atPath: shequData) }
     }
 }
