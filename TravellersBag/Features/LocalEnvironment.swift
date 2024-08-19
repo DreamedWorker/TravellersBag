@@ -24,7 +24,8 @@ class LocalEnvironment {
     static var gameBizGenshin = "hk4e_cn"  //原神游戏ID
     static var xrpcVersion = "2.71.1" //米社版本
     static var clientType = "2" //类型：客户端
-    static var hoyoUA = "Mozilla/5.0 (Linux; Android 9; M2101K9C Build/TKQ1.220829.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/108.0.5359.128 Mobile Safari/537.36 miHoYoBBS/2.71.1" //米社请求UA
+    static var hoyoUA = "Mozilla/5.0 (Linux; Android 12; M2101K9C Build/TKQ1.220829.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/108.0.5359.128 Mobile Safari/537.36 miHoYoBBS/2.71.1" //米社请求UA
+    static var commonUA = "Mozilla/5.0 (Linux; Android 12; M2101K9C Build/TKQ1.220829.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/108.0.5359.128 Mobile Safari/537.36" //人机验证采用的UA
     static let DEVICE_ID = "deviceID"
     static let BBS_DEVICE_ID = "bbsDeviceID"
     static let DEVICE_FP = "deviceFp"
