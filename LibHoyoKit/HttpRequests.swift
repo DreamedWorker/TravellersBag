@@ -66,10 +66,12 @@ extension URLRequest {
     /// 设置设备基本信息
     mutating func setDeviceInfoHeaders() {
         self.setValue(MMKV.default()!.string(forKey: LocalEnvironment.DEVICE_FP)!, forHTTPHeaderField: "x-rpc-device_fp")
-        self.setValue("Unknown Android SDK built for arm64", forHTTPHeaderField: "x-rpc-device_name")
+        //self.setValue("Unknown Android SDK built for arm64", forHTTPHeaderField: "x-rpc-device_name")
+        self.setValue("iPhone15,1", forHTTPHeaderField: "x-rpc-device_name")
         self.setValue(MMKV.default()!.string(forKey: LocalEnvironment.DEVICE_ID)!, forHTTPHeaderField: "x-rpc-device_id")
-        self.setValue("Android SDK built for arm64", forHTTPHeaderField: "x-rpc-device_model")
-        self.setValue("12", forHTTPHeaderField: "x-rpc-sys_version")
+        //self.setValue("Android SDK built for arm64", forHTTPHeaderField: "x-rpc-device_model")
+        //self.setValue("12", forHTTPHeaderField: "x-rpc-sys_version")
+        self.setValue("16_0", forHTTPHeaderField: "x-rpc-sys_version")
     }
     
     /// 设置动态密钥
@@ -99,6 +101,10 @@ extension URLRequest {
     /// 设置UA
     mutating func setUA() {
         self.setValue(LocalEnvironment.hoyoUA, forHTTPHeaderField: "User-Agent")
+    }
+    
+    mutating func setIosUA() {
+        self.setValue(LocalEnvironment.iosHoyoUA, forHTTPHeaderField: "User-Agent")
     }
     
     /// 设置请求头app信息

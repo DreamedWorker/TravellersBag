@@ -26,6 +26,7 @@ class LocalEnvironment {
     static var clientType = "2" //类型：客户端
     static var hoyoUA = "Mozilla/5.0 (Linux; Android 12; M2101K9C Build/TKQ1.220829.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/108.0.5359.128 Mobile Safari/537.36 miHoYoBBS/2.71.1" //米社请求UA
     static var commonUA = "Mozilla/5.0 (Linux; Android 12; M2101K9C Build/TKQ1.220829.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/108.0.5359.128 Mobile Safari/537.36" //人机验证采用的UA
+    static var iosHoyoUA = "Mozilla/5.0 (iPhone; CPU iPhone OS 160 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) miHoYoBBS/2.71.1"
     static let DEVICE_ID = "deviceID"
     static let BBS_DEVICE_ID = "bbsDeviceID"
     static let DEVICE_FP = "deviceFp"
@@ -49,52 +50,134 @@ class LocalEnvironment {
         envKV.set(value, forKey: key)
     }
     
+    /// 读取环境中的值
+    func getEnvStringValue(key: String) -> String {
+        return envKV.string(forKey: key)! // 因为这个函数只在完成初始化后才调用，因此可以放心用“!”
+    }
+    
     /// 用于生成设备指纹
     /// 只能应用于HomeContainer的onAppear上 在应用主逻辑开始之前加载
     func checkFigurePointer() async {
         if envKV.string(forKey: "deviceFp", defaultValue: "")! != "" {
             return
         } else {
-            var req = URLRequest(url: URL(string: ApiEndpoints.getFp)!)
-            req.setValue("public-data-api.mihoyo.com", forHTTPHeaderField: "Host")
-            req.setValue("application/json", forHTTPHeaderField: "Content-Type")
-            req.setValue("okhttp/4.9.3", forHTTPHeaderField: "User-Agent")
-            let result = await req.receiveData(
-                session: httpSession(),
-                isPost: true,
-                reqBody: try! JSONSerialization.data(withJSONObject: [
-                    "device_id": MMKV.default()!.string(forKey: "deviceID")!,
-                    "seed_id": UUID().uuidString.lowercased(),
-                    "seed_time": String(NSDate().timeIntervalSince1970),
-                    "platform": "2",
-                    "device_fp": randomAlphanumericString(length: 13),
-                    "app_name": "bbs_cn",
-                    "ext_fields": """
-{"proxyStatus":0,"isRoot":0,"romCapacity":"512","deviceName":"sdk_gphone64_arm64","productName":"sdk_gphone64_arm64","romRemain":"457","hostname":"abfarm769","screenSize":"1080x2274","isTablet":0,"aaid":"","model":"sdk_gphone64_arm64","brand":"google","hardware":"ranchu","deviceType":"emulator64_arm64","devId":"REL","serialNumber":"unknown","sdCapacity":5951,"buildTime":"1663050617000","buildUser":"android-build","simState":5,"ramRemain":"5198","appUpdateTimeDiff":1722778273952,"deviceInfo":"google sdk_gphone64_arm64 emulator64_arm64:12 SE1A.220630.001.A1 9056438:userdebug dev-keys","vaid":"","buildType":"userdebug","sdkVersion":"31","ui_mode":"UI_MODE_TYPE_NORMAL","isMockLocation":0,"cpuType":"arm64-v8a","isAirMode":0,"ringMode":2,"chargeStatus":1,"manufacturer":"Google","emulatorStatus":0,"appMemory":"512","osVersion":"12","vendor":"unknown","accelerometer":"0.0x9.776321x0.812345","sdRemain":5055,"buildTags":"dev-keys","packageName":"com.mihoyo.hyperion","networkType":"4G","oaid":"","debugStatus":1,"ramCapacity":"5951","magnetometer":"0.0x9.875x-47.75","display":"sdk_gphone64_arm64-userdebug 12 SE1A.220630.001.A1 9056438 dev-keys","appInstallTimeDiff":1722778273952,"packageVersion":"2.20.2","gyroscope":"0.0x0.0x0.0","batteryStatus":100,"hasKeyboard":0,"board":"goldfish_arm64"}
-""",
-                    "bbs_device_id": MMKV.default()!.string(forKey: "bbsDeviceID")!
-                ])
-            )
-            if result.evtState {
-                if (result.data as! String).contains("OK") {
-                    do {
-                        let json = try JSON(data: (result.data as! String).data(using: .utf8)!)
-                        MMKV.default()!.set(json["data"]["device_fp"].stringValue, forKey: "deviceFp")
-                        print("使用了已经过验证的fp")
-                    } catch {
-                        MMKV.default()!.set(randomAlphanumericString(length: 13), forKey: "deviceFp")
-                        print("使用了野fp")
-                    }
-                } else {
-                    MMKV.default()!.set(randomAlphanumericString(length: 13), forKey: "deviceFp")
-                    print("使用了野fp")
-                }
-            }
+            await updateDeviceFp()
         }
     }
     
-    /// 生成随机fp
-    private func randomAlphanumericString(length: Int) -> String {
+    /// 据说设备指纹最好要定期更换，故封装之以供其他部分使用。非必要不得随意调用此方法！！！
+    func updateDeviceFp() async {
+        let device = GetUpperAndNumberString(length: 12)
+        let product = GetUpperAndNumberString(length: 6)
+        var ext: [String:Any] = [
+            "oaid": "",
+            "vaid": "",
+            "aaid": "",
+            "serialNumber": "unknown",
+            "board": "taro",
+            "brand": "XiaoMi",
+            "hardware": "qcom",
+            "cpuType": "arm64-v8a",
+            "deviceType": "OP5913L1",
+            "display": "\(product)_13.1.0.181(CN01)",
+            "hostname": "dg02-pool03-kvm87",
+            "manufacturer": "XiaoMi",
+            "productName": "\(product)",
+            "model": "\(device)",
+            "deviceInfo": "XiaoMi/\(product)/OP5913L1:13/SKQ1.221119.001/T.118e6c7-5aa23-73911:user/release-keys",
+            "sdkVersion": "34",
+            "osVersion": "14",
+            "devId": "REL",
+            "buildTags": "release-keys",
+            "buildType": "user",
+            "buildUser": "android-build",
+            "buildTime": "1693626947000",
+            "screenSize": "1440x2905",
+            "vendor": "unknown",
+            "romCapacity": "512",
+            "romRemain": "512",
+            "ramCapacity": "469679",
+            "ramRemain": "239814",
+            "appMemory": "512",
+            "accelerometer": "1.4883357x7.1712894x6.2847486",
+            "gyroscope": "0.030226856x0.014647375x0.010652636",
+            "magnetometer": "20.081251x-27.487501x2.1937501",
+            "isRoot": 0,
+            "debugStatus": 1,
+            "proxyStatus": 0,
+            "emulatorStatus": 0,
+            "isTablet": 0,
+            "simState": 5,
+            "ui_mode": "UI_MODE_TYPE_NORMAL",
+            "sdCapacity": "512215",
+            "sdRemain": "239600",
+            "hasKeyboard": 0,
+            "isMockLocation": 0,
+            "ringMode": 2,
+            "isAirMode": 0,
+            "batteryStatus": 100,
+            "chargeStatus": 1,
+            "deviceName": "\(device)",
+            "appInstallTimeDiff": 1688455751496,
+            "appUpdateTimeDiff": 1702604034482,
+            "packageName": "com.mihoyo.hyperion",
+            "packageVersion": "2.20.1",
+            "networkType": "WiFi"
+        ]
+        var allDic: [String:Any] = [
+            "device_id": getLowerHexString(length: 16),
+            "seed_id": getLowerHexString(length: 16),
+            "platform": "2",
+            "seed_time": "\(String(Int(Date().timeIntervalSince1970)))000", //我就说怎么这个方法一直说参数有误，这个**
+            "ext_fields": "\(String(data: try! JSONSerialization.data(withJSONObject: ext), encoding: .utf8)!)",
+            "app_name": "bbs_cn",
+            "bbs_device_id": LocalEnvironment.shared.getEnvStringValue(key: LocalEnvironment.BBS_DEVICE_ID),
+            "device_fp": getLowerHexString(length: 13)
+        ]
+        var req = URLRequest(url: URL(string: ApiEndpoints.getFp)!)
+        req.setIosUA()
+        do {
+            let result = try await req.receiveOrThrow(isPost: true, reqBody: try JSON(allDic).rawData())
+            if result["code"].intValue == 200 {
+                MMKV.default()!.set(result["device_fp"].stringValue, forKey: "deviceFp")
+                print("使用了已经过验证的fp")
+            } else { // 只要没异常的特别多，外层的代码都是0,所以内部再判断。
+                throw NSError(domain: "application.init.device_fp", code: -200, userInfo: [
+                    NSLocalizedDescriptionKey: "给出的参数有错误！"
+                ])
+            }
+        } catch {
+            MMKV.default()!.set(getLowerHexString(length: 13), forKey: "deviceFp")
+            print("使用了野fp，\(error.localizedDescription)")
+        }
+    }
+    
+    // 私有区 不确定是否会公开它们
+    private func getLowerHexString(length: Int) -> String {
+        let base = "0123456789abcdef"
+        var randomString: String = ""
+        
+        for _ in 0..<length {
+            let randomValue = arc4random_uniform(UInt32(base.count))
+            let randomIndex = base.index(base.startIndex, offsetBy: Int(randomValue))
+            randomString += String(base[randomIndex])
+        }
+        return randomString
+    }
+    
+    private func GetUpperAndNumberString(length: Int) -> String {
+        let base = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        var randomString: String = ""
+        
+        for _ in 0..<length {
+            let randomValue = arc4random_uniform(UInt32(base.count))
+            let randomIndex = base.index(base.startIndex, offsetBy: Int(randomValue))
+            randomString += String(base[randomIndex])
+        }
+        return randomString
+    }
+    
+    private func GetLowerAndNumberString(length: Int) -> String {
         let base = "0123456789abcdefghijklmnopqrstuvwxyz"
         var randomString: String = ""
         
