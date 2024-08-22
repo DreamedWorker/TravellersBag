@@ -120,7 +120,7 @@ class AccountService {
         req.setHost(host: "api-takumi.miyoushe.com")
         req.setReferer(referer: "https://app.mihoyo.com")
         req.setValue("https://api-takumi.miyoushe.com", forHTTPHeaderField: "Origin")
-        req.setUA()
+        req.setIosUA()
         req.setDS(version: SaltVersion.V1, type: SaltType.K2)
         req.setDeviceInfoHeaders()
         req.setUser(uid: uid, stoken: stoken, mid: mid)
