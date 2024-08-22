@@ -69,7 +69,7 @@ class LocalEnvironment {
     func updateDeviceFp() async {
         let device = GetUpperAndNumberString(length: 12)
         let product = GetUpperAndNumberString(length: 6)
-        var ext: [String:Any] = [
+        let ext: [String:Any] = [
             "oaid": "",
             "vaid": "",
             "aaid": "",
@@ -124,7 +124,7 @@ class LocalEnvironment {
             "packageVersion": "2.20.1",
             "networkType": "WiFi"
         ]
-        var allDic: [String:Any] = [
+        let allDic: [String:Any] = [
             "device_id": getLowerHexString(length: 16),
             "seed_id": getLowerHexString(length: 16),
             "platform": "2",

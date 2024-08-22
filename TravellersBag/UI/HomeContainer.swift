@@ -60,7 +60,7 @@ private struct HomePart: View {
                     AccountScreen()
                 case .Launcher: LaunchOptionScreen()
                 case .Character: CharacterScreen()
-                default: Text("app.developing")
+                case .Notice: NoticeScreen()
                 }
             }
         } else {
@@ -100,6 +100,10 @@ private struct WizardPart: View {
                 Link(destination: URL(string: "https://github.com/DreamedWorker/TravellersBag")!, label: {
                     Label("wizard.look_repo", systemImage: "opticaldiscdrive")
                 })
+                ZStack {}.frame(height: 4)
+                Link(destination: URL(string: "https://buledream.icu/TravellersBag")!, label: {
+                    Label("wizard.license", systemImage: "shield.lefthalf.filled")
+                })
             }.padding(.bottom, 4)
             Spacer()
             Text("app.description_2").font(.footnote).multilineTextAlignment(.leading).padding(4)
@@ -120,8 +124,4 @@ private struct WizardPart: View {
             }.padding(.bottom, 8)
         }.frame(maxWidth: 450)
     }
-}
-
-#Preview {
-    HomeContainer()
 }

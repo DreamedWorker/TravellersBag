@@ -341,26 +341,7 @@
       }
     },
     "launcher.global.error_test_command" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "命令运行时出现问题"
-          }
-        }
-      }
-    },
-    "launcher.global.tip" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "你需要在完成输入后敲击回车以保存。"
-          }
-        }
-      }
+
     },
     "launcher.method.command" : {
       "extractionState" : "manual",
@@ -373,13 +354,24 @@
         }
       }
     },
+    "launcher.method.command_choose" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "选择文件"
+          }
+        }
+      }
+    },
     "launcher.method.command_detail" : {
       "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "命令内容"
+            "value" : "脚本文件路径"
           }
         }
       }
@@ -390,7 +382,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "测试命令"
+            "value" : "选择的文件：%@"
           }
         }
       }
@@ -401,7 +393,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "我们会在你输入的命令开头加上「/bin/zsh -c」以使其执行。"
+            "value" : "这是最贴近“原生”体验的一种启动方式。你需要编写一个Z Shell脚本（需要确保该.sh或.command文件具有可执行的权限），我们通过执行你编写的脚本来启动游戏。这一般适合于那些完全按照Apple的GPTK工具配置的运行环境的旅行者。"
           }
         }
       }
@@ -417,13 +409,57 @@
         }
       }
     },
+    "launcher.method.layer_choose" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "选择软件"
+          }
+        }
+      }
+    },
+    "launcher.method.layer_choose_tip" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "点按「选择软件」按钮后，在弹出的文件选择框中选择「应用程序」分区，并在其中选择你的兼容层软件后，点按「打开」。"
+          }
+        }
+      }
+    },
     "launcher.method.layer_name" : {
       "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "你的兼容层软件名称（应当是xxxx.app）"
+            "value" : "你的兼容层软件名称"
+          }
+        }
+      }
+    },
+    "launcher.method.layer.tip" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "由于《原神》并没有专门为Mac平台打包，虽然存在iOS客户端，但并未通过“Mac Catalyst”适配Mac平台。故你需要通过兼容层启动游戏。而通过兼容层软件启动，我们只能为你打开你所使用的兼容层软件，不能进一步为你打开游戏。"
+          }
+        }
+      }
+    },
+    "launcher.method.use_it" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "设为启用"
           }
         }
       }
@@ -677,6 +713,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "不同意"
+          }
+        }
+      }
+    },
+    "wizard.license" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "查看用户服务协议"
           }
         }
       }

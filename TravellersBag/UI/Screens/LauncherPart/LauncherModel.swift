@@ -18,6 +18,14 @@ class LauncherModel: ObservableObject {
     @Published var isUsrCommand = MMKV.default()!.bool(forKey: "use_command", defaultValue: false)
     @Published var layerName = MMKV.default()!.string(forKey: "layer_name", defaultValue: "CrossOver.app")!
     @Published var commands = MMKV.default()!.string(forKey: "command_detail", defaultValue: "")!
+    @Published var showChooseFolderWindow = false
+    @Published var showChooseFileWindow = false
+    @Published var chooseWhat = "app"
+    
+    func saveLauncherMethod() {
+        MMKV.default()!.set(isUseLayer, forKey: USE_LAYER)
+        MMKV.default()!.set(isUsrCommand, forKey: USE_COMMAND)
+    }
     
     func runTestCommand() {
         let process = Process()
