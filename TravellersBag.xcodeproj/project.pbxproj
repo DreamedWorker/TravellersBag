@@ -56,7 +56,7 @@
 
 /* Begin PBXFileReference section */
 		44F75FED7A97374CEF511300 /* Pods-TravellersBag.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravellersBag.debug.xcconfig"; path = "Target Support Files/Pods-TravellersBag/Pods-TravellersBag.debug.xcconfig"; sourceTree = "<group>"; };
-		5D00F5972C6E392C00FD7E52 /* TravellersBag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravellersBag.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5D00F5972C6E392C00FD7E52 /* 旅者行囊.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "旅者行囊.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D00F59A2C6E392C00FD7E52 /* TravellersBagApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravellersBagApp.swift; sourceTree = "<group>"; };
 		5D00F59E2C6E392D00FD7E52 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5D00F5A12C6E392D00FD7E52 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -153,7 +153,7 @@
 		5D00F5982C6E392C00FD7E52 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5D00F5972C6E392C00FD7E52 /* TravellersBag.app */,
+				5D00F5972C6E392C00FD7E52 /* 旅者行囊.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -354,7 +354,7 @@
 			);
 			name = TravellersBag;
 			productName = TravellersBag;
-			productReference = 5D00F5972C6E392C00FD7E52 /* TravellersBag.app */;
+			productReference = 5D00F5972C6E392C00FD7E52 /* 旅者行囊.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -647,7 +647,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 0.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = icu.bluedream.TravellersBag;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "旅者行囊";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 			};
@@ -680,7 +680,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 0.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = icu.bluedream.TravellersBag;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "旅者行囊";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 			};
