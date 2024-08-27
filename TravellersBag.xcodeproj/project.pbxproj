@@ -26,11 +26,18 @@
 		5D00F5CB2C6E668400FD7E52 /* LocalEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D00F5CA2C6E668400FD7E52 /* LocalEnvironment.swift */; };
 		5D00F5CD2C6E695400FD7E52 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 5D00F5CC2C6E695400FD7E52 /* README.md */; };
 		5D00F5CF2C6E696400FD7E52 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 5D00F5CE2C6E696400FD7E52 /* LICENSE */; };
+		5D066CDA2C78874500EA61AE /* GachaScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D066CD92C78874500EA61AE /* GachaScreen.swift */; };
+		5D066CDC2C7898D000EA61AE /* GachaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D066CDB2C7898D000EA61AE /* GachaModel.swift */; };
+		5D066CDE2C7898E100EA61AE /* GachaService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D066CDD2C7898E100EA61AE /* GachaService.swift */; };
+		5D066CE32C79D37800EA61AE /* Weapon.json in Resources */ = {isa = PBXBuildFile; fileRef = 5D066CE22C79D37800EA61AE /* Weapon.json */; };
+		5D066CE52C79D45F00EA61AE /* Avatar.json in Resources */ = {isa = PBXBuildFile; fileRef = 5D066CE42C79D45F00EA61AE /* Avatar.json */; };
 		5D82B01D2C6EEB2000C585EC /* AccountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D82B01C2C6EEB2000C585EC /* AccountModel.swift */; };
 		5D82B0202C6F13E800C585EC /* AccountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D82B01F2C6F13E800C585EC /* AccountService.swift */; };
 		5D82B0222C6F3D6200C585EC /* Character+Verification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D82B0212C6F3D6200C585EC /* Character+Verification.swift */; };
 		5D82B0252C6F4C0D00C585EC /* pfps.json in Resources */ = {isa = PBXBuildFile; fileRef = 5D82B0242C6F4C0D00C585EC /* pfps.json */; };
 		5D82B0272C6F4F8F00C585EC /* AccountTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D82B0262C6F4F8F00C585EC /* AccountTile.swift */; };
+		5D99B2B72C75C66200CC9ADD /* NoticeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D99B2B62C75C66200CC9ADD /* NoticeScreen.swift */; };
+		5D9ED1E62C73A4B100A05C29 /* WebTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9ED1E52C73A4B100A05C29 /* WebTest.swift */; };
 		5D9F4EBE2C71BBF700EBD936 /* CharacterDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9F4EBD2C71BBF700EBD936 /* CharacterDetail.swift */; };
 		5D9F4EC02C71E46600EBD936 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9F4EBF2C71E46600EBD936 /* CardView.swift */; };
 		5D9F4EC22C72535900EBD936 /* VerificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9F4EC12C72535900EBD936 /* VerificationView.swift */; };
@@ -41,6 +48,7 @@
 		5DA091502C70E8B100751E6A /* loc.json in Resources */ = {isa = PBXBuildFile; fileRef = 5DA0914F2C70E8B100751E6A /* loc.json */; };
 		5DA091522C70EB1200751E6A /* characters.json in Resources */ = {isa = PBXBuildFile; fileRef = 5DA091512C70EB1200751E6A /* characters.json */; };
 		5DA091552C70EF4000751E6A /* EnkaAvatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA091542C70EF4000751E6A /* EnkaAvatar.swift */; };
+		5DB673F92C7C7B3C00CC4A9D /* GachaNormalCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB673F82C7C7B3C00CC4A9D /* GachaNormalCard.swift */; };
 		D668016BB33768F072987505 /* Pods_TravellersBag.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74D54BCC0EE39638B2FB0D55 /* Pods_TravellersBag.framework */; };
 /* End PBXBuildFile section */
 
@@ -67,11 +75,19 @@
 		5D00F5CA2C6E668400FD7E52 /* LocalEnvironment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalEnvironment.swift; sourceTree = "<group>"; };
 		5D00F5CC2C6E695400FD7E52 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		5D00F5CE2C6E696400FD7E52 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		5D066CD92C78874500EA61AE /* GachaScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GachaScreen.swift; sourceTree = "<group>"; };
+		5D066CDB2C7898D000EA61AE /* GachaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GachaModel.swift; sourceTree = "<group>"; };
+		5D066CDD2C7898E100EA61AE /* GachaService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GachaService.swift; sourceTree = "<group>"; };
+		5D066CE02C79D00E00EA61AE /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		5D066CE22C79D37800EA61AE /* Weapon.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Weapon.json; sourceTree = "<group>"; };
+		5D066CE42C79D45F00EA61AE /* Avatar.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Avatar.json; sourceTree = "<group>"; };
 		5D82B01C2C6EEB2000C585EC /* AccountModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountModel.swift; sourceTree = "<group>"; };
 		5D82B01F2C6F13E800C585EC /* AccountService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountService.swift; sourceTree = "<group>"; };
 		5D82B0212C6F3D6200C585EC /* Character+Verification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Character+Verification.swift"; sourceTree = "<group>"; };
 		5D82B0242C6F4C0D00C585EC /* pfps.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pfps.json; sourceTree = "<group>"; };
 		5D82B0262C6F4F8F00C585EC /* AccountTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTile.swift; sourceTree = "<group>"; };
+		5D99B2B62C75C66200CC9ADD /* NoticeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeScreen.swift; sourceTree = "<group>"; };
+		5D9ED1E52C73A4B100A05C29 /* WebTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebTest.swift; sourceTree = "<group>"; };
 		5D9F4EBD2C71BBF700EBD936 /* CharacterDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetail.swift; sourceTree = "<group>"; };
 		5D9F4EBF2C71E46600EBD936 /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		5D9F4EC12C72535900EBD936 /* VerificationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerificationView.swift; sourceTree = "<group>"; };
@@ -82,6 +98,7 @@
 		5DA0914F2C70E8B100751E6A /* loc.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loc.json; sourceTree = "<group>"; };
 		5DA091512C70EB1200751E6A /* characters.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = characters.json; sourceTree = "<group>"; };
 		5DA091542C70EF4000751E6A /* EnkaAvatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnkaAvatar.swift; sourceTree = "<group>"; };
+		5DB673F82C7C7B3C00CC4A9D /* GachaNormalCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GachaNormalCard.swift; sourceTree = "<group>"; };
 		74D54BCC0EE39638B2FB0D55 /* Pods_TravellersBag.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TravellersBag.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1A4EF2D5D494A8BA24CAC33 /* Pods-TravellersBag.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravellersBag.release.xcconfig"; path = "Target Support Files/Pods-TravellersBag/Pods-TravellersBag.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -119,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				5D00F5CC2C6E695400FD7E52 /* README.md */,
+				5D066CDF2C79CFE000EA61AE /* LibHutaoKit */,
 				5D00F5C32C6E659E00FD7E52 /* LibHoyoKit */,
 				5D00F5992C6E392C00FD7E52 /* TravellersBag */,
 				5D00F5CE2C6E696400FD7E52 /* LICENSE */,
@@ -175,6 +193,7 @@
 		5D00F5B32C6E474600FD7E52 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				5D99B2B52C75C65100CC9ADD /* Notice */,
 				5D00F5BC2C6E60EB00FD7E52 /* Compisitions */,
 				5D00F5BB2C6E60D500FD7E52 /* Screens */,
 				5D00F5B42C6E482900FD7E52 /* HomeContainer.swift */,
@@ -195,6 +214,7 @@
 		5D00F5BB2C6E60D500FD7E52 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				5D066CD82C78866100EA61AE /* GachaPart */,
 				5DA0914A2C709AF100751E6A /* CharacterPart */,
 				5DA091452C706E3100751E6A /* LauncherPart */,
 				5D00F5B82C6E5EA400FD7E52 /* AccountPart */,
@@ -209,6 +229,7 @@
 				5D9F4EBF2C71E46600EBD936 /* CardView.swift */,
 				5D00F5BD2C6E610700FD7E52 /* MDLikeTile.swift */,
 				5D82B0262C6F4F8F00C585EC /* AccountTile.swift */,
+				5D9ED1E52C73A4B100A05C29 /* WebTest.swift */,
 			);
 			path = Compisitions;
 			sourceTree = "<group>";
@@ -225,11 +246,40 @@
 			path = LibHoyoKit;
 			sourceTree = "<group>";
 		};
+		5D066CD82C78866100EA61AE /* GachaPart */ = {
+			isa = PBXGroup;
+			children = (
+				5D066CD92C78874500EA61AE /* GachaScreen.swift */,
+				5D066CDB2C7898D000EA61AE /* GachaModel.swift */,
+				5DB673F82C7C7B3C00CC4A9D /* GachaNormalCard.swift */,
+			);
+			path = GachaPart;
+			sourceTree = "<group>";
+		};
+		5D066CDF2C79CFE000EA61AE /* LibHutaoKit */ = {
+			isa = PBXGroup;
+			children = (
+				5D066CE12C79D34700EA61AE /* HutaoRescources */,
+				5D066CE02C79D00E00EA61AE /* README.md */,
+			);
+			path = LibHutaoKit;
+			sourceTree = "<group>";
+		};
+		5D066CE12C79D34700EA61AE /* HutaoRescources */ = {
+			isa = PBXGroup;
+			children = (
+				5D066CE42C79D45F00EA61AE /* Avatar.json */,
+				5D066CE22C79D37800EA61AE /* Weapon.json */,
+			);
+			path = HutaoRescources;
+			sourceTree = "<group>";
+		};
 		5D82B01E2C6F13D400C585EC /* Services */ = {
 			isa = PBXGroup;
 			children = (
 				5D82B0212C6F3D6200C585EC /* Character+Verification.swift */,
 				5D82B01F2C6F13E800C585EC /* AccountService.swift */,
+				5D066CDD2C7898E100EA61AE /* GachaService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -242,6 +292,14 @@
 				5D82B0242C6F4C0D00C585EC /* pfps.json */,
 			);
 			path = EnkaResources;
+			sourceTree = "<group>";
+		};
+		5D99B2B52C75C65100CC9ADD /* Notice */ = {
+			isa = PBXGroup;
+			children = (
+				5D99B2B62C75C66200CC9ADD /* NoticeScreen.swift */,
+			);
+			path = Notice;
 			sourceTree = "<group>";
 		};
 		5DA091452C706E3100751E6A /* LauncherPart */ = {
@@ -338,7 +396,9 @@
 				5D82B0252C6F4C0D00C585EC /* pfps.json in Resources */,
 				5D00F5CD2C6E695400FD7E52 /* README.md in Resources */,
 				5D00F5AA2C6E3A3600FD7E52 /* Localizable.xcstrings in Resources */,
+				5D066CE52C79D45F00EA61AE /* Avatar.json in Resources */,
 				5D00F5CF2C6E696400FD7E52 /* LICENSE in Resources */,
+				5D066CE32C79D37800EA61AE /* Weapon.json in Resources */,
 				5DA091522C70EB1200751E6A /* characters.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -394,11 +454,14 @@
 			files = (
 				5D9F4EBE2C71BBF700EBD936 /* CharacterDetail.swift in Sources */,
 				5D9F4EC22C72535900EBD936 /* VerificationView.swift in Sources */,
+				5D066CDC2C7898D000EA61AE /* GachaModel.swift in Sources */,
 				5D00F5C92C6E664400FD7E52 /* DynamicSecret.swift in Sources */,
 				5D00F59B2C6E392C00FD7E52 /* TravellersBagApp.swift in Sources */,
 				5D00F5B02C6E3C8100FD7E52 /* CoreDataHelper.swift in Sources */,
 				5D00F5B72C6E5C9D00FD7E52 /* HomeController.swift in Sources */,
+				5DB673F92C7C7B3C00CC4A9D /* GachaNormalCard.swift in Sources */,
 				5DA091472C70700300751E6A /* LaunchOptionScreen.swift in Sources */,
+				5D066CDA2C78874500EA61AE /* GachaScreen.swift in Sources */,
 				5DA091492C7071C800751E6A /* LauncherModel.swift in Sources */,
 				5D00F5C02C6E656400FD7E52 /* FileHandler.swift in Sources */,
 				5D00F5C52C6E659E00FD7E52 /* HttpRequests.swift in Sources */,
@@ -406,9 +469,11 @@
 				5D00F5CB2C6E668400FD7E52 /* LocalEnvironment.swift in Sources */,
 				5D82B0222C6F3D6200C585EC /* Character+Verification.swift in Sources */,
 				5D00F5BA2C6E5EC300FD7E52 /* AccountScreen.swift in Sources */,
+				5D066CDE2C7898E100EA61AE /* GachaService.swift in Sources */,
 				5D00F5C72C6E662500FD7E52 /* EventMessager.swift in Sources */,
 				5D9F4EC02C71E46600EBD936 /* CardView.swift in Sources */,
 				5D82B01D2C6EEB2000C585EC /* AccountModel.swift in Sources */,
+				5D9ED1E62C73A4B100A05C29 /* WebTest.swift in Sources */,
 				5D00F5B52C6E482900FD7E52 /* HomeContainer.swift in Sources */,
 				5DA0914E2C70E66E00751E6A /* CharacterModel.swift in Sources */,
 				5D00F5C42C6E659E00FD7E52 /* ApiEndpoints.swift in Sources */,
@@ -418,6 +483,7 @@
 				5D00F5BE2C6E610700FD7E52 /* MDLikeTile.swift in Sources */,
 				5D82B0272C6F4F8F00C585EC /* AccountTile.swift in Sources */,
 				5DA0914C2C709B3800751E6A /* CharacterScreen.swift in Sources */,
+				5D99B2B72C75C66200CC9ADD /* NoticeScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

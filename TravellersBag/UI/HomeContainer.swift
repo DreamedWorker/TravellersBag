@@ -12,6 +12,7 @@ struct HomeContainer: View {
     @AppStorage("currentAppVersion") var currentVersion: String = "0.0.0"
     @StateObject private var controller = HomeController.shared
     @Environment(\.managedObjectContext) private var dataManager
+    @Environment(\.colorScheme) private var appColor
     
     var body: some View {
         if currentVersion != "0.0.1" {
@@ -27,6 +28,15 @@ struct HomeContainer: View {
                 .toast(
                     isPresenting: $controller.showInfoDialog,
                     alert: { AlertToast(type: .complete(.green), title: controller.infoDialogMessage) })
+                .toast(
+                    isPresenting: $controller.showLoadingDialog,
+                    alert: {
+                        AlertToast(
+                            type: .loading,
+                            title: controller.loadingMessage,
+                            style: .style(backgroundColor: (appColor == .dark) ? .black : .white)
+                        )
+                    })
         }
     }
 }
@@ -37,6 +47,7 @@ private enum Functions {
     case Launcher //启动项
     case Account //账号管理
     case Character //游戏角色
+    case Gacha //祈愿记录
 }
 
 private struct HomePart: View {
@@ -50,6 +61,7 @@ private struct HomePart: View {
                     NavigationLink(value: Functions.Notice, label: { Label("home.sider.notice", systemImage: "house")} )
                     Spacer()
                     NavigationLink(value: Functions.Launcher, label: { Label("home.sider.launcher", systemImage: "play")} )
+                    NavigationLink(value: Functions.Gacha, label: { Label("home.sider.gacha", systemImage: "menucard")})
                     NavigationLink(value: Functions.Character, label: { Label("home.sider.characters", systemImage: "figure.walk")} )
                     Spacer()
                     NavigationLink(value: Functions.Account, label: { Label("home.sider.account", systemImage: "person.circle")} )
@@ -61,6 +73,7 @@ private struct HomePart: View {
                 case .Launcher: LaunchOptionScreen()
                 case .Character: CharacterScreen()
                 case .Notice: NoticeScreen()
+                case .Gacha: GachaScreen()
                 }
             }
         } else {

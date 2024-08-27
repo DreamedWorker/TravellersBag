@@ -285,6 +285,237 @@
         }
       }
     },
+    "gacha.all.beginner_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "初行者推荐祈愿"
+          }
+        }
+      }
+    },
+    "gacha.all.character_last_five_spacing" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "距上个5星"
+          }
+        }
+      }
+    },
+    "gacha.all.character_last_four_spacing" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "距上个4星"
+          }
+        }
+      }
+    },
+    "gacha.all.character_spacing" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "经 %@ 抽而出"
+          }
+        }
+      }
+    },
+    "gacha.all.character_times" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "总共祈愿次数"
+          }
+        }
+      }
+    },
+    "gacha.all.character_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "角色活动祈愿"
+          }
+        }
+      }
+    },
+    "gacha.all.chatacter_date" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "记录起止时间"
+          }
+        }
+      }
+    },
+    "gacha.all.chatacter_date_1" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "从%@到%@"
+          }
+        }
+      }
+    },
+    "gacha.all.chatacter_date_2" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无记录"
+          }
+        }
+      }
+    },
+    "gacha.all.collection_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "集录祈愿"
+          }
+        }
+      }
+    },
+    "gacha.all.resident_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "奔行世间"
+          }
+        }
+      }
+    },
+    "gacha.all.unit" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "抽"
+          }
+        }
+      }
+    },
+    "gacha.all.weapon_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "神器铸形"
+          }
+        }
+      }
+    },
+    "gacha.error.fetch_info_err" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "获取祈愿池【%@】的数据时出错。"
+          }
+        }
+      }
+    },
+    "gacha.error.format_data" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "整理数据时出错：%@"
+          }
+        }
+      }
+    },
+    "gacha.error.get_authkey" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "获取AuthKey时出错，%@"
+          }
+        }
+      }
+    },
+    "gacha.init.get_data_error" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "从本地读取祈愿信息时失败，%@"
+          }
+        }
+      }
+    },
+    "gacha.no_data_import_from_uigf4" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "从遵循「统一可交换抽卡记录标准V4」的文件导入"
+          }
+        }
+      }
+    },
+    "gacha.no_data.get_from_hk4e" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "从游戏服务器获取"
+          }
+        }
+      }
+    },
+    "gacha.no_data.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "数据为空，你可以…"
+          }
+        }
+      }
+    },
+    "gacha.tab.view_all" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "数据总览"
+          }
+        }
+      }
+    },
     "home.container" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -318,6 +549,17 @@
         }
       }
     },
+    "home.sider.gacha" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "祈愿记录"
+          }
+        }
+      }
+    },
     "home.sider.launcher" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -341,7 +583,14 @@
       }
     },
     "launcher.global.error_test_command" : {
-
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "命令运行错误"
+          }
+        }
+      }
     },
     "launcher.method.command" : {
       "extractionState" : "manual",

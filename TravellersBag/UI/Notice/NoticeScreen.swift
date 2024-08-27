@@ -9,7 +9,9 @@ import SwiftUI
 
 struct NoticeScreen: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Button("app.name", action: {
+            HomeController.shared.showInfomationDialog(msg: "你好")
+        })
     }
 }
 

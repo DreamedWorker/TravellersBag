@@ -17,6 +17,8 @@ class HomeController : ObservableObject { // 这个类必须是单例类
     @Published var errDialogMessage: String = ""
     @Published var showInfoDialog: Bool = false // 显示基本消息弹窗
     @Published var infoDialogMessage: String = ""
+    @Published var showLoadingDialog: Bool = false // 显示正在加载弹窗
+    @Published var loadingMessage: String = ""
     
     @Published var context: NSManagedObjectContext? = nil
     @Published var currentUser: ShequAccount? = nil
@@ -34,6 +36,11 @@ class HomeController : ObservableObject { // 这个类必须是单例类
     /// 呼出一个基本信息弹窗 【必须在UI线程执行】
     func showInfomationDialog(msg: String) {
         showInfoDialog = true; infoDialogMessage = msg
+    }
+    
+    /// 呼出一个加载中弹窗 【必须在UI线程执行】
+    func showLoadingDialog(msg: String) {
+        showLoadingDialog = true; loadingMessage = msg
     }
     
     func refreshLoginState() {

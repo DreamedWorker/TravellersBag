@@ -126,11 +126,13 @@ class CharacterModel: ObservableObject {
     }
     
     /// 获取角色名的翻译后文本
+    // TODO: 添加key不存在的判断
     func getTranslationText(key: String) -> String {
         return loc[String(characters[key]["NameTextMapHash"].intValue)].stringValue
     }
     
     /// 获取角色头像
+    // TODO: 添加key不存在的判断
     func getCharacterIcon(key: String, isSide: Bool = true) -> String {
         var name = characters[key]["SideIconName"].stringValue
         if !isSide {
@@ -140,6 +142,7 @@ class CharacterModel: ObservableObject {
     }
     
     /// 返回包含角色天赋等级和图标链接的JSON数据
+    // TODO: 添加key不存在的判断
     func getCharacterSkillIconList(id: String, map: JSON) -> Data {
         let skillOrder = characters[id]["SkillOrder"].arrayObject!
         let a = String(skillOrder[0] as! Int) // 普通攻击（重击）id

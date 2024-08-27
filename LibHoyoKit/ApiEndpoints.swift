@@ -166,4 +166,21 @@ class ApiEndpoints {
     func getCharactersFromHoyo() -> String {
         return "\(ApiEndpoints.ApiTakumiRecordApi)/character?"
     }
+    
+    /// 获取AuthKeyB用于祈愿记录提取
+    func getAuthKey() -> String {
+        return "\(ApiEndpoints.ApiTakumiMiyousheBindingApi)/genAuthKey"
+    }
+    
+    /// 获取祈愿列表
+    /// - Parameters:
+    ///   - key AuthKeyB
+    ///   - type 卡池类型
+    ///   - endID 末位ID 决定翻页用途
+    func getGachaData(key: String, type: Int, endID: Int) -> String {
+        var neoKey = key.replacingOccurrences(of: "+", with: "%2b")
+            .replacingOccurrences(of: "/", with: "%2f")
+            .replacingOccurrences(of: "=", with: "%3d") //此前没有注意到工具做了自动转换 粘贴到浏览器里才发现的端倪 写个注释记录一下~
+        return "\(ApiEndpoints.PublicOperationHk4eGachaInfoApi)/getGachaLog?lang=zh-cn&auth_appid=webview_gacha&authkey=\(neoKey)&authkey_ver=\(1)&sign_type=\(2)&gacha_type=\(type)&size=\(20)&end_id=\(endID)"
+    }
 }
