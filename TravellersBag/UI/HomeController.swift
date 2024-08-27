@@ -12,6 +12,8 @@ import CoreData
 class HomeController : ObservableObject { // 这个类必须是单例类
     static let shared = HomeController()
     let idTable: JSON
+    let avatarList: [JSON]
+    let weaponList: [JSON]
     
     private init (){
         idTable = try! JSON(
@@ -19,6 +21,12 @@ class HomeController : ObservableObject { // 这个类必须是单例类
                 path: Bundle.main.url(forResource: "zh-cn", withExtension: "json")!.path().removingPercentEncoding!)
             .data(using: .utf8)!
         )
+        avatarList = try! JSON(
+            data: FileHandler.shared.readUtf8String(path: Bundle.main.url(forResource: "Avatar", withExtension: "json")!.path().removingPercentEncoding!).data(using: .utf8)!
+        ).arrayValue
+        weaponList = try! JSON(
+            data: FileHandler.shared.readUtf8String(path: Bundle.main.url(forResource: "Weapon", withExtension: "json")!.path().removingPercentEncoding!).data(using: .utf8)!
+        ).arrayValue
     }
     
     @Published var showErrDialog: Bool = false // 显示错误弹窗

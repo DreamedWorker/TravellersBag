@@ -33,14 +33,14 @@ class GachaModel: ObservableObject {
     
     @Published var showContextUI = false
     @Published var gachaList: [GachaItem] = []
+    @Published var showMoreOption = false
     
     func initSomething(context: NSManagedObjectContext) {
         dataManager = context
         gachaList.removeAll()
         do {
-            gachaList = try dataManager!.fetch(GachaItem.fetchRequest())
+            gachaList = try dataManager!.fetch(GachaItem.fetchRequest()).filter({ $0.uid == HomeController.shared.currentUser!.genshinUID! })
             if !gachaList.isEmpty { showContextUI = true }
-            print(gachaList.count)
         } catch {
             HomeController.shared.showErrorDialog(
                 msg: String.localizedStringWithFormat(
@@ -79,7 +79,11 @@ class GachaModel: ObservableObject {
                 do {
                     try self.collectRecordsToCoreData(list: self.allList)
                     HomeController.shared.showLoadingDialog = false
-                    self.showContextUI = true
+                    if !self.gachaList.isEmpty {
+                        self.showContextUI = true
+                    } else {
+                        HomeController.shared.showErrorDialog(msg: NSLocalizedString("gacha.error.cloud_empty", comment: ""))
+                    }
                 } catch {
                     DispatchQueue.main.async {
                         HomeController.shared.showLoadingDialog = false
@@ -101,9 +105,106 @@ class GachaModel: ObservableObject {
         }
     }
     
+    /// 从标准化文档中导入
+    func getRecordFromUigf(fileContext: String) {
+        let df = DateFormatter()
+        df.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        var uids: [String] = []
+        do {
+            let file = try JSON(data: fileContext.data(using: .utf8)!)
+            if file["info"]["version"].stringValue.contains("v4.0") {
+                if file.contains(where: { $0.0.contains("hk4e") }) {
+                    let hk4es = file["hk4e"].arrayValue
+                    for singlePlayerRecords in hk4es {
+                        let uid = singlePlayerRecords["uid"].stringValue
+                        uids.append(uid)
+                        for j in singlePlayerRecords["list"].arrayValue {
+                            let itemId = j["item_id"].stringValue
+                            let nameGroup = getItemChineseName(itemId: itemId)
+                            if nameGroup != "none" {
+                                let neoItem = GachaItem(context: dataManager!)
+                                neoItem.uid = uid
+                                neoItem.id = j["id"].stringValue
+                                neoItem.name = String(nameGroup.split(separator: "@")[0])
+                                neoItem.time = df.date(from: j["time"].stringValue)!
+                                neoItem.rankType = String(nameGroup.split(separator: "@")[1])
+                                neoItem.itemType = String(nameGroup.split(separator: "@")[2])
+                                neoItem.gachaType = j["gacha_type"].stringValue
+                            }
+                        }
+                        try dataManager!.save()
+                    }
+                    gachaList.removeAll()
+                    gachaList = try dataManager!.fetch(GachaItem.fetchRequest())
+                        .filter({ $0.uid == HomeController.shared.currentUser!.genshinUID! })
+                    if !gachaList.isEmpty {
+                        showContextUI = true
+                    } else {
+                        HomeController.shared.showErrorDialog(
+                            msg: String.localizedStringWithFormat(
+                                NSLocalizedString("gacha.error.file_empty", comment: ""), HomeController.shared.currentUser!.genshinUID!)
+                        )
+                    }
+                    HomeController.shared.showInfomationDialog(
+                        msg: String.localizedStringWithFormat(
+                            NSLocalizedString("gacha.init.from_file_ok", comment: ""), uids.description)
+                    )
+                }
+            } else {
+                HomeController.shared.showErrorDialog(msg: NSLocalizedString("gacha.error.no_hk4e", comment: ""))
+            }
+        } catch {
+            print(error)
+            HomeController.shared.showErrorDialog(
+                msg: String.localizedStringWithFormat(
+                    NSLocalizedString("gacha.init.get_data_error", comment: ""),
+                    error.localizedDescription)
+            )
+        }
+    }
+    
+    /// 用于切换默认账号后的状态切换
+    func refreshState() {
+        gachaList.removeAll()
+        do {
+            gachaList = try dataManager!.fetch(GachaItem.fetchRequest())
+                .filter({ $0.uid == HomeController.shared.currentUser!.genshinUID! })
+            if !gachaList.isEmpty {
+                showContextUI = true
+            } else {
+                HomeController.shared.showErrorDialog(msg: NSLocalizedString("gacha.error.local_empty", comment: ""))
+            }
+        } catch {
+            HomeController.shared.showErrorDialog(
+                msg: String.localizedStringWithFormat(
+                    NSLocalizedString("gacha.init.get_data_error", comment: ""),
+                    error.localizedDescription)
+            )
+        }
+    }
+    
     func updateDataFromHk4e() async throws {
         await self.removeAllData()
         try await getRecordFromHk4e()
+    }
+    
+    /// 获取物品的名字和星级 不在库中返回none
+    private func getItemChineseName(itemId: String) -> String {
+        if itemId.count == 5 { // 武器
+            if let target = HomeController.shared.weaponList.filter({ $0["Id"].intValue == Int(itemId)! }).first {
+                return "\(target["Name"].stringValue)@\(target["RankLevel"].intValue)@武器"
+            } else {
+                return "none"
+            }
+        } else if itemId.count == 8 { // 角色
+            if let target = HomeController.shared.avatarList.filter({ $0["Id"].intValue == Int(itemId)! }).first {
+                return "\(target["Name"].stringValue)@\(target["Quality"].intValue)@角色"
+            } else {
+                return "none"
+            }
+        } else {
+            return "none"
+        }
     }
     
     /// 获取指定卡池的数据
@@ -145,7 +246,7 @@ class GachaModel: ObservableObject {
         }
         let _ = CoreDataHelper.shared.save()
         gachaList.removeAll()
-        gachaList = try dataManager!.fetch(GachaItem.fetchRequest())
+        gachaList = try dataManager!.fetch(GachaItem.fetchRequest()).filter({ $0.uid == HomeController.shared.currentUser!.genshinUID! })
     }
     
     func removeAllData() async {

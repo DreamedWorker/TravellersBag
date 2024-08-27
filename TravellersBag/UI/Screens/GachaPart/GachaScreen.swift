@@ -37,14 +37,31 @@ struct GachaScreen: View {
                             label: { Image(systemName: "square.and.arrow.up").help("gacha.toolbar.export") }
                         )
                     }
+                    ToolbarItem {
+                        Button(
+                            action: {
+                            },
+                            label: { Image(systemName: "externaldrive.badge.icloud").help("gacha.more.op_with_hutao") }
+                        )
+                    }
+                    ToolbarItem {
+                        Button(
+                            action: {
+                                viewModel.showMoreOption = true
+                            },
+                            label: { Image(systemName: "ellipsis") }
+                        )
+                    }
                 }
+                .sheet(isPresented: $viewModel.showMoreOption, content: { moreOptions })
             } else {
                 VStack {
                     Image("gacha_waiting_for").resizable().scaledToFit()
                         .frame(width: 72, height: 72)
                     Text("gacha.no_data.title").font(.title2).bold().padding(.vertical, 8)
                     MDLikeTile(
-                        leadingIcon: "cloud", endIcon: "arrow.forward", title: NSLocalizedString("gacha.no_data.get_from_hk4e", comment: ""),
+                        leadingIcon: "externaldrive.badge.icloud", endIcon: "arrow.forward",
+                        title: NSLocalizedString("gacha.no_data.get_from_hk4e", comment: ""),
                         onClick: {
                             HomeController.shared.showLoadingDialog(msg: "正在从云端拉取数据，请保持互联网通畅直至操作完成。")
                             Task {
@@ -61,9 +78,29 @@ struct GachaScreen: View {
                                 }
                             }
                         }).frame(maxWidth: .infinity - 32)
-                    MDLikeTile(leadingIcon: "square.and.arrow.down.on.square", endIcon: "arrow.forward",
-                               title: NSLocalizedString("gacha.no_data_import_from_uigf4", comment: ""),
-                               onClick: {}).frame(maxWidth: .infinity - 32)
+                    MDLikeTile(
+                        leadingIcon: "square.and.arrow.down.on.square", endIcon: "arrow.forward",
+                        title: NSLocalizedString("gacha.no_data_import_from_uigf4", comment: ""),
+                        onClick: {
+                            // 似乎这里只有使用 NSOpenPanel 才能暂时获得用户选择的文件的读权限，swiftui的fileImporter修饰符不能 奇怪？！
+                            let panel = NSOpenPanel()
+                            panel.allowedContentTypes = [.json]; panel.allowsMultipleSelection = false
+                            panel.begin(completionHandler: { result in
+                                if result == NSApplication.ModalResponse.OK {
+                                    if let url = panel.urls.first {
+                                        viewModel.getRecordFromUigf(fileContext: try! String(contentsOf: url))
+                                    }
+                                }
+                            })
+                        }).frame(maxWidth: .infinity - 32)
+                    MDLikeTile(
+                        leadingIcon: "arrow.clockwise", endIcon: "arrow.forward",
+                        title: NSLocalizedString("gacha.no_data.refresh", comment: ""),
+                        onClick: {
+                            viewModel.refreshState()
+                        }
+                    ).frame(maxWidth: .infinity - 32)
+                    Text("gacha.no_data.another_account").font(.footnote).foregroundStyle(.secondary)
                 }
                 .padding(16)
             }
@@ -110,6 +147,43 @@ struct GachaScreen: View {
                 }
             }
         }
+    }
+    
+    var moreOptions: some View {
+        return NavigationStack {
+            Text("gacha.more.title").font(.title).bold()
+            Divider().padding(.horizontal, 8)
+            MDLikeTile(
+                leadingIcon: "trash", endIcon: "arrow.forward", 
+                title: NSLocalizedString("gacha.more.delete", comment: ""),
+                onClick: {
+                    viewModel.showContextUI = false
+                    Task {
+                        await viewModel.removeAllData()
+                    }
+                    viewModel.showMoreOption = false
+                    HomeController.shared.showInfomationDialog(msg: NSLocalizedString("gacha.more.msg_delete", comment: ""))
+                }
+            )
+            MDLikeTile(
+                leadingIcon: "cloud", endIcon: "arrow.forward",
+                title: NSLocalizedString("gacha.more.update_from_hk4e", comment: ""),
+                onClick: {}
+            )
+            MDLikeTile(
+                leadingIcon: "arrow.down.doc", endIcon: "arrow.forward",
+                title: NSLocalizedString("gacha.more.update_from_uigf", comment: ""),
+                onClick: {}
+            )
+        }
+        .padding()
+        .toolbar {
+            ToolbarItem(placement: .cancellationAction, content: {
+                Button("app.cancel", action: { viewModel.showMoreOption = false })
+                    .buttonStyle(BorderedProminentButtonStyle())
+            })
+        }
+        .frame(minWidth: 420)
     }
 }
 
