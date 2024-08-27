@@ -11,7 +11,15 @@ import CoreData
 /// 全局管理器
 class HomeController : ObservableObject { // 这个类必须是单例类
     static let shared = HomeController()
-    private init (){}
+    let idTable: JSON
+    
+    private init (){
+        idTable = try! JSON(
+            data: FileHandler.shared.readUtf8String(
+                path: Bundle.main.url(forResource: "zh-cn", withExtension: "json")!.path().removingPercentEncoding!)
+            .data(using: .utf8)!
+        )
+    }
     
     @Published var showErrDialog: Bool = false // 显示错误弹窗
     @Published var errDialogMessage: String = ""

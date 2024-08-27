@@ -49,6 +49,8 @@
 		5DA091522C70EB1200751E6A /* characters.json in Resources */ = {isa = PBXBuildFile; fileRef = 5DA091512C70EB1200751E6A /* characters.json */; };
 		5DA091552C70EF4000751E6A /* EnkaAvatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA091542C70EF4000751E6A /* EnkaAvatar.swift */; };
 		5DB673F92C7C7B3C00CC4A9D /* GachaNormalCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB673F82C7C7B3C00CC4A9D /* GachaNormalCard.swift */; };
+		5DD4B4B32C7DAA0900A9E859 /* UIGF4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD4B4B22C7DAA0900A9E859 /* UIGF4.swift */; };
+		5DD4B4B52C7DB23700A9E859 /* zh-cn.json in Resources */ = {isa = PBXBuildFile; fileRef = 5DD4B4B42C7DB23700A9E859 /* zh-cn.json */; };
 		D668016BB33768F072987505 /* Pods_TravellersBag.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74D54BCC0EE39638B2FB0D55 /* Pods_TravellersBag.framework */; };
 /* End PBXBuildFile section */
 
@@ -99,6 +101,8 @@
 		5DA091512C70EB1200751E6A /* characters.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = characters.json; sourceTree = "<group>"; };
 		5DA091542C70EF4000751E6A /* EnkaAvatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnkaAvatar.swift; sourceTree = "<group>"; };
 		5DB673F82C7C7B3C00CC4A9D /* GachaNormalCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GachaNormalCard.swift; sourceTree = "<group>"; };
+		5DD4B4B22C7DAA0900A9E859 /* UIGF4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIGF4.swift; sourceTree = "<group>"; };
+		5DD4B4B42C7DB23700A9E859 /* zh-cn.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "zh-cn.json"; sourceTree = "<group>"; };
 		74D54BCC0EE39638B2FB0D55 /* Pods_TravellersBag.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TravellersBag.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1A4EF2D5D494A8BA24CAC33 /* Pods-TravellersBag.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravellersBag.release.xcconfig"; path = "Target Support Files/Pods-TravellersBag/Pods-TravellersBag.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -324,7 +328,9 @@
 		5DA091532C70EEFB00751E6A /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				5DD4B4B42C7DB23700A9E859 /* zh-cn.json */,
 				5DA091542C70EF4000751E6A /* EnkaAvatar.swift */,
+				5DD4B4B22C7DAA0900A9E859 /* UIGF4.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -394,6 +400,7 @@
 				5D00F59F2C6E392D00FD7E52 /* Assets.xcassets in Resources */,
 				5DA091502C70E8B100751E6A /* loc.json in Resources */,
 				5D82B0252C6F4C0D00C585EC /* pfps.json in Resources */,
+				5DD4B4B52C7DB23700A9E859 /* zh-cn.json in Resources */,
 				5D00F5CD2C6E695400FD7E52 /* README.md in Resources */,
 				5D00F5AA2C6E3A3600FD7E52 /* Localizable.xcstrings in Resources */,
 				5D066CE52C79D45F00EA61AE /* Avatar.json in Resources */,
@@ -464,6 +471,7 @@
 				5D066CDA2C78874500EA61AE /* GachaScreen.swift in Sources */,
 				5DA091492C7071C800751E6A /* LauncherModel.swift in Sources */,
 				5D00F5C02C6E656400FD7E52 /* FileHandler.swift in Sources */,
+				5DD4B4B32C7DAA0900A9E859 /* UIGF4.swift in Sources */,
 				5D00F5C52C6E659E00FD7E52 /* HttpRequests.swift in Sources */,
 				5D00F5B22C6E46AD00FD7E52 /* SwiftyJSON.swift in Sources */,
 				5D00F5CB2C6E668400FD7E52 /* LocalEnvironment.swift in Sources */,

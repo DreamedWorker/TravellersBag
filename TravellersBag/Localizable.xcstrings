@@ -461,6 +461,17 @@
         }
       }
     },
+    "gacha.export.error" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "导出祈愿数据时失败，%@"
+          }
+        }
+      }
+    },
     "gacha.init.get_data_error" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -512,6 +523,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "数据总览"
+          }
+        }
+      }
+    },
+    "gacha.toolbar.export" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "导出记录到文件"
           }
         }
       }

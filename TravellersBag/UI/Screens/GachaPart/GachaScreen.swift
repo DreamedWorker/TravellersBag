@@ -25,30 +25,19 @@ struct GachaScreen: View {
                     generalView.tabItem { Text("gacha.tab.view_all") }.tag(GachaPart.ViewAll)
                 })
                 .navigationTitle(Text("home.sider.gacha"))
-                .toolbar(content: {
-                    ToolbarItem(content: {
-                        Button(action: {
-                            viewModel.showContextUI = false
-                            Task {
-                                do {
-                                    try await viewModel.updateDataFromHk4e()
-                                } catch {
-                                    DispatchQueue.main.async {
-                                        HomeController.shared.showErrorDialog(msg: "刷新时出错：\(error.localizedDescription)")
-                                    }
-                                }
-                            }
-                        }, label: { Image(systemName: "arrow.clockwise") })
-                    })
-                    ToolbarItem(content: {
-                        Button(action: {
-                            viewModel.showContextUI = false
-                            Task {
-                                await self.viewModel.removeAllData()
-                            }
-                        }, label: { Image(systemName: "trash") })
-                    })
-                })
+                .toolbar {
+                    ToolbarItem {
+                        Button(
+                            action: {
+                                GachaService.shared.exportRecords2UIGFv4(
+                                    record: viewModel.gachaList,
+                                    uid: HomeController.shared.currentUser!.genshinUID!
+                                )
+                            },
+                            label: { Image(systemName: "square.and.arrow.up").help("gacha.toolbar.export") }
+                        )
+                    }
+                }
             } else {
                 VStack {
                     Image("gacha_waiting_for").resizable().scaledToFit()
