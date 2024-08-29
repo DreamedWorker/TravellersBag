@@ -55,7 +55,23 @@ extension URLRequest {
         if json["retcode"].intValue == 0 {
             return json["data"]
         } else {
-            print(String(data: data, encoding: .utf8)!)
+            throw NSError(domain: "http.request", code: json["retcode"].intValue, userInfo: [NSLocalizedDescriptionKey: "\(json["message"].string ?? "未知错误")"])
+        }
+    }
+    
+    /// 适用于向胡桃api请求时使用的请求方式
+    mutating func receiveOrThrowHutao(isPost: Bool = false, reqBody: Data? = nil) async throws -> JSON {
+        if isPost { // 设定请求方法 已知水社只需要下面两个方法就够了
+            self.httpMethod = "POST"
+            self.httpBody = reqBody
+        } else {
+            self.httpMethod = "GET"
+        }
+        let (data, _) = try await httpSession().data(for: self)
+        let json = try JSON(data: data)
+        if json["retcode"].intValue == 0 {
+            return json
+        } else {
             throw NSError(domain: "http.request", code: json["retcode"].intValue, userInfo: [NSLocalizedDescriptionKey: "\(json["message"].string ?? "未知错误")"])
         }
     }
