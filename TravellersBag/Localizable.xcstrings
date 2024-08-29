@@ -87,6 +87,28 @@
         }
       }
     },
+    "app.no" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "否"
+          }
+        }
+      }
+    },
+    "app.yes" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "是"
+          }
+        }
+      }
+    },
     "character.detail.fetter" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -747,6 +769,215 @@
         }
       }
     },
+    "hutaokit.error.crypto" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法加密字符串，%@"
+          }
+        }
+      }
+    },
+    "hutaokit.error.crypto_key" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "公钥加载异常。"
+          }
+        }
+      }
+    },
+    "hutaokit.error.login" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "登录通行证时错误，%@"
+          }
+        }
+      }
+    },
+    "hutaokit.init.err" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "加载本地胡桃通行证时出错，%@"
+          }
+        }
+      }
+    },
+    "hutaokit.login" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "添加账号"
+          }
+        }
+      }
+    },
+    "hutaokit.login.email" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "邮箱"
+          }
+        }
+      }
+    },
+    "hutaokit.login.failed" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "登录失败，%@"
+          }
+        }
+      }
+    },
+    "hutaokit.login.ok" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "通行证登录成功。"
+          }
+        }
+      }
+    },
+    "hutaokit.login.password" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "密码"
+          }
+        }
+      }
+    },
+    "hutaokit.login.tip" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "你只能登录一个胡桃通行证，在本次登录完成之后，除非你注销它的登录状态，否则你无法登录新的通行证。"
+          }
+        }
+      }
+    },
+    "hutaokit.login.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "添加胡桃通行证"
+          }
+        }
+      }
+    },
+    "hutaokit.main.logout" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "退出登录"
+          }
+        }
+      }
+    },
+    "hutaokit.main.logout_alert" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "你确定要退出登录吗？此前同步的记录数据不回因为此操作而被删除，但你将无法继续使用由胡桃云提供的服务。"
+          }
+        }
+      }
+    },
+    "hutaokit.main.table_developer" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已认证的合作开发者"
+          }
+        }
+      }
+    },
+    "hutaokit.main.table_expire" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "胡桃云服务到期时间"
+          }
+        }
+      }
+    },
+    "hutaokit.main.time_tip" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "如果你是「已认证的合作开发者」，那么你的胡桃云服务员到期时间将始终为1970-01-01。"
+          }
+        }
+      }
+    },
+    "hutaokit.main.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "胡桃通行证账号"
+          }
+        }
+      }
+    },
+    "hutaokit.no_account" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请先登录通行证"
+          }
+        }
+      }
+    },
+    "hutaokit.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "胡桃通行证"
+          }
+        }
+      }
+    },
     "launcher.global.error_test_command" : {
       "localizations" : {
         "zh-Hans" : {
@@ -1006,6 +1237,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "发现重复账号，已阻止本次登录。"
+          }
+        }
+      }
+    },
+    "user.feat.hutao" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "胡桃通行证相关"
           }
         }
       }

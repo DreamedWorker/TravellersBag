@@ -31,6 +31,10 @@
 		5D066CDE2C7898E100EA61AE /* GachaService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D066CDD2C7898E100EA61AE /* GachaService.swift */; };
 		5D066CE32C79D37800EA61AE /* Weapon.json in Resources */ = {isa = PBXBuildFile; fileRef = 5D066CE22C79D37800EA61AE /* Weapon.json */; };
 		5D066CE52C79D45F00EA61AE /* Avatar.json in Resources */ = {isa = PBXBuildFile; fileRef = 5D066CE42C79D45F00EA61AE /* Avatar.json */; };
+		5D6EE51B2C7F96C4001718C8 /* HutaoAccountScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6EE51A2C7F96C4001718C8 /* HutaoAccountScreen.swift */; };
+		5D6EE51D2C7F9A4D001718C8 /* HutaoAccountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6EE51C2C7F9A4D001718C8 /* HutaoAccountModel.swift */; };
+		5D6EE5202C7FA14A001718C8 /* HutaoApiEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6EE51F2C7FA14A001718C8 /* HutaoApiEndpoints.swift */; };
+		5D6EE5222C7FA245001718C8 /* HutaoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6EE5212C7FA245001718C8 /* HutaoService.swift */; };
 		5D82B01D2C6EEB2000C585EC /* AccountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D82B01C2C6EEB2000C585EC /* AccountModel.swift */; };
 		5D82B0202C6F13E800C585EC /* AccountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D82B01F2C6F13E800C585EC /* AccountService.swift */; };
 		5D82B0222C6F3D6200C585EC /* Character+Verification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D82B0212C6F3D6200C585EC /* Character+Verification.swift */; };
@@ -83,6 +87,10 @@
 		5D066CE02C79D00E00EA61AE /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		5D066CE22C79D37800EA61AE /* Weapon.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Weapon.json; sourceTree = "<group>"; };
 		5D066CE42C79D45F00EA61AE /* Avatar.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Avatar.json; sourceTree = "<group>"; };
+		5D6EE51A2C7F96C4001718C8 /* HutaoAccountScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HutaoAccountScreen.swift; sourceTree = "<group>"; };
+		5D6EE51C2C7F9A4D001718C8 /* HutaoAccountModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HutaoAccountModel.swift; sourceTree = "<group>"; };
+		5D6EE51F2C7FA14A001718C8 /* HutaoApiEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HutaoApiEndpoints.swift; sourceTree = "<group>"; };
+		5D6EE5212C7FA245001718C8 /* HutaoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HutaoService.swift; sourceTree = "<group>"; };
 		5D82B01C2C6EEB2000C585EC /* AccountModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountModel.swift; sourceTree = "<group>"; };
 		5D82B01F2C6F13E800C585EC /* AccountService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountService.swift; sourceTree = "<group>"; };
 		5D82B0212C6F3D6200C585EC /* Character+Verification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Character+Verification.swift"; sourceTree = "<group>"; };
@@ -263,6 +271,8 @@
 		5D066CDF2C79CFE000EA61AE /* LibHutaoKit */ = {
 			isa = PBXGroup;
 			children = (
+				5D6EE51E2C7FA131001718C8 /* Services */,
+				5D6EE5192C7F9680001718C8 /* UI */,
 				5D066CE12C79D34700EA61AE /* HutaoRescources */,
 				5D066CE02C79D00E00EA61AE /* README.md */,
 			);
@@ -276,6 +286,24 @@
 				5D066CE22C79D37800EA61AE /* Weapon.json */,
 			);
 			path = HutaoRescources;
+			sourceTree = "<group>";
+		};
+		5D6EE5192C7F9680001718C8 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				5D6EE51A2C7F96C4001718C8 /* HutaoAccountScreen.swift */,
+				5D6EE51C2C7F9A4D001718C8 /* HutaoAccountModel.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		5D6EE51E2C7FA131001718C8 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				5D6EE51F2C7FA14A001718C8 /* HutaoApiEndpoints.swift */,
+				5D6EE5212C7FA245001718C8 /* HutaoService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		5D82B01E2C6F13D400C585EC /* Services */ = {
@@ -469,6 +497,7 @@
 				5DB673F92C7C7B3C00CC4A9D /* GachaNormalCard.swift in Sources */,
 				5DA091472C70700300751E6A /* LaunchOptionScreen.swift in Sources */,
 				5D066CDA2C78874500EA61AE /* GachaScreen.swift in Sources */,
+				5D6EE51D2C7F9A4D001718C8 /* HutaoAccountModel.swift in Sources */,
 				5DA091492C7071C800751E6A /* LauncherModel.swift in Sources */,
 				5D00F5C02C6E656400FD7E52 /* FileHandler.swift in Sources */,
 				5DD4B4B32C7DAA0900A9E859 /* UIGF4.swift in Sources */,
@@ -487,11 +516,14 @@
 				5D00F5C42C6E659E00FD7E52 /* ApiEndpoints.swift in Sources */,
 				5D82B0202C6F13E800C585EC /* AccountService.swift in Sources */,
 				5D00F5AD2C6E3BE000FD7E52 /* TravellersBagModel.xcdatamodeld in Sources */,
+				5D6EE5202C7FA14A001718C8 /* HutaoApiEndpoints.swift in Sources */,
 				5DA091552C70EF4000751E6A /* EnkaAvatar.swift in Sources */,
 				5D00F5BE2C6E610700FD7E52 /* MDLikeTile.swift in Sources */,
 				5D82B0272C6F4F8F00C585EC /* AccountTile.swift in Sources */,
 				5DA0914C2C709B3800751E6A /* CharacterScreen.swift in Sources */,
+				5D6EE5222C7FA245001718C8 /* HutaoService.swift in Sources */,
 				5D99B2B72C75C66200CC9ADD /* NoticeScreen.swift in Sources */,
+				5D6EE51B2C7F96C4001718C8 /* HutaoAccountScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

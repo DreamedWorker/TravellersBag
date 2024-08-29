@@ -29,7 +29,7 @@ private struct DynamicSecret2Payload {
             // 注意：这里对value进行了简单的字符串转换，实际使用中可能需要根据value的类型做特殊处理
             // 比如，如果value是数组或字典，需要递归转换
             // 这里为了简化，直接使用了`String(describing:)`，它可能不适用于所有情况
-            let valueString = String(describing: value)
+            // let valueString = String(describing: value)
             // URL编码
             //let encodedKey = key.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? key
             //let encodedValue = valueString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? valueString

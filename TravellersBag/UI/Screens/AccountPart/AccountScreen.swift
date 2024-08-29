@@ -12,41 +12,53 @@ struct AccountScreen: View {
     @StateObject private var viewModel = AccountModel.shared
     
     var body: some View {
-        ScrollView {
-            // 这里展示米游社账号
-            Form {
-                HStack {
-                    Text("user.table_mishe.title").font(.title2).bold()
-                        .padding(.trailing, 8)
-                    Spacer()
-                }
-                ForEach(viewModel.accounts){ account in
-                    AccountTile(
-                        account: account,
-                        refresh: { viewModel.fetchAccounts() },
-                        checkIn: {}
+        NavigationStack {
+            ScrollView {
+                //功能区
+                Form {
+                    NavigationLink(
+                        destination: { HutaoAccountScreen() },
+                        label: { Label(
+                            title: { Text("user.feat.hutao") },
+                            icon: { Image(systemName: "wallet.pass") }
+                        )}
                     )
-                }
-            }.formStyle(.grouped).scrollDisabled(true)
-                .padding(.bottom, 8)
-            // 这里展示对应的原神账号
-            Form {
-                HStack {
-                    Text("user.table_hk4e.title").font(.title2).bold()
-                        .padding(.trailing, 8)
-                    Text("user.table_hk4e.sub").font(.callout)
-                    Spacer()
-                }
-                ForEach(viewModel.accounts){ account in
-                    AccountTile(
-                        account: account,
-                        showSub: true,
-                        refresh: {},
-                        checkIn: {},
-                        genshinUrl: viewModel.getGenshinHeadUrl(id: account.genshinPicID!)
-                    )
-                }
-            }.formStyle(.grouped).scrollDisabled(true)
+                }.formStyle(.grouped).scrollDisabled(true)
+                // 这里展示米游社账号
+                Form {
+                    HStack {
+                        Text("user.table_mishe.title").font(.title2).bold()
+                            .padding(.trailing, 8)
+                        Spacer()
+                    }
+                    ForEach(viewModel.accounts){ account in
+                        AccountTile(
+                            account: account,
+                            refresh: { viewModel.fetchAccounts() },
+                            checkIn: {}
+                        )
+                    }
+                }.formStyle(.grouped).scrollDisabled(true)
+                    .padding(.bottom, 8)
+                // 这里展示对应的原神账号
+                Form {
+                    HStack {
+                        Text("user.table_hk4e.title").font(.title2).bold()
+                            .padding(.trailing, 8)
+                        Text("user.table_hk4e.sub").font(.callout)
+                        Spacer()
+                    }
+                    ForEach(viewModel.accounts){ account in
+                        AccountTile(
+                            account: account,
+                            showSub: true,
+                            refresh: {},
+                            checkIn: {},
+                            genshinUrl: viewModel.getGenshinHeadUrl(id: account.genshinPicID!)
+                        )
+                    }
+                }.formStyle(.grouped).scrollDisabled(true)
+            }
         }
             .navigationTitle(Text("home.sider.account"))
             .toolbar(content: {

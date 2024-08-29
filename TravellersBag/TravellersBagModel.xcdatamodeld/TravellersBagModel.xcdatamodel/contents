@@ -9,6 +9,14 @@
         <attribute name="time" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="uid" optional="YES" attributeType="String"/>
     </entity>
+    <entity name="HutaoAccount" representedClassName="HutaoAccount" syncable="YES" codeGenerationType="class">
+        <attribute name="auth" optional="YES" attributeType="String"/>
+        <attribute name="gachaLogExpireAt" optional="YES" attributeType="String"/>
+        <attribute name="isLicensedDeveloper" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="isMaintainer" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="normalizedUserName" optional="YES" attributeType="String"/>
+        <attribute name="userName" optional="YES" attributeType="String"/>
+    </entity>
     <entity name="ShequAccount" representedClassName="ShequAccount" syncable="YES" codeGenerationType="class">
         <attribute name="active" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
         <attribute name="cookieToken" optional="YES" attributeType="String"/>
