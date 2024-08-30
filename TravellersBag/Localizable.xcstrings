@@ -538,6 +538,116 @@
         }
       }
     },
+    "gacha.hutao.delete" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "删除这个数据"
+          }
+        }
+      }
+    },
+    "gacha.hutao.error_entry" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "获取胡桃云的祈愿记录失败，%@"
+          }
+        }
+      }
+    },
+    "gacha.hutao.record_delete_no" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "云祈愿数据删除失败，%@"
+          }
+        }
+      }
+    },
+    "gacha.hutao.record_delete_ok" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "云祈愿数据删除完成。"
+          }
+        }
+      }
+    },
+    "gacha.hutao.record_upload_err" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "数据上传失败，%@"
+          }
+        }
+      }
+    },
+    "gacha.hutao.time" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "数据存储至：%@"
+          }
+        }
+      }
+    },
+    "gacha.hutao.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "祈愿与胡桃云"
+          }
+        }
+      }
+    },
+    "gacha.hutao.uid_not_found" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "未找到与默认UID匹配的记录。"
+          }
+        }
+      }
+    },
+    "gacha.hutao.upload" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "上传本机数据"
+          }
+        }
+      }
+    },
+    "gacha.hutao.use_it" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "使用这个数据"
+          }
+        }
+      }
+    },
     "gacha.init.from_file_ok" : {
       "extractionState" : "manual",
       "localizations" : {

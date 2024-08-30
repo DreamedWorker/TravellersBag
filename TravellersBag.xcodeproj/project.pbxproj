@@ -31,10 +31,13 @@
 		5D066CDE2C7898E100EA61AE /* GachaService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D066CDD2C7898E100EA61AE /* GachaService.swift */; };
 		5D066CE32C79D37800EA61AE /* Weapon.json in Resources */ = {isa = PBXBuildFile; fileRef = 5D066CE22C79D37800EA61AE /* Weapon.json */; };
 		5D066CE52C79D45F00EA61AE /* Avatar.json in Resources */ = {isa = PBXBuildFile; fileRef = 5D066CE42C79D45F00EA61AE /* Avatar.json */; };
+		5D1F31322C80D16200FABCC6 /* SecurityTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1F31312C80D16200FABCC6 /* SecurityTool.swift */; };
+		5D1F31352C80ED2E00FABCC6 /* GachaLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1F31342C80ED2E00FABCC6 /* GachaLog.swift */; };
 		5D6EE51B2C7F96C4001718C8 /* HutaoAccountScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6EE51A2C7F96C4001718C8 /* HutaoAccountScreen.swift */; };
 		5D6EE51D2C7F9A4D001718C8 /* HutaoAccountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6EE51C2C7F9A4D001718C8 /* HutaoAccountModel.swift */; };
 		5D6EE5202C7FA14A001718C8 /* HutaoApiEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6EE51F2C7FA14A001718C8 /* HutaoApiEndpoints.swift */; };
 		5D6EE5222C7FA245001718C8 /* HutaoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6EE5212C7FA245001718C8 /* HutaoService.swift */; };
+		5D6EE5242C804998001718C8 /* GlobalHutao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6EE5232C804998001718C8 /* GlobalHutao.swift */; };
 		5D82B01D2C6EEB2000C585EC /* AccountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D82B01C2C6EEB2000C585EC /* AccountModel.swift */; };
 		5D82B0202C6F13E800C585EC /* AccountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D82B01F2C6F13E800C585EC /* AccountService.swift */; };
 		5D82B0222C6F3D6200C585EC /* Character+Verification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D82B0212C6F3D6200C585EC /* Character+Verification.swift */; };
@@ -87,10 +90,13 @@
 		5D066CE02C79D00E00EA61AE /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		5D066CE22C79D37800EA61AE /* Weapon.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Weapon.json; sourceTree = "<group>"; };
 		5D066CE42C79D45F00EA61AE /* Avatar.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Avatar.json; sourceTree = "<group>"; };
+		5D1F31312C80D16200FABCC6 /* SecurityTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityTool.swift; sourceTree = "<group>"; };
+		5D1F31342C80ED2E00FABCC6 /* GachaLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GachaLog.swift; sourceTree = "<group>"; };
 		5D6EE51A2C7F96C4001718C8 /* HutaoAccountScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HutaoAccountScreen.swift; sourceTree = "<group>"; };
 		5D6EE51C2C7F9A4D001718C8 /* HutaoAccountModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HutaoAccountModel.swift; sourceTree = "<group>"; };
 		5D6EE51F2C7FA14A001718C8 /* HutaoApiEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HutaoApiEndpoints.swift; sourceTree = "<group>"; };
 		5D6EE5212C7FA245001718C8 /* HutaoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HutaoService.swift; sourceTree = "<group>"; };
+		5D6EE5232C804998001718C8 /* GlobalHutao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalHutao.swift; sourceTree = "<group>"; };
 		5D82B01C2C6EEB2000C585EC /* AccountModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountModel.swift; sourceTree = "<group>"; };
 		5D82B01F2C6F13E800C585EC /* AccountService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountService.swift; sourceTree = "<group>"; };
 		5D82B0212C6F3D6200C585EC /* Character+Verification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Character+Verification.swift"; sourceTree = "<group>"; };
@@ -198,6 +204,7 @@
 				5D00F5BF2C6E656400FD7E52 /* FileHandler.swift */,
 				5D00F5B12C6E46AD00FD7E52 /* SwiftyJSON.swift */,
 				5D00F5AF2C6E3C8100FD7E52 /* CoreDataHelper.swift */,
+				5D1F31312C80D16200FABCC6 /* SecurityTool.swift */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -271,6 +278,7 @@
 		5D066CDF2C79CFE000EA61AE /* LibHutaoKit */ = {
 			isa = PBXGroup;
 			children = (
+				5D1F31332C80ED1B00FABCC6 /* Data */,
 				5D6EE51E2C7FA131001718C8 /* Services */,
 				5D6EE5192C7F9680001718C8 /* UI */,
 				5D066CE12C79D34700EA61AE /* HutaoRescources */,
@@ -288,6 +296,14 @@
 			path = HutaoRescources;
 			sourceTree = "<group>";
 		};
+		5D1F31332C80ED1B00FABCC6 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				5D1F31342C80ED2E00FABCC6 /* GachaLog.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		5D6EE5192C7F9680001718C8 /* UI */ = {
 			isa = PBXGroup;
 			children = (
@@ -302,6 +318,7 @@
 			children = (
 				5D6EE51F2C7FA14A001718C8 /* HutaoApiEndpoints.swift */,
 				5D6EE5212C7FA245001718C8 /* HutaoService.swift */,
+				5D6EE5232C804998001718C8 /* GlobalHutao.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -487,6 +504,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D6EE5242C804998001718C8 /* GlobalHutao.swift in Sources */,
 				5D9F4EBE2C71BBF700EBD936 /* CharacterDetail.swift in Sources */,
 				5D9F4EC22C72535900EBD936 /* VerificationView.swift in Sources */,
 				5D066CDC2C7898D000EA61AE /* GachaModel.swift in Sources */,
@@ -499,6 +517,7 @@
 				5D066CDA2C78874500EA61AE /* GachaScreen.swift in Sources */,
 				5D6EE51D2C7F9A4D001718C8 /* HutaoAccountModel.swift in Sources */,
 				5DA091492C7071C800751E6A /* LauncherModel.swift in Sources */,
+				5D1F31322C80D16200FABCC6 /* SecurityTool.swift in Sources */,
 				5D00F5C02C6E656400FD7E52 /* FileHandler.swift in Sources */,
 				5DD4B4B32C7DAA0900A9E859 /* UIGF4.swift in Sources */,
 				5D00F5C52C6E659E00FD7E52 /* HttpRequests.swift in Sources */,
@@ -508,6 +527,7 @@
 				5D00F5BA2C6E5EC300FD7E52 /* AccountScreen.swift in Sources */,
 				5D066CDE2C7898E100EA61AE /* GachaService.swift in Sources */,
 				5D00F5C72C6E662500FD7E52 /* EventMessager.swift in Sources */,
+				5D1F31352C80ED2E00FABCC6 /* GachaLog.swift in Sources */,
 				5D9F4EC02C71E46600EBD936 /* CardView.swift in Sources */,
 				5D82B01D2C6EEB2000C585EC /* AccountModel.swift in Sources */,
 				5D9ED1E62C73A4B100A05C29 /* WebTest.swift in Sources */,

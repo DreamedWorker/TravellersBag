@@ -14,6 +14,7 @@ class HutaoApiEndpoints {
     
     private static var HomaSnapGenshin = "https://homa.snapgenshin.com"
     private static var HomaSnapPassport = "\(HutaoApiEndpoints.HomaSnapGenshin)/Passport"
+    private static var HomaSnapGachaLog = "\(HutaoApiEndpoints.HomaSnapGenshin)/GachaLog"
     
     /// 登录胡桃通行证
     func login() -> String {
@@ -23,5 +24,20 @@ class HutaoApiEndpoints {
     /// 获取用户信息
     func userInfo() -> String {
         return "\(HutaoApiEndpoints.HomaSnapPassport)/UserInfo"
+    }
+    
+    /// 抽卡记录日志
+    func gachaEntries() -> String {
+        return "\(HutaoApiEndpoints.HomaSnapGachaLog)/Entries"
+    }
+    
+    /// 删除指定UID的云端祈愿数据
+    func gachaDelete(uid: String) -> String {
+        return "\(HutaoApiEndpoints.HomaSnapGachaLog)/Delete?Uid=\(uid)"
+    }
+    
+    /// 上传祈愿数据
+    func gachaUpload() -> String {
+        return "\(HutaoApiEndpoints.HomaSnapGachaLog)/Upload"
     }
 }

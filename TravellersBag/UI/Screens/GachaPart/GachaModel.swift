@@ -34,6 +34,8 @@ class GachaModel: ObservableObject {
     @Published var showContextUI = false
     @Published var gachaList: [GachaItem] = []
     @Published var showMoreOption = false
+    @Published var showHutaoOption = false
+    @Published var hutaoRecord: JSON? = nil
     
     func initSomething(context: NSManagedObjectContext) {
         dataManager = context
@@ -188,17 +190,120 @@ class GachaModel: ObservableObject {
         try await getRecordFromHk4e()
     }
     
+    /// 获取祈愿数据并打开弹窗
+    func fetchRecordInfoFromHutao() async {
+        if GlobalHutao.shared.hasAccount() {
+            if hutaoRecord == nil { // 用于减少网络请求量
+                do {
+                    let result = try await HutaoService.shared.gachaEntries()
+                    DispatchQueue.main.async {
+                        self.hutaoRecord = result.arrayValue
+                            .filter({ $0["Uid"].stringValue == HomeController.shared.currentUser!.genshinUID! }).first
+                        self.showHutaoOption = true
+                    }
+                } catch {
+                    DispatchQueue.main.async {
+                        HomeController.shared.showErrorDialog(
+                            msg: String.localizedStringWithFormat(
+                                NSLocalizedString("gacha.hutao.error_entry", comment: ""),
+                                error.localizedDescription)
+                        )
+                    }
+                }
+            } else {
+                DispatchQueue.main.async {
+                    self.showHutaoOption = true
+                }
+            }
+        } else {
+            do {
+                try await HutaoService.shared.loginWithKeychain(dm: dataManager!)
+                let result = try await HutaoService.shared.gachaEntries()
+                DispatchQueue.main.async {
+                    self.hutaoRecord = result.arrayValue
+                        .filter({ $0["Uid"].stringValue == HomeController.shared.currentUser!.genshinUID! }).first
+                    self.showHutaoOption = true
+                }
+            } catch {
+                DispatchQueue.main.async {
+                    HomeController.shared.showErrorDialog(msg: NSLocalizedString("hutaokit.no_account", comment: ""))
+                }
+            }
+        }
+    }
+    
+    /// 上传本地祈愿数据
+    func uploadLocal2Hutao() async {
+        let needFullUpload = hutaoRecord == nil
+        do {
+            let result = try await HutaoService.shared.uploadGachaRecord(
+                records: gachaList, uid: HomeController.shared.currentUser!.genshinUID!, fullUpload: needFullUpload)
+            if result["retcode"].intValue == 0 {
+                DispatchQueue.main.async {
+                    self.showHutaoOption = false
+                    HomeController.shared.showInfomationDialog(msg: result["message"].string ?? "")
+                }
+            } else {
+                DispatchQueue.main.async {
+                    self.showHutaoOption = false
+                    HomeController.shared.showErrorDialog(msg: String.localizedStringWithFormat(NSLocalizedString("gacha.hutao.record_upload_err", comment: ""), result["message"].string ?? "未知原因")
+                    )
+                }
+            }
+        } catch {
+            DispatchQueue.main.async {
+                self.showHutaoOption = false
+                HomeController.shared.showErrorDialog(msg: String.localizedStringWithFormat(NSLocalizedString("gacha.hutao.record_upload_err", comment: ""), error.localizedDescription)
+                )
+            }
+        }
+    }
+    
+    /// 删除胡桃的祈愿数据
+    func removeRecord(uid: String) async {
+        do {
+            let result = try await HutaoService.shared.deleteGachaRecord(uid: uid)
+            DispatchQueue.main.async {
+                if result["retcode"].intValue == 0 {
+                    self.showHutaoOption = false
+                    self.hutaoRecord = nil
+                    HomeController.shared.showInfomationDialog(msg: NSLocalizedString("gacha.hutao.record_delete_ok", comment: ""))
+                } else {
+                    self.showHutaoOption = false
+                    HomeController.shared.showErrorDialog(
+                        msg: String.localizedStringWithFormat(
+                            NSLocalizedString("gacha.hutao.record_delete_no", comment: ""),
+                            result["message"].string ?? "未知原因")
+                    )
+                }
+            }
+        } catch {
+            DispatchQueue.main.async {
+                self.showHutaoOption = false
+                HomeController.shared.showErrorDialog(
+                    msg: String.localizedStringWithFormat(
+                        NSLocalizedString("gacha.hutao.record_delete_no", comment: ""),
+                        error.localizedDescription)
+                )
+            }
+        }
+    }
+    
     /// 获取物品的名字和星级 不在库中返回none
     private func getItemChineseName(itemId: String) -> String {
-        if itemId.count == 5 { // 武器
-            if let target = HomeController.shared.weaponList.filter({ $0["Id"].intValue == Int(itemId)! }).first {
-                return "\(target["Name"].stringValue)@\(target["RankLevel"].intValue)@武器"
-            } else {
-                return "none"
-            }
-        } else if itemId.count == 8 { // 角色
-            if let target = HomeController.shared.avatarList.filter({ $0["Id"].intValue == Int(itemId)! }).first {
-                return "\(target["Name"].stringValue)@\(target["Quality"].intValue)@角色"
+        if itemId != "10008" {
+            if itemId.count == 5 { // 武器
+                if let target = HomeController.shared.weaponList.filter({ $0["Id"].intValue == Int(itemId)! }).first {
+                    return "\(target["Name"].stringValue)@\(target["RankLevel"].intValue)@武器"
+                } else {
+                    return "none"
+                }
+            } else if itemId.count == 8 { // 角色
+                if let target = HomeController.shared.avatarList.filter({ $0["Id"].intValue == Int(itemId)! }).first {
+                    return "\(target["Name"].stringValue)@\(target["Quality"].intValue)@角色"
+                } else {
+                    return "none"
+                }
             } else {
                 return "none"
             }

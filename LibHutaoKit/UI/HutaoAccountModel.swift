@@ -37,6 +37,14 @@ class HutaoAccountModel: ObservableObject {
     func tryLogin() async throws {
         let result = try await HutaoService.shared.login(username: email, password: password)
         let userInfo = try await HutaoService.shared.userInfo(auth: result["data"].stringValue)
+        // 明文保存到钥匙串以备用（如果需要）
+        let keytool = SecurityTool.shared.save(account: TravellersAccount(username: email, password: password))
+        if keytool == noErr {
+            LocalEnvironment.shared.setStringValue(key: LocalEnvironment.USE_KEY_CHAIN, value: "yes")
+            LocalEnvironment.shared.setStringValue(key: LocalEnvironment.KEY_CHAIN_NAME, value: email)
+        } else {
+            LocalEnvironment.shared.setStringValue(key: LocalEnvironment.USE_KEY_CHAIN, value: "no")
+        }
         DispatchQueue.main.async { [self] in
             let neoAccount = HutaoAccount(context: dataManager!)
             neoAccount.auth = result["data"].stringValue
@@ -50,7 +58,9 @@ class HutaoAccountModel: ObservableObject {
             hutaoAccount = try? dataManager!.fetch(HutaoAccount.fetchRequest()).first
             showLoginPane = false
             refreshUIState()
+            GlobalHutao.shared.refresh()
             HomeController.shared.showInfomationDialog(msg: NSLocalizedString("hutaokit.login.ok", comment: ""))
+            email = ""; password = ""
         }
     }
     
@@ -59,6 +69,7 @@ class HutaoAccountModel: ObservableObject {
         dataManager!.delete(copy)
         let _ = CoreDataHelper.shared.save()
         hutaoAccount = nil
+        GlobalHutao.shared.hutao = nil
         showUI = false
     }
     

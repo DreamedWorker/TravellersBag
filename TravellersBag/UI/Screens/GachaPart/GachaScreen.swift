@@ -39,8 +39,7 @@ struct GachaScreen: View {
                     }
                     ToolbarItem {
                         Button(
-                            action: {
-                            },
+                            action: { Task { await viewModel.fetchRecordInfoFromHutao() } },
                             label: { Image(systemName: "externaldrive.badge.icloud").help("gacha.more.op_with_hutao") }
                         )
                     }
@@ -54,6 +53,7 @@ struct GachaScreen: View {
                     }
                 }
                 .sheet(isPresented: $viewModel.showMoreOption, content: { moreOptions })
+                .sheet(isPresented: $viewModel.showHutaoOption, content: { hutaoOptions })
             } else {
                 VStack {
                     Image("gacha_waiting_for").resizable().scaledToFit()
@@ -103,6 +103,15 @@ struct GachaScreen: View {
                     Text("gacha.no_data.another_account").font(.footnote).foregroundStyle(.secondary)
                 }
                 .padding(16)
+                .toolbar {
+                    ToolbarItem {
+                        Button(
+                            action: { Task { await viewModel.fetchRecordInfoFromHutao() } },
+                            label: { Image(systemName: "externaldrive.badge.icloud").help("gacha.more.op_with_hutao") }
+                        )
+                    }
+                }
+                .sheet(isPresented: $viewModel.showHutaoOption, content: { hutaoOptions })
             }
         } else {
             VStack {
@@ -184,6 +193,62 @@ struct GachaScreen: View {
             })
         }
         .frame(minWidth: 420)
+    }
+    
+    var hutaoOptions: some View {
+        return NavigationStack {
+            Text("gacha.hutao.title").font(.title).bold()
+            if GlobalHutao.shared.hasAccount() {
+                GroupBox(
+                    content: {
+                        //显示记录（如有）
+                        if let record = viewModel.hutaoRecord {
+                            HStack(spacing: 16) {
+                                Image(systemName: "waveform").padding(.leading, 8)
+                                VStack(alignment: .leading, content: {
+                                    Text(record["Uid"].stringValue).font(.title3).bold()
+                                    Text(String(record["ItemCount"].intValue)).font(.callout)
+                                })
+                                Spacer()
+                                Button(
+                                    action: {},
+                                    label: { Image(systemName: "square.and.arrow.down").help("gacha.hutao.use_it") }
+                                )
+                                Button(
+                                    action: {
+                                        Task { await viewModel.removeRecord(uid: record["Uid"].stringValue) }
+                                    },
+                                    label: { Image(systemName: "trash").help("gacha.hutao.delete") }
+                                ).padding(.trailing, 8)
+                            }
+                        } else {
+                            Text("gacha.hutao.uid_not_found").font(.callout)
+                        }
+                    },
+                    label: {
+                        Text(String.localizedStringWithFormat(
+                            NSLocalizedString("gacha.hutao.time", comment: ""), GlobalHutao.shared.hutao!.gachaLogExpireAt!)
+                        )
+                    }
+                )
+                MDLikeTile(
+                    leadingIcon: "square.and.arrow.up",
+                    endIcon: "arrow.forward",
+                    title: NSLocalizedString("gacha.hutao.upload", comment: ""),
+                    onClick: { Task { await viewModel.uploadLocal2Hutao() } }
+                )
+            } else {
+                Image("libhutaokit_no_account").resizable().scaledToFit().frame(width: 28, height: 28)
+                Text("hutaokit.no_account")
+            }
+        }
+        .padding()
+        .toolbar(content: {
+            ToolbarItem(placement: .cancellationAction, content: {
+                Button("app.cancel", action: { viewModel.showHutaoOption = false })
+            })
+        })
+        .frame(minWidth: 450)
     }
 }
 

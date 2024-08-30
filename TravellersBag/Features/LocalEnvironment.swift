@@ -31,6 +31,7 @@ class LocalEnvironment {
     static let BBS_DEVICE_ID = "bbsDeviceID"
     static let DEVICE_FP = "deviceFp"
     static let USE_KEY_CHAIN = "use_key_chain"
+    static let KEY_CHAIN_NAME = "keychain_name"
     
     //方法区
     /// 检查本地环境是否完整 本方法应该只在应用启动时调用

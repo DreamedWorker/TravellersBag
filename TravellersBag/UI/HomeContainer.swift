@@ -21,6 +21,7 @@ struct HomeContainer: View {
             HomePart()
                 .onAppear {
                     controller.initSomething(inContext: dataManager)
+                    GlobalHutao.shared.initSomething(dm: dataManager)
                 }
                 .toast(
                     isPresenting: $controller.showErrDialog,
