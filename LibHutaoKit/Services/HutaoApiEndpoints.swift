@@ -40,4 +40,9 @@ class HutaoApiEndpoints {
     func gachaUpload() -> String {
         return "\(HutaoApiEndpoints.HomaSnapGachaLog)/Upload"
     }
+    
+    /// 云端记录末尾Id
+    func gachaEndIds(uid: String) -> String {
+        return "\(HutaoApiEndpoints.HomaSnapGachaLog)/EndIds?Uid=\(uid)"
+    }
 }

@@ -97,15 +97,71 @@ class HutaoService {
         return try await req.receiveOrThrowHutao()
     }
     
+    func fetchRecordEndIDs(uid: String) async throws -> JSON {
+        var req = URLRequest(url: URL(string: HutaoApiEndpoints.shared.gachaEndIds(uid: uid))!)
+        req.setHost(host: "homa.snapgenshin.com")
+        req.setValue("Bearer \(GlobalHutao.shared.hutao!.auth!)", forHTTPHeaderField: "Authorization")
+        return try await req.receiveOrThrowHutao()
+    }
+    
     /// 上传祈愿数据 由于胡桃云遵循增量上传规则，故需要进行本地与云端数据比对，但如果云端没有数据时则全量上传。
     func uploadGachaRecord(records: [GachaItem], uid: String, fullUpload: Bool) async throws -> JSON {
-        let uploadData = (fullUpload) ? try processData(records: records, uid: uid) : "".data(using: .utf8)!
+        let uploadData = await (fullUpload) ? try processData(records: records, uid: uid) : try processDataWithRequire(records: records, uid: uid)
         var req = URLRequest(url: URL(string: HutaoApiEndpoints.shared.gachaUpload())!)
         req.setHost(host: "homa.snapgenshin.com")
         req.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
         req.setValue("Bearer \(GlobalHutao.shared.hutao!.auth!)", forHTTPHeaderField: "Authorization")
         req.setValue("\(uploadData.count)", forHTTPHeaderField: "Content-Length")
         return try await req.receiveOrThrowHutao(isPost: true, reqBody: uploadData)
+    }
+    
+    private func processDataWithRequire(records: [GachaItem], uid: String) async throws -> Data {
+        var temp: [HutaoGachaItem] = []
+        func dealList(list: [GachaItem]){
+            for i in list {
+                let name_id = (HomeController.shared.idTable.contains(where: { $0.0 == i.name! }))
+                ? HomeController.shared.idTable[i.name!].intValue : 10008
+                temp.append(
+                    HutaoGachaItem(
+                        GachaType: Int(i.gachaType!)!,
+                        QueryType: Int((i.gachaType! == "400") ? "301" : i.gachaType!)!,
+                        ItemId: name_id, Time: timeTransfer(d: i.time!), Id: Int(i.id!)!)
+                )
+            }
+        }
+        let beginner = records.filter({ $0.gachaType == "100"}).sorted(by: { Int($0.id!)! < Int($1.id!)! })
+        let character = records.filter({ $0.gachaType == "301" || $0.gachaType == "400" }).sorted(by: { Int($0.id!)! < Int($1.id!)! })
+        let weapon = records.filter({ $0.gachaType == "302" }).sorted(by: { Int($0.id!)! < Int($1.id!)! })
+        let resident = records.filter({ $0.gachaType == "200" }).sorted(by: { Int($0.id!)! < Int($1.id!)! })
+        let collection = records.filter({ $0.gachaType == "500" }).sorted(by: { Int($0.id!)! < Int($1.id!)! })
+        let endids = try await fetchRecordEndIDs(uid: uid)
+        if !beginner.isEmpty {
+            if endids["data"]["100"].intValue <= Int(beginner.last!.id!)! {
+                dealList(list: beginner.filter({ Int($0.id!)! > endids["data"]["100"].intValue }))
+            }
+        }
+        if !character.isEmpty {
+            if endids["data"]["301"].intValue <= Int(character.last!.id!)! {
+                dealList(list: character.filter({ Int($0.id!)! > endids["data"]["301"].intValue }))
+            }
+        }
+        if !weapon.isEmpty {
+            if endids["data"]["302"].intValue <= Int(weapon.last!.id!)! {
+                dealList(list: weapon.filter({ Int($0.id!)! > endids["data"]["302"].intValue }))
+            }
+        }
+        if !resident.isEmpty {
+            if endids["data"]["200"].intValue <= Int(resident.last!.id!)! {
+                dealList(list: resident.filter({ Int($0.id!)! > endids["data"]["200"].intValue }))
+            }
+        }
+        if !collection.isEmpty {
+            if endids["data"]["500"].intValue <= Int(collection.last!.id!)! {
+                dealList(list: collection.filter({ Int($0.id!)! > endids["data"]["500"].intValue }))
+            }
+        }
+        let summary = HutaoGachaUpload(Uid: uid, Items: temp)
+        return try JSONEncoder().encode(summary)
     }
     
     private func processData(records: [GachaItem], uid: String) throws -> Data {

@@ -202,12 +202,22 @@ class GachaModel: ObservableObject {
                         self.showHutaoOption = true
                     }
                 } catch {
-                    DispatchQueue.main.async {
-                        HomeController.shared.showErrorDialog(
-                            msg: String.localizedStringWithFormat(
-                                NSLocalizedString("gacha.hutao.error_entry", comment: ""),
-                                error.localizedDescription)
-                        )
+                    do {
+                        try await HutaoService.shared.loginWithKeychain(dm: dataManager!)
+                        let result = try await HutaoService.shared.gachaEntries()
+                        DispatchQueue.main.async {
+                            self.hutaoRecord = result.arrayValue
+                                .filter({ $0["Uid"].stringValue == HomeController.shared.currentUser!.genshinUID! }).first
+                            self.showHutaoOption = true
+                        }
+                    } catch {
+                        DispatchQueue.main.async {
+                            HomeController.shared.showErrorDialog(
+                                msg: String.localizedStringWithFormat(
+                                    NSLocalizedString("gacha.hutao.error_entry", comment: ""),
+                                    error.localizedDescription)
+                            )
+                        }
                     }
                 }
             } else {
@@ -216,18 +226,8 @@ class GachaModel: ObservableObject {
                 }
             }
         } else {
-            do {
-                try await HutaoService.shared.loginWithKeychain(dm: dataManager!)
-                let result = try await HutaoService.shared.gachaEntries()
-                DispatchQueue.main.async {
-                    self.hutaoRecord = result.arrayValue
-                        .filter({ $0["Uid"].stringValue == HomeController.shared.currentUser!.genshinUID! }).first
-                    self.showHutaoOption = true
-                }
-            } catch {
-                DispatchQueue.main.async {
-                    HomeController.shared.showErrorDialog(msg: NSLocalizedString("hutaokit.no_account", comment: ""))
-                }
+            DispatchQueue.main.async {
+                HomeController.shared.showErrorDialog(msg: NSLocalizedString("hutaokit.no_account", comment: ""))
             }
         }
     }

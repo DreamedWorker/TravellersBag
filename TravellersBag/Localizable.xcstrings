@@ -588,7 +588,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "数据上传失败，%@"
+            "value" : "数据上传失败，%@。如果是登录过期，请再点按一次，我们会重新为你登录。"
           }
         }
       }
