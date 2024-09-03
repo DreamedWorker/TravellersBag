@@ -274,7 +274,7 @@ class GachaModel: ObservableObject {
         }
     }
     
-    ///
+    /// 从服务器更新数据
     func updateFromHk4e() async {
         let user = HomeController.shared.currentUser!
         do {
@@ -317,6 +317,31 @@ class GachaModel: ObservableObject {
                         NSLocalizedString("gacha.error.fetch_info_err", comment: ""), self.errorPart.description)
                 )
             }
+        }
+    }
+    
+    /// 从UIGF文件更新
+    func updateDataFromUIGF(fileContext: String) {
+        do {
+            let data = try GachaService.shared.updateGachaInfoFromFile(
+                fileContext: fileContext,
+                uid: HomeController.shared.currentUser!.genshinUID!
+            ).sorted(by: { CLong($0["id"].stringValue)! < CLong($1["id"].stringValue)! })
+            if !data.isEmpty {
+                allList.removeAll()
+                allList.append(contentsOf: GachaService.shared.fetchNeoItemList(gachaType: beginnerGacha, list: gachaList, neoList: data))
+                allList.append(contentsOf: GachaService.shared.fetchNeoItemList(gachaType: residentGacha, list: gachaList, neoList: data))
+                allList.append(contentsOf: GachaService.shared.fetchNeoItemList(gachaType: characterGacha, list: gachaList, neoList: data))
+                allList.append(contentsOf: GachaService.shared.fetchNeoItemList(gachaType: weaponGacha, list: gachaList, neoList: data))
+                allList.append(contentsOf: GachaService.shared.fetchNeoItemList(gachaType: collectionGacha, list: gachaList, neoList: data))
+                try? collectRecordsToCoreData(list: allList)
+                HomeController.shared.showInfomationDialog(
+                    msg: String.localizedStringWithFormat(NSLocalizedString("gacha.update_info", comment: ""), String(allList.count))
+                )
+            }
+        } catch {
+            HomeController.shared.showErrorDialog(
+                msg: String.localizedStringWithFormat(NSLocalizedString("gacha.update.error_deal_uigf_file", comment: ""), error.localizedDescription))
         }
     }
     

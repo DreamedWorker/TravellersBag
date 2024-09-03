@@ -187,7 +187,19 @@ struct GachaScreen: View {
             MDLikeTile(
                 leadingIcon: "arrow.down.doc", endIcon: "arrow.forward",
                 title: NSLocalizedString("gacha.more.update_from_uigf", comment: ""),
-                onClick: {}
+                onClick: {
+                    viewModel.showMoreOption = false
+                    let panel = NSOpenPanel()
+                    panel.allowedContentTypes = [.json]; panel.allowsMultipleSelection = false
+                    panel.begin(completionHandler: { result in
+                        if result == NSApplication.ModalResponse.OK {
+                            if let url = panel.urls.first {
+                                viewModel.updateDataFromUIGF(fileContext: try! String(contentsOf: url))
+                                viewModel.allList.removeAll()
+                            }
+                        }
+                    })
+                }
             )
         }
         .padding()

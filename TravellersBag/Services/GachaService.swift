@@ -52,23 +52,69 @@ class GachaService {
     
     /// 从游戏服务器增量或全量更新数据
     func updateGachaInfo(gachaType: String, authKey: String, list: [GachaItem]) async throws -> [JSON] {
-        var specificList = (gachaType == "301")
-        ? list.filter({ $0.gachaType == "301" || $0.gachaType == "400" }) : list.filter({ $0.gachaType == gachaType })
-        specificList = specificList.sorted(by: { Int($0.id!)! < Int($1.id!)! })
         var jsons: [JSON] = []
         jsons.append(contentsOf: try await getGachaInfo(gachaType: gachaType, authKey: authKey))
         if !jsons.isEmpty {
             jsons = jsons.sorted(by: { CLong($0["id"].stringValue)! < CLong($1["id"].stringValue)! })
             let newLast = Int(jsons.last!["id"].stringValue)!
-            let oldLast = Int(specificList.last!.id!)!
+            let oldLast = Int(getLastItemId(gachaType: gachaType, list: list))!
+            if oldLast == 0 { // 如果当前数据为空，虽然不知道会不会有这个情况，就全量更新。
+                return jsons
+            }
             if oldLast < newLast {
-                let a = jsons.split(separator: jsons[jsons.firstIndex(where: { $0["id"].stringValue == specificList.last!.id! })!])
+                let a = jsons.split(separator: jsons[jsons.firstIndex(where: { $0["id"].stringValue == String(oldLast) })!])
                 return a[1].sorted()
             } else {
                 return []
             }
         } else {
             return []
+        }
+    }
+    
+    /// 处理文件中的祈愿数据
+    func updateGachaInfoFromFile(fileContext: String, uid: String) throws -> [JSON] {
+        let jsonData = try JSON(data: fileContext.data(using: .utf8)!)
+        if jsonData["info"]["version"].stringValue != "v4.0" {
+            throw NSError(domain: "gacha.update_from_file", code: -3, userInfo: [
+                NSLocalizedDescriptionKey: NSLocalizedString("gacha.update_error_from_file", comment: "")
+            ])
+        }
+        if let thisUserItems = jsonData["hk4e"].arrayValue.first(where: { $0["uid"].stringValue == uid }) {
+            return thisUserItems["list"].arrayValue
+        } else {
+            return []
+        }
+    }
+    
+    /// 获取从UIGF文件中提取的新列表
+    func fetchNeoItemList(gachaType: String, list: [GachaItem], neoList: [JSON]) -> [JSON] {
+        let lastID = getLastItemId(gachaType: gachaType, list: list)
+        var specificNeoList = (gachaType == "301")
+        ? neoList.filter({ $0["gacha_type"].stringValue == "301" || $0["gacha_type"].stringValue == "400" })
+        : neoList.filter({ $0["gacha_type"].stringValue == gachaType})
+        specificNeoList = specificNeoList.sorted(by: { CLong($0["id"].stringValue)! < CLong($1["id"].stringValue)! })
+        if let neoLastID = specificNeoList.last?["id"].stringValue {
+            if lastID == "0" {
+                return specificNeoList
+            }
+            if Int(lastID)! < Int(neoLastID)! {
+                return neoList.split(
+                    separator: specificNeoList[specificNeoList.firstIndex(where: { $0["id"].stringValue == lastID })!])[1]
+                    .sorted()
+            } else { return [] }
+        } else { return [] }
+    }
+    
+    /// 获取最后一个项目的ID
+    func getLastItemId(gachaType: String, list: [GachaItem]) -> String {
+        var specificList = (gachaType == "301")
+        ? list.filter({ $0.gachaType == "301" || $0.gachaType == "400" }) : list.filter({ $0.gachaType == gachaType })
+        specificList = specificList.sorted(by: { Int($0.id!)! < Int($1.id!)! })
+        if specificList.isEmpty {
+            return "0"
+        } else {
+            return specificList.last!.id!
         }
     }
     
