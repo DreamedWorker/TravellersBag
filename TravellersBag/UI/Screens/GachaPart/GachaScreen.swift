@@ -141,8 +141,8 @@ struct GachaScreen: View {
             .filter({ $0.gachaType == viewModel.residentGacha }).sorted(by: { Int($0.id!)! < Int($1.id!)! })
         let collection = viewModel.gachaList
             .filter({ $0.gachaType == viewModel.collectionGacha }).sorted(by: { Int($0.id!)! < Int($1.id!)! })
-        let beginner = viewModel.gachaList
-            .filter({ $0.gachaType == viewModel.beginnerGacha }).sorted(by: { Int($0.id!)! < Int($1.id!)! })
+//        let beginner = viewModel.gachaList
+//            .filter({ $0.gachaType == viewModel.beginnerGacha }).sorted(by: { Int($0.id!)! < Int($1.id!)! })
         return ScrollView {
             Grid {
                 ScrollView(.horizontal) {
@@ -151,7 +151,7 @@ struct GachaScreen: View {
                         GachaNormalCard(rootList: weapon, gachaIcon: "fork.knife", gachaName: "gacha.all.weapon_title")
                         GachaNormalCard(rootList: resident, gachaIcon: "app.gift", gachaName: "gacha.all.resident_title")
                         GachaNormalCard(rootList: collection, gachaIcon: "person.3", gachaName: "gacha.all.collection_title")
-                        GachaNormalCard(rootList: beginner, gachaIcon: "backpack", gachaName: "gacha.all.beginner_title")
+                        // GachaNormalCard(rootList: beginner, gachaIcon: "backpack", gachaName: "gacha.all.beginner_title") 不显示初行者祈愿
                     }
                 }
             }
@@ -177,7 +177,12 @@ struct GachaScreen: View {
             MDLikeTile(
                 leadingIcon: "cloud", endIcon: "arrow.forward",
                 title: NSLocalizedString("gacha.more.update_from_hk4e", comment: ""),
-                onClick: {}
+                onClick: {
+                    viewModel.showMoreOption = false
+                    HomeController.shared.showLoadingDialog(msg: "正在从云端拉取数据，请保持互联网通畅直至操作完成。")
+                    viewModel.allList.removeAll()
+                    Task { await viewModel.updateFromHk4e() }
+                }
             )
             MDLikeTile(
                 leadingIcon: "arrow.down.doc", endIcon: "arrow.forward",

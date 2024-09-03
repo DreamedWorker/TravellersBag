@@ -43,6 +43,7 @@
 		5D82B0222C6F3D6200C585EC /* Character+Verification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D82B0212C6F3D6200C585EC /* Character+Verification.swift */; };
 		5D82B0252C6F4C0D00C585EC /* pfps.json in Resources */ = {isa = PBXBuildFile; fileRef = 5D82B0242C6F4C0D00C585EC /* pfps.json */; };
 		5D82B0272C6F4F8F00C585EC /* AccountTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D82B0262C6F4F8F00C585EC /* AccountTile.swift */; };
+		5D946D592C86E0F7002C584C /* SentrySwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 5D946D582C86E0F7002C584C /* SentrySwiftUI */; };
 		5D99B2B72C75C66200CC9ADD /* NoticeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D99B2B62C75C66200CC9ADD /* NoticeScreen.swift */; };
 		5D9ED1E62C73A4B100A05C29 /* WebTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9ED1E52C73A4B100A05C29 /* WebTest.swift */; };
 		5D9F4EBE2C71BBF700EBD936 /* CharacterDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9F4EBD2C71BBF700EBD936 /* CharacterDetail.swift */; };
@@ -127,6 +128,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D668016BB33768F072987505 /* Pods_TravellersBag.framework in Frameworks */,
+				5D946D592C86E0F7002C584C /* SentrySwiftUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -398,6 +400,9 @@
 			dependencies = (
 			);
 			name = TravellersBag;
+			packageProductDependencies = (
+				5D946D582C86E0F7002C584C /* SentrySwiftUI */,
+			);
 			productName = TravellersBag;
 			productReference = 5D00F5972C6E392C00FD7E52 /* 旅者行囊.app */;
 			productType = "com.apple.product-type.application";
@@ -427,6 +432,9 @@
 				"zh-Hans",
 			);
 			mainGroup = 5D00F58E2C6E392C00FD7E52;
+			packageReferences = (
+				5D946D572C86E0F7002C584C /* XCRemoteSwiftPackageReference "sentry-cocoa" */,
+			);
 			productRefGroup = 5D00F5982C6E392C00FD7E52 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -760,6 +768,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5D946D572C86E0F7002C584C /* XCRemoteSwiftPackageReference "sentry-cocoa" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/getsentry/sentry-cocoa";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.36.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5D946D582C86E0F7002C584C /* SentrySwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5D946D572C86E0F7002C584C /* XCRemoteSwiftPackageReference "sentry-cocoa" */;
+			productName = SentrySwiftUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		5D00F5AB2C6E3BE000FD7E52 /* TravellersBagModel.xcdatamodeld */ = {

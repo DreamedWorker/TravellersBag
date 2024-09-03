@@ -813,6 +813,17 @@
         }
       }
     },
+    "gacha.update_info" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已为你的默认账号更新了%@条数据。"
+          }
+        }
+      }
+    },
     "home.container" : {
       "extractionState" : "manual",
       "localizations" : {

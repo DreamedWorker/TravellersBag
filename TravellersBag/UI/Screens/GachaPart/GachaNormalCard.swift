@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct GachaNormalCard: View {
     let rootList: [GachaItem] // 数据总表
@@ -66,7 +67,13 @@ struct GachaNormalCard: View {
                         ForEach(goldenCharacter.sorted(by: { Int($0.id!)! > Int($1.id!)! })){ single in
                             // 显示的时候还是按照时间顺序倒序显示
                             HStack {
-                                Image(systemName: "figure.stand")
+                                KFImage(URL(string: getNetworkImage(itemID: single.name!)))
+                                    .placeholder({ Image(systemName: "cabinet") })
+                                    .loadDiskFileSynchronously()
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fill)
+                                    .clipShape(Circle())
+                                    .frame(width: 24, height: 24)
                                 Text(single.name!)
                                 Spacer()
                                 Text(String.localizedStringWithFormat(
@@ -93,6 +100,21 @@ struct GachaNormalCard: View {
         .padding()
         .background(RoundedRectangle(cornerRadius: 8, style: .continuous).fill(BackgroundStyle()))
         .frame(minWidth: 260)
+    }
+    
+    /// 获取头像链接
+    private func getNetworkImage(itemID: String) -> String {
+        let mID = String(HomeController.shared.idTable[itemID].intValue)
+        let parentURL = "https://enka.network/ui"
+        if mID.count == 5 {
+            if let name = HomeController.shared.weaponList.filter({ String($0["Id"].intValue) == mID }).first {
+                return "\(parentURL)/\(name["Icon"].stringValue).png"
+            } else { return "about:blank" }
+        } else if mID.count == 8 {
+            if let name = HomeController.shared.avatarList.filter({ String($0["Id"].intValue) == mID }).first {
+                return "\(parentURL)/\(name["Icon"].stringValue).png"
+            } else { return "about:blank" }
+        } else { return "about:blank" }
     }
     
     /// 日期对象转换人类可读字符串

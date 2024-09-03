@@ -46,8 +46,30 @@ class GachaService {
             }
         }
         
-        try await fetchData(gachaType: gachaType, authKey: authKey)
+        try await fetchData(gachaType: gachaType, authKey: authKey, endID: endID)
         return partData
+    }
+    
+    /// 从游戏服务器增量或全量更新数据
+    func updateGachaInfo(gachaType: String, authKey: String, list: [GachaItem]) async throws -> [JSON] {
+        var specificList = (gachaType == "301")
+        ? list.filter({ $0.gachaType == "301" || $0.gachaType == "400" }) : list.filter({ $0.gachaType == gachaType })
+        specificList = specificList.sorted(by: { Int($0.id!)! < Int($1.id!)! })
+        var jsons: [JSON] = []
+        jsons.append(contentsOf: try await getGachaInfo(gachaType: gachaType, authKey: authKey))
+        if !jsons.isEmpty {
+            jsons = jsons.sorted(by: { CLong($0["id"].stringValue)! < CLong($1["id"].stringValue)! })
+            let newLast = Int(jsons.last!["id"].stringValue)!
+            let oldLast = Int(specificList.last!.id!)!
+            if oldLast < newLast {
+                let a = jsons.split(separator: jsons[jsons.firstIndex(where: { $0["id"].stringValue == specificList.last!.id! })!])
+                return a[1].sorted()
+            } else {
+                return []
+            }
+        } else {
+            return []
+        }
     }
     
     /// 以UIGFv4.0标准导出记录到文件（此方法系同步方法，不需要切换线程）

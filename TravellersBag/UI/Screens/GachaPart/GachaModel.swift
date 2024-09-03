@@ -19,7 +19,7 @@ class GachaModel: ObservableObject {
     let weaponGacha = "302" //武器
     let collectionGacha = "500" //混池
     
-    private var allList: [JSON] = []
+    var allList: [JSON] = []
     private var errorPart: [String] = []
     
     private init(){
@@ -185,11 +185,6 @@ class GachaModel: ObservableObject {
         }
     }
     
-    func updateDataFromHk4e() async throws {
-        await self.removeAllData()
-        try await getRecordFromHk4e()
-    }
-    
     /// 获取祈愿数据并打开弹窗
     func fetchRecordInfoFromHutao() async {
         if GlobalHutao.shared.hasAccount() {
@@ -274,6 +269,52 @@ class GachaModel: ObservableObject {
                     msg: String.localizedStringWithFormat(
                         NSLocalizedString("gacha.hutao.record_delete_no", comment: ""),
                         error.localizedDescription)
+                )
+            }
+        }
+    }
+    
+    ///
+    func updateFromHk4e() async {
+        let user = HomeController.shared.currentUser!
+        do {
+            let authKeyB = try await GachaService.shared.getAuthKeyB(user: user)
+            allList.append(
+                contentsOf: try await GachaService.shared.updateGachaInfo(
+                    gachaType: collectionGacha, authKey: authKeyB, list: gachaList)
+            )
+            do {
+                allList.append(
+                    contentsOf: try await GachaService.shared.updateGachaInfo(gachaType: residentGacha, authKey: authKeyB, list: gachaList)
+                )
+                do {
+                    allList.append(
+                        contentsOf: try await GachaService.shared.updateGachaInfo(gachaType: characterGacha, authKey: authKeyB, list: gachaList)
+                    )
+                    do {
+                        allList.append(
+                            contentsOf: try await GachaService.shared.updateGachaInfo(gachaType: weaponGacha, authKey: authKeyB, list: gachaList)
+                        )
+                    } catch {}
+                } catch {}
+            } catch{}
+        } catch {
+            DispatchQueue.main.async {
+                HomeController.shared.showErrorDialog(msg: error.localizedDescription)
+            }
+        }
+        DispatchQueue.main.async {
+            do {
+                try self.collectRecordsToCoreData(list: self.allList)
+                HomeController.shared.showLoadingDialog = false
+                HomeController.shared.showInfomationDialog(
+                    msg: String.localizedStringWithFormat(NSLocalizedString("gacha.update_info", comment: ""), String(self.allList.count))
+                )
+            } catch {
+                HomeController.shared.showLoadingDialog = false
+                HomeController.shared.showErrorDialog(
+                    msg: String.localizedStringWithFormat(
+                        NSLocalizedString("gacha.error.fetch_info_err", comment: ""), self.errorPart.description)
                 )
             }
         }
