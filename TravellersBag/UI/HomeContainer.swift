@@ -7,6 +7,7 @@
 
 import SwiftUI
 import AlertToast
+import MMKV
 
 struct HomeContainer: View {
     @AppStorage("currentAppVersion") var currentVersion: String = "0.0.0"
@@ -21,7 +22,17 @@ struct HomeContainer: View {
             HomePart()
                 .onAppear {
                     controller.initSomething(inContext: dataManager)
-                    GlobalHutao.shared.initSomething(dm: dataManager)
+                    Task {
+                        if LocalEnvironment.shared.getEnvStringValue(key: LocalEnvironment.USE_KEY_CHAIN) == "yes" {
+                            if checkIfNeedLogin() {
+                                try? await HutaoService.shared.loginWithKeychain(dm: dataManager)
+                                MMKV.default()!.set(Int64(Date().timeIntervalSince1970), forKey: "lastAutoLoginTime")
+                            }
+                        }
+                        DispatchQueue.main.async {
+                            GlobalHutao.shared.initSomething(dm: dataManager)
+                        }
+                    }
                 }
                 .toast(
                     isPresenting: $controller.showErrDialog,
@@ -39,6 +50,13 @@ struct HomeContainer: View {
                         )
                     })
         }
+    }
+    
+    func checkIfNeedLogin() -> Bool {
+        let key = "lastAutoLoginTime"
+        let lastTime = MMKV.default()!.int64(forKey: key, defaultValue: 0)
+        let now = Int64(Date().timeIntervalSince1970)
+        return (now - lastTime) > Int64(3600)
     }
 }
 
