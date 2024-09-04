@@ -373,17 +373,6 @@
         }
       }
     },
-    "gacha.all.chatacter_date" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "记录起止时间"
-          }
-        }
-      }
-    },
     "gacha.all.chatacter_date_1" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -450,13 +439,24 @@
         }
       }
     },
-    "gacha.error.cloud_empty" : {
+    "gacha.delete.msg" : {
       "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "游戏并没有你的祈愿记录，可能你已经有超过6个月未进行过祈愿。"
+            "value" : "你正在执行一项不可逆的操作，我们会删除你存储在本地（CoreData）中的全部祈愿记录，你的云端记录不会受到影响，因为它们由相应的服务提供方托管。"
+          }
+        }
+      }
+    },
+    "gacha.delete.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "删除本地祈愿数据警告"
           }
         }
       }
@@ -483,17 +483,6 @@
         }
       }
     },
-    "gacha.error.format_data" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "整理数据时出错：%@"
-          }
-        }
-      }
-    },
     "gacha.error.get_authkey" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -505,28 +494,6 @@
         }
       }
     },
-    "gacha.error.local_empty" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "本地数据库关于当前的默认用户的记录是空的。"
-          }
-        }
-      }
-    },
-    "gacha.error.no_hk4e" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "你的文件中没有《原神》的祈愿记录！"
-          }
-        }
-      }
-    },
     "gacha.export.error" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -534,116 +501,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "导出祈愿数据时失败，%@"
-          }
-        }
-      }
-    },
-    "gacha.hutao.delete" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "删除这个数据"
-          }
-        }
-      }
-    },
-    "gacha.hutao.error_entry" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "获取胡桃云的祈愿记录失败，%@"
-          }
-        }
-      }
-    },
-    "gacha.hutao.record_delete_no" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "云祈愿数据删除失败，%@"
-          }
-        }
-      }
-    },
-    "gacha.hutao.record_delete_ok" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "云祈愿数据删除完成。"
-          }
-        }
-      }
-    },
-    "gacha.hutao.record_upload_err" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "数据上传失败，%@。如果是登录过期，请再点按一次，我们会重新为你登录。"
-          }
-        }
-      }
-    },
-    "gacha.hutao.time" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "数据存储至：%@"
-          }
-        }
-      }
-    },
-    "gacha.hutao.title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "祈愿与胡桃云"
-          }
-        }
-      }
-    },
-    "gacha.hutao.uid_not_found" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "未找到与默认UID匹配的记录。"
-          }
-        }
-      }
-    },
-    "gacha.hutao.upload" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "上传本机数据"
-          }
-        }
-      }
-    },
-    "gacha.hutao.use_it" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "使用这个数据"
           }
         }
       }
@@ -692,39 +549,6 @@
         }
       }
     },
-    "gacha.more.op_with_hutao" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "与胡桃云交互"
-          }
-        }
-      }
-    },
-    "gacha.more.title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "更多操作"
-          }
-        }
-      }
-    },
-    "gacha.more.update_from_hk4e" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "用服务器数据更新存档"
-          }
-        }
-      }
-    },
     "gacha.more.update_from_uigf" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -747,50 +571,6 @@
         }
       }
     },
-    "gacha.no_data.another_account" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "或许，也可能是当前的默认账号还并未获取过角色，你可以切换你的默认账号并点按「刷新状态」按钮。"
-          }
-        }
-      }
-    },
-    "gacha.no_data.get_from_hk4e" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "从游戏服务器获取"
-          }
-        }
-      }
-    },
-    "gacha.no_data.refresh" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "刷新状态"
-          }
-        }
-      }
-    },
-    "gacha.no_data.title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "数据为空，你可以…"
-          }
-        }
-      }
-    },
     "gacha.tab.view_all" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -809,6 +589,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "导出记录到文件"
+          }
+        }
+      }
+    },
+    "gacha.toolbar.export.message" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "选取一个你想要将文件导出到的位置"
           }
         }
       }
@@ -842,6 +633,50 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "处理UIGF文件数据时异常，%@"
+          }
+        }
+      }
+    },
+    "gacha.update.from_hk4e" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "从官方导入"
+          }
+        }
+      }
+    },
+    "gacha.update.from_uigf" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "从UIGFv4文件导入"
+          }
+        }
+      }
+    },
+    "gacha.update.msg" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "我们将以「增量更新」的方式为你增加数据。如果你的本地列表为空，则我们将采用「全量更新」的方式。"
+          }
+        }
+      }
+    },
+    "gacha.update.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "更新本地祈愿数据"
           }
         }
       }

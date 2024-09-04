@@ -60,4 +60,9 @@ extension CoreDataHelper {
     func deleteUser(single: ShequAccount) {
         persistentContainer.viewContext.delete(single)
     }
+    
+    /// 通用删除函数
+    func deleteOne(single: NSManagedObject) {
+        persistentContainer.viewContext.delete(single)
+    }
 }

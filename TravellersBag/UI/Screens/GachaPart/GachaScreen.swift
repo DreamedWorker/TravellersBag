@@ -13,125 +13,55 @@ private enum GachaPart {
 
 struct GachaScreen: View {
     @Environment(\.managedObjectContext) private var dataManager
-    @State private var selectedPart: GachaPart = .ViewAll
     @StateObject private var viewModel = GachaModel.shared
-    @State private var hasUser = false
+    @State private var selectedPart: GachaPart = .ViewAll
+    
+    @State private var showDelete = false
+    @State private var showUpdate = false
     
     var body: some View {
-        if hasUser {
-            if viewModel.showContextUI {
-                TabView(selection: $selectedPart,
-                        content:  {
-                    generalView.tabItem { Text("gacha.tab.view_all") }.tag(GachaPart.ViewAll)
-                })
-                .navigationTitle(Text("home.sider.gacha"))
-                .toolbar {
-                    ToolbarItem {
-                        Button(
-                            action: {
-                                GachaService.shared.exportRecords2UIGFv4(
-                                    record: viewModel.gachaList,
-                                    uid: HomeController.shared.currentUser!.genshinUID!
-                                )
-                            },
-                            label: { Image(systemName: "square.and.arrow.up").help("gacha.toolbar.export") }
-                        )
-                    }
-                    ToolbarItem {
-                        Button(
-                            action: { Task { await viewModel.fetchRecordInfoFromHutao() } },
-                            label: { Image(systemName: "externaldrive.badge.icloud").help("gacha.more.op_with_hutao") }
-                        )
-                    }
-                    ToolbarItem {
-                        Button(
-                            action: {
-                                viewModel.showMoreOption = true
-                            },
-                            label: { Image(systemName: "ellipsis") }
-                        )
-                    }
+        ZStack{}.frame(width: 0, height: 0).onAppear { viewModel.initSomething(context: dataManager) }
+        if viewModel.hasUser {
+            DialogsPane
+            TabView(selection: $selectedPart, content: {
+                DataViewAll.tabItem { Text("gacha.tab.view_all") }.tag(GachaPart.ViewAll)
+            })
+            .navigationTitle(Text("home.sider.gacha"))
+            .toolbar {
+                ToolbarItem {
+                    Button(action: { showUpdate = true }, label: { Image(systemName: "clock.arrow.2.circlepath").help("gacha.update.title") })
                 }
-                .sheet(isPresented: $viewModel.showMoreOption, content: { moreOptions })
-                .sheet(isPresented: $viewModel.showHutaoOption, content: { hutaoOptions })
-            } else {
-                VStack {
-                    Image("gacha_waiting_for").resizable().scaledToFit()
-                        .frame(width: 72, height: 72)
-                    Text("gacha.no_data.title").font(.title2).bold().padding(.vertical, 8)
-                    MDLikeTile(
-                        leadingIcon: "externaldrive.badge.icloud", endIcon: "arrow.forward",
-                        title: NSLocalizedString("gacha.no_data.get_from_hk4e", comment: ""),
-                        onClick: {
-                            HomeController.shared.showLoadingDialog(msg: "正在从云端拉取数据，请保持互联网通畅直至操作完成。")
-                            Task {
-                                do {
-                                    try await viewModel.getRecordFromHk4e()
-                                } catch {
-                                    DispatchQueue.main.async {
-                                        HomeController.shared.showErrorDialog(
-                                            msg: String.localizedStringWithFormat(
-                                                NSLocalizedString("gacha.error.get_authkey", comment: ""),
-                                                error.localizedDescription)
-                                        )
-                                    }
+                ToolbarItem {
+                    Button(
+                        action: {
+                            let panel = NSSavePanel()
+                            panel.message = NSLocalizedString("gacha.toolbar.export.message", comment: "")
+                            panel.allowedContentTypes = [.json]
+                            panel.directoryURL = URL(string: NSHomeDirectory())
+                            panel.canCreateDirectories = true
+                            panel.begin { result in
+                                if result == NSApplication.ModalResponse.OK {
+                                    GachaService.shared.exportRecords2UIGFv4(
+                                        record: viewModel.gachaList,
+                                        uid: HomeController.shared.currentUser!.genshinUID!, fileUrl: panel.url!)
+                                    HomeController.shared.showInfomationDialog(msg: "导出成功！")
                                 }
                             }
-                        }).frame(maxWidth: .infinity - 32)
-                    MDLikeTile(
-                        leadingIcon: "square.and.arrow.down.on.square", endIcon: "arrow.forward",
-                        title: NSLocalizedString("gacha.no_data_import_from_uigf4", comment: ""),
-                        onClick: {
-                            // 似乎这里只有使用 NSOpenPanel 才能暂时获得用户选择的文件的读权限，swiftui的fileImporter修饰符不能 奇怪？！
-                            let panel = NSOpenPanel()
-                            panel.allowedContentTypes = [.json]; panel.allowsMultipleSelection = false
-                            panel.begin(completionHandler: { result in
-                                if result == NSApplication.ModalResponse.OK {
-                                    if let url = panel.urls.first {
-                                        viewModel.getRecordFromUigf(fileContext: try! String(contentsOf: url))
-                                    }
-                                }
-                            })
-                        }).frame(maxWidth: .infinity - 32)
-                    MDLikeTile(
-                        leadingIcon: "arrow.clockwise", endIcon: "arrow.forward",
-                        title: NSLocalizedString("gacha.no_data.refresh", comment: ""),
-                        onClick: {
-                            viewModel.refreshState()
-                        }
-                    ).frame(maxWidth: .infinity - 32)
-                    Text("gacha.no_data.another_account").font(.footnote).foregroundStyle(.secondary)
+                        },
+                        label: { Image(systemName: "square.and.arrow.up").help("gacha.toolbar.export") }
+                    )
                 }
-                .padding(16)
-                .toolbar {
-                    ToolbarItem {
-                        Button(
-                            action: { Task { await viewModel.fetchRecordInfoFromHutao() } },
-                            label: { Image(systemName: "externaldrive.badge.icloud").help("gacha.more.op_with_hutao") }
-                        )
-                    }
+                ToolbarItem {
+                    Button(action: { showDelete = true }, label: { Image(systemName: "trash").help("gacha.more.delete") })
                 }
-                .sheet(isPresented: $viewModel.showHutaoOption, content: { hutaoOptions })
             }
         } else {
-            VStack {
-                Image("gacha_waiting_for").resizable().scaledToFit()
-                    .frame(width: 72, height: 72)
-                Text("character.forbid.no_user").padding(.vertical, 8)
-                    .font(.title3).bold()
-                Button("character.forbid.rerfresh", action: {
-                    hasUser = HomeController.shared.currentUser != nil
-                })
-            }.onAppear {
-                viewModel.initSomething(context: dataManager)
-                if HomeController.shared.currentUser != nil {
-                    hasUser = true
-                }
-            }
+            NoUserPane
+                .navigationTitle(Text("home.sider.gacha"))
         }
     }
     
-    var generalView: some View {
+    private var DataViewAll: some View {
         let character = viewModel.gachaList
             .filter { $0.gachaType == viewModel.characterGacha || $0.gachaType == "400" }
             .sorted(by: { Int($0.id!)! < Int($1.id!)! }) // 按照时间先后顺序原地排序（才发现这个id才是真正排序时的依据 用time代表的时间戳一定出事）
@@ -141,131 +71,86 @@ struct GachaScreen: View {
             .filter({ $0.gachaType == viewModel.residentGacha }).sorted(by: { Int($0.id!)! < Int($1.id!)! })
         let collection = viewModel.gachaList
             .filter({ $0.gachaType == viewModel.collectionGacha }).sorted(by: { Int($0.id!)! < Int($1.id!)! })
-//        let beginner = viewModel.gachaList
-//            .filter({ $0.gachaType == viewModel.beginnerGacha }).sorted(by: { Int($0.id!)! < Int($1.id!)! })
         return ScrollView {
-            Grid {
-                ScrollView(.horizontal) {
-                    HStack(alignment: .top) {
-                        GachaNormalCard(rootList: character, gachaIcon: "figure.walk", gachaName: "gacha.all.character_title")
-                        GachaNormalCard(rootList: weapon, gachaIcon: "fork.knife", gachaName: "gacha.all.weapon_title")
-                        GachaNormalCard(rootList: resident, gachaIcon: "app.gift", gachaName: "gacha.all.resident_title")
-                        GachaNormalCard(rootList: collection, gachaIcon: "person.3", gachaName: "gacha.all.collection_title")
-                        // GachaNormalCard(rootList: beginner, gachaIcon: "backpack", gachaName: "gacha.all.beginner_title") 不显示初行者祈愿
-                    }
+            ScrollView(.horizontal) {
+                HStack(alignment: .top, spacing: 8) {
+                    GachaNormalCard(rootList: character, gachaIcon: "figure.walk", gachaName: "gacha.all.character_title")
+                    GachaNormalCard(rootList: weapon, gachaIcon: "fork.knife", gachaName: "gacha.all.weapon_title")
+                    GachaNormalCard(rootList: resident, gachaIcon: "app.gift", gachaName: "gacha.all.resident_title")
+                    GachaNormalCard(rootList: collection, gachaIcon: "person.3", gachaName: "gacha.all.collection_title")
                 }
             }
         }
     }
     
-    var moreOptions: some View {
-        return NavigationStack {
-            Text("gacha.more.title").font(.title).bold()
-            Divider().padding(.horizontal, 8)
+    /// 无用户页面
+    private var NoUserPane: some View {
+        return VStack {
+            Image("gacha_waiting_for")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 72, height: 72)
+            Text("character.forbid.no_user").padding(.vertical, 8)
+                .font(.title3).bold()
             MDLikeTile(
-                leadingIcon: "trash", endIcon: "arrow.forward", 
-                title: NSLocalizedString("gacha.more.delete", comment: ""),
+                leadingIcon: "arrow.clockwise",
+                endIcon: "arrow.forward",
+                title: NSLocalizedString("character.forbid.rerfresh", comment: ""),
                 onClick: {
-                    viewModel.showContextUI = false
-                    Task {
-                        await viewModel.removeAllData()
-                    }
-                    viewModel.showMoreOption = false
-                    HomeController.shared.showInfomationDialog(msg: NSLocalizedString("gacha.more.msg_delete", comment: ""))
+                    viewModel.hasUser = HomeController.shared.currentUser != nil
                 }
+            ).frame(maxWidth: 450)
+        }
+        .padding()
+        .background(RoundedRectangle(cornerRadius: 8, style: .continuous).fill(BackgroundStyle()))
+    }
+    
+    /// 弹窗集合
+    private var DialogsPane: some View {
+        return ZStack{}
+            .frame(width: 0, height: 0)
+            .alert(
+                "gacha.delete.title", isPresented: $showDelete,
+                actions: {
+                    Button("app.cancel", action: { showDelete = false })
+                    Button("app.confirm", action: {
+                        viewModel.deleteRecordsFromCoreData()
+                        showDelete = false
+                    })
+                },
+                message: { Text("gacha.delete.msg") }
             )
-            MDLikeTile(
-                leadingIcon: "cloud", endIcon: "arrow.forward",
-                title: NSLocalizedString("gacha.more.update_from_hk4e", comment: ""),
-                onClick: {
-                    viewModel.showMoreOption = false
-                    HomeController.shared.showLoadingDialog(msg: "正在从云端拉取数据，请保持互联网通畅直至操作完成。")
-                    viewModel.allList.removeAll()
-                    Task { await viewModel.updateFromHk4e() }
-                }
-            )
-            MDLikeTile(
-                leadingIcon: "arrow.down.doc", endIcon: "arrow.forward",
-                title: NSLocalizedString("gacha.more.update_from_uigf", comment: ""),
-                onClick: {
-                    viewModel.showMoreOption = false
-                    let panel = NSOpenPanel()
-                    panel.allowedContentTypes = [.json]; panel.allowsMultipleSelection = false
-                    panel.begin(completionHandler: { result in
-                        if result == NSApplication.ModalResponse.OK {
-                            if let url = panel.urls.first {
-                                viewModel.updateDataFromUIGF(fileContext: try! String(contentsOf: url))
-                                viewModel.allList.removeAll()
+            .alert(
+                "gacha.update.title", isPresented: $showUpdate,
+                actions: {
+                    Button("app.cancel", action: { showUpdate = false })
+                    Button("gacha.update.from_hk4e", action: {
+                        showUpdate = false
+                        HomeController.shared.showLoadingDialog(msg: "正在从云端拉取数据，请保持互联网通畅直至操作完成。")
+                        Task { await viewModel.updateFromHk4e() }
+                    })
+                    Button("gacha.update.from_uigf", action: {
+                        var openPanel = NSOpenPanel()
+                        openPanel.allowedContentTypes = [.json]; openPanel.allowsMultipleSelection = false
+                        openPanel.message = NSLocalizedString("gacha.no_data_import_from_uigf4", comment: "")
+                        openPanel.begin { result in
+                            if result == NSApplication.ModalResponse.OK {
+                                if let url = openPanel.url {
+                                    showUpdate = false
+                                    viewModel.updateFromUigf(url: url)
+                                }
                             }
                         }
                     })
-                }
+                },
+                message: { Text("gacha.update.msg") }
             )
-        }
-        .padding()
-        .toolbar {
-            ToolbarItem(placement: .cancellationAction, content: {
-                Button("app.cancel", action: { viewModel.showMoreOption = false })
-                    .buttonStyle(BorderedProminentButtonStyle())
-            })
-        }
-        .frame(minWidth: 420)
     }
     
-    var hutaoOptions: some View {
-        return NavigationStack {
-            Text("gacha.hutao.title").font(.title).bold()
-            if GlobalHutao.shared.hasAccount() {
-                GroupBox(
-                    content: {
-                        //显示记录（如有）
-                        if let record = viewModel.hutaoRecord {
-                            HStack(spacing: 16) {
-                                Image(systemName: "waveform").padding(.leading, 8)
-                                VStack(alignment: .leading, content: {
-                                    Text(record["Uid"].stringValue).font(.title3).bold()
-                                    Text(String(record["ItemCount"].intValue)).font(.callout)
-                                })
-                                Spacer()
-                                Button(
-                                    action: {},
-                                    label: { Image(systemName: "square.and.arrow.down").help("gacha.hutao.use_it") }
-                                )
-                                Button(
-                                    action: {
-                                        Task { await viewModel.removeRecord(uid: record["Uid"].stringValue) }
-                                    },
-                                    label: { Image(systemName: "trash").help("gacha.hutao.delete") }
-                                ).padding(.trailing, 8)
-                            }
-                        } else {
-                            Text("gacha.hutao.uid_not_found").font(.callout)
-                        }
-                    },
-                    label: {
-                        Text(String.localizedStringWithFormat(
-                            NSLocalizedString("gacha.hutao.time", comment: ""), GlobalHutao.shared.hutao!.gachaLogExpireAt!)
-                        )
-                    }
-                )
-                MDLikeTile(
-                    leadingIcon: "square.and.arrow.up",
-                    endIcon: "arrow.forward",
-                    title: NSLocalizedString("gacha.hutao.upload", comment: ""),
-                    onClick: { Task { await viewModel.uploadLocal2Hutao() } }
-                )
-            } else {
-                Image("libhutaokit_no_account").resizable().scaledToFit().frame(width: 28, height: 28)
-                Text("hutaokit.no_account")
-            }
-        }
-        .padding()
-        .toolbar(content: {
-            ToolbarItem(placement: .cancellationAction, content: {
-                Button("app.cancel", action: { viewModel.showHutaoOption = false })
-            })
-        })
-        .frame(minWidth: 450)
+    private func timeTransfer(d: Date, detail: Bool = true) -> String {
+        let df = DateFormatter()
+        df.dateFormat = (detail) ? "yyyy-MM-dd HH:mm:ss" : "yyMMdd"
+        return df.string(from: d)
     }
 }
 

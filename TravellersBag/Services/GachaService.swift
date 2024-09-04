@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import AppKit
 
 /// 抽卡分析页服务
 class GachaService {
@@ -50,28 +49,6 @@ class GachaService {
         return partData
     }
     
-    /// 从游戏服务器增量或全量更新数据
-    func updateGachaInfo(gachaType: String, authKey: String, list: [GachaItem]) async throws -> [JSON] {
-        var jsons: [JSON] = []
-        jsons.append(contentsOf: try await getGachaInfo(gachaType: gachaType, authKey: authKey))
-        if !jsons.isEmpty {
-            jsons = jsons.sorted(by: { CLong($0["id"].stringValue)! < CLong($1["id"].stringValue)! })
-            let newLast = Int(jsons.last!["id"].stringValue)!
-            let oldLast = Int(getLastItemId(gachaType: gachaType, list: list))!
-            if oldLast == 0 { // 如果当前数据为空，虽然不知道会不会有这个情况，就全量更新。
-                return jsons
-            }
-            if oldLast < newLast {
-                let a = jsons.split(separator: jsons[jsons.firstIndex(where: { $0["id"].stringValue == String(oldLast) })!])
-                return a[1].sorted()
-            } else {
-                return []
-            }
-        } else {
-            return []
-        }
-    }
-    
     /// 处理文件中的祈愿数据
     func updateGachaInfoFromFile(fileContext: String, uid: String) throws -> [JSON] {
         let jsonData = try JSON(data: fileContext.data(using: .utf8)!)
@@ -87,47 +64,67 @@ class GachaService {
         }
     }
     
-    /// 获取从UIGF文件中提取的新列表
-    func fetchNeoItemList(gachaType: String, list: [GachaItem], neoList: [JSON]) -> [JSON] {
-        let lastID = getLastItemId(gachaType: gachaType, list: list)
-        var specificNeoList = (gachaType == "301")
-        ? neoList.filter({ $0["gacha_type"].stringValue == "301" || $0["gacha_type"].stringValue == "400" })
-        : neoList.filter({ $0["gacha_type"].stringValue == gachaType})
-        specificNeoList = specificNeoList.sorted(by: { CLong($0["id"].stringValue)! < CLong($1["id"].stringValue)! })
-        if let neoLastID = specificNeoList.last?["id"].stringValue {
-            if lastID == "0" {
-                return specificNeoList
+    /// 获取物品的名字和星级 不在库中返回none
+    func getItemChineseName(itemId: String) -> String {
+            if itemId.count == 5 { // 武器
+                if let target = HomeController.shared.weaponList.filter({ $0["Id"].intValue == Int(itemId)! }).first {
+                    return "\(target["Name"].stringValue)@\(target["RankLevel"].intValue)@武器"
+                } else {
+                    return "none"
+                }
+            } else if itemId.count == 8 { // 角色
+                if let target = HomeController.shared.avatarList.filter({ $0["Id"].intValue == Int(itemId)! }).first {
+                    return "\(target["Name"].stringValue)@\(target["Quality"].intValue)@角色"
+                } else {
+                    return "none"
+                }
+            } else {
+                return "none"
             }
-            if Int(lastID)! < Int(neoLastID)! {
-                return neoList.split(
-                    separator: specificNeoList[specificNeoList.firstIndex(where: { $0["id"].stringValue == lastID })!])[1]
-                    .sorted()
-            } else { return [] }
-        } else { return [] }
     }
     
-    /// 获取最后一个项目的ID
-    func getLastItemId(gachaType: String, list: [GachaItem]) -> String {
-        var specificList = (gachaType == "301")
-        ? list.filter({ $0.gachaType == "301" || $0.gachaType == "400" }) : list.filter({ $0.gachaType == gachaType })
-        specificList = specificList.sorted(by: { Int($0.id!)! < Int($1.id!)! })
-        if specificList.isEmpty {
-            return "0"
-        } else {
-            return specificList.last!.id!
-        }
-    }
+//    /// 获取从UIGF文件中提取的新列表
+//    func fetchNeoItemList(gachaType: String, list: [GachaItem], neoList: [JSON]) -> [JSON] {
+//        let lastID = getLastItemId(gachaType: gachaType, list: list)
+//        var specificNeoList = (gachaType == "301")
+//        ? neoList.filter({ $0["gacha_type"].stringValue == "301" || $0["gacha_type"].stringValue == "400" })
+//        : neoList.filter({ $0["gacha_type"].stringValue == gachaType})
+//        specificNeoList = specificNeoList.sorted(by: { CLong($0["id"].stringValue)! < CLong($1["id"].stringValue)! })
+//        if let neoLastID = specificNeoList.last?["id"].stringValue {
+//            if lastID == "0" {
+//                return specificNeoList
+//            }
+//            if Int(lastID)! < Int(neoLastID)! {
+//                return neoList.split(
+//                    separator: specificNeoList[specificNeoList.firstIndex(where: { $0["id"].stringValue == lastID })!])[1]
+//                    .sorted()
+//            } else { return [] }
+//        } else { return [] }
+//    }
+//    
+//    /// 获取最后一个项目的ID
+//    func getLastItemId(gachaType: String, list: [GachaItem]) -> String {
+//        var specificList = (gachaType == "301")
+//        ? list.filter({ $0.gachaType == "301" || $0.gachaType == "400" }) : list.filter({ $0.gachaType == gachaType })
+//        specificList = specificList.sorted(by: { Int($0.id!)! < Int($1.id!)! })
+//        if specificList.isEmpty {
+//            return "0"
+//        } else {
+//            return specificList.last!.id!
+//        }
+//    }
     
     /// 以UIGFv4.0标准导出记录到文件（此方法系同步方法，不需要切换线程）
-    @objc func exportRecords2UIGFv4(record: [GachaItem], uid: String) {
+    func exportRecords2UIGFv4(record: [GachaItem], uid: String, fileUrl: URL) {
         func timeTransfer(d: Date, detail: Bool = true) -> String {
             let df = DateFormatter()
             df.dateFormat = (detail) ? "yyyy-MM-dd HH:mm:ss" : "yyMMdd"
             return df.string(from: d)
         }
         let time = Date().timeIntervalSince1970
-        let target = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
-        let targetFile = target.appending(component: "Gacha-\(timeTransfer(d: Date.now, detail: false)).UIGFv4.json")
+        // let target = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+        let targetFile = fileUrl
+        // target.appending(component: "Gacha-\(timeTransfer(d: Date.now, detail: false)).UIGFv4.json")
         do {
             let info = Info(export_timestamp: Int(time)) // 文件头部信息
             var records: [SingleGachaItem] = []
@@ -148,7 +145,6 @@ class GachaService {
             FileHandler.shared.writeUtf8String(
                 path: targetFile.path().removingPercentEncoding!, 
                 context: String(data: encoder, encoding: .utf8)!)
-            NSWorkspace.shared.open(target)
         } catch {
             HomeController.shared.showErrorDialog(
                 msg: String.localizedStringWithFormat(
