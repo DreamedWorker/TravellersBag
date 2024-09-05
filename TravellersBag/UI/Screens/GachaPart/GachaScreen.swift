@@ -130,7 +130,7 @@ struct GachaScreen: View {
                         Task { await viewModel.updateFromHk4e() }
                     })
                     Button("gacha.update.from_uigf", action: {
-                        var openPanel = NSOpenPanel()
+                        let openPanel = NSOpenPanel()
                         openPanel.allowedContentTypes = [.json]; openPanel.allowsMultipleSelection = false
                         openPanel.message = NSLocalizedString("gacha.no_data_import_from_uigf4", comment: "")
                         openPanel.begin { result in

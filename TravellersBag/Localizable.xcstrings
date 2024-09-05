@@ -307,6 +307,83 @@
         }
       }
     },
+    "feedback.page.context" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "内容"
+          }
+        }
+      }
+    },
+    "feedback.page.context_exp" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "内容或许应当包含如何复现、你的大致状态等信息"
+          }
+        }
+      }
+    },
+    "feedback.page.email" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "电子邮箱"
+          }
+        }
+      }
+    },
+    "feedback.page.email_exp" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "如果你提供邮箱，我们可能会通过它向你回复进度。"
+          }
+        }
+      }
+    },
+    "feedback.page.send" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "发送给服务器"
+          }
+        }
+      }
+    },
+    "feedback.page.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "标题"
+          }
+        }
+      }
+    },
+    "feedback.page.title_explanation" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "标题至少3个汉字。我们希望你确保你的标题能够准确地概括你要反馈的内容，这将有助于我们及时响应你的反馈。"
+          }
+        }
+      }
+    },
     "gacha.all.beginner_title" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -710,6 +787,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "我的角色"
+          }
+        }
+      }
+    },
+    "home.sider.feedback" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "反馈&沟通"
           }
         }
       }

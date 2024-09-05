@@ -45,6 +45,7 @@
 		5D82B0272C6F4F8F00C585EC /* AccountTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D82B0262C6F4F8F00C585EC /* AccountTile.swift */; };
 		5D946D592C86E0F7002C584C /* SentrySwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 5D946D582C86E0F7002C584C /* SentrySwiftUI */; };
 		5D99B2B72C75C66200CC9ADD /* NoticeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D99B2B62C75C66200CC9ADD /* NoticeScreen.swift */; };
+		5D9DA7092C893358008AD0D7 /* FeedbackScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9DA7082C893358008AD0D7 /* FeedbackScreen.swift */; };
 		5D9ED1E62C73A4B100A05C29 /* WebTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9ED1E52C73A4B100A05C29 /* WebTest.swift */; };
 		5D9F4EBE2C71BBF700EBD936 /* CharacterDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9F4EBD2C71BBF700EBD936 /* CharacterDetail.swift */; };
 		5D9F4EC02C71E46600EBD936 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9F4EBF2C71E46600EBD936 /* CardView.swift */; };
@@ -104,6 +105,7 @@
 		5D82B0242C6F4C0D00C585EC /* pfps.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pfps.json; sourceTree = "<group>"; };
 		5D82B0262C6F4F8F00C585EC /* AccountTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTile.swift; sourceTree = "<group>"; };
 		5D99B2B62C75C66200CC9ADD /* NoticeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeScreen.swift; sourceTree = "<group>"; };
+		5D9DA7082C893358008AD0D7 /* FeedbackScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackScreen.swift; sourceTree = "<group>"; };
 		5D9ED1E52C73A4B100A05C29 /* WebTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebTest.swift; sourceTree = "<group>"; };
 		5D9F4EBD2C71BBF700EBD936 /* CharacterDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetail.swift; sourceTree = "<group>"; };
 		5D9F4EBF2C71E46600EBD936 /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
@@ -214,7 +216,6 @@
 		5D00F5B32C6E474600FD7E52 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				5D99B2B52C75C65100CC9ADD /* Notice */,
 				5D00F5BC2C6E60EB00FD7E52 /* Compisitions */,
 				5D00F5BB2C6E60D500FD7E52 /* Screens */,
 				5D00F5B42C6E482900FD7E52 /* HomeContainer.swift */,
@@ -235,6 +236,8 @@
 		5D00F5BB2C6E60D500FD7E52 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				5D9DA7072C8930EA008AD0D7 /* FeedbackPart */,
+				5D99B2B52C75C65100CC9ADD /* NoticePart */,
 				5D066CD82C78866100EA61AE /* GachaPart */,
 				5DA0914A2C709AF100751E6A /* CharacterPart */,
 				5DA091452C706E3100751E6A /* LauncherPart */,
@@ -345,12 +348,20 @@
 			path = EnkaResources;
 			sourceTree = "<group>";
 		};
-		5D99B2B52C75C65100CC9ADD /* Notice */ = {
+		5D99B2B52C75C65100CC9ADD /* NoticePart */ = {
 			isa = PBXGroup;
 			children = (
 				5D99B2B62C75C66200CC9ADD /* NoticeScreen.swift */,
 			);
-			path = Notice;
+			path = NoticePart;
+			sourceTree = "<group>";
+		};
+		5D9DA7072C8930EA008AD0D7 /* FeedbackPart */ = {
+			isa = PBXGroup;
+			children = (
+				5D9DA7082C893358008AD0D7 /* FeedbackScreen.swift */,
+			);
+			path = FeedbackPart;
 			sourceTree = "<group>";
 		};
 		5DA091452C706E3100751E6A /* LauncherPart */ = {
@@ -537,6 +548,7 @@
 				5D00F5C72C6E662500FD7E52 /* EventMessager.swift in Sources */,
 				5D1F31352C80ED2E00FABCC6 /* GachaLog.swift in Sources */,
 				5D9F4EC02C71E46600EBD936 /* CardView.swift in Sources */,
+				5D9DA7092C893358008AD0D7 /* FeedbackScreen.swift in Sources */,
 				5D82B01D2C6EEB2000C585EC /* AccountModel.swift in Sources */,
 				5D9ED1E62C73A4B100A05C29 /* WebTest.swift in Sources */,
 				5D00F5B52C6E482900FD7E52 /* HomeContainer.swift in Sources */,

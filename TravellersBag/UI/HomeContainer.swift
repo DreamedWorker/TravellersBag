@@ -67,6 +67,7 @@ private enum Functions {
     case Account //账号管理
     case Character //游戏角色
     case Gacha //祈愿记录
+    case Feedback //反馈
 }
 
 private struct HomePart: View {
@@ -78,6 +79,7 @@ private struct HomePart: View {
             NavigationSplitView {
                 List(selection: $selectedFeat) { // 这里会有一个奇怪的报错，但我们忽视它，因为苹果自己的示例项目也报了相同的错误。
                     NavigationLink(value: Functions.Notice, label: { Label("home.sider.notice", systemImage: "house")} )
+                    NavigationLink(value: Functions.Feedback, label: { Label("home.sider.feedback", systemImage: "message.and.waveform")} )
                     Spacer()
                     NavigationLink(value: Functions.Launcher, label: { Label("home.sider.launcher", systemImage: "play")} )
                     NavigationLink(value: Functions.Gacha, label: { Label("home.sider.gacha", systemImage: "menucard")})
@@ -93,6 +95,7 @@ private struct HomePart: View {
                 case .Character: CharacterScreen()
                 case .Notice: NoticeScreen()
                 case .Gacha: GachaScreen()
+                case .Feedback: FeedbackScreen()
                 }
             }
         } else {
