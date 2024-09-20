@@ -152,6 +152,11 @@ class ApiEndpoints {
         return "\(ApiEndpoints.Hk4eApiAnnouncementApi)/getAnnList?\(ApiEndpoints.AnnouncementQuery)"
     }
     
+    /// 获取公告的详情
+    func getHk4eAnnounceContext() -> String {
+        return "\(ApiEndpoints.Hk4eApiAnnouncementApi)/getAnnContent?\(ApiEndpoints.AnnouncementQuery)"
+    }
+    
     /// 获取人机验证必要的两个参数
     func getGeetestRequired() -> String {
         return "\(ApiEndpoints.ApiTakumiCardWApi)/createVerification?is_high=true"
