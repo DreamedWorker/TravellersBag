@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D2B85772C9D1CB300ED1DD8 /* DashboardScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2B85762C9D1CB300ED1DD8 /* DashboardScreen.swift */; };
+		5D2B85792C9D1DD800ED1DD8 /* DashboardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2B85782C9D1DD800ED1DD8 /* DashboardModel.swift */; };
+		5D2B857B2C9D76E200ED1DD8 /* DashboardUnits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2B857A2C9D76E200ED1DD8 /* DashboardUnits.swift */; };
+		5D2B857D2C9DECB000ED1DD8 /* WorldExploration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2B857C2C9DECB000ED1DD8 /* WorldExploration.swift */; };
 		5D3BCC4B2C8FC97E0025F1ED /* WizardScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3BCC4A2C8FC97E0025F1ED /* WizardScreen.swift */; };
 		5D3BCC502C9037540025F1ED /* Zip in Frameworks */ = {isa = PBXBuildFile; productRef = 5D3BCC4F2C9037540025F1ED /* Zip */; };
 		5D670C082C9716BE00E0D958 /* Wizard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D670C072C9716BE00E0D958 /* Wizard.swift */; };
@@ -57,6 +61,10 @@
 /* Begin PBXFileReference section */
 		5D2B85712C9D151B00ED1DD8 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		5D2B85722C9D152600ED1DD8 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		5D2B85762C9D1CB300ED1DD8 /* DashboardScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardScreen.swift; sourceTree = "<group>"; };
+		5D2B85782C9D1DD800ED1DD8 /* DashboardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardModel.swift; sourceTree = "<group>"; };
+		5D2B857A2C9D76E200ED1DD8 /* DashboardUnits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardUnits.swift; sourceTree = "<group>"; };
+		5D2B857C2C9DECB000ED1DD8 /* WorldExploration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldExploration.swift; sourceTree = "<group>"; };
 		5D3BCC4A2C8FC97E0025F1ED /* WizardScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WizardScreen.swift; sourceTree = "<group>"; };
 		5D670C072C9716BE00E0D958 /* Wizard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wizard.swift; sourceTree = "<group>"; };
 		5D670C092C97178D00E0D958 /* WizardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WizardModel.swift; sourceTree = "<group>"; };
@@ -118,6 +126,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5D2B85732C9D1C5600ED1DD8 /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				5D2B85762C9D1CB300ED1DD8 /* DashboardScreen.swift */,
+				5D2B85782C9D1DD800ED1DD8 /* DashboardModel.swift */,
+				5D2B857A2C9D76E200ED1DD8 /* DashboardUnits.swift */,
+				5D2B857C2C9DECB000ED1DD8 /* WorldExploration.swift */,
+			);
+			path = Dashboard;
+			sourceTree = "<group>";
+		};
 		5D3BCC492C8FC96B0025F1ED /* Wizard */ = {
 			isa = PBXGroup;
 			children = (
@@ -216,6 +235,7 @@
 		5DA45D422C8E0CFA00949164 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				5D2B85732C9D1C5600ED1DD8 /* Dashboard */,
 				5DD653DC2C9B168200B0DA2B /* Notice */,
 				5D670C162C9879E300E0D958 /* Account */,
 				5D3BCC492C8FC96B0025F1ED /* Wizard */,
@@ -406,6 +426,7 @@
 			files = (
 				5D670C1A2C988D2B00E0D958 /* AccountModel.swift in Sources */,
 				5DE6B54E2C8E892A00690B5C /* DynamicSecret.swift in Sources */,
+				5D2B857D2C9DECB000ED1DD8 /* WorldExploration.swift in Sources */,
 				5DDA5AA12C9C06C9002793CF /* NoticeDetail.swift in Sources */,
 				5D670C232C98ABC400E0D958 /* AccountDetail.swift in Sources */,
 				5DD653D02C9AAD3B00B0DA2B /* PassportModel.swift in Sources */,
@@ -424,12 +445,15 @@
 				5DD653D22C9AB61B00B0DA2B /* HutaoService.swift in Sources */,
 				5DA45D482C8E0DA300949164 /* GlobalUIModel.swift in Sources */,
 				5DA45D4E2C8E12D800949164 /* CardView.swift in Sources */,
+				5D2B857B2C9D76E200ED1DD8 /* DashboardUnits.swift in Sources */,
 				5D670C212C98A50000E0D958 /* Character+Verification.swift in Sources */,
 				5D6882D52C9A009A00FB074C /* WebTest.swift in Sources */,
+				5D2B85792C9D1DD800ED1DD8 /* DashboardModel.swift in Sources */,
 				5D3BCC4B2C8FC97E0025F1ED /* WizardScreen.swift in Sources */,
 				5D670C1D2C98986800E0D958 /* AccountService.swift in Sources */,
 				5DA45D1F2C8D991100949164 /* TravellersBagApp.swift in Sources */,
 				5D670C1F2C98A4B700E0D958 /* FileHandler.swift in Sources */,
+				5D2B85772C9D1CB300ED1DD8 /* DashboardScreen.swift in Sources */,
 				5D670C082C9716BE00E0D958 /* Wizard.swift in Sources */,
 				5D670C0D2C971AE500E0D958 /* HoyoResKit.swift in Sources */,
 				5DD653D62C9AC0BF00B0DA2B /* SecurityTool.swift in Sources */,

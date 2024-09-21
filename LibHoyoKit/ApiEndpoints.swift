@@ -122,9 +122,13 @@ class ApiEndpoints {
     }
     
     /// 获取原神的详细信息，默认是国服
-    /// # 第三方不可用
     func getGameDetail(game: String = "cn_gf01", roleID: String) -> String {
         return "\(ApiEndpoints.ApiTakumiRecordApi)/index?server=\(game)&role_id=\(roleID)"
+    }
+    
+    /// 获取战绩面板的大纲内容
+    func getGameOutline(game: String = "cn_gf01", avatarType: String = "1", roleID: String) -> String {
+        return "\(ApiEndpoints.ApiTakumiRecordApi)/index?avatar_list_type=\(avatarType)&server=\(game)&role_id=\(roleID)"
     }
     
     /// 通过Stoken获取Ltoken

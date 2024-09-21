@@ -21,6 +21,8 @@ struct HomeScreen: View {
                         NavigationLink(value: ScreenPart.Accounts, label: { Label("home.sider.account", systemImage: "person.fill") })
                         Text("home.side.title.basic").font(.callout).bold().padding(4)
                         NavigationLink(value: ScreenPart.Notice, label: { Label("home.sider.notice", systemImage: "newspaper") })
+                        NavigationLink(
+                            value: ScreenPart.Dashboard, label: { Label("home.sider.dashboard", systemImage: "list.bullet.clipboard") })
                     }
                 },
                 detail: {
@@ -29,6 +31,8 @@ struct HomeScreen: View {
                         AccountManager()
                     case .Notice:
                         NoticeScreen()
+                    case .Dashboard:
+                        DashboardScreen().navigationTitle(Text("home.sider.dashboard"))
                     }
                 }
             )
@@ -67,4 +71,5 @@ struct HomeScreen: View {
 private enum ScreenPart {
     case Accounts
     case Notice
+    case Dashboard
 }

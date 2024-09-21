@@ -374,6 +374,446 @@
         }
       }
     },
+    "dashboard.alert.refresh_p" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "你要刷新数据吗？请注意你的刷新频率，否则可能导致触发风控。"
+          }
+        }
+      }
+    },
+    "dashboard.empty.context" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "你需要先设定默认账号（登录）才能查看本页内容。"
+          }
+        }
+      }
+    },
+    "dashboard.empty.refresh" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "刷新账号状态"
+          }
+        }
+      }
+    },
+    "dashboard.empty.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "本页没有内容"
+          }
+        }
+      }
+    },
+    "dashboard.error.fetch_data" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "获取信息失败，你可能需要进行人机验证。"
+          }
+        }
+      }
+    },
+    "dashboard.info.fetch_ok" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "获取信息成功"
+          }
+        }
+      }
+    },
+    "dashboard.main.load" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "（重）加载内容"
+          }
+        }
+      }
+    },
+    "dashboard.main.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "旅行者，欢迎来到麦金塔上的提瓦特大陆。"
+          }
+        }
+      }
+    },
+    "dashboard.unit.data.abyss" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "深境螺旋"
+          }
+        }
+      }
+    },
+    "dashboard.unit.data.achievement" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "达成成就"
+          }
+        }
+      }
+    },
+    "dashboard.unit.data.anemoculus" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "风神瞳"
+          }
+        }
+      }
+    },
+    "dashboard.unit.data.avatar" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "获得角色"
+          }
+        }
+      }
+    },
+    "dashboard.unit.data.dendroculus" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "草神瞳"
+          }
+        }
+      }
+    },
+    "dashboard.unit.data.electroculus" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "雷神瞳"
+          }
+        }
+      }
+    },
+    "dashboard.unit.data.geoculus" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "岩神瞳"
+          }
+        }
+      }
+    },
+    "dashboard.unit.data.hydroculus" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "水神瞳"
+          }
+        }
+      }
+    },
+    "dashboard.unit.data.pyroculus" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "火神瞳"
+          }
+        }
+      }
+    },
+    "dashboard.unit.data.role" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "幻想真境剧诗"
+          }
+        }
+      }
+    },
+    "dashboard.unit.data.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "基本信息一览"
+          }
+        }
+      }
+    },
+    "dashboard.unit.launcher.error" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "你需要先设置才能继续。"
+          }
+        }
+      }
+    },
+    "dashboard.unit.launcher.settings" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "启动项设置"
+          }
+        }
+      }
+    },
+    "dashboard.unit.launcher.settings_app" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "兼容层app名（一般为XXX.app）"
+          }
+        }
+      }
+    },
+    "dashboard.unit.launcher.settings_command" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "自定义命令的绝对路径"
+          }
+        }
+      }
+    },
+    "dashboard.unit.launcher.settings_help" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "根据你希望的启动方式填写相应的值，对于一般的旅行者，我们推荐使用兼容层app来启动游戏。"
+          }
+        }
+      }
+    },
+    "dashboard.unit.launcher.settings_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "设置你的启动方式"
+          }
+        }
+      }
+    },
+    "dashboard.unit.launcher.settings_use_app" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "使用兼容层"
+          }
+        }
+      }
+    },
+    "dashboard.unit.launcher.settings_use_command" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "使用命令"
+          }
+        }
+      }
+    },
+    "dashboard.unit.launcher.start" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "开始游戏"
+          }
+        }
+      }
+    },
+    "dashboard.unit.launcher.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "启动兼容层"
+          }
+        }
+      }
+    },
+    "dashboard.unit.world.boss" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "区域首领信息"
+          }
+        }
+      }
+    },
+    "dashboard.unit.world.boss_kill" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "击败%@次"
+          }
+        }
+      }
+    },
+    "dashboard.unit.world.ee" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "探索度"
+          }
+        }
+      }
+    },
+    "dashboard.unit.world.ee.sub" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "子区域探索度"
+          }
+        }
+      }
+    },
+    "dashboard.unit.world.ee.sub_p" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@探索度：%@"
+          }
+        }
+      }
+    },
+    "dashboard.unit.world.level" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "声望等级：%@"
+          }
+        }
+      }
+    },
+    "dashboard.unit.world.offering" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@等级：%@"
+          }
+        }
+      }
+    },
+    "dashboard.unit.world.per" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ %"
+          }
+        }
+      }
+    },
+    "dashboard.unit.world.see" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "左右滑动以查看更多，点按地区查看详情信息。"
+          }
+        }
+      }
+    },
+    "dashboard.unit.world.statue" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "七天神像等级：%@"
+          }
+        }
+      }
+    },
+    "dashboard.unit.world.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "世界探索度"
+          }
+        }
+      }
+    },
     "home.before.fp" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -403,6 +843,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "账号管理"
+          }
+        }
+      }
+    },
+    "home.sider.dashboard" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "仪表盘"
           }
         }
       }
@@ -562,12 +1013,11 @@
       }
     },
     "notice.detail.no_content" : {
-      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "找不到这个通知，请返回刷新。"
+            "value" : "没有内容"
           }
         }
       }
