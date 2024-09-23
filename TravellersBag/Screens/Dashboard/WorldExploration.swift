@@ -86,7 +86,9 @@ struct WorldExploration: View {
                                 name: i["name"].stringValue, area_exploration_list: subArea,
                                 exploration_percentage: i["exploration_percentage"].intValue, level: i["level"].intValue,
                                 cover: i["cover"].stringValue.replacingOccurrences(of: "\\", with: ""),
-                                icon: i["icon"].stringValue.replacingOccurrences(of: "\\", with: ""),
+                                icon: (i["id"].intValue == 15)
+                                ? "https://webstatic.mihoyo.com/app/community-game-records/images/world-logo-15.fd274778.png"
+                                : i["icon"].stringValue.replacingOccurrences(of: "\\", with: ""),
                                 inner_icon: i["inner_icon"].stringValue.replacingOccurrences(of: "\\", with: ""),
                                 background_image: i["background_image"].stringValue.replacingOccurrences(of: "\\", with: ""),
                                 type: i["type"].stringValue,
