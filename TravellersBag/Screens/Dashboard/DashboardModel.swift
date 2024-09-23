@@ -11,9 +11,13 @@ import SwiftyJSON
 class DashboardModel: ObservableObject {
     @Published var showUI = GlobalUIModel.exported.hasDefAccount()
     @Published var basicData: JSON?
+    @Published var widgetData: JSON?
+    @Published var showWidget = false
     
     let dashboardFile = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
         .appending(component: "shequ_index.json")
+    let widgetFile = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+        .appending(component: "widget_v2.json")
     
     init() {
         if !FileManager.default.fileExists(atPath: dashboardFile.toStringPath()) {
@@ -22,6 +26,15 @@ class DashboardModel: ObservableObject {
             let context = FileHandler.shared.readUtf8String(path: dashboardFile.toStringPath())
             if !context.isEmpty {
                 basicData = try? JSON(data: context.data(using: .utf8)!)
+            }
+        }
+        if !FileManager.default.fileExists(atPath: widgetFile.toStringPath()) {
+            FileManager.default.createFile(atPath: widgetFile.toStringPath(), contents: nil)
+        } else {
+            let context = FileHandler.shared.readUtf8String(path: widgetFile.toStringPath())
+            if !context.isEmpty {
+                widgetData = try? JSON(data: context.data(using: .utf8)!)
+                showWidget = true
             }
         }
     }
@@ -41,6 +54,17 @@ class DashboardModel: ObservableObject {
         }
     }
     
+    /// 获取小组件【实时便签】的内容并写入本地保存
+    func fetchWidgetAndSace(user: ShequAccount) async throws {
+        let result = try await fetchWidget(user: user)
+        FileHandler.shared.writeUtf8String(path: widgetFile.toStringPath(), context: result.rawString()!)
+        DispatchQueue.main.async { [self] in
+            GlobalUIModel.exported.makeAnAlert(type: 1, msg: NSLocalizedString("dashboard.info.fetch_widget_ok", comment: ""))
+            widgetData = try? JSON(data: FileHandler.shared.readUtf8String(path: widgetFile.toStringPath()).data(using: .utf8)!)
+            showWidget = true
+        }
+    }
+    
     private func fetchOutline(user: ShequAccount) async throws -> JSON {
         var req = URLRequest(url: URL(string: ApiEndpoints.shared.getGameOutline(roleID: user.genshinUID!))!)
         req.setHost(host: "api-takumi-record.mihoyo.com")
@@ -57,6 +81,18 @@ class DashboardModel: ObservableObject {
         req.setValue("https://webstatic.mihoyo.com", forHTTPHeaderField: "Origin")
         req.setXRPCAppInfo(client: "5")
         req.setDeviceInfoHeaders()
+        return try await req.receiveOrThrow()
+    }
+    
+    private func fetchWidget(user: ShequAccount) async throws -> JSON {
+        var req = URLRequest(url: URL(string: ApiEndpoints.shared.getWidgetSimple())!)
+        req.setHost(host: "api-takumi-record.mihoyo.com")
+        req.setUser(singleUser: user)
+        req.setIosUA()
+        req.setValue("https://webstatic.mihoyo.com", forHTTPHeaderField: "Origin")
+        req.setDS(version: .V2, type: .X4, include: false)
+        req.setDeviceInfoHeaders()
+        req.setXRPCAppInfo(client: "5")
         return try await req.receiveOrThrow()
     }
 }

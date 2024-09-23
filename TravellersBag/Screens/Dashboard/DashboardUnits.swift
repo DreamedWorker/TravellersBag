@@ -171,4 +171,69 @@ struct DashboardUnits {
             }
         }
     }
+    
+    /// 实时便签 -- 数据卡片
+    struct BasicDailyNote: View {
+        let showUI: Bool
+        let fetchData: () -> Void
+        let data: JSON?
+        
+        var body: some View {
+            VStack {
+                if showUI {
+                    if let surelyData = data {
+                        HStack {
+                            Text("dashboard.unit.widget.title")
+                            Spacer()
+                            Image(systemName: "arrow.clockwise").help("dashboard.unit.widget.refresh").onTapGesture {
+                                fetchData()
+                            }
+                        }.padding(.bottom, 4)
+                        HStack {
+                            NoteEntry(
+                                title: "dashboard.unit.widget.home_coin",
+                                current: "\(surelyData["current_home_coin"].intValue)", total: "\(surelyData["max_home_coin"].intValue)")
+                            NoteEntry(
+                                title: "dashboard.unit.widget.resin", current: "\(surelyData["current_resin"].intValue)",
+                                total: "\(surelyData["max_resin"].intValue)")
+                            NoteEntry(
+                                title: "dashboard.unit.widget.expedition", current: "\(surelyData["current_expedition_num"].intValue)",
+                                total: "\(surelyData["max_expedition_num"].intValue)")
+                        }.padding(.bottom, 4)
+                        HStack {
+                            NoteEntry(
+                                title: "dashboard.unit.widget.task", current: "\(surelyData["finished_task_num"].intValue)",
+                                total: "\(surelyData["total_task_num"].intValue)")
+                        }.padding(.bottom, 4)
+                        Text("dashboard.unit.widget.refresh_p").font(.footnote).foregroundStyle(.secondary)
+                    } else {
+                        Text("dashboard.unit.widget.no_data").font(.headline)
+                        Button("dashboard.unit.widget.fetch", action: fetchData).buttonStyle(BorderedProminentButtonStyle())
+                    }
+                } else {
+                    Text("dashboard.unit.widget.no_data").font(.headline)
+                    Button("dashboard.unit.widget.fetch", action: fetchData).buttonStyle(BorderedProminentButtonStyle())
+                }
+            }
+            .padding()
+            .background(RoundedRectangle(cornerRadius: 8, style: .continuous).fill(BackgroundStyle()))
+        }
+        
+        private struct NoteEntry: View {
+            let title: String
+            let current: String
+            let total: String
+            
+            var body: some View {
+                VStack {
+                    HStack(spacing: 2) {
+                        Text(current).bold().foregroundStyle(.tint)
+                        Text("app.a")
+                        Text(total)
+                    }.padding(.bottom, 2).font(.system(size: 14))
+                    Text(NSLocalizedString(title, comment: "")).font(.system(size: 10))
+                }
+            }
+        }
+    }
 }

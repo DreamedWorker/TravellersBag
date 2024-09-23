@@ -192,4 +192,9 @@ class ApiEndpoints {
             .replacingOccurrences(of: "=", with: "%3d") //此前没有注意到工具做了自动转换 粘贴到浏览器里才发现的端倪 写个注释记录一下~
         return "\(ApiEndpoints.PublicOperationHk4eGachaInfoApi)/getGachaLog?lang=zh-cn&auth_appid=webview_gacha&authkey=\(neoKey)&authkey_ver=\(1)&sign_type=\(2)&gacha_type=\(type)&size=\(20)&end_id=\(endID)"
     }
+    
+    /// 获取安卓的桌面小组件的实时便签
+    func getWidgetSimple() -> String {
+        return "\(ApiEndpoints.ApiTakumiRecord)/game_record/app/genshin/aapi/widget/v2?"
+    }
 }

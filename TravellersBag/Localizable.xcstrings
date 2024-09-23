@@ -319,6 +319,17 @@
         }
       }
     },
+    "app.a" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "/"
+          }
+        }
+      }
+    },
     "app.cancel" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -436,6 +447,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "获取信息成功"
+          }
+        }
+      }
+    },
+    "dashboard.info.fetch_widget_ok" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "获取精简版实时便签成功。"
           }
         }
       }
@@ -689,6 +711,116 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "启动兼容层"
+          }
+        }
+      }
+    },
+    "dashboard.unit.widget.expedition" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "探索派遣"
+          }
+        }
+      }
+    },
+    "dashboard.unit.widget.fetch" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "拉取信息"
+          }
+        }
+      }
+    },
+    "dashboard.unit.widget.fetch_error" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "获取小组件信息失败，%@。"
+          }
+        }
+      }
+    },
+    "dashboard.unit.widget.home_coin" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "洞天宝钱"
+          }
+        }
+      }
+    },
+    "dashboard.unit.widget.no_data" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "当前暂无数据，你需要…"
+          }
+        }
+      }
+    },
+    "dashboard.unit.widget.refresh" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "刷新数据"
+          }
+        }
+      }
+    },
+    "dashboard.unit.widget.refresh_p" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请控制你的刷新频率以避免触发风控（我们不会自动更新便签）。"
+          }
+        }
+      }
+    },
+    "dashboard.unit.widget.resin" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "脆弱树脂"
+          }
+        }
+      }
+    },
+    "dashboard.unit.widget.task" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "每日委托"
+          }
+        }
+      }
+    },
+    "dashboard.unit.widget.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "简易实时便签"
           }
         }
       }

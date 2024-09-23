@@ -29,7 +29,27 @@ struct DashboardScreen: View {
                     LazyVGrid(columns: columns, content: {
                         DashboardUnits.LaunchGame()
                         DashboardUnits.BasicInfo(partData: viewModel.basicData?["stats"])
-                    })
+                        DashboardUnits.BasicDailyNote(
+                            showUI: viewModel.showWidget,
+                            fetchData: {
+                                viewModel.showWidget = false
+                                Task {
+                                    do {
+                                        try await viewModel.fetchWidgetAndSace(user: GlobalUIModel.exported.defAccount!)
+                                    } catch {
+                                        DispatchQueue.main.async {
+                                            GlobalUIModel.exported.makeAnAlert(
+                                                type: 3,
+                                                msg: String.localizedStringWithFormat(
+                                                    NSLocalizedString("dashboard.unit.widget.fetch_error", comment: ""), error.localizedDescription)
+                                            )
+                                        }
+                                    }
+                                }
+                            },
+                            data: viewModel.widgetData
+                        )
+                    }).padding(.horizontal)
                 }
                 WorldExploration(regions: viewModel.basicData?["world_explorations"].array)
             }
