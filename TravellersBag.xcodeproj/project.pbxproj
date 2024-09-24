@@ -61,6 +61,7 @@
 		5DE6B5582C8F552200690B5C /* Weapon.json in Resources */ = {isa = PBXBuildFile; fileRef = 5DE6B5572C8F552200690B5C /* Weapon.json */; };
 		5DE6B55A2C8F554400690B5C /* Avatar.json in Resources */ = {isa = PBXBuildFile; fileRef = 5DE6B5592C8F554400690B5C /* Avatar.json */; };
 		5DEA77392CA26399004EF4E7 /* GachaBulletin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DEA77382CA26399004EF4E7 /* GachaBulletin.swift */; };
+		5DEA774F2CA313C0004EF4E7 /* UIGF4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DEA774E2CA313C0004EF4E7 /* UIGF4.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -117,6 +118,7 @@
 		5DE6B5572C8F552200690B5C /* Weapon.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Weapon.json; sourceTree = "<group>"; };
 		5DE6B5592C8F554400690B5C /* Avatar.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Avatar.json; sourceTree = "<group>"; };
 		5DEA77382CA26399004EF4E7 /* GachaBulletin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GachaBulletin.swift; sourceTree = "<group>"; };
+		5DEA774E2CA313C0004EF4E7 /* UIGF4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIGF4.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -234,6 +236,7 @@
 		5DA45D3C2C8DA2C000949164 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				5DEA774D2CA313B4004EF4E7 /* Data */,
 				5DDA5AA22C9C9C33002793CF /* Misc */,
 				5D670C1B2C98984000E0D958 /* Service */,
 				5DE6B5452C8E853000690B5C /* Config */,
@@ -355,6 +358,14 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		5DEA774D2CA313B4004EF4E7 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				5DEA774E2CA313C0004EF4E7 /* UIGF4.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -450,6 +461,7 @@
 				5D670C1A2C988D2B00E0D958 /* AccountModel.swift in Sources */,
 				5DE6B54E2C8E892A00690B5C /* DynamicSecret.swift in Sources */,
 				5D2B857D2C9DECB000ED1DD8 /* WorldExploration.swift in Sources */,
+				5DEA774F2CA313C0004EF4E7 /* UIGF4.swift in Sources */,
 				5DDA5AA12C9C06C9002793CF /* NoticeDetail.swift in Sources */,
 				5D670C232C98ABC400E0D958 /* AccountDetail.swift in Sources */,
 				5DD653D02C9AAD3B00B0DA2B /* PassportModel.swift in Sources */,

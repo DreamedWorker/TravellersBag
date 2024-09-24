@@ -957,6 +957,17 @@
         }
       }
     },
+    "gacha.error.file_empty" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "你的文件中不包含%@的祈愿数据！"
+          }
+        }
+      }
+    },
     "gacha.error.get_authkey" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -968,8 +979,26 @@
         }
       }
     },
+    "gacha.error.import_from_file" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "从文件中导入信息失败，%@。"
+          }
+        }
+      }
+    },
     "gacha.export.error" : {
-
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "导出记录到文件时出错：%@。"
+          }
+        }
+      }
     },
     "gacha.home.avatar" : {
       "extractionState" : "manual",
@@ -989,6 +1018,94 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "集录祈愿"
+          }
+        }
+      }
+    },
+    "gacha.home.menu.delete" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "删除记录"
+          }
+        }
+      }
+    },
+    "gacha.home.menu.delete_ok" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "确认删除"
+          }
+        }
+      }
+    },
+    "gacha.home.menu.delete_p" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "这将删除与这个账号相关的全部祈愿数据且不可撤销，请确保你备份了数据。"
+          }
+        }
+      }
+    },
+    "gacha.home.menu.export" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "导出记录"
+          }
+        }
+      }
+    },
+    "gacha.home.menu.export_p" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "选择一个位置来存储你导出的记录信息。"
+          }
+        }
+      }
+    },
+    "gacha.home.menu.update" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "更新记录"
+          }
+        }
+      }
+    },
+    "gacha.home.menu.update_p" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "从下面的方式中选择一个以更新你的祈愿数据。"
+          }
+        }
+      }
+    },
+    "gacha.home.menu.update_p2" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "你需要从文件系统中选择一个json文件。"
           }
         }
       }
@@ -1032,7 +1149,18 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "从成功从服务器获取到了%@条记录。"
+            "value" : "成功从服务器获取到了%@条记录。"
+          }
+        }
+      }
+    },
+    "gacha.info.update_from_file" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "成功从文件导入了%@条记录。"
           }
         }
       }

@@ -11,6 +11,8 @@ struct GachaOverview: View {
     @Environment(\.managedObjectContext) private var dataManager
     @StateObject private var viewModel = GachaModel.default
     @State private var gachaPart: GachaPart = .Overview
+    @State private var updateAlert = false
+    @State private var deleteAlert = false
     
     var body: some View {
         VStack {
@@ -20,6 +22,41 @@ struct GachaOverview: View {
                     NoDataPart.onAppear { viewModel.initSomething(dm: dataManager) }
                 case .Showing:
                     Content
+                        .toolbar {
+                            if gachaPart == .Overview {
+                                ToolbarItem {
+                                    Button(
+                                        action: { updateAlert = true },
+                                        label: { Image(systemName: "clock.arrow.2.circlepath").help("gacha.home.menu.update")}
+                                    )
+                                }
+                                ToolbarItem {
+                                    Button(
+                                        action: {
+                                            let panel = NSSavePanel()
+                                            panel.message = NSLocalizedString("gacha.home.menu.export_p", comment: "")
+                                            panel.allowedContentTypes = [.json]
+                                            panel.directoryURL = URL(string: NSHomeDirectory())
+                                            panel.canCreateDirectories = true
+                                            panel.begin { result in
+                                                if result == NSApplication.ModalResponse.OK {
+                                                    GachaService.shared.exportRecords2UIGFv4(
+                                                        record: viewModel.gachaList,
+                                                        uid: GlobalUIModel.exported.defAccount!.genshinUID!,
+                                                        fileUrl: panel.url!
+                                                    )
+                                                    GlobalUIModel.exported.makeAnAlert(type: 1, msg: "导出成功！")
+                                                }
+                                            }
+                                        },
+                                        label: { Image(systemName: "square.and.arrow.up").help("gacha.home.menu.export")}
+                                    )
+                                }
+                                ToolbarItem {
+                                    Button(action: { deleteAlert = true }, label: { Image(systemName: "trash").help("gacha.home.menu.delete")})
+                                }
+                            }
+                        }
                 case .LoadedError:
                     Text("app.cancel")
                 }
@@ -30,6 +67,40 @@ struct GachaOverview: View {
                 }
             }
         }
+        .alert(
+            "app.notice", isPresented: $updateAlert,
+            actions: {
+                Button("gacha.no_data.cloud", action: {
+                    updateAlert = false
+                    GlobalUIModel.exported.makeALoading(msg: "我们正在获取数据，请确保全程网络通畅。")
+                    Task {
+                        await viewModel.updateDataFromCloud()
+                    }
+                })
+                Button("gacha.no_data.file", action: {
+                    updateAlert = false
+                    let openPanel = NSOpenPanel()
+                    openPanel.allowedContentTypes = [.json]; openPanel.allowsMultipleSelection = false
+                    openPanel.message = NSLocalizedString("gacha.home.menu.update_p2", comment: "")
+                    openPanel.begin { result in
+                        if result == NSApplication.ModalResponse.OK {
+                            if let url = openPanel.url {
+                                viewModel.updateDataFromFile(url: url)
+                            }
+                        }
+                    }
+                })
+                Button(role: .cancel, action: { updateAlert = false }, label: { Text("app.cancel") })
+            },
+            message: { Text("gacha.home.menu.update_p") }
+        )
+        .alert("app.warning", isPresented: $deleteAlert, actions: {
+            Button(role: .destructive, action: {
+                viewModel.deleteRecordsFromCoreData()
+                viewModel.gachaList.removeAll()
+                viewModel.uiPart = .NoData
+            }, label: { Text("gacha.home.menu.delete_ok") })
+        }, message: { Text("gacha.home.menu.delete_p") })
     }
     
     var Content: some View {
@@ -66,7 +137,18 @@ struct GachaOverview: View {
                     await viewModel.updateDataFromCloud()
                 }
             })
-            MDLikeTile(leadingIcon: "square.and.arrow.down", endIcon: "arrow.forward", title: "gacha.no_data.file", onClick: {})
+            MDLikeTile(leadingIcon: "square.and.arrow.down", endIcon: "arrow.forward", title: "gacha.no_data.file", onClick: {
+                let openPanel = NSOpenPanel()
+                openPanel.allowedContentTypes = [.json]; openPanel.allowsMultipleSelection = false
+                openPanel.message = NSLocalizedString("gacha.home.menu.update_p2", comment: "")
+                openPanel.begin { result in
+                    if result == NSApplication.ModalResponse.OK {
+                        if let url = openPanel.url {
+                            viewModel.updateDataFromFile(url: url)
+                        }
+                    }
+                }
+            })
         }
         .padding()
         .background(RoundedRectangle(cornerRadius: 8, style: .continuous).fill(BackgroundStyle()))

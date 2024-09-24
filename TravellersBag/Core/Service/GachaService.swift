@@ -65,24 +65,25 @@ class GachaService {
         }
     }
     
-    /// 获取物品的名字和星级 不在库中返回none
-//    func getItemChineseName(itemId: String) -> String {
-//            if itemId.count == 5 { // 武器
-//                if let target = HomeController.shared.weaponList.filter({ $0["Id"].intValue == Int(itemId)! }).first {
-//                    return "\(target["Name"].stringValue)@\(target["RankLevel"].intValue)@武器"
-//                } else {
-//                    return "none"
-//                }
-//            } else if itemId.count == 8 { // 角色
-//                if let target = HomeController.shared.avatarList.filter({ $0["Id"].intValue == Int(itemId)! }).first {
-//                    return "\(target["Name"].stringValue)@\(target["Quality"].intValue)@角色"
-//                } else {
-//                    return "none"
-//                }
-//            } else {
-//                return "none"
-//            }
-//    }
+    /// 获取物品的名字和星级 返回格式：物品名字@星级@类型
+    /// 如果没有数据，则返回：???@3@?
+    func getItemChineseName(itemId: String) -> String {
+            if itemId.count == 5 { // 武器
+                if let target = HoyoResKit.default.weapon.filter({ $0["Id"].intValue == Int(itemId)! }).first {
+                    return "\(target["Name"].stringValue)@\(target["RankLevel"].intValue)@武器"
+                } else {
+                    return "???@3@武器"
+                }
+            } else if itemId.count == 8 { // 角色
+                if let target = HoyoResKit.default.avatars.filter({ $0["Id"].intValue == Int(itemId)! }).first {
+                    return "\(target["Name"].stringValue)@\(target["Quality"].intValue)@角色"
+                } else {
+                    return "???@3@角色"
+                }
+            } else {
+                return "???@3@?"
+            }
+    }
     
 //    /// 获取从UIGF文件中提取的新列表
 //    func fetchNeoItemList(gachaType: String, list: [GachaItem], neoList: [JSON]) -> [JSON] {
@@ -116,41 +117,45 @@ class GachaService {
 //    }
     
     /// 以UIGFv4.0标准导出记录到文件（此方法系同步方法，不需要切换线程）
-//    func exportRecords2UIGFv4(record: [GachaItem], uid: String, fileUrl: URL) {
-//        func timeTransfer(d: Date, detail: Bool = true) -> String {
-//            let df = DateFormatter()
-//            df.dateFormat = (detail) ? "yyyy-MM-dd HH:mm:ss" : "yyMMdd"
-//            return df.string(from: d)
-//        }
-//        let time = Date().timeIntervalSince1970
-//        // let target = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
-//        let targetFile = fileUrl
-//        // target.appending(component: "Gacha-\(timeTransfer(d: Date.now, detail: false)).UIGFv4.json")
-//        do {
-//            let info = Info(export_timestamp: Int(time)) // 文件头部信息
-//            var records: [SingleGachaItem] = []
-//            for i in record {
-//                let name = i.name!
-//                let name_id = (HomeController.shared.idTable.contains(where: { $0.0 == name })) 
-//                ? HomeController.shared.idTable[name].intValue : 10008
-//                records.append(
-//                    SingleGachaItem(
-//                        uigf_gacha_type: (i.gachaType! == "400") ? "301" : i.gachaType!,
-//                        gacha_type: i.gachaType!, item_id: String(name_id),
-//                        time: timeTransfer(d: i.time!), id: i.id!)
-//                )
-//            }
-//            let hk4e = HK4E(uid: uid, list: records)
-//            let uigf = UIGFFile(info: info, hk4e: [hk4e])
-//            let encoder = try JSONEncoder().encode(uigf)
-//            FileHandler.shared.writeUtf8String(
-//                path: targetFile.path().removingPercentEncoding!, 
-//                context: String(data: encoder, encoding: .utf8)!)
-//        } catch {
-//            HomeController.shared.showErrorDialog(
-//                msg: String.localizedStringWithFormat(
-//                    NSLocalizedString("gacha.export.error", comment: ""), error.localizedDescription)
-//            )
-//        }
-//    }
+    func exportRecords2UIGFv4(record: [GachaItem], uid: String, fileUrl: URL) {
+        func timeTransfer(d: Date, detail: Bool = true) -> String {
+            let df = DateFormatter()
+            df.dateFormat = (detail) ? "yyyy-MM-dd HH:mm:ss" : "yyMMdd"
+            return df.string(from: d)
+        }
+        let time = Date().timeIntervalSince1970
+        let targetFile = fileUrl
+        do {
+            let info = Info(export_timestamp: Int(time)) // 文件头部信息
+            var records: [SingleGachaItem] = []
+            for i in record {
+                let name = i.name!
+                var name_id = ""
+                if HoyoResKit.default.avatars.contains(where: { $0["Name"].stringValue == name }) {
+                    if let temp = HoyoResKit.default.avatars.filter({ $0["Name"].stringValue == name }).first {
+                        name_id = String(temp["Id"].intValue)
+                    } else { continue }
+                } else if HoyoResKit.default.weapon.contains(where: { $0["Name"].stringValue == name }) {
+                    if let temp = HoyoResKit.default.weapon.filter({ $0["Name"].stringValue == name }).first {
+                        name_id = String(temp["Id"].intValue)
+                    } else { continue }
+                } else { continue }
+                records.append(
+                    SingleGachaItem(
+                        uigf_gacha_type: (i.gachaType! == "400") ? "301" : i.gachaType!,
+                        gacha_type: i.gachaType!, item_id: String(name_id),
+                        time: timeTransfer(d: i.time!), id: i.id!)
+                )
+            }
+            let hk4e = HK4E(uid: uid, list: records)
+            let uigf = UIGFFile(info: info, hk4e: [hk4e])
+            let encoder = try JSONEncoder().encode(uigf)
+            FileHandler.shared.writeUtf8String(
+                path: targetFile.path().removingPercentEncoding!, 
+                context: String(data: encoder, encoding: .utf8)!)
+        } catch {
+            GlobalUIModel.exported.makeAnAlert(type: 3, msg: String.localizedStringWithFormat(
+                NSLocalizedString("gacha.export.error", comment: ""), error.localizedDescription))
+        }
+    }
 }
