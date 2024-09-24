@@ -13,6 +13,7 @@ class GlobalUIModel: ObservableObject {
     
     @Published var showUI = false
     @Published var showAlert = GlobalAlertInfo()
+    @Published var showLoading = GlobalLoadingInfo()
     
     var defAccount: ShequAccount? = nil
     
@@ -49,6 +50,11 @@ class GlobalUIModel: ObservableObject {
         showAlert.msg = msg; showAlert.type = type; showAlert.showIt = true
     }
     
+    /// 构建一个【加载中】提示
+    func makeALoading(msg: String) {
+        showLoading.msg = msg; showLoading.showIt = true
+    }
+    
     /// 信息弹窗结构体
     struct GlobalAlertInfo {
         /// 内容
@@ -62,6 +68,17 @@ class GlobalUIModel: ObservableObject {
         init(msg: String = "", type: Int = 2, showIt: Bool = false) {
             self.msg = msg
             self.type = type
+            self.showIt = showIt
+        }
+    }
+    
+    struct GlobalLoadingInfo {
+        /// 内容
+        var msg: String
+        var showIt: Bool = false
+        
+        init(msg: String = "", showIt: Bool = false) {
+            self.msg = msg
             self.showIt = showIt
         }
     }

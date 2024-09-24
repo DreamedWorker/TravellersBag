@@ -23,6 +23,7 @@ struct HomeScreen: View {
                         NavigationLink(value: ScreenPart.Notice, label: { Label("home.sider.notice", systemImage: "newspaper") })
                         NavigationLink(
                             value: ScreenPart.Dashboard, label: { Label("home.sider.dashboard", systemImage: "list.bullet.clipboard") })
+                        NavigationLink(value: ScreenPart.Gacha, label: { Label("home.sider.gacha", systemImage: "giftcard") })
                     }
                 },
                 detail: {
@@ -33,6 +34,8 @@ struct HomeScreen: View {
                         NoticeScreen()
                     case .Dashboard:
                         DashboardScreen().navigationTitle(Text("home.sider.dashboard"))
+                    case .Gacha:
+                        GachaOverview().navigationTitle(Text("home.sider.gacha"))
                     }
                 }
             )
@@ -41,6 +44,9 @@ struct HomeScreen: View {
                     type: (2 - viewModel.showAlert.type > 0) ? .complete(.green) : .error(.red),
                     title: viewModel.showAlert.msg
                 )
+            })
+            .toast(isPresenting: $viewModel.showLoading.showIt, alert: {
+                AlertToast(type: .loading, title: viewModel.showLoading.msg)
             })
             .onAppear { // 自动刷新胡桃通行证状态（如有必要）
                 let lastTime = Int(UserDefaultHelper.shared.getValue(forKey: "hutaoLastLogin", def: "0"))!
@@ -72,4 +78,5 @@ private enum ScreenPart {
     case Accounts
     case Notice
     case Dashboard
+    case Gacha
 }

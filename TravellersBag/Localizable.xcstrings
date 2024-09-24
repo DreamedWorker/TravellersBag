@@ -946,6 +946,217 @@
         }
       }
     },
+    "gacha.error.fetch_info_err" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "获取祈愿记录失败，%@。"
+          }
+        }
+      }
+    },
+    "gacha.error.get_authkey" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "获取AuthKey v2时出错。"
+          }
+        }
+      }
+    },
+    "gacha.export.error" : {
+
+    },
+    "gacha.home.avatar" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "角色活动祈愿"
+          }
+        }
+      }
+    },
+    "gacha.home.collection" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "集录祈愿"
+          }
+        }
+      }
+    },
+    "gacha.home.resident" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "「奔行世间」"
+          }
+        }
+      }
+    },
+    "gacha.home.tab_overview" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "数据总览"
+          }
+        }
+      }
+    },
+    "gacha.home.weapon" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "神器铸形"
+          }
+        }
+      }
+    },
+    "gacha.info.update_from_cloud" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "从成功从服务器获取到了%@条记录。"
+          }
+        }
+      }
+    },
+    "gacha.login_first" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "刷新登录状态…"
+          }
+        }
+      }
+    },
+    "gacha.no_data.cloud" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "从官方服务器获取数据"
+          }
+        }
+      }
+    },
+    "gacha.no_data.file" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "从UIGFv4文件导入数据"
+          }
+        }
+      }
+    },
+    "gacha.no_data.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "本地没有数据可显示"
+          }
+        }
+      }
+    },
+    "gacha.overview.count" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@抽"
+          }
+        }
+      }
+    },
+    "gacha.overview.last_five" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "距上个五星"
+          }
+        }
+      }
+    },
+    "gacha.overview.last_four" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "距上个四星"
+          }
+        }
+      }
+    },
+    "gacha.overview.no_record" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无数据"
+          }
+        }
+      }
+    },
+    "gacha.overview.time" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "从%@到%@"
+          }
+        }
+      }
+    },
+    "gacha.overview.total" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "总共抽数"
+          }
+        }
+      }
+    },
+    "gacha.update_error_from_file" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法从文件中导入数据"
+          }
+        }
+      }
+    },
     "home.before.fp" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -986,6 +1197,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "仪表盘"
+          }
+        }
+      }
+    },
+    "home.sider.gacha" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "祈愿记录"
           }
         }
       }

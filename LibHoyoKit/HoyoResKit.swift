@@ -15,8 +15,8 @@ class HoyoResKit {
         .url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
         .appending(component: "globalStatic")
     
-    var avatars: JSON
-    var weapon: JSON
+    var avatars: [JSON]
+    var weapon: [JSON]
     var langs: [String: Int]
     private init() {
         if !fs.fileExists(atPath: staticRoot.toStringPath()) {
@@ -25,8 +25,22 @@ class HoyoResKit {
             try! String(contentsOf: Bundle.main.url(forResource: "Weapon", withExtension: "json")!).write(to: staticRoot.appending(component: "Weapon.json"), atomically: true, encoding: .utf8)
             try! String(contentsOf: Bundle.main.url(forResource: "zh-cn", withExtension: "json")!).write(to: staticRoot.appending(component: "zh-cn.json"), atomically: true, encoding: .utf8)
         }
-        avatars = try! JSON(data: String(contentsOf: staticRoot.appending(component: "Avatar.json"), encoding: .utf8).data(using: .utf8)!)
-        weapon = try! JSON(data: String(contentsOf: staticRoot.appending(component: "Weapon.json"), encoding: .utf8).data(using: .utf8)!)
+        do {
+            avatars = (UserDefaultHelper.shared.getValue(forKey: "dataSource", def: "") == "local-cloud") ?
+            try JSON(data: String(contentsOf: staticRoot.appending(component: "cloud").appending(component: "Avatar.json"), encoding: .utf8).data(using: .utf8)!).arrayValue :
+            try! JSON(data: String(contentsOf: staticRoot.appending(component: "Avatar.json"), encoding: .utf8).data(using: .utf8)!).arrayValue
+        } catch {
+            avatars = try! JSON(
+                data: String(contentsOf: staticRoot.appending(component: "Avatar.json"), encoding: .utf8).data(using: .utf8)!).arrayValue
+        }
+        do {
+            weapon = (UserDefaultHelper.shared.getValue(forKey: "dataSource", def: "") == "local-cloud") ?
+            try JSON(data: String(contentsOf: staticRoot.appending(component: "cloud").appending(component: "Weapon.json"), encoding: .utf8).data(using: .utf8)!).arrayValue :
+            try! JSON(data: String(contentsOf: staticRoot.appending(component: "Weapon.json"), encoding: .utf8).data(using: .utf8)!).arrayValue
+        } catch {
+            weapon = try! JSON(
+                data: String(contentsOf: staticRoot.appending(component: "Weapon.json"), encoding: .utf8).data(using: .utf8)!).arrayValue
+        }
         langs = try! JSONSerialization.jsonObject(with: String(contentsOf: staticRoot.appending(component: "zh-cn.json"), encoding: .utf8).data(using: .utf8)!) as! [String: Int]
     }
     
@@ -50,6 +64,63 @@ class HoyoResKit {
             }
         } else {
             return "C@about:blank"
+        }
+    }
+    
+    /// 获取抽卡物品的图像和名称（其实也可以不要）
+    /// 格式：类型@地址@名称
+    func getGachaItemIcon(key: String) -> String {
+        var result = ""
+        if key.count == 5 {
+            if weapon.count > 0 {
+                if weapon.contains(where: { $0["Id"].intValue == Int(key) }) {
+                    let entry = weapon.filter({ $0["Id"].intValue == Int(key) }).first!
+                    let imgKey = entry["Icon"].stringValue
+                    let localPath = staticRoot.appending(component: "images").appending(component: "EquipIcon").appending(components: "\(imgKey).png")
+                    if fs.fileExists(atPath: localPath.toStringPath()) {
+                        result = "L@\(localPath.toStringPath())@\(entry["Name"].stringValue)"
+                    } else {
+                        result = "C@https://enka.network/ui/\(imgKey).png@\(entry["Name"].stringValue)"
+                    }
+                } else {
+                    result = "C@about:blank@???"
+                }
+            } else {
+                result = "C@about:blank@???"
+            }
+        } else if key.count == 8 {
+            if avatars.count > 0 {
+                if avatars.contains(where: { $0["Id"].intValue == Int(key) }) {
+                    let entry = avatars.filter({ $0["Id"].intValue == Int(key) }).first!
+                    let imgKey = entry["Icon"].stringValue
+                    let localPath = staticRoot.appending(component: "images").appending(component: "AvatarIcon").appending(component: "\(imgKey).png")
+                    if fs.fileExists(atPath: localPath.toStringPath()) {
+                        result = "L@\(localPath.toStringPath())@\(entry["Name"].stringValue)"
+                    } else {
+                        result = "C@https://enka.network/ui/\(imgKey).png@\(entry["Name"].stringValue)"
+                    }
+                } else {
+                    result = "C@about:blank@???"
+                }
+            } else {
+                result = "C@about:blank@???"
+            }
+        } else {
+            result = "C@about:blank@???"
+        }
+        return result
+    }
+    
+    /// 通过名称获取ID
+    func getIdByName(name: String) -> String {
+        if avatars.contains(where: { $0["Name"].stringValue == name }) {
+            let result = avatars.filter({ $0["Name"].stringValue == name }).first!
+            return String(result["Id"].intValue)
+        } else if weapon.contains(where: { $0["Name"].stringValue == name }) {
+            let result = weapon.filter({ $0["Name"].stringValue == name }).first!
+            return String(result["Id"].intValue)
+        } else {
+            return "0"
         }
     }
 }

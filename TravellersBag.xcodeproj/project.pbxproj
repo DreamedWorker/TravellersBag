@@ -45,6 +45,10 @@
 		5DD653DE2C9B169200B0DA2B /* NoticeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD653DD2C9B169200B0DA2B /* NoticeScreen.swift */; };
 		5DD653E02C9B353400B0DA2B /* NoticeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD653DF2C9B353400B0DA2B /* NoticeModel.swift */; };
 		5DDA5AA12C9C06C9002793CF /* NoticeDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDA5AA02C9C06C9002793CF /* NoticeDetail.swift */; };
+		5DDCB9382CA1B4F6007EF232 /* GachaOverview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDCB9372CA1B4F6007EF232 /* GachaOverview.swift */; };
+		5DDCB93A2CA1BB44007EF232 /* GachaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDCB9392CA1BB44007EF232 /* GachaModel.swift */; };
+		5DDCB93C2CA1BC80007EF232 /* MDLikeTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDCB93B2CA1BC80007EF232 /* MDLikeTile.swift */; };
+		5DDCB93E2CA1C39A007EF232 /* GachaService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDCB93D2CA1C39A007EF232 /* GachaService.swift */; };
 		5DE6B5422C8E84BC00690B5C /* ApiEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE6B5412C8E84BC00690B5C /* ApiEndpoints.swift */; };
 		5DE6B5442C8E84DB00690B5C /* HutaoApiEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE6B5432C8E84DB00690B5C /* HutaoApiEndpoints.swift */; };
 		5DE6B5472C8E854C00690B5C /* TBEnv.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE6B5462C8E854C00690B5C /* TBEnv.swift */; };
@@ -56,6 +60,7 @@
 		5DE6B5562C8F54ED00690B5C /* zh-cn.json in Resources */ = {isa = PBXBuildFile; fileRef = 5DE6B5552C8F54ED00690B5C /* zh-cn.json */; };
 		5DE6B5582C8F552200690B5C /* Weapon.json in Resources */ = {isa = PBXBuildFile; fileRef = 5DE6B5572C8F552200690B5C /* Weapon.json */; };
 		5DE6B55A2C8F554400690B5C /* Avatar.json in Resources */ = {isa = PBXBuildFile; fileRef = 5DE6B5592C8F554400690B5C /* Avatar.json */; };
+		5DEA77392CA26399004EF4E7 /* GachaBulletin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DEA77382CA26399004EF4E7 /* GachaBulletin.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -97,6 +102,10 @@
 		5DD653DD2C9B169200B0DA2B /* NoticeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeScreen.swift; sourceTree = "<group>"; };
 		5DD653DF2C9B353400B0DA2B /* NoticeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeModel.swift; sourceTree = "<group>"; };
 		5DDA5AA02C9C06C9002793CF /* NoticeDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeDetail.swift; sourceTree = "<group>"; };
+		5DDCB9372CA1B4F6007EF232 /* GachaOverview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GachaOverview.swift; sourceTree = "<group>"; };
+		5DDCB9392CA1BB44007EF232 /* GachaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GachaModel.swift; sourceTree = "<group>"; };
+		5DDCB93B2CA1BC80007EF232 /* MDLikeTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDLikeTile.swift; sourceTree = "<group>"; };
+		5DDCB93D2CA1C39A007EF232 /* GachaService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GachaService.swift; sourceTree = "<group>"; };
 		5DE6B5412C8E84BC00690B5C /* ApiEndpoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiEndpoints.swift; sourceTree = "<group>"; };
 		5DE6B5432C8E84DB00690B5C /* HutaoApiEndpoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HutaoApiEndpoints.swift; sourceTree = "<group>"; };
 		5DE6B5462C8E854C00690B5C /* TBEnv.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TBEnv.swift; sourceTree = "<group>"; };
@@ -107,6 +116,7 @@
 		5DE6B5552C8F54ED00690B5C /* zh-cn.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "zh-cn.json"; sourceTree = "<group>"; };
 		5DE6B5572C8F552200690B5C /* Weapon.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Weapon.json; sourceTree = "<group>"; };
 		5DE6B5592C8F554400690B5C /* Avatar.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Avatar.json; sourceTree = "<group>"; };
+		5DEA77382CA26399004EF4E7 /* GachaBulletin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GachaBulletin.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +180,7 @@
 		5D670C1B2C98984000E0D958 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				5DDCB93D2CA1C39A007EF232 /* GachaService.swift */,
 				5D670C202C98A50000E0D958 /* Character+Verification.swift */,
 				5D670C1C2C98986800E0D958 /* AccountService.swift */,
 			);
@@ -235,6 +246,7 @@
 		5DA45D422C8E0CFA00949164 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				5DDCB9362CA1B423007EF232 /* Gacha */,
 				5D2B85732C9D1C5600ED1DD8 /* Dashboard */,
 				5DD653DC2C9B168200B0DA2B /* Notice */,
 				5D670C162C9879E300E0D958 /* Account */,
@@ -250,6 +262,7 @@
 			children = (
 				5D6882D42C9A009A00FB074C /* WebTest.swift */,
 				5DA45D4D2C8E12D800949164 /* CardView.swift */,
+				5DDCB93B2CA1BC80007EF232 /* MDLikeTile.swift */,
 			);
 			path = Compositions;
 			sourceTree = "<group>";
@@ -300,6 +313,16 @@
 				5DD653D52C9AC0BF00B0DA2B /* SecurityTool.swift */,
 			);
 			path = Misc;
+			sourceTree = "<group>";
+		};
+		5DDCB9362CA1B423007EF232 /* Gacha */ = {
+			isa = PBXGroup;
+			children = (
+				5DDCB9372CA1B4F6007EF232 /* GachaOverview.swift */,
+				5DDCB9392CA1BB44007EF232 /* GachaModel.swift */,
+				5DEA77382CA26399004EF4E7 /* GachaBulletin.swift */,
+			);
+			path = Gacha;
 			sourceTree = "<group>";
 		};
 		5DE6B5402C8E846200690B5C /* Http */ = {
@@ -432,6 +455,7 @@
 				5DD653D02C9AAD3B00B0DA2B /* PassportModel.swift in Sources */,
 				5DA45D442C8E0D1300949164 /* HomeScreen.swift in Sources */,
 				5DD653E02C9B353400B0DA2B /* NoticeModel.swift in Sources */,
+				5DDCB9382CA1B4F6007EF232 /* GachaOverview.swift in Sources */,
 				5DE6B5472C8E854C00690B5C /* TBEnv.swift in Sources */,
 				5DE6B5442C8E84DB00690B5C /* HutaoApiEndpoints.swift in Sources */,
 				5DD653DE2C9B169200B0DA2B /* NoticeScreen.swift in Sources */,
@@ -443,14 +467,18 @@
 				5DA45D412C8DC28200949164 /* UserDefaultHelper.swift in Sources */,
 				5DE6B5532C8E8A4300690B5C /* CoreDataHelper.swift in Sources */,
 				5DD653D22C9AB61B00B0DA2B /* HutaoService.swift in Sources */,
+				5DEA77392CA26399004EF4E7 /* GachaBulletin.swift in Sources */,
 				5DA45D482C8E0DA300949164 /* GlobalUIModel.swift in Sources */,
+				5DDCB93C2CA1BC80007EF232 /* MDLikeTile.swift in Sources */,
 				5DA45D4E2C8E12D800949164 /* CardView.swift in Sources */,
 				5D2B857B2C9D76E200ED1DD8 /* DashboardUnits.swift in Sources */,
 				5D670C212C98A50000E0D958 /* Character+Verification.swift in Sources */,
 				5D6882D52C9A009A00FB074C /* WebTest.swift in Sources */,
+				5DDCB93E2CA1C39A007EF232 /* GachaService.swift in Sources */,
 				5D2B85792C9D1DD800ED1DD8 /* DashboardModel.swift in Sources */,
 				5D3BCC4B2C8FC97E0025F1ED /* WizardScreen.swift in Sources */,
 				5D670C1D2C98986800E0D958 /* AccountService.swift in Sources */,
+				5DDCB93A2CA1BB44007EF232 /* GachaModel.swift in Sources */,
 				5DA45D1F2C8D991100949164 /* TravellersBagApp.swift in Sources */,
 				5D670C1F2C98A4B700E0D958 /* FileHandler.swift in Sources */,
 				5D2B85772C9D1CB300ED1DD8 /* DashboardScreen.swift in Sources */,

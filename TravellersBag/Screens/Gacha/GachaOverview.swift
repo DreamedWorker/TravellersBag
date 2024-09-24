@@ -8,11 +8,72 @@
 import SwiftUI
 
 struct GachaOverview: View {
+    @Environment(\.managedObjectContext) private var dataManager
+    @StateObject private var viewModel = GachaModel.default
+    @State private var gachaPart: GachaPart = .Overview
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            if GlobalUIModel.exported.hasDefAccount() {
+                switch viewModel.uiPart {
+                case .NoData:
+                    NoDataPart.onAppear { viewModel.initSomething(dm: dataManager) }
+                case .Showing:
+                    Content
+                case .LoadedError:
+                    Text("app.cancel")
+                }
+            } else {
+                VStack {
+                    Button("gacha.login_first", action: { GlobalUIModel.exported.refreshDefAccount() })
+                        .buttonStyle(BorderedProminentButtonStyle())
+                }
+            }
+        }
     }
-}
-
-#Preview {
-    GachaOverview()
+    
+    var Content: some View {
+        let character = viewModel.gachaList
+            .filter { $0.gachaType == viewModel.characterGacha || $0.gachaType == "400" }
+            .sorted(by: { Int($0.id!)! < Int($1.id!)! }) // 按照时间先后顺序原地排序（才发现这个id才是真正排序时的依据 用time代表的时间戳一定出事）
+        let weapon = viewModel.gachaList
+            .filter({ $0.gachaType == viewModel.weaponGacha }).sorted(by: { Int($0.id!)! < Int($1.id!)! })
+        let resident = viewModel.gachaList
+            .filter({ $0.gachaType == viewModel.residentGacha }).sorted(by: { Int($0.id!)! < Int($1.id!)! })
+        let collection = viewModel.gachaList
+            .filter({ $0.gachaType == viewModel.collectionGacha }).sorted(by: { Int($0.id!)! < Int($1.id!)! })
+        return TabView(selection: $gachaPart) {
+            ScrollView {
+                ScrollView(.horizontal, content: {
+                    HStack(alignment: .top, spacing: 8) {
+                        GachaBulletin(specificData: character, gachaTitle: "gacha.home.avatar")
+                        GachaBulletin(specificData: weapon, gachaTitle: "gacha.home.weapon")
+                        GachaBulletin(specificData: resident, gachaTitle: "gacha.home.resident")
+                        GachaBulletin(specificData: collection, gachaTitle: "gacha.home.collection")
+                    }
+                }).padding(.horizontal, 4)
+            }.tabItem({ Text("gacha.home.tab_overview") }).tag(GachaPart.Overview)
+        }
+    }
+    
+    var NoDataPart: some View {
+        return VStack {
+            Image("expecting_new_world").resizable().scaledToFit().frame(width: 72, height: 72)
+            Text("gacha.no_data.title").font(.title2).bold().padding(.top, 8)
+            MDLikeTile(leadingIcon: "externaldrive.badge.icloud", endIcon: "arrow.forward", title: "gacha.no_data.cloud", onClick: {
+                GlobalUIModel.exported.makeALoading(msg: "我们正在获取数据，请确保全程网络通畅。")
+                Task {
+                    await viewModel.updateDataFromCloud()
+                }
+            })
+            MDLikeTile(leadingIcon: "square.and.arrow.down", endIcon: "arrow.forward", title: "gacha.no_data.file", onClick: {})
+        }
+        .padding()
+        .background(RoundedRectangle(cornerRadius: 8, style: .continuous).fill(BackgroundStyle()))
+        .frame(maxWidth: 400)
+    }
+    
+    enum GachaPart {
+        case Overview
+    }
 }
