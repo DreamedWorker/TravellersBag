@@ -124,6 +124,7 @@ struct GachaOverview: View {
                     }
                 }).padding(.horizontal, 4)
             }.tabItem({ Text("gacha.home.tab_overview") }).tag(GachaPart.Overview)
+            GachaActivities(gachaRecord: viewModel.gachaList).tabItem({ Text("gacha.home.tab_activity") }).tag(GachaPart.Activity)
         }
     }
     
@@ -157,5 +158,6 @@ struct GachaOverview: View {
     
     enum GachaPart {
         case Overview
+        case Activity
     }
 }

@@ -37,6 +37,7 @@
 		5DA45D462C8E0D6E00949164 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 5DA45D452C8E0D6E00949164 /* Localizable.xcstrings */; };
 		5DA45D482C8E0DA300949164 /* GlobalUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA45D472C8E0DA300949164 /* GlobalUIModel.swift */; };
 		5DA45D4E2C8E12D800949164 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA45D4D2C8E12D800949164 /* CardView.swift */; };
+		5DC896F92CA31DFB003C5426 /* GachaActivities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC896F82CA31DFB003C5426 /* GachaActivities.swift */; };
 		5DD653CE2C9AABFA00B0DA2B /* HutaoPassport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD653CD2C9AABE900B0DA2B /* HutaoPassport.swift */; };
 		5DD653D02C9AAD3B00B0DA2B /* PassportModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD653CF2C9AAD3B00B0DA2B /* PassportModel.swift */; };
 		5DD653D22C9AB61B00B0DA2B /* HutaoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD653D12C9AB61B00B0DA2B /* HutaoService.swift */; };
@@ -94,6 +95,7 @@
 		5DA45D452C8E0D6E00949164 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		5DA45D472C8E0DA300949164 /* GlobalUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalUIModel.swift; sourceTree = "<group>"; };
 		5DA45D4D2C8E12D800949164 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		5DC896F82CA31DFB003C5426 /* GachaActivities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GachaActivities.swift; sourceTree = "<group>"; };
 		5DD653CA2C9AA4B300B0DA2B /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		5DD653CD2C9AABE900B0DA2B /* HutaoPassport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HutaoPassport.swift; sourceTree = "<group>"; };
 		5DD653CF2C9AAD3B00B0DA2B /* PassportModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassportModel.swift; sourceTree = "<group>"; };
@@ -324,6 +326,7 @@
 				5DDCB9372CA1B4F6007EF232 /* GachaOverview.swift */,
 				5DDCB9392CA1BB44007EF232 /* GachaModel.swift */,
 				5DEA77382CA26399004EF4E7 /* GachaBulletin.swift */,
+				5DC896F82CA31DFB003C5426 /* GachaActivities.swift */,
 			);
 			path = Gacha;
 			sourceTree = "<group>";
@@ -469,6 +472,7 @@
 				5DD653E02C9B353400B0DA2B /* NoticeModel.swift in Sources */,
 				5DDCB9382CA1B4F6007EF232 /* GachaOverview.swift in Sources */,
 				5DE6B5472C8E854C00690B5C /* TBEnv.swift in Sources */,
+				5DC896F92CA31DFB003C5426 /* GachaActivities.swift in Sources */,
 				5DE6B5442C8E84DB00690B5C /* HutaoApiEndpoints.swift in Sources */,
 				5DD653DE2C9B169200B0DA2B /* NoticeScreen.swift in Sources */,
 				5DE6B5492C8E870C00690B5C /* Requests.swift in Sources */,

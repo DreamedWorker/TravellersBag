@@ -1000,6 +1000,39 @@
         }
       }
     },
+    "gacha.history.five" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "当期五星角色"
+          }
+        }
+      }
+    },
+    "gacha.history.four" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "当期四星角色"
+          }
+        }
+      }
+    },
+    "gacha.history.version" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "版本"
+          }
+        }
+      }
+    },
     "gacha.home.avatar" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1117,6 +1150,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "「奔行世间」"
+          }
+        }
+      }
+    },
+    "gacha.home.tab_activity" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "历史活动"
           }
         }
       }

@@ -123,4 +123,19 @@ class HoyoResKit {
             return "0"
         }
     }
+    
+    /// 通过ID获取名称 找不到的话返回「?」
+    func getNameById(id: String) -> String {
+        if id.count == 5 {
+            if weapon.contains(where: { $0["Id"].intValue == Int(id) }) {
+                let result = weapon.filter({ $0["Id"].intValue == Int(id) }).first!
+                return result["Name"].stringValue
+            } else { return "?" }
+        } else if id.count == 8 {
+            if avatars.contains(where: { $0["Id"].intValue == Int(id) }) {
+                let result = avatars.filter({ $0["Id"].intValue == Int(id) }).first!
+                return result["Name"].stringValue
+            } else { return "?" }
+        } else { return "?" }
+    }
 }
