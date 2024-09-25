@@ -374,6 +374,17 @@
         }
       }
     },
+    "app.waiting" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请稍等…"
+          }
+        }
+      }
+    },
     "app.warning" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1006,7 +1017,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "当期五星角色"
+            "value" : "当期五星角色（武器）"
           }
         }
       }
@@ -1017,7 +1028,51 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "当期四星角色"
+            "value" : "当期四星角色（武器）"
+          }
+        }
+      }
+    },
+    "gacha.history.other" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "其他祈愿成果"
+          }
+        }
+      }
+    },
+    "gacha.history.refresh" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "刷新历史活动"
+          }
+        }
+      }
+    },
+    "gacha.history.refresh_p" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "我们将从第三方服务器获取新的祈愿历史记录文件并覆盖你本地的当前文件，要继续吗？"
+          }
+        }
+      }
+    },
+    "gacha.history.select" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请先选择一个祈愿池…"
           }
         }
       }

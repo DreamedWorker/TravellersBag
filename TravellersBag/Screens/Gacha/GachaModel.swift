@@ -31,6 +31,7 @@ class GachaModel: ObservableObject {
     // MARK: INNER USE end
     
     @Published var uiPart: GachaViewPart = .NoData
+    @Published var gachaPart: GachaPart = .Overview
     @Published var gachaList: [GachaItem] = []
     
     /// 初始化一些变量
@@ -204,5 +205,10 @@ class GachaModel: ObservableObject {
         case Showing
         /// 加载错误
         case LoadedError
+    }
+    
+    enum GachaPart {
+        case Overview
+        case Activity
     }
 }

@@ -10,7 +10,6 @@ import SwiftUI
 struct GachaOverview: View {
     @Environment(\.managedObjectContext) private var dataManager
     @StateObject private var viewModel = GachaModel.default
-    @State private var gachaPart: GachaPart = .Overview
     @State private var updateAlert = false
     @State private var deleteAlert = false
     
@@ -23,7 +22,7 @@ struct GachaOverview: View {
                 case .Showing:
                     Content
                         .toolbar {
-                            if gachaPart == .Overview {
+                            if viewModel.gachaPart == .Overview {
                                 ToolbarItem {
                                     Button(
                                         action: { updateAlert = true },
@@ -113,7 +112,7 @@ struct GachaOverview: View {
             .filter({ $0.gachaType == viewModel.residentGacha }).sorted(by: { Int($0.id!)! < Int($1.id!)! })
         let collection = viewModel.gachaList
             .filter({ $0.gachaType == viewModel.collectionGacha }).sorted(by: { Int($0.id!)! < Int($1.id!)! })
-        return TabView(selection: $gachaPart) {
+        return TabView(selection: $viewModel.gachaPart) {
             ScrollView {
                 ScrollView(.horizontal, content: {
                     HStack(alignment: .top, spacing: 8) {
@@ -123,8 +122,8 @@ struct GachaOverview: View {
                         GachaBulletin(specificData: collection, gachaTitle: "gacha.home.collection")
                     }
                 }).padding(.horizontal, 4)
-            }.tabItem({ Text("gacha.home.tab_overview") }).tag(GachaPart.Overview)
-            GachaActivities(gachaRecord: viewModel.gachaList).tabItem({ Text("gacha.home.tab_activity") }).tag(GachaPart.Activity)
+            }.tabItem({ Text("gacha.home.tab_overview") }).tag(GachaModel.GachaPart.Overview)
+            GachaActivities(gachaRecord: viewModel.gachaList).tabItem({ Text("gacha.home.tab_activity") }).tag(GachaModel.GachaPart.Activity)
         }
     }
     
@@ -154,10 +153,5 @@ struct GachaOverview: View {
         .padding()
         .background(RoundedRectangle(cornerRadius: 8, style: .continuous).fill(BackgroundStyle()))
         .frame(maxWidth: 400)
-    }
-    
-    enum GachaPart {
-        case Overview
-        case Activity
     }
 }

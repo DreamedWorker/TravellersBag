@@ -68,7 +68,7 @@ class HoyoResKit {
     }
     
     /// 获取抽卡物品的图像和名称（其实也可以不要）
-    /// 格式：类型@地址@名称
+    /// 格式：类型@地址@名称@星级
     func getGachaItemIcon(key: String) -> String {
         var result = ""
         if key.count == 5 {
@@ -78,9 +78,9 @@ class HoyoResKit {
                     let imgKey = entry["Icon"].stringValue
                     let localPath = staticRoot.appending(component: "images").appending(component: "EquipIcon").appending(components: "\(imgKey).png")
                     if fs.fileExists(atPath: localPath.toStringPath()) {
-                        result = "L@\(localPath.toStringPath())@\(entry["Name"].stringValue)"
+                        result = "L@\(localPath.toStringPath())@\(entry["Name"].stringValue)@\(entry["RankLevel"].intValue)"
                     } else {
-                        result = "C@https://enka.network/ui/\(imgKey).png@\(entry["Name"].stringValue)"
+                        result = "C@https://enka.network/ui/\(imgKey).png@\(entry["Name"].stringValue)@\(entry["RankLevel"].intValue)"
                     }
                 } else {
                     result = "C@about:blank@???"
@@ -95,9 +95,9 @@ class HoyoResKit {
                     let imgKey = entry["Icon"].stringValue
                     let localPath = staticRoot.appending(component: "images").appending(component: "AvatarIcon").appending(component: "\(imgKey).png")
                     if fs.fileExists(atPath: localPath.toStringPath()) {
-                        result = "L@\(localPath.toStringPath())@\(entry["Name"].stringValue)"
+                        result = "L@\(localPath.toStringPath())@\(entry["Name"].stringValue)@\(entry["Quality"].intValue)"
                     } else {
-                        result = "C@https://enka.network/ui/\(imgKey).png@\(entry["Name"].stringValue)"
+                        result = "C@https://enka.network/ui/\(imgKey).png@\(entry["Name"].stringValue)@\(entry["Quality"].intValue)"
                     }
                 } else {
                     result = "C@about:blank@???"
