@@ -28,7 +28,7 @@ class WizardModel: NSObject, ObservableObject, URLSessionDownloadDelegate {
     @Published var downloadFinished = false
     
     @Published var imagesDownloadList: [String] =
-    ["AvatarIcon", "AvatarIconCircle", "Bg", "ChapterIcon", "EquipIcon", /*"GachaAvatarIcon", "GachaAvatarImg", "GachaEquipIcon",*/
+    ["AvatarIcon", "AvatarIconCircle", "AchievementIcon", "Bg", "ChapterIcon", "EquipIcon",
      "NameCardIcon", "NameCardPic", "Property", "RelicIcon", "Skill", "Talent"]
     
     /// 显示meta.json中的数据
