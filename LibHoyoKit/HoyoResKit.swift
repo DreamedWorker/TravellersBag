@@ -67,6 +67,17 @@ class HoyoResKit {
         }
     }
     
+    /// 根据图片的分类和文件名获取地址
+    func getImageWithNameAndType(type: String, name: String) -> String {
+        let localStorePath = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+            .appending(component: "globalStatic").appending(component: "images").appending(components: type).appending(component: "\(name).png")
+        if fs.fileExists(atPath: localStorePath.toStringPath()) {
+            return "L@\(localStorePath.toStringPath())"
+        } else {
+            return "C@https://enka.network/ui/\(name).png"
+        }
+    }
+    
     /// 获取抽卡物品的图像和名称（其实也可以不要）
     /// 格式：类型@地址@名称@星级
     func getGachaItemIcon(key: String) -> String {

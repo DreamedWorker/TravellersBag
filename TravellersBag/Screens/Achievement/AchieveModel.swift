@@ -16,14 +16,12 @@ class AchieveModel: ObservableObject {
     var dm: NSManagedObjectContext? = nil
     var archives: [String] = []
     let fs = FileManager.default
-    var achieveContent: [AchieveItem] = []
-    var achieveList: [AchieveList] = []
+    @Published var achieveContent: [AchieveItem] = []
+    @Published var achieveList: [AchieveList] = []
     var innerAchieveContent: JSON? = nil
     
     static let shared = AchieveModel()
-    private init() {
-//        needShowUI()
-    }
+    private init() {}
     
     func initSomething(dm: NSManagedObjectContext) {
         self.dm = dm
@@ -127,6 +125,14 @@ class AchieveModel: ObservableObject {
         if let out = result {
             return out
         } else { return [] }
+    }
+    
+    func changeAchieveState(item: AchieveItem) {
+        let old = achieveContent.first(where: { $0.id == item.id})!
+        old.finished = item.finished
+        old.timestamp = item.timestamp
+        _ = CoreDataHelper.shared.save()
+        needShowUI()
     }
     
     func deleteAnArchive(name: String) {

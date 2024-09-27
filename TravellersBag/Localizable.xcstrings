@@ -319,6 +319,72 @@
         }
       }
     },
+    "achieve.content.finished_at" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "完成于：%@"
+          }
+        }
+      }
+    },
+    "achieve.content.select" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "先从左侧选择一项…"
+          }
+        }
+      }
+    },
+    "achieve.manager.delete" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "删除存档"
+          }
+        }
+      }
+    },
+    "achieve.manager.export" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "导出存档"
+          }
+        }
+      }
+    },
+    "achieve.manager.help" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "管理存档"
+          }
+        }
+      }
+    },
+    "achieve.manager.update" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "更新存档"
+          }
+        }
+      }
+    },
     "achieve.no_archive.make" : {
       "extractionState" : "manual",
       "localizations" : {
