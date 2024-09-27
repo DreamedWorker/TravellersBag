@@ -112,7 +112,19 @@ struct AchievementScreen: View {
                     Button("app.cancel", action: { deleteArchive = false })
                 })
                 ToolbarItem(placement: .confirmationAction, content: {
-                    Button("achieve.manager.export", action: {})
+                    Button("achieve.manager.export", action: {
+                        deleteArchive = false
+                        let panel = NSSavePanel()
+                        panel.message = NSLocalizedString("gacha.home.menu.export_p", comment: "")
+                        panel.allowedContentTypes = [.json]
+                        panel.directoryURL = URL(string: NSHomeDirectory())
+                        panel.canCreateDirectories = true
+                        panel.begin { result in
+                            if result == NSApplication.ModalResponse.OK {
+                                viewModel.exportRecords(fileUrl: panel.url!)
+                            }
+                        }
+                    })
                 })
             }
         })

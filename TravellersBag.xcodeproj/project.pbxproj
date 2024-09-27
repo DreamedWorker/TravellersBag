@@ -68,6 +68,7 @@
 		5DFA35772CA640EF0047D96E /* AchieveService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DFA35762CA640EF0047D96E /* AchieveService.swift */; };
 		5DFA35792CA642F60047D96E /* AchievementData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DFA35782CA642F60047D96E /* AchievementData.swift */; };
 		5DFA357D2CA6D4820047D96E /* AchievementEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DFA357C2CA6D4820047D96E /* AchievementEntry.swift */; };
+		5DFA357F2CA721E60047D96E /* UIAF11.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DFA357E2CA721E60047D96E /* UIAF11.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -131,6 +132,7 @@
 		5DFA35762CA640EF0047D96E /* AchieveService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchieveService.swift; sourceTree = "<group>"; };
 		5DFA35782CA642F60047D96E /* AchievementData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementData.swift; sourceTree = "<group>"; };
 		5DFA357C2CA6D4820047D96E /* AchievementEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementEntry.swift; sourceTree = "<group>"; };
+		5DFA357E2CA721E60047D96E /* UIAF11.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAF11.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -388,6 +390,7 @@
 			children = (
 				5DEA774E2CA313C0004EF4E7 /* UIGF4.swift */,
 				5DFA35782CA642F60047D96E /* AchievementData.swift */,
+				5DFA357E2CA721E60047D96E /* UIAF11.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -498,6 +501,7 @@
 				5DE6B5472C8E854C00690B5C /* TBEnv.swift in Sources */,
 				5DC896F92CA31DFB003C5426 /* GachaActivities.swift in Sources */,
 				5DE6B5442C8E84DB00690B5C /* HutaoApiEndpoints.swift in Sources */,
+				5DFA357F2CA721E60047D96E /* UIAF11.swift in Sources */,
 				5DD653DE2C9B169200B0DA2B /* NoticeScreen.swift in Sources */,
 				5DE6B5492C8E870C00690B5C /* Requests.swift in Sources */,
 				5DD653CE2C9AABFA00B0DA2B /* HutaoPassport.swift in Sources */,

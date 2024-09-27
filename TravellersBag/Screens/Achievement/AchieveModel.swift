@@ -152,4 +152,28 @@ class AchieveModel: ObservableObject {
             needShowUI()
         }
     }
+    
+    func exportRecords(fileUrl: URL) {
+        func timeTransfer(d: Date, detail: Bool = true) -> String {
+            let df = DateFormatter()
+            df.dateFormat = (detail) ? "yyyy-MM-dd HH:mm:ss" : "yyMMdd"
+            return df.string(from: d)
+        }
+        let time = Date().timeIntervalSince1970
+        let targetFile = fileUrl
+        do {
+            let header = UIAFInfo(export_timestamp: Int(time))
+            var list: [UIAFUnit] = []
+            for i in achieveContent {
+                list.append(UIAFUnit(id: Int(i.id), timestamp: (i.finished) ? Int(i.timestamp) : 0, current: 0, status: (i.finished) ? 2 : 0))
+            }
+            let final = UIAFFile(info: header, list: list)
+            let encoder = try JSONEncoder().encode(final)
+            FileHandler.shared.writeUtf8String(path: targetFile.toStringPath(), context: String(data: encoder, encoding: .utf8)!)
+            GlobalUIModel.exported.makeAnAlert(type: 1, msg: "导出成功")
+        } catch {
+            GlobalUIModel.exported.makeAnAlert(type: 3, msg: String.localizedStringWithFormat(
+                NSLocalizedString("gacha.export.error", comment: ""), error.localizedDescription))
+        }
+    }
 }

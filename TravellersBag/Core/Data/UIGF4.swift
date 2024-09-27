@@ -10,7 +10,7 @@ import Foundation
 struct Info : Encodable {
     var export_timestamp: Int // 导出档案的时间戳，秒级
     var export_app: String = "旅者行囊" //导出档案的 App 名称
-    var export_app_version: String = "0.0.1(20240815)" // 导出档案的 App 版本
+    var export_app_version: String = "0.0.1(20240908)" // 导出档案的 App 版本
     var version: String = "v4.0" // 导出档案的 UIGF 版本号
 }
 
