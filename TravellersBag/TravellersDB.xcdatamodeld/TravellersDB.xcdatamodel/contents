@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22758" systemVersion="23G93" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="23231" systemVersion="24A335" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
+    <entity name="AchieveItem" representedClassName="AchieveItem" syncable="YES" codeGenerationType="class">
+        <attribute name="archiveName" optional="YES" attributeType="String"/>
+        <attribute name="des" optional="YES" attributeType="String"/>
+        <attribute name="finished" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="goal" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="order" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="reward" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <attribute name="version" optional="YES" attributeType="String"/>
+    </entity>
     <entity name="GachaItem" representedClassName="GachaItem" syncable="YES" codeGenerationType="class">
         <attribute name="gachaType" optional="YES" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="String"/>

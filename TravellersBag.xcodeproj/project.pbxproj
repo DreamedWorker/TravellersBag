@@ -24,6 +24,8 @@
 		5D670C212C98A50000E0D958 /* Character+Verification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D670C202C98A50000E0D958 /* Character+Verification.swift */; };
 		5D670C232C98ABC400E0D958 /* AccountDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D670C222C98ABC400E0D958 /* AccountDetail.swift */; };
 		5D670C252C98AFB400E0D958 /* pfps.json in Resources */ = {isa = PBXBuildFile; fileRef = 5D670C242C98AFB400E0D958 /* pfps.json */; };
+		5D67B85D2CA4E4FB00AC1EFD /* AchievementScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D67B85C2CA4E4FB00AC1EFD /* AchievementScreen.swift */; };
+		5D67B85F2CA4E62700AC1EFD /* AchieveModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D67B85E2CA4E62700AC1EFD /* AchieveModel.swift */; };
 		5D6882D52C9A009A00FB074C /* WebTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6882D42C9A009A00FB074C /* WebTest.swift */; };
 		5DA45D1F2C8D991100949164 /* TravellersBagApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA45D1E2C8D991100949164 /* TravellersBagApp.swift */; };
 		5DA45D232C8D991200949164 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5DA45D222C8D991200949164 /* Assets.xcassets */; };
@@ -84,6 +86,8 @@
 		5D670C202C98A50000E0D958 /* Character+Verification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Character+Verification.swift"; sourceTree = "<group>"; };
 		5D670C222C98ABC400E0D958 /* AccountDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetail.swift; sourceTree = "<group>"; };
 		5D670C242C98AFB400E0D958 /* pfps.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pfps.json; sourceTree = "<group>"; };
+		5D67B85C2CA4E4FB00AC1EFD /* AchievementScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementScreen.swift; sourceTree = "<group>"; };
+		5D67B85E2CA4E62700AC1EFD /* AchieveModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchieveModel.swift; sourceTree = "<group>"; };
 		5D6882D42C9A009A00FB074C /* WebTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebTest.swift; sourceTree = "<group>"; };
 		5DA45D1B2C8D991100949164 /* TravellersBag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravellersBag.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DA45D1E2C8D991100949164 /* TravellersBagApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravellersBagApp.swift; sourceTree = "<group>"; };
@@ -191,6 +195,15 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
+		5D67B85B2CA4E14300AC1EFD /* Achievement */ = {
+			isa = PBXGroup;
+			children = (
+				5D67B85C2CA4E4FB00AC1EFD /* AchievementScreen.swift */,
+				5D67B85E2CA4E62700AC1EFD /* AchieveModel.swift */,
+			);
+			path = Achievement;
+			sourceTree = "<group>";
+		};
 		5DA45D122C8D991100949164 = {
 			isa = PBXGroup;
 			children = (
@@ -251,6 +264,7 @@
 		5DA45D422C8E0CFA00949164 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				5D67B85B2CA4E14300AC1EFD /* Achievement */,
 				5DDCB9362CA1B423007EF232 /* Gacha */,
 				5D2B85732C9D1C5600ED1DD8 /* Dashboard */,
 				5DD653DC2C9B168200B0DA2B /* Notice */,
@@ -494,12 +508,14 @@
 				5D2B85792C9D1DD800ED1DD8 /* DashboardModel.swift in Sources */,
 				5D3BCC4B2C8FC97E0025F1ED /* WizardScreen.swift in Sources */,
 				5D670C1D2C98986800E0D958 /* AccountService.swift in Sources */,
+				5D67B85F2CA4E62700AC1EFD /* AchieveModel.swift in Sources */,
 				5DDCB93A2CA1BB44007EF232 /* GachaModel.swift in Sources */,
 				5DA45D1F2C8D991100949164 /* TravellersBagApp.swift in Sources */,
 				5D670C1F2C98A4B700E0D958 /* FileHandler.swift in Sources */,
 				5D2B85772C9D1CB300ED1DD8 /* DashboardScreen.swift in Sources */,
 				5D670C082C9716BE00E0D958 /* Wizard.swift in Sources */,
 				5D670C0D2C971AE500E0D958 /* HoyoResKit.swift in Sources */,
+				5D67B85D2CA4E4FB00AC1EFD /* AchievementScreen.swift in Sources */,
 				5DD653D62C9AC0BF00B0DA2B /* SecurityTool.swift in Sources */,
 				5D670C0A2C97178D00E0D958 /* WizardModel.swift in Sources */,
 				5D670C0F2C9768F400E0D958 /* Errors.swift in Sources */,

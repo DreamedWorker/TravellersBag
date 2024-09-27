@@ -27,3 +27,17 @@ class UserDefaultHelper {
         preference?.set(value, forKey: forKey)
     }
 }
+
+extension UserDefaults {
+    func getRequiredValue<T>(forKey: String, def: T) -> T {
+        if let result = self.object(forKey: forKey) as? T {
+            return result
+        } else {
+            return def
+        }
+    }
+    
+    func setRequiredValue<T>(forKey: String, value: T) {
+        self.set(value, forKey: forKey)
+    }
+}

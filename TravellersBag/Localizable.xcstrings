@@ -319,6 +319,83 @@
         }
       }
     },
+    "achieve.no_archive.make" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "新建档案"
+          }
+        }
+      }
+    },
+    "achieve.no_archive.sheet.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "档案名"
+          }
+        }
+      }
+    },
+    "achieve.no_archive.sheet.name_p" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "你的档案名不应以数字和特殊字符开头，否则可能会导致程序崩溃。"
+          }
+        }
+      }
+    },
+    "achieve.no_archive.sheet.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "创建新的成就档案"
+          }
+        }
+      }
+    },
+    "achieve.no_archive.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "当前暂无存档…"
+          }
+        }
+      }
+    },
+    "achieve.no_resource.download" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "下载"
+          }
+        }
+      }
+    },
+    "achieve.no_resource.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "成就资源缺失…"
+          }
+        }
+      }
+    },
     "app.a" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1413,6 +1490,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "账号管理"
+          }
+        }
+      }
+    },
+    "home.sider.achieve" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "成就管理"
           }
         }
       }
