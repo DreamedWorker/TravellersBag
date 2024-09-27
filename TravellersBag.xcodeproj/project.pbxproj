@@ -65,6 +65,8 @@
 		5DE6B55A2C8F554400690B5C /* Avatar.json in Resources */ = {isa = PBXBuildFile; fileRef = 5DE6B5592C8F554400690B5C /* Avatar.json */; };
 		5DEA77392CA26399004EF4E7 /* GachaBulletin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DEA77382CA26399004EF4E7 /* GachaBulletin.swift */; };
 		5DEA774F2CA313C0004EF4E7 /* UIGF4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DEA774E2CA313C0004EF4E7 /* UIGF4.swift */; };
+		5DFA35772CA640EF0047D96E /* AchieveService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DFA35762CA640EF0047D96E /* AchieveService.swift */; };
+		5DFA35792CA642F60047D96E /* AchievementData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DFA35782CA642F60047D96E /* AchievementData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -125,6 +127,8 @@
 		5DE6B5592C8F554400690B5C /* Avatar.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Avatar.json; sourceTree = "<group>"; };
 		5DEA77382CA26399004EF4E7 /* GachaBulletin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GachaBulletin.swift; sourceTree = "<group>"; };
 		5DEA774E2CA313C0004EF4E7 /* UIGF4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIGF4.swift; sourceTree = "<group>"; };
+		5DFA35762CA640EF0047D96E /* AchieveService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchieveService.swift; sourceTree = "<group>"; };
+		5DFA35782CA642F60047D96E /* AchievementData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +195,7 @@
 				5DDCB93D2CA1C39A007EF232 /* GachaService.swift */,
 				5D670C202C98A50000E0D958 /* Character+Verification.swift */,
 				5D670C1C2C98986800E0D958 /* AccountService.swift */,
+				5DFA35762CA640EF0047D96E /* AchieveService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -379,6 +384,7 @@
 			isa = PBXGroup;
 			children = (
 				5DEA774E2CA313C0004EF4E7 /* UIGF4.swift */,
+				5DFA35782CA642F60047D96E /* AchievementData.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -501,11 +507,13 @@
 				5DA45D482C8E0DA300949164 /* GlobalUIModel.swift in Sources */,
 				5DDCB93C2CA1BC80007EF232 /* MDLikeTile.swift in Sources */,
 				5DA45D4E2C8E12D800949164 /* CardView.swift in Sources */,
+				5DFA35792CA642F60047D96E /* AchievementData.swift in Sources */,
 				5D2B857B2C9D76E200ED1DD8 /* DashboardUnits.swift in Sources */,
 				5D670C212C98A50000E0D958 /* Character+Verification.swift in Sources */,
 				5D6882D52C9A009A00FB074C /* WebTest.swift in Sources */,
 				5DDCB93E2CA1C39A007EF232 /* GachaService.swift in Sources */,
 				5D2B85792C9D1DD800ED1DD8 /* DashboardModel.swift in Sources */,
+				5DFA35772CA640EF0047D96E /* AchieveService.swift in Sources */,
 				5D3BCC4B2C8FC97E0025F1ED /* WizardScreen.swift in Sources */,
 				5D670C1D2C98986800E0D958 /* AccountService.swift in Sources */,
 				5D67B85F2CA4E62700AC1EFD /* AchieveModel.swift in Sources */,

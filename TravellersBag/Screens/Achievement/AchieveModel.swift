@@ -49,23 +49,22 @@ class AchieveModel: ObservableObject {
                 }
                 _ = CoreDataHelper.shared.save()
                 achieveContent.removeAll()
-                do {
-                    let request = NSFetchRequest<NSFetchRequestResult>(entityName: "AchieveItem")
-                    request.predicate = NSPredicate(format: "archiveName == %@", name)
-                    achieveContent = try dm!.fetch(request) as! [AchieveItem]
+                achieveContent = fetchRequiredItems(name: name)
+                if achieveContent.count > 0 {
                     makeArchFile.clearAll()
                     uiPart = .Content
-                } catch {
-                    makeArchFile.clearAll()
-                    GlobalUIModel.exported.makeAnAlert(type: 3, msg: "加载本账号的成就失败，\(error.localizedDescription)")
+                } else {
+                    uiPart = .Loading
+                    GlobalUIModel.exported.makeAnAlert(type: 3, msg: "出现未知错误，请删除本存档。")
                 }
             } else {
                 makeArchFile.clearAll()
-                GlobalUIModel.exported.makeAnAlert(type: 3, msg: "有资源缺失，无法创建存档。")
+                GlobalUIModel.exported.makeAnAlert(type: 3, msg: "存在同名存档。")
+                
             }
         } else {
             makeArchFile.clearAll()
-            GlobalUIModel.exported.makeAnAlert(type: 3, msg: "存在同名存档。")
+            GlobalUIModel.exported.makeAnAlert(type: 3, msg: "有资源缺失，无法创建存档。")
         }
     }
     
@@ -88,15 +87,14 @@ class AchieveModel: ObservableObject {
             }
             innerAchieveContent = try? JSON(data: FileHandler.shared.readUtf8String(path: achieveDetailFile.toStringPath()).data(using: .utf8)!)
             if archives.count > 0 {
-                do {
-                    let firstOne = archives.first!
-                    let request = NSFetchRequest<NSFetchRequestResult>(entityName: "AchieveItem")
-                    request.predicate = NSPredicate(format: "archiveName == %@", firstOne)
-                    achieveContent = try dm!.fetch(request) as! [AchieveItem]
-                } catch {
-                    GlobalUIModel.exported.makeAnAlert(type: 3, msg: "加载本账号的成就失败，\(error.localizedDescription)")
+                let firstOne = archives.first!
+                achieveContent = fetchRequiredItems(name: firstOne)
+                if achieveContent.count > 0 {
+                    uiPart = .Content
+                } else {
+                    uiPart = .Loading
+                    GlobalUIModel.exported.makeAnAlert(type: 3, msg: "出现未知错误，请删除本存档。")
                 }
-                uiPart = .Content
             } else {
                 uiPart = .NoAccount
             }
@@ -107,41 +105,28 @@ class AchieveModel: ObservableObject {
     
     /// 下载在线资源
     func downloadResource() async {
-        let rootPath = try! fs.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
-            .appending(component: "globalStatic")
-        if fs.fileExists(atPath: rootPath.toStringPath()) {
-            let sunPath = rootPath.appending(component: "cloud")
-            if fs.fileExists(atPath: sunPath.toStringPath()) {
-                let detail = sunPath.appending(component: "Achievement.json")
-                let list = sunPath.appending(component: "AchievementGoal.json")
-                do {
-                    let request = URLRequest(url: URL(string: "https://static-next.snapgenshin.com/d/meta/metadata/Genshin/CHS/Achievement.json")!)
-                    try await httpSession().download2File(url: detail, req: request)
-                    let request1 = URLRequest(
-                        url: URL(string: "https://static-next.snapgenshin.com/d/meta/metadata/Genshin/CHS/AchievementGoal.json")!)
-                    try await httpSession().download2File(url: list, req: request1)
-                    DispatchQueue.main.async { [self] in
-                        GlobalUIModel.exported.makeAnAlert(type: 1, msg: "更新成功")
-                        needShowUI()
-                    }
-                } catch {
-                    DispatchQueue.main.async { [self] in
-                        GlobalUIModel.exported.makeAnAlert(type: 3, msg: "更新失败：\(error.localizedDescription)")
-                        needShowUI()
-                    }
-                }
-            } else {
-                DispatchQueue.main.async { [self] in
-                    GlobalUIModel.exported.makeAnAlert(type: 3, msg: "文件夹不存在！")
-                    needShowUI()
-                }
-            }
-        } else {
+        do {
+            try await AchieveService.default.downloadOnlineResource()
             DispatchQueue.main.async { [self] in
-                GlobalUIModel.exported.makeAnAlert(type: 3, msg: "文件夹不存在！")
+                GlobalUIModel.exported.makeAnAlert(type: 1, msg: "更新成功")
+                needShowUI()
+            }
+        } catch {
+            DispatchQueue.main.async { [self] in
+                GlobalUIModel.exported.makeAnAlert(type: 3, msg: "更新失败：\(error.localizedDescription)")
                 needShowUI()
             }
         }
+    }
+    
+    /// 获取指定存档的内容
+    func fetchRequiredItems(name: String) -> [AchieveItem] {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "AchieveItem")
+        request.predicate = NSPredicate(format: "archiveName == %@", name)
+        let result = (try? dm!.fetch(request)) as? [AchieveItem]
+        if let out = result {
+            return out
+        } else { return [] }
     }
     
     func deleteAnArchive(name: String) {
@@ -160,33 +145,5 @@ class AchieveModel: ObservableObject {
             GlobalUIModel.exported.makeAnAlert(type: 3, msg: "删除失败，\(error.localizedDescription)")
             needShowUI()
         }
-    }
-    
-    struct AchieveList: Identifiable, Hashable {
-        var id: Int
-        var order: Int
-        var name: String
-        var icon: String
-    }
-    
-    struct MakeArchive {
-        var showIt: Bool
-        var name: String
-        
-        init(showIt: Bool = false, name: String = "") {
-            self.showIt = showIt
-            self.name = name
-        }
-        
-        mutating func clearAll() {
-            showIt = false; name = ""
-        }
-    }
-    
-    enum AchievePart {
-        case Loading
-        case Content
-        case NoAccount
-        case NoResource
     }
 }
