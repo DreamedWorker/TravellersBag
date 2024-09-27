@@ -462,6 +462,39 @@
         }
       }
     },
+    "achieve.search.clear" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "清空结果"
+          }
+        }
+      }
+    },
+    "achieve.search.help" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "检索成就"
+          }
+        }
+      }
+    },
+    "achieve.search.type" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "键入成就名以搜索"
+          }
+        }
+      }
+    },
     "app.a" : {
       "extractionState" : "manual",
       "localizations" : {

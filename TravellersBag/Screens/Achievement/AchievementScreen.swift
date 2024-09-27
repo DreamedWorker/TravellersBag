@@ -11,8 +11,12 @@ import Kingfisher
 struct AchievementScreen: View {
     @Environment(\.managedObjectContext) private var dataManager
     @StateObject private var viewModel = AchieveModel.shared
+    
     @State private var deleteArchive = false
+    @State private var searchSheet = false
     @State private var selected: AchieveList? = nil
+    @State private var listMode: ListType = .Normal
+    @State private var searchKey: String = ""
     
     var body: some View {
         VStack {
@@ -30,44 +34,30 @@ struct AchievementScreen: View {
                         VStack {
                             if let checked = selected {
                                 List {
-                                    ForEach(viewModel.achieveContent.filter({ $0.goal == checked.id }).sorted(by: { $0.id < $1.id })){ it in
-                                        HStack(spacing: 8) {
-                                            Toggle(isOn: .constant(it.finished), label: {}).toggleStyle(.checkbox)
-                                            VStack(alignment: .leading, content: {
-                                                Text(it.title!)
-                                                Text(it.des!).foregroundStyle(.secondary).font(.footnote)
-                                            })
-                                            Spacer()
-                                            if it.finished {
-                                                Text(
-                                                    String.localizedStringWithFormat(
-                                                        NSLocalizedString("achieve.content.finished_at", comment: ""),
-                                                        num2time(time: Int(it.timestamp)))
-                                                ).foregroundStyle(.secondary).font(.callout)
-                                            }
-                                            Button(
-                                                action: {
-                                                    let mid = it
-                                                    it.finished = !it.finished
-                                                    it.timestamp = Int64(Date().timeIntervalSince1970)
-                                                    viewModel.changeAchieveState(item: mid)
-                                                },
-                                                label: { Image(systemName: (it.finished) ? "xmark" : "checkmark") }
-                                            )
-                                            ZStack {
-                                                Image("UI_QUALITY_ORANGE").resizable().frame(width: 36, height: 36)
-                                                Image("原石").resizable().frame(width: 36, height: 36)
-                                                VStack {
-                                                    Spacer()
-                                                    HStack {
-                                                        Spacer()
-                                                        Text(String(it.reward)).foregroundStyle(.white).font(.footnote)
-                                                        Spacer()
-                                                    }.background(.gray.opacity(0.6))
+                                    switch listMode {
+                                    case .Normal:
+                                        ForEach(viewModel.achieveContent.filter({ $0.goal == checked.id }).sorted(by: { $0.id < $1.id })){ it in
+                                            AchievementEntry(
+                                                entry: it,
+                                                changeState: { it1 in
+                                                    viewModel.changeAchieveState(item: it1)
                                                 }
-                                            }
-                                            .frame(width: 36, height: 36)
-                                            .clipShape(RoundedRectangle(cornerRadius: 8))
+                                            )
+                                        }
+                                    case .Search:
+                                        HStack {
+                                            Spacer()
+                                            Button("achieve.search.clear", action: { listMode = .Normal })
+                                        }.padding(.bottom, 2)
+                                        ForEach(
+                                            viewModel.achieveContent.filter({ $0.title!.contains(searchKey) }).sorted(by: { $0.id < $1.id}))
+                                        { it in
+                                            AchievementEntry(
+                                                entry: it,
+                                                changeState: { it1 in
+                                                    viewModel.changeAchieveState(item: it1)
+                                                }
+                                            )
                                         }
                                     }
                                 }
@@ -78,6 +68,10 @@ struct AchievementScreen: View {
                     }
                 }
                 .toolbar {
+                    ToolbarItem {
+                        Button(action: { searchSheet = true }, label: { Image(systemName: "magnifyingglass").help("achieve.search.help") })
+                            .disabled(selected == nil)
+                    }
                     ToolbarItem {
                         Button(action: { deleteArchive = true }, label: { Image(systemName: "server.rack").help("achieve.manager.help") })
                     }
@@ -138,12 +132,27 @@ struct AchievementScreen: View {
                 })
             }
         })
-    }
-    
-    func num2time(time: Int) -> String {
-        let df = DateFormatter()
-        df.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        return df.string(from: Date(timeIntervalSince1970: TimeInterval(time)))
+        .sheet(isPresented: $searchSheet, content: {
+            NavigationStack {
+                HStack(spacing: 8, content: {
+                    Image(systemName: "magnifyingglass").font(.title2)
+                    Text("achieve.search.help").font(.title2).bold()
+                    Spacer()
+                })
+                HStack {
+                    TextField("achieve.search.type", text: $searchKey)
+                }
+            }
+            .padding()
+            .toolbar {
+                ToolbarItem(placement: .cancellationAction, content: {
+                    Button("app.cancel", action: { searchSheet = false })
+                })
+                ToolbarItem(placement: .confirmationAction, content: {
+                    Button("app.confirm", action: { listMode = .Search; searchSheet = false })
+                })
+            }
+        })
     }
     
     var NoArchive: some View {
@@ -193,5 +202,10 @@ struct AchievementScreen: View {
                 Text(entry.name).font(.headline)
             }.padding(2)
         }
+    }
+    
+    enum ListType {
+        case Normal
+        case Search
     }
 }

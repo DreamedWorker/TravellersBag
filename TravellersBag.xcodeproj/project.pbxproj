@@ -67,6 +67,7 @@
 		5DEA774F2CA313C0004EF4E7 /* UIGF4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DEA774E2CA313C0004EF4E7 /* UIGF4.swift */; };
 		5DFA35772CA640EF0047D96E /* AchieveService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DFA35762CA640EF0047D96E /* AchieveService.swift */; };
 		5DFA35792CA642F60047D96E /* AchievementData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DFA35782CA642F60047D96E /* AchievementData.swift */; };
+		5DFA357D2CA6D4820047D96E /* AchievementEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DFA357C2CA6D4820047D96E /* AchievementEntry.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -129,6 +130,7 @@
 		5DEA774E2CA313C0004EF4E7 /* UIGF4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIGF4.swift; sourceTree = "<group>"; };
 		5DFA35762CA640EF0047D96E /* AchieveService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchieveService.swift; sourceTree = "<group>"; };
 		5DFA35782CA642F60047D96E /* AchievementData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementData.swift; sourceTree = "<group>"; };
+		5DFA357C2CA6D4820047D96E /* AchievementEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementEntry.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -287,6 +289,7 @@
 				5D6882D42C9A009A00FB074C /* WebTest.swift */,
 				5DA45D4D2C8E12D800949164 /* CardView.swift */,
 				5DDCB93B2CA1BC80007EF232 /* MDLikeTile.swift */,
+				5DFA357C2CA6D4820047D96E /* AchievementEntry.swift */,
 			);
 			path = Compositions;
 			sourceTree = "<group>";
@@ -486,6 +489,7 @@
 				5D2B857D2C9DECB000ED1DD8 /* WorldExploration.swift in Sources */,
 				5DEA774F2CA313C0004EF4E7 /* UIGF4.swift in Sources */,
 				5DDA5AA12C9C06C9002793CF /* NoticeDetail.swift in Sources */,
+				5DFA357D2CA6D4820047D96E /* AchievementEntry.swift in Sources */,
 				5D670C232C98ABC400E0D958 /* AccountDetail.swift in Sources */,
 				5DD653D02C9AAD3B00B0DA2B /* PassportModel.swift in Sources */,
 				5DA45D442C8E0D1300949164 /* HomeScreen.swift in Sources */,
