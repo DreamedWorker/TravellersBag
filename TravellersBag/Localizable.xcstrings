@@ -627,6 +627,270 @@
         }
       }
     },
+    "daily.display.coin" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "洞天宝钱"
+          }
+        }
+      }
+    },
+    "daily.display.coin_off" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "洞天财瓮已经储满"
+          }
+        }
+      }
+    },
+    "daily.display.coin_on" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "预计%@后达到存储上限"
+          }
+        }
+      }
+    },
+    "daily.display.expedition" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "探索派遣"
+          }
+        }
+      }
+    },
+    "daily.display.expedition_off" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "探险完成"
+          }
+        }
+      }
+    },
+    "daily.display.expedition_on" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "还剩%@"
+          }
+        }
+      }
+    },
+    "daily.display.mainline" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "魔神任务"
+          }
+        }
+      }
+    },
+    "daily.display.mainline_off" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "全部完成"
+          }
+        }
+      }
+    },
+    "daily.display.mainline_on" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "进行中"
+          }
+        }
+      }
+    },
+    "daily.display.resin" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "原粹树脂"
+          }
+        }
+      }
+    },
+    "daily.display.resin_discount" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "值得铭记的强敌"
+          }
+        }
+      }
+    },
+    "daily.display.resin_discount_p" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "本周剩余周本消耗减半"
+          }
+        }
+      }
+    },
+    "daily.display.resin_off" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "树脂已满"
+          }
+        }
+      }
+    },
+    "daily.display.resin_on" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "将于%@后全部恢复"
+          }
+        }
+      }
+    },
+    "daily.display.stored_attendance" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "长效历练点：%@"
+          }
+        }
+      }
+    },
+    "daily.display.task" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "每日委托"
+          }
+        }
+      }
+    },
+    "daily.display.transformer" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "参量质变仪"
+          }
+        }
+      }
+    },
+    "daily.display.transformer_off" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已准备完成"
+          }
+        }
+      }
+    },
+    "daily.display.transformer_on" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "还需要%@天%@小时%@分钟完成准备"
+          }
+        }
+      }
+    },
+    "daily.error.read_local" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "读取本地数据失败。"
+          }
+        }
+      }
+    },
+    "daily.no_account.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "你需要先登录才能查看…"
+          }
+        }
+      }
+    },
+    "daily.no_content.do" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请求数据"
+          }
+        }
+      }
+    },
+    "daily.no_content.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "你需要先获取数据才能继续…"
+          }
+        }
+      }
+    },
+    "daily.refresh" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "更新便签"
+          }
+        }
+      }
+    },
     "dashboard.alert.refresh_p" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1637,6 +1901,17 @@
         }
       }
     },
+    "home.side.title.game" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "游戏"
+          }
+        }
+      }
+    },
     "home.sider.account" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1655,6 +1930,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "成就管理"
+          }
+        }
+      }
+    },
+    "home.sider.daily" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "实时便签"
           }
         }
       }

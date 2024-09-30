@@ -25,6 +25,8 @@ struct HomeScreen: View {
                             value: ScreenPart.Dashboard, label: { Label("home.sider.dashboard", systemImage: "list.bullet.clipboard") })
                         NavigationLink(value: ScreenPart.Gacha, label: { Label("home.sider.gacha", systemImage: "giftcard") })
                         NavigationLink(value: ScreenPart.Achievement, label: { Label("home.sider.achieve", systemImage: "flag.checkered.2.crossed") })
+                        Text("home.side.title.game").font(.callout).bold().padding(4)
+                        NavigationLink(value: ScreenPart.DialyNote, label: { Label("home.sider.daily", systemImage: "macbook.and.ipad")})
                     }
                 },
                 detail: {
@@ -39,6 +41,8 @@ struct HomeScreen: View {
                         GachaOverview().navigationTitle(Text("home.sider.gacha"))
                     case .Achievement:
                         AchievementScreen().navigationTitle(Text("home.sider.achieve"))
+                    case .DialyNote:
+                        DailyNotePane().navigationTitle(Text("home.sider.daily"))
                     }
                 }
             )
@@ -83,4 +87,5 @@ private enum ScreenPart {
     case Dashboard
     case Gacha
     case Achievement
+    case DialyNote
 }

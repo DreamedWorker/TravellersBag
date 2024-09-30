@@ -197,4 +197,9 @@ class ApiEndpoints {
     func getWidgetSimple() -> String {
         return "\(ApiEndpoints.ApiTakumiRecord)/game_record/app/genshin/aapi/widget/v2?"
     }
+    
+    /// 获取完整的实时便签
+    func getWidgetFull(uid: String, server: String = "cn_gf01") -> String {
+        return "\(ApiEndpoints.ApiTakumiRecordApi)/dailyNote?server=\(server)&role_id=\(uid)"
+    }
 }

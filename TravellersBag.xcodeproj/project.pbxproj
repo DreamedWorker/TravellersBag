@@ -27,6 +27,9 @@
 		5D67B85D2CA4E4FB00AC1EFD /* AchievementScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D67B85C2CA4E4FB00AC1EFD /* AchievementScreen.swift */; };
 		5D67B85F2CA4E62700AC1EFD /* AchieveModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D67B85E2CA4E62700AC1EFD /* AchieveModel.swift */; };
 		5D6882D52C9A009A00FB074C /* WebTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6882D42C9A009A00FB074C /* WebTest.swift */; };
+		5DA17BC92CAAAB3100D3E4BD /* DailyNotePane.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA17BC82CAAAB3100D3E4BD /* DailyNotePane.swift */; };
+		5DA17BCB2CAAACE100D3E4BD /* DailyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA17BCA2CAAACE100D3E4BD /* DailyModel.swift */; };
+		5DA17BCD2CAAE32000D3E4BD /* DailyNoteData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA17BCC2CAAE32000D3E4BD /* DailyNoteData.swift */; };
 		5DA45D1F2C8D991100949164 /* TravellersBagApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA45D1E2C8D991100949164 /* TravellersBagApp.swift */; };
 		5DA45D232C8D991200949164 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5DA45D222C8D991200949164 /* Assets.xcassets */; };
 		5DA45D262C8D991200949164 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5DA45D252C8D991200949164 /* Preview Assets.xcassets */; };
@@ -93,6 +96,9 @@
 		5D67B85C2CA4E4FB00AC1EFD /* AchievementScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementScreen.swift; sourceTree = "<group>"; };
 		5D67B85E2CA4E62700AC1EFD /* AchieveModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchieveModel.swift; sourceTree = "<group>"; };
 		5D6882D42C9A009A00FB074C /* WebTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebTest.swift; sourceTree = "<group>"; };
+		5DA17BC82CAAAB3100D3E4BD /* DailyNotePane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyNotePane.swift; sourceTree = "<group>"; };
+		5DA17BCA2CAAACE100D3E4BD /* DailyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyModel.swift; sourceTree = "<group>"; };
+		5DA17BCC2CAAE32000D3E4BD /* DailyNoteData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyNoteData.swift; sourceTree = "<group>"; };
 		5DA45D1B2C8D991100949164 /* TravellersBag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravellersBag.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DA45D1E2C8D991100949164 /* TravellersBagApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravellersBagApp.swift; sourceTree = "<group>"; };
 		5DA45D222C8D991200949164 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -213,6 +219,15 @@
 			path = Achievement;
 			sourceTree = "<group>";
 		};
+		5DA17BC72CAAA82200D3E4BD /* DailyNote */ = {
+			isa = PBXGroup;
+			children = (
+				5DA17BC82CAAAB3100D3E4BD /* DailyNotePane.swift */,
+				5DA17BCA2CAAACE100D3E4BD /* DailyModel.swift */,
+			);
+			path = DailyNote;
+			sourceTree = "<group>";
+		};
 		5DA45D122C8D991100949164 = {
 			isa = PBXGroup;
 			children = (
@@ -273,6 +288,7 @@
 		5DA45D422C8E0CFA00949164 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				5DA17BC72CAAA82200D3E4BD /* DailyNote */,
 				5D67B85B2CA4E14300AC1EFD /* Achievement */,
 				5DDCB9362CA1B423007EF232 /* Gacha */,
 				5D2B85732C9D1C5600ED1DD8 /* Dashboard */,
@@ -391,6 +407,7 @@
 				5DEA774E2CA313C0004EF4E7 /* UIGF4.swift */,
 				5DFA35782CA642F60047D96E /* AchievementData.swift */,
 				5DFA357E2CA721E60047D96E /* UIAF11.swift */,
+				5DA17BCC2CAAE32000D3E4BD /* DailyNoteData.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -488,6 +505,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D670C1A2C988D2B00E0D958 /* AccountModel.swift in Sources */,
+				5DA17BC92CAAAB3100D3E4BD /* DailyNotePane.swift in Sources */,
 				5DE6B54E2C8E892A00690B5C /* DynamicSecret.swift in Sources */,
 				5D2B857D2C9DECB000ED1DD8 /* WorldExploration.swift in Sources */,
 				5DEA774F2CA313C0004EF4E7 /* UIGF4.swift in Sources */,
@@ -519,6 +537,7 @@
 				5D2B857B2C9D76E200ED1DD8 /* DashboardUnits.swift in Sources */,
 				5D670C212C98A50000E0D958 /* Character+Verification.swift in Sources */,
 				5D6882D52C9A009A00FB074C /* WebTest.swift in Sources */,
+				5DA17BCD2CAAE32000D3E4BD /* DailyNoteData.swift in Sources */,
 				5DDCB93E2CA1C39A007EF232 /* GachaService.swift in Sources */,
 				5D2B85792C9D1DD800ED1DD8 /* DashboardModel.swift in Sources */,
 				5DFA35772CA640EF0047D96E /* AchieveService.swift in Sources */,
@@ -532,6 +551,7 @@
 				5D670C082C9716BE00E0D958 /* Wizard.swift in Sources */,
 				5D670C0D2C971AE500E0D958 /* HoyoResKit.swift in Sources */,
 				5D67B85D2CA4E4FB00AC1EFD /* AchievementScreen.swift in Sources */,
+				5DA17BCB2CAAACE100D3E4BD /* DailyModel.swift in Sources */,
 				5DD653D62C9AC0BF00B0DA2B /* SecurityTool.swift in Sources */,
 				5D670C0A2C97178D00E0D958 /* WizardModel.swift in Sources */,
 				5D670C0F2C9768F400E0D958 /* Errors.swift in Sources */,
