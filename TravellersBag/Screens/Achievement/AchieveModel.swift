@@ -176,4 +176,33 @@ class AchieveModel: ObservableObject {
                 NSLocalizedString("gacha.export.error", comment: ""), error.localizedDescription))
         }
     }
+    
+    func updateRecords(fileUrl: URL) {
+        let mid = achieveContent
+        do {
+            let fileContext = try JSON(data: Data(contentsOf: fileUrl))
+            if fileContext["info"]["uiaf_version"].stringValue == "v1.1" {
+                let lists = fileContext["list"].arrayValue
+                for i in lists {
+                    if mid.contains(where: { $0.id == Int64(i["id"].intValue) }) {
+                        let target = mid.first(where: { $0.id == Int64(i["id"].intValue) })!
+                        if i["status"].intValue == 2 {
+                            target.finished = true
+                            target.timestamp = Int64(i["timestamp"].intValue)
+                        } else {
+                            target.finished = false
+                            target.timestamp = 0
+                        }
+                    } // 不在我们的列表中的不会添加，避免出现某些意外错误。
+                }
+                GlobalUIModel.exported.makeAnAlert(type: 1, msg: "操作完成。")
+                _ = CoreDataHelper.shared.save()
+                needShowUI()
+            } else {
+                GlobalUIModel.exported.makeAnAlert(type: 3, msg: "文件不符合UIAFv1.1标准。")
+            }
+        } catch {
+            GlobalUIModel.exported.makeAnAlert(type: 3, msg: "导入失败，\(error.localizedDescription)")
+        }
+    }
 }

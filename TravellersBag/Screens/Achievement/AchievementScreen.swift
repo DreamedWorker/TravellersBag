@@ -93,7 +93,19 @@ struct AchievementScreen: View {
                             Text(single).font(.system(size: 14))
                             Spacer()
                             Button(
-                                action: {},
+                                action: {
+                                    deleteArchive = false
+                                    let openPanel = NSOpenPanel()
+                                    openPanel.allowedContentTypes = [.json]; openPanel.allowsMultipleSelection = false
+                                    openPanel.message = NSLocalizedString("gacha.home.menu.update_p2", comment: "")
+                                    openPanel.begin { result in
+                                        if result == NSApplication.ModalResponse.OK {
+                                            if let url = openPanel.url {
+                                                viewModel.updateRecords(fileUrl: url)
+                                            }
+                                        }
+                                    }
+                                },
                                 label: { Image(systemName: "square.and.arrow.down.on.square").help("achieve.manager.update") }
                             )
                             Button(action: {
