@@ -53,16 +53,16 @@ class AchieveModel: ObservableObject {
                     uiPart = .Content
                 } else {
                     uiPart = .Loading
-                    GlobalUIModel.exported.makeAnAlert(type: 3, msg: "出现未知错误，请删除本存档。")
+                    GlobalUIModel.exported.makeAnAlert(type: 3, msg: NSLocalizedString("achieve.error.unknown", comment: ""))
                 }
             } else {
                 makeArchFile.clearAll()
-                GlobalUIModel.exported.makeAnAlert(type: 3, msg: "存在同名存档。")
+                GlobalUIModel.exported.makeAnAlert(type: 3, msg: NSLocalizedString("achieve.error.same", comment: ""))
                 
             }
         } else {
             makeArchFile.clearAll()
-            GlobalUIModel.exported.makeAnAlert(type: 3, msg: "有资源缺失，无法创建存档。")
+            GlobalUIModel.exported.makeAnAlert(type: 3, msg: NSLocalizedString("achieve.error.leak_res", comment: ""))
         }
     }
     
@@ -91,7 +91,7 @@ class AchieveModel: ObservableObject {
                     uiPart = .Content
                 } else {
                     uiPart = .Loading
-                    GlobalUIModel.exported.makeAnAlert(type: 3, msg: "出现未知错误，请删除本存档。")
+                    GlobalUIModel.exported.makeAnAlert(type: 3, msg: NSLocalizedString("achieve.error.unknown", comment: ""))
                 }
             } else {
                 uiPart = .NoAccount
@@ -148,7 +148,10 @@ class AchieveModel: ObservableObject {
             UserDefaultHelper.shared.preference!.setRequiredValue(forKey: "achievementArch", value: archives)
             needShowUI()
         } catch {
-            GlobalUIModel.exported.makeAnAlert(type: 3, msg: "删除失败，\(error.localizedDescription)")
+            GlobalUIModel.exported.makeAnAlert(
+                type: 3,
+                msg: String.localizedStringWithFormat(NSLocalizedString("achieve.error.delete", comment: ""), error.localizedDescription)
+            )
             needShowUI()
         }
     }
@@ -199,7 +202,7 @@ class AchieveModel: ObservableObject {
                 _ = CoreDataHelper.shared.save()
                 needShowUI()
             } else {
-                GlobalUIModel.exported.makeAnAlert(type: 3, msg: "文件不符合UIAFv1.1标准。")
+                GlobalUIModel.exported.makeAnAlert(type: 3, msg: NSLocalizedString("achieve.error.standard", comment: ""))
             }
         } catch {
             GlobalUIModel.exported.makeAnAlert(type: 3, msg: "导入失败，\(error.localizedDescription)")

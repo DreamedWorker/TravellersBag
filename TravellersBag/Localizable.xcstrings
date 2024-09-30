@@ -341,6 +341,61 @@
         }
       }
     },
+    "achieve.error.delete" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "删除失败，%@。"
+          }
+        }
+      }
+    },
+    "achieve.error.leak_res" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "有资源缺失，无法创建存档。"
+          }
+        }
+      }
+    },
+    "achieve.error.same" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "存在同名存档。"
+          }
+        }
+      }
+    },
+    "achieve.error.standard" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "文件不符合UIAFv1.1标准。"
+          }
+        }
+      }
+    },
+    "achieve.error.unknown" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "出现未知错误，请删除本存档。"
+          }
+        }
+      }
+    },
     "achieve.manager.delete" : {
       "extractionState" : "manual",
       "localizations" : {
