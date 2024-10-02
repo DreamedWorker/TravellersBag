@@ -67,7 +67,7 @@ class DailyModel: ObservableObject {
     
     /// 获取数据（完成后自动调用加载函数刷新）
     func updateNoteInfo() async {
-        let uid =  ApiEndpoints.shared.getWidgetFull(uid: GlobalUIModel.exported.defAccount!.genshinUID!)
+        let uid = ApiEndpoints.shared.getWidgetFull(uid: GlobalUIModel.exported.defAccount!.genshinUID!)
         do {
             var req = URLRequest(url: URL(string: uid)!)
             req.setXRPCAppInfo(client: "5")

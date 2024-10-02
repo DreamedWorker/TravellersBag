@@ -627,6 +627,28 @@
         }
       }
     },
+    "avatar.no_data.fetch" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "从战绩面板获取"
+          }
+        }
+      }
+    },
+    "avatar.no_data.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "没有本地角色数据"
+          }
+        }
+      }
+    },
     "daily.display.coin" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1930,6 +1952,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "成就管理"
+          }
+        }
+      }
+    },
+    "home.sider.avatar" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "我的角色"
           }
         }
       }

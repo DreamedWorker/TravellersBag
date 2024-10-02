@@ -12,10 +12,11 @@ struct GachaOverview: View {
     @StateObject private var viewModel = GachaModel.default
     @State private var updateAlert = false
     @State private var deleteAlert = false
+    @State private var showUI = GlobalUIModel.exported.hasDefAccount()
     
     var body: some View {
         VStack {
-            if GlobalUIModel.exported.hasDefAccount() {
+            if showUI {
                 switch viewModel.uiPart {
                 case .NoData:
                     NoDataPart.onAppear { viewModel.initSomething(dm: dataManager) }
@@ -63,8 +64,10 @@ struct GachaOverview: View {
                 VStack {
                     Image("expecting_new_world").resizable().scaledToFit().frame(width: 72, height: 72).padding(.bottom, 8)
                     Text("daily.no_account.title").font(.title2).bold()
-                    Button("gacha.login_first", action: { GlobalUIModel.exported.refreshDefAccount() })
-                        .buttonStyle(BorderedProminentButtonStyle())
+                    Button("gacha.login_first", action: {
+                        GlobalUIModel.exported.refreshDefAccount()
+                        showUI = GlobalUIModel.exported.hasDefAccount()
+                    }).buttonStyle(BorderedProminentButtonStyle())
                 }
                 .padding()
                 .background(RoundedRectangle(cornerRadius: 8, style: .continuous).fill(BackgroundStyle()))

@@ -40,6 +40,7 @@ class DashboardModel: ObservableObject {
     }
     
     func refreshState() {
+        GlobalUIModel.exported.refreshDefAccount()
         showUI = GlobalUIModel.exported.hasDefAccount()
     }
     

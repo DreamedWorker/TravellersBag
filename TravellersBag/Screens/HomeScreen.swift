@@ -27,6 +27,7 @@ struct HomeScreen: View {
                         NavigationLink(value: ScreenPart.Achievement, label: { Label("home.sider.achieve", systemImage: "flag.checkered.2.crossed") })
                         Text("home.side.title.game").font(.callout).bold().padding(4)
                         NavigationLink(value: ScreenPart.DialyNote, label: { Label("home.sider.daily", systemImage: "macbook.and.ipad")})
+                        NavigationLink(value: ScreenPart.Avatar, label: { Label("home.sider.avatar", systemImage: "figure.wave")})
                     }
                 },
                 detail: {
@@ -43,6 +44,8 @@ struct HomeScreen: View {
                         AchievementScreen().navigationTitle(Text("home.sider.achieve"))
                     case .DialyNote:
                         DailyNotePane().navigationTitle(Text("home.sider.daily"))
+                    case .Avatar:
+                        AvatarScreen().navigationTitle(Text("home.sider.avatar"))
                     }
                 }
             )
@@ -88,4 +91,5 @@ private enum ScreenPart {
     case Gacha
     case Achievement
     case DialyNote
+    case Avatar
 }

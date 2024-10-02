@@ -30,6 +30,8 @@
 		5D67B85D2CA4E4FB00AC1EFD /* AchievementScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D67B85C2CA4E4FB00AC1EFD /* AchievementScreen.swift */; };
 		5D67B85F2CA4E62700AC1EFD /* AchieveModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D67B85E2CA4E62700AC1EFD /* AchieveModel.swift */; };
 		5D6882D52C9A009A00FB074C /* WebTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6882D42C9A009A00FB074C /* WebTest.swift */; };
+		5D7B727D2CAD840E00416296 /* AvatarScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7B727C2CAD840E00416296 /* AvatarScreen.swift */; };
+		5D7B727F2CAD84F600416296 /* AvatarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7B727E2CAD84F600416296 /* AvatarModel.swift */; };
 		5DA17BC92CAAAB3100D3E4BD /* DailyNotePane.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA17BC82CAAAB3100D3E4BD /* DailyNotePane.swift */; };
 		5DA17BCB2CAAACE100D3E4BD /* DailyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA17BCA2CAAACE100D3E4BD /* DailyModel.swift */; };
 		5DA17BCD2CAAE32000D3E4BD /* DailyNoteData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA17BCC2CAAE32000D3E4BD /* DailyNoteData.swift */; };
@@ -102,6 +104,8 @@
 		5D67B85C2CA4E4FB00AC1EFD /* AchievementScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementScreen.swift; sourceTree = "<group>"; };
 		5D67B85E2CA4E62700AC1EFD /* AchieveModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchieveModel.swift; sourceTree = "<group>"; };
 		5D6882D42C9A009A00FB074C /* WebTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebTest.swift; sourceTree = "<group>"; };
+		5D7B727C2CAD840E00416296 /* AvatarScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarScreen.swift; sourceTree = "<group>"; };
+		5D7B727E2CAD84F600416296 /* AvatarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarModel.swift; sourceTree = "<group>"; };
 		5DA17BC82CAAAB3100D3E4BD /* DailyNotePane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyNotePane.swift; sourceTree = "<group>"; };
 		5DA17BCA2CAAACE100D3E4BD /* DailyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyModel.swift; sourceTree = "<group>"; };
 		5DA17BCC2CAAE32000D3E4BD /* DailyNoteData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyNoteData.swift; sourceTree = "<group>"; };
@@ -234,6 +238,15 @@
 			path = Achievement;
 			sourceTree = "<group>";
 		};
+		5D7B727B2CAD83AD00416296 /* Avatar */ = {
+			isa = PBXGroup;
+			children = (
+				5D7B727C2CAD840E00416296 /* AvatarScreen.swift */,
+				5D7B727E2CAD84F600416296 /* AvatarModel.swift */,
+			);
+			path = Avatar;
+			sourceTree = "<group>";
+		};
 		5DA17BC72CAAA82200D3E4BD /* DailyNote */ = {
 			isa = PBXGroup;
 			children = (
@@ -303,6 +316,7 @@
 		5DA45D422C8E0CFA00949164 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				5D7B727B2CAD83AD00416296 /* Avatar */,
 				5DA17BC72CAAA82200D3E4BD /* DailyNote */,
 				5D67B85B2CA4E14300AC1EFD /* Achievement */,
 				5DDCB9362CA1B423007EF232 /* Gacha */,
@@ -523,6 +537,7 @@
 			files = (
 				5D670C1A2C988D2B00E0D958 /* AccountModel.swift in Sources */,
 				5DA17BC92CAAAB3100D3E4BD /* DailyNotePane.swift in Sources */,
+				5D7B727F2CAD84F600416296 /* AvatarModel.swift in Sources */,
 				5DE6B54E2C8E892A00690B5C /* DynamicSecret.swift in Sources */,
 				5D2B857D2C9DECB000ED1DD8 /* WorldExploration.swift in Sources */,
 				5DEA774F2CA313C0004EF4E7 /* UIGF4.swift in Sources */,
@@ -557,6 +572,7 @@
 				5D6882D52C9A009A00FB074C /* WebTest.swift in Sources */,
 				5DA17BCD2CAAE32000D3E4BD /* DailyNoteData.swift in Sources */,
 				5DDCB93E2CA1C39A007EF232 /* GachaService.swift in Sources */,
+				5D7B727D2CAD840E00416296 /* AvatarScreen.swift in Sources */,
 				5D2B85792C9D1DD800ED1DD8 /* DashboardModel.swift in Sources */,
 				5D0E08542CAC574E00FCBB55 /* HutaoGachaModel.swift in Sources */,
 				5D0E08522CAC223500FCBB55 /* HutaoRecords.swift in Sources */,

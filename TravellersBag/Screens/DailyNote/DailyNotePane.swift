@@ -186,6 +186,7 @@ struct DailyNotePane: View {
                     Image("expecting_but_nothing").resizable().scaledToFit().frame(width: 72, height: 72).padding(.bottom, 4)
                     Text("daily.no_account.title").font(.title2).bold().padding(.bottom, 8)
                     Button("dashboard.empty.refresh", action: {
+                        GlobalUIModel.exported.refreshDefAccount()
                         hasAccount = GlobalUIModel.exported.hasDefAccount()
                     }).buttonStyle(BorderedProminentButtonStyle())
                 }
@@ -198,8 +199,12 @@ struct DailyNotePane: View {
             ToolbarItem {
                 Button(
                     action: {
-                        viewModel.showUI = false
-                        Task { await viewModel.updateNoteInfo() }
+                        if hasAccount {
+                            viewModel.showUI = false
+                            Task { await viewModel.updateNoteInfo() }
+                        } else {
+                            GlobalUIModel.exported.makeAnAlert(type: 3, msg: NSLocalizedString("daily.no_account.title", comment: ""))
+                        }
                     },
                     label: { Image(systemName: "arrow.clockwise").help("daily.refresh") }
                 )
