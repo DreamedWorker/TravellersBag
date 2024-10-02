@@ -210,7 +210,7 @@ struct GachaActivities: View {
             }
             do {
                 let filePath = try getPath()
-                let request = URLRequest(url: URL(string: "https://static-next.snapgenshin.com/d/meta/metadata/Genshin/CHS/GachaEvent.json")!)
+                let request = URLRequest(url: URL(string: "https://metadata.snapgenshin.com/Genshin/CHS/GachaEvent.json")!)
                 try await httpSession().download2File(url: filePath, req: request)
                 DispatchQueue.main.async { [self] in
                     GlobalUIModel.exported.makeAnAlert(type: 1, msg: "更新成功")
