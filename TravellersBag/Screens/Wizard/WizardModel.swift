@@ -45,13 +45,13 @@ class WizardModel: NSObject, ObservableObject, URLSessionDownloadDelegate {
                 }
             }
         }
-        if fs.fileExists(atPath: metaFile.path().removingPercentEncoding!) {
-            readAndParse()
-        } else {
-            let request = URLRequest(url: URL(string: "https://static-next.snapgenshin.com/d/meta/metadata/Genshin/CHS/Meta.json")!)
-            try await httpSession().download2File(url: metaFile, req: request)
-            readAndParse()
-        }
+        //        if fs.fileExists(atPath: metaFile.path().removingPercentEncoding!) {
+        //            readAndParse()
+        //        } else {
+        let request = URLRequest(url: URL(string: "https://metadata.snapgenshin.com/Genshin/CHS/Meta.json")!)
+        try await httpSession().download2File(url: metaFile, req: request)
+        readAndParse()
+        //}
     }
     
     /// 下载静态资源
@@ -70,12 +70,12 @@ class WizardModel: NSObject, ObservableObject, URLSessionDownloadDelegate {
                     try! fs.createDirectory(at: tempDir, withIntermediateDirectories: true)
                 }
                 let tempFile = partRoot.appending(component: String(names[0])).appending(component: "\(names[1]).json")
-                let request = URLRequest(url: URL(string: "https://static-next.snapgenshin.com/d/meta/metadata/Genshin/CHS/\(names[0])/\(names[1]).json")!)
+                let request = URLRequest(url: URL(string: "https://metadata.snapgenshin.com/Genshin/CHS/\(names[0])/\(names[1]).json")!)
                 try await httpSession().download2File(url: tempFile, req: request)
                 try await Task.sleep(for: .seconds(0.5))
             } else {
                 let tempFile = partRoot.appending(component: String("\(singleFile).json"))
-                let request = URLRequest(url: URL(string: "https://static-next.snapgenshin.com/d/meta/metadata/Genshin/CHS/\(singleFile).json")!)
+                let request = URLRequest(url: URL(string: "https://metadata.snapgenshin.com/Genshin/CHS/\(singleFile).json")!)
                 try await httpSession().download2File(url: tempFile, req: request)
                 try await Task.sleep(for: .seconds(0.5))
             }
