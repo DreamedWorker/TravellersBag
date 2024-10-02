@@ -61,9 +61,14 @@ struct GachaOverview: View {
                 }
             } else {
                 VStack {
+                    Image("expecting_new_world").resizable().scaledToFit().frame(width: 72, height: 72).padding(.bottom, 8)
+                    Text("daily.no_account.title").font(.title2).bold()
                     Button("gacha.login_first", action: { GlobalUIModel.exported.refreshDefAccount() })
                         .buttonStyle(BorderedProminentButtonStyle())
                 }
+                .padding()
+                .background(RoundedRectangle(cornerRadius: 8, style: .continuous).fill(BackgroundStyle()))
+                .frame(minWidth: 400)
             }
         }
         .alert(

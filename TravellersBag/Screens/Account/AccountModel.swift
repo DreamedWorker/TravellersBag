@@ -27,6 +27,7 @@ class AccountModel: ObservableObject {
         do {
             signedAccount.removeAll()
             signedAccount = try dm!.fetch(ShequAccount.fetchRequest())
+            GlobalUIModel.exported.refreshDefAccount() // MARK: 修复错误 加上这一行更新全局的默认账号状态
         } catch {
             uploadAnError(fatalInfo: error)
             GlobalUIModel.exported.makeAnAlert(
