@@ -37,15 +37,10 @@ struct HutaoPassport : View {
                         }
                     }.formStyle(.grouped).scrollDisabled(true)
                     Form {
-                        HStack(spacing: 16) {
-                            Image(systemName: "menubar.dock.rectangle.badge.record")
-                            Text("hutao.main.gacha")
-                            Spacer()
-                            Image(systemName: "arrow.forward").foregroundStyle(.secondary)
-                        }.onTapGesture {
-                            //
-                            print("yes")
-                        }
+                        NavigationLink(
+                            destination: { HutaoRecords() },
+                            label: { Label("hutao.main.gacha", systemImage: "menubar.dock.rectangle.badge.record")}
+                        )
                     }.formStyle(.grouped).scrollDisabled(true)
                 }
             } else {

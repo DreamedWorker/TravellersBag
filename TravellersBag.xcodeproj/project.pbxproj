@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D0E08522CAC223500FCBB55 /* HutaoRecords.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0E08512CAC223500FCBB55 /* HutaoRecords.swift */; };
+		5D0E08542CAC574E00FCBB55 /* HutaoGachaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0E08532CAC574E00FCBB55 /* HutaoGachaModel.swift */; };
+		5D0E08562CAC5FEC00FCBB55 /* HutaoRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0E08552CAC5FEC00FCBB55 /* HutaoRecord.swift */; };
 		5D2B85772C9D1CB300ED1DD8 /* DashboardScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2B85762C9D1CB300ED1DD8 /* DashboardScreen.swift */; };
 		5D2B85792C9D1DD800ED1DD8 /* DashboardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2B85782C9D1DD800ED1DD8 /* DashboardModel.swift */; };
 		5D2B857B2C9D76E200ED1DD8 /* DashboardUnits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2B857A2C9D76E200ED1DD8 /* DashboardUnits.swift */; };
@@ -75,6 +78,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5D0E08512CAC223500FCBB55 /* HutaoRecords.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HutaoRecords.swift; sourceTree = "<group>"; };
+		5D0E08532CAC574E00FCBB55 /* HutaoGachaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HutaoGachaModel.swift; sourceTree = "<group>"; };
+		5D0E08552CAC5FEC00FCBB55 /* HutaoRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HutaoRecord.swift; sourceTree = "<group>"; };
 		5D2B85712C9D151B00ED1DD8 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		5D2B85722C9D152600ED1DD8 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		5D2B85762C9D1CB300ED1DD8 /* DashboardScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardScreen.swift; sourceTree = "<group>"; };
@@ -158,6 +164,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5D0E08502CAC1EEA00FCBB55 /* Gacha */ = {
+			isa = PBXGroup;
+			children = (
+				5D0E08512CAC223500FCBB55 /* HutaoRecords.swift */,
+				5D0E08532CAC574E00FCBB55 /* HutaoGachaModel.swift */,
+			);
+			path = Gacha;
+			sourceTree = "<group>";
+		};
 		5D2B85732C9D1C5600ED1DD8 /* Dashboard */ = {
 			isa = PBXGroup;
 			children = (
@@ -325,6 +340,7 @@
 		5DD653C82C9AA44200B0DA2B /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				5D0E08502CAC1EEA00FCBB55 /* Gacha */,
 				5DD653CD2C9AABE900B0DA2B /* HutaoPassport.swift */,
 				5DD653CF2C9AAD3B00B0DA2B /* PassportModel.swift */,
 			);
@@ -408,6 +424,7 @@
 				5DFA35782CA642F60047D96E /* AchievementData.swift */,
 				5DFA357E2CA721E60047D96E /* UIAF11.swift */,
 				5DA17BCC2CAAE32000D3E4BD /* DailyNoteData.swift */,
+				5D0E08552CAC5FEC00FCBB55 /* HutaoRecord.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -525,6 +542,7 @@
 				5DD653CE2C9AABFA00B0DA2B /* HutaoPassport.swift in Sources */,
 				5D670C182C987A1700E0D958 /* AccountManager.swift in Sources */,
 				5DE6B5422C8E84BC00690B5C /* ApiEndpoints.swift in Sources */,
+				5D0E08562CAC5FEC00FCBB55 /* HutaoRecord.swift in Sources */,
 				5DD653D42C9AC00200B0DA2B /* EventMessager.swift in Sources */,
 				5DA45D412C8DC28200949164 /* UserDefaultHelper.swift in Sources */,
 				5DE6B5532C8E8A4300690B5C /* CoreDataHelper.swift in Sources */,
@@ -540,6 +558,8 @@
 				5DA17BCD2CAAE32000D3E4BD /* DailyNoteData.swift in Sources */,
 				5DDCB93E2CA1C39A007EF232 /* GachaService.swift in Sources */,
 				5D2B85792C9D1DD800ED1DD8 /* DashboardModel.swift in Sources */,
+				5D0E08542CAC574E00FCBB55 /* HutaoGachaModel.swift in Sources */,
+				5D0E08522CAC223500FCBB55 /* HutaoRecords.swift in Sources */,
 				5DFA35772CA640EF0047D96E /* AchieveService.swift in Sources */,
 				5D3BCC4B2C8FC97E0025F1ED /* WizardScreen.swift in Sources */,
 				5D670C1D2C98986800E0D958 /* AccountService.swift in Sources */,

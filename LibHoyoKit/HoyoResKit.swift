@@ -94,10 +94,10 @@ class HoyoResKit {
                         result = "C@https://enka.network/ui/\(imgKey).png@\(entry["Name"].stringValue)@\(entry["RankLevel"].intValue)"
                     }
                 } else {
-                    result = "C@about:blank@???"
+                    result = "C@about:blank@???@0"
                 }
             } else {
-                result = "C@about:blank@???"
+                result = "C@about:blank@???@0"
             }
         } else if key.count == 8 {
             if avatars.count > 0 {
@@ -111,13 +111,13 @@ class HoyoResKit {
                         result = "C@https://enka.network/ui/\(imgKey).png@\(entry["Name"].stringValue)@\(entry["Quality"].intValue)"
                     }
                 } else {
-                    result = "C@about:blank@???"
+                    result = "C@about:blank@???@0"
                 }
             } else {
-                result = "C@about:blank@???"
+                result = "C@about:blank@???@0"
             }
         } else {
-            result = "C@about:blank@???"
+            result = "C@about:blank@???@0"
         }
         return result
     }

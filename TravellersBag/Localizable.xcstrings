@@ -2000,6 +2000,17 @@
         }
       }
     },
+    "hutao.error.fetch_gacha_info" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "获取云端祈愿信息时失败，%@。"
+          }
+        }
+      }
+    },
     "hutao.error.login" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -2007,6 +2018,138 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "登录失败，%@。"
+          }
+        }
+      }
+    },
+    "hutao.gacha.count" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "总计：%@抽"
+          }
+        }
+      }
+    },
+    "hutao.gacha.delete" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "删除云数据"
+          }
+        }
+      }
+    },
+    "hutao.gacha.delete_p" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "删除云数据后将无法找回，我们建议你先确保云端当前内容与本地的备份一致后再执行此操作。"
+          }
+        }
+      }
+    },
+    "hutao.gacha.error_load_local" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "加载本地祈愿记录时失败。"
+          }
+        }
+      }
+    },
+    "hutao.gacha.error_sync" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "与云端同步祈愿数据时失败，%@。"
+          }
+        }
+      }
+    },
+    "hutao.gacha.no_record" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "当前的默认账号没有云端记录"
+          }
+        }
+      }
+    },
+    "hutao.gacha.record" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "胡桃云记录"
+          }
+        }
+      }
+    },
+    "hutao.gacha.sync_ok" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已与云端同步了%@条数据。"
+          }
+        }
+      }
+    },
+    "hutao.gacha.sync_with_cloud" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "与云端同步"
+          }
+        }
+      }
+    },
+    "hutao.gacha.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "云祈愿管理"
+          }
+        }
+      }
+    },
+    "hutao.gacha.uid" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "UID: %@"
+          }
+        }
+      }
+    },
+    "hutao.gacha.upload" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "上传记录"
           }
         }
       }

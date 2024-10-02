@@ -73,6 +73,40 @@ class HutaoService {
         return try await req.receiveOrThrow()
     }
     
+    /// 获取上传的抽卡记录信息
+    func gachaEntries(hutao: HutaoAccount) async throws -> JSON {
+        var req = URLRequest(url: URL(string: HutaoApiEndpoints.shared.gachaEntries())!)
+        req.setHost(host: "homa.snapgenshin.com")
+        req.setValue("Bearer \(hutao.auth!)", forHTTPHeaderField: "Authorization")
+        return try await req.receiveOrThrow()
+    }
+    
+    /// 获取云端每个卡池的最新值 用于增量更新的判断
+    func fetchRecordEndIDs(uid: String, hutao: HutaoAccount) async throws -> JSON {
+        var req = URLRequest(url: URL(string: HutaoApiEndpoints.shared.gachaEndIds(uid: uid))!)
+        req.setHost(host: "homa.snapgenshin.com")
+        req.setValue("Bearer \(hutao.auth!)", forHTTPHeaderField: "Authorization")
+        return try await req.receiveOrThrowHutao()
+    }
+    
+    /// 上传祈愿数据 由于胡桃云遵循增量上传规则，故需要进行本地与云端数据比对，但如果云端没有数据时则全量上传。
+    func uploadGachaRecord(records: Data, uid: String, hutao: HutaoAccount) async throws -> JSON {
+        var req = URLRequest(url: URL(string: HutaoApiEndpoints.shared.gachaUpload())!)
+        req.setHost(host: "homa.snapgenshin.com")
+        req.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
+        req.setValue("Bearer \(hutao.auth!)", forHTTPHeaderField: "Authorization")
+        req.setValue("\(records.count)", forHTTPHeaderField: "Content-Length")
+        return try await req.receiveOrThrowHutao(isPost: true, reqBody: records)
+    }
+    
+    /// 删除云祈愿记录
+    func deleteGachaRecord(uid: String, hutao: HutaoAccount) async throws -> JSON {
+        var req = URLRequest(url: URL(string: HutaoApiEndpoints.shared.gachaDelete(uid: uid))!)
+        req.setHost(host: "homa.snapgenshin.com")
+        req.setValue("Bearer \(hutao.auth!)", forHTTPHeaderField: "Authorization")
+        return try await req.receiveOrThrowHutao()
+    }
+    
     /// 返回加密的字符串
     private func encrypt(text: String) throws -> String {
         if let publicKey = publicKeyFromPEM(pemString: publicKeyPEM) {
