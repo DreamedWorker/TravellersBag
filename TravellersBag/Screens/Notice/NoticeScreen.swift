@@ -14,9 +14,9 @@ struct NoticeScreen: View {
     @StateObject private var viewModel = NoticeModel()
     @State private var uiPart: NoticePart = .Game
     
-    let column: [GridItem] = [
-        .init(.flexible()), .init(.flexible()), .init(.flexible())
-    ]
+//    let column: [GridItem] = [
+//        .init(.flexible()), .init(.flexible()), .init(.flexible())
+//    ]
     
     var body: some View {
         NavigationStack {

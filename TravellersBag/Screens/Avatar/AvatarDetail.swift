@@ -15,13 +15,25 @@ struct AvatarDetail: View {
     let aditional: JSON?
     var constellations: [Constellation] = []
     var skills: [AvatarSkill] = []
+    var properties: [AvatarProperty] = []
+    var reliquaries: [AvatarReliquary] = []
+    let getPropNameById: (String) -> String
     
-    init(intro: AvatarIntro, detail: JSON?) {
+    let column: [GridItem] = [
+        .init(.flexible()), .init(.flexible()), .init(.flexible())
+    ]
+    
+    @State private var showAvatarInfo: Bool = false
+    
+    init(intro: AvatarIntro, detail: JSON?, getPropNameById: @escaping (String) -> String) {
         self.intro = intro
         self.detail = detail
+        self.getPropNameById = getPropNameById
         aditional = HoyoResKit.default.avatars.filter({ $0["Id"].intValue == intro.id }).first
         constellations.removeAll()
         skills.removeAll()
+        properties.removeAll()
+        reliquaries.removeAll()
         if detail != nil {
             for i in detail!["constellations"].arrayValue {
                 var localImgPath: String? = nil
@@ -76,13 +88,122 @@ struct AvatarDetail: View {
                     )
                 }
             }
+            for i in detail!["selected_properties"].arrayValue {
+                properties.append(
+                    AvatarProperty(
+                        id: i["property_type"].intValue, add: i["add"].stringValue, final: i["final"].stringValue, base: i["base"].stringValue,
+                        name: getPropNameById(String(i["property_type"].intValue))
+                    )
+                )
+            }
+            for i in detail!["relics"].arrayValue {
+                let midMainProp = i["main_property"]
+                let mainProp = ReliquaryProp(times: midMainProp["times"].intValue, value: midMainProp["value"].stringValue, property_type: midMainProp["property_type"].intValue)
+                var midSubPropList: [ReliquaryProp] = []
+                for j in i["sub_property_list"].arrayValue {
+                    midSubPropList.append(ReliquaryProp(times: j["times"].intValue, value: j["value"].stringValue, property_type: j["property_type"].intValue))
+                }
+                reliquaries.append(
+                    AvatarReliquary(
+                        id: i["id"].intValue, rarity: i["rarity"].intValue, name: i["name"].stringValue, level: i["level"].intValue,
+                        icon: i["icon"].stringValue.replacingOccurrences(of: "\\", with: ""), setName: i["set"]["name"].stringValue,
+                        mainProp: mainProp, subProps: midSubPropList,
+                        localIcon: HoyoResKit.default.getReliquaryIcon(id: String(i["id"].intValue))
+                    )
+                )
+            }
         }
     }
     
     var body: some View {
-        if let surely = detail {
-            BasicInfoPane
-            ScrollView {}
+        if let _ = detail {
+            ScrollView {
+                BasicInfoPane
+                VStack {
+                    HStack {
+                        Text("avatar.display.prop").font(.title3)
+                        Spacer()
+                        Button(action: {
+                            withAnimation(.linear, { showAvatarInfo.toggle() })
+                        }, label: {
+                            Image(systemName: showAvatarInfo ? "arrow.up" : "arrow.down").font(.callout)
+                        })
+                    }
+                    .padding(4)
+                    .background(RoundedRectangle(cornerRadius: 8, style: .continuous).fill(BackgroundStyle()))
+                    if showAvatarInfo {
+                        Form {
+                            ForEach(properties) { prop in
+                                HStack {
+                                    Text(prop.name)
+                                    Spacer()
+                                    if prop.add == "" {
+                                        Text(prop.final).foregroundStyle(.secondary)
+                                    } else {
+                                        HStack(spacing: 8, content: {
+                                            Text(prop.final).foregroundStyle(.secondary)
+                                            Text(prop.add).foregroundStyle(.green.opacity(0.8)).font(.callout)
+                                        })
+                                    }
+                                }
+                                .padding(.horizontal, 4)
+                            }
+                        }
+                        .scrollDisabled(true).formStyle(.grouped)
+                        .frame(maxWidth: .infinity)
+                    }
+                }
+                LazyVGrid(columns: column, content: {
+                    ForEach(reliquaries) { reliquary in
+                        VStack {
+                            HStack(spacing: 8, content: {
+                                ZStack {
+                                    switch reliquary.rarity {
+                                    case 5:
+                                        Image("UI_QUALITY_ORANGE").resizable().frame(width: 32, height: 32)
+                                    case 4:
+                                        Image("UI_QUALITY_PURPLE").resizable().frame(width: 32, height: 32)
+                                    default:
+                                        Image("UI_QUALITY_NONE").resizable().frame(width: 32, height: 32)
+                                    }
+                                    if let surelyLocal = reliquary.localIcon {
+                                        Image(nsImage: NSImage(contentsOfFile: surelyLocal) ?? NSImage())
+                                            .resizable()
+                                            .frame(width: 32, height: 32)
+                                    } else {
+                                        KFImage(URL(string: reliquary.icon))
+                                            .loadDiskFileSynchronously(true)
+                                            .resizable()
+                                            .frame(width: 32, height: 32)
+                                    }
+                                }
+                                VStack(alignment: .leading, content: {
+                                    Text(reliquary.name)
+                                    Text(reliquary.setName).font(.callout).foregroundStyle(.secondary)
+                                })
+                                Spacer()
+                            })
+                            Divider()
+                            HStack {
+                                Text(getPropNameById(String(reliquary.mainProp.property_type)))
+                                Spacer()
+                                Text(reliquary.mainProp.value)
+                            }.padding(.bottom, 4)
+                            ForEach(reliquary.subProps, id: \.property_type) { subProp in
+                                HStack {
+                                    Text(getPropNameById(String(subProp.property_type)))
+                                    Spacer()
+                                    Text(subProp.value)
+                                    Image(systemName: "\(subProp.times + 1).circle")
+                                }
+                            }
+                        }
+                        .padding(4)
+                        .background(RoundedRectangle(cornerRadius: 8, style: .continuous).fill(BackgroundStyle()))
+                    }
+                })
+            }
+            .padding(8)
         } else {
             VStack {
                 Image("avatar_need_login").resizable().scaledToFit().frame(width: 72, height: 72).padding(.bottom, 8)

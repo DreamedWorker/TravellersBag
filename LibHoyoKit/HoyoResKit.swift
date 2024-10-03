@@ -17,6 +17,7 @@ class HoyoResKit {
     
     var avatars: [JSON]
     var weapon: [JSON]
+    var reliquary: [JSON]
     var langs: [String: Int]
     private init() {
         if !fs.fileExists(atPath: staticRoot.toStringPath()) {
@@ -24,6 +25,7 @@ class HoyoResKit {
             try! String(contentsOf: Bundle.main.url(forResource: "Avatar", withExtension: "json")!).write(to: staticRoot.appending(component: "Avatar.json"), atomically: true, encoding: .utf8)
             try! String(contentsOf: Bundle.main.url(forResource: "Weapon", withExtension: "json")!).write(to: staticRoot.appending(component: "Weapon.json"), atomically: true, encoding: .utf8)
             try! String(contentsOf: Bundle.main.url(forResource: "zh-cn", withExtension: "json")!).write(to: staticRoot.appending(component: "zh-cn.json"), atomically: true, encoding: .utf8)
+            try! String(contentsOf: Bundle.main.url(forResource: "Reliquary", withExtension: "json")!).write(to: staticRoot.appending(component: "Reliquary.json"), atomically: true, encoding: .utf8)
         }
         do {
             avatars = (UserDefaultHelper.shared.getValue(forKey: "dataSource", def: "") == "local-cloud") ?
@@ -39,6 +41,14 @@ class HoyoResKit {
             try! JSON(data: String(contentsOf: staticRoot.appending(component: "Weapon.json"), encoding: .utf8).data(using: .utf8)!).arrayValue
         } catch {
             weapon = try! JSON(
+                data: String(contentsOf: staticRoot.appending(component: "Weapon.json"), encoding: .utf8).data(using: .utf8)!).arrayValue
+        }
+        do {
+            reliquary = (UserDefaultHelper.shared.getValue(forKey: "dataSource", def: "") == "local-cloud") ?
+            try JSON(data: String(contentsOf: staticRoot.appending(component: "cloud").appending(component: "Reliquary.json"), encoding: .utf8).data(using: .utf8)!).arrayValue :
+            try! JSON(data: String(contentsOf: staticRoot.appending(component: "Reliquary.json"), encoding: .utf8).data(using: .utf8)!).arrayValue
+        } catch {
+            reliquary = try! JSON(
                 data: String(contentsOf: staticRoot.appending(component: "Weapon.json"), encoding: .utf8).data(using: .utf8)!).arrayValue
         }
         langs = try! JSONSerialization.jsonObject(with: String(contentsOf: staticRoot.appending(component: "zh-cn.json"), encoding: .utf8).data(using: .utf8)!) as! [String: Int]
@@ -149,5 +159,20 @@ class HoyoResKit {
                 return result["Name"].stringValue
             } else { return "?" }
         } else { return "?" }
+    }
+    
+    /// 通过ID获取圣遗物的图标 找不到的话返回空 这就会导致加载云端图片而不是本地的
+    func getReliquaryIcon(id: String) -> String? {
+        let searched = reliquary.filter({ ($0["Ids"].arrayObject as! [Int]).contains(Int(id)!) }).first
+        if let surely = searched {
+            let icon = getImageWithNameAndType(type: "RelicIcon", name: surely["Icon"].stringValue)
+            if String(icon.split(separator: "@")[0]) == "L" {
+                return String(icon.split(separator: "@")[1])
+            } else {
+                return nil
+            }
+        } else {
+            return nil
+        }
     }
 }

@@ -37,7 +37,11 @@ struct AvatarScreen: View {
                     }.frame(minWidth: 130, maxWidth: 150)
                     VStack {
                         if let selected = selectedAvatar {
-                            AvatarDetail(intro: selected, detail: viewModel.getAvatarDetail(id: selected.id))
+                            AvatarDetail(
+                                intro: selected,
+                                detail: viewModel.getAvatarDetail(id: selected.id),
+                                getPropNameById: { it in return viewModel.getPropName(id: it) }
+                            )
                         } else {
                             Text("avatar.display.select")
                         }

@@ -59,3 +59,30 @@ struct SkillAffixList {
     var name: String
     var value: String
 }
+
+/// 角色的属性
+struct AvatarProperty: Identifiable {
+    var id: Int
+    var add: String
+    var final: String
+    var base: String
+    var name: String
+}
+
+struct AvatarReliquary: Identifiable {
+    var id: Int
+    var rarity: Int
+    var name: String
+    var level: Int
+    var icon: String
+    var setName: String
+    var mainProp: ReliquaryProp
+    var subProps: [ReliquaryProp]
+    var localIcon: String?
+}
+
+struct ReliquaryProp {
+    var times: Int
+    var value: String
+    var property_type: Int
+}

@@ -34,6 +34,16 @@ class AvatarModel: ObservableObject {
         }
     }
     
+    /// 根据ID返回参数名
+    func getPropName(id: String) -> String {
+        if detail!["property_map"].contains(where: { $0.0 == id }) {
+            let mid = detail!["property_map"][id]
+            return mid["name"].stringValue
+        } else {
+            return "???"
+        }
+    }
+    
     /// 从服务器获取数据 如果是更新数据用，记得先关闭页面显示并清除overview和detail这两个对象
     func getOrRefresh() async {
         do {

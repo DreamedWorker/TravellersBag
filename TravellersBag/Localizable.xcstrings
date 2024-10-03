@@ -671,6 +671,17 @@
         }
       }
     },
+    "avatar.display.prop" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "角色信息"
+          }
+        }
+      }
+    },
     "avatar.display.select" : {
       "extractionState" : "manual",
       "localizations" : {

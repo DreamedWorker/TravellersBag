@@ -33,6 +33,7 @@
 		5D7B727D2CAD840E00416296 /* AvatarScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7B727C2CAD840E00416296 /* AvatarScreen.swift */; };
 		5D7B727F2CAD84F600416296 /* AvatarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7B727E2CAD84F600416296 /* AvatarModel.swift */; };
 		5D7B72852CADBAE600416296 /* AvatarService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7B72842CADBAE600416296 /* AvatarService.swift */; };
+		5D9036B72CAEED4200617817 /* Reliquary.json in Resources */ = {isa = PBXBuildFile; fileRef = 5D9036B62CAEED4200617817 /* Reliquary.json */; };
 		5D9A6CB02CAE6A2500EA96BE /* Avatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9A6CAF2CAE6A2500EA96BE /* Avatar.swift */; };
 		5D9A6CB22CAE763A00EA96BE /* AvatarDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9A6CB12CAE763A00EA96BE /* AvatarDetail.swift */; };
 		5DA17BC92CAAAB3100D3E4BD /* DailyNotePane.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA17BC82CAAAB3100D3E4BD /* DailyNotePane.swift */; };
@@ -110,6 +111,7 @@
 		5D7B727C2CAD840E00416296 /* AvatarScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarScreen.swift; sourceTree = "<group>"; };
 		5D7B727E2CAD84F600416296 /* AvatarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarModel.swift; sourceTree = "<group>"; };
 		5D7B72842CADBAE600416296 /* AvatarService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarService.swift; sourceTree = "<group>"; };
+		5D9036B62CAEED4200617817 /* Reliquary.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Reliquary.json; sourceTree = "<group>"; };
 		5D9A6CAF2CAE6A2500EA96BE /* Avatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Avatar.swift; sourceTree = "<group>"; };
 		5D9A6CB12CAE763A00EA96BE /* AvatarDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarDetail.swift; sourceTree = "<group>"; };
 		5DA17BC82CAAAB3100D3E4BD /* DailyNotePane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyNotePane.swift; sourceTree = "<group>"; };
@@ -435,6 +437,7 @@
 				5DE6B5592C8F554400690B5C /* Avatar.json */,
 				5DE6B5572C8F552200690B5C /* Weapon.json */,
 				5DE6B5552C8F54ED00690B5C /* zh-cn.json */,
+				5D9036B62CAEED4200617817 /* Reliquary.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -531,6 +534,7 @@
 				5DE6B5562C8F54ED00690B5C /* zh-cn.json in Resources */,
 				5DA45D262C8D991200949164 /* Preview Assets.xcassets in Resources */,
 				5DE6B5582C8F552200690B5C /* Weapon.json in Resources */,
+				5D9036B72CAEED4200617817 /* Reliquary.json in Resources */,
 				5DA45D232C8D991200949164 /* Assets.xcassets in Resources */,
 				5DE6B55A2C8F554400690B5C /* Avatar.json in Resources */,
 				5DA45D462C8E0D6E00949164 /* Localizable.xcstrings in Resources */,
