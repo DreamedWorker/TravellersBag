@@ -627,6 +627,61 @@
         }
       }
     },
+    "avatar.detail.no_avatar" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "从云端获取的数据中没有这个角色的信息，请刷新数据。"
+          }
+        }
+      }
+    },
+    "avatar.display.affix_level" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "精炼%@阶"
+          }
+        }
+      }
+    },
+    "avatar.display.fetter" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "好感度：%@"
+          }
+        }
+      }
+    },
+    "avatar.display.lv" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lv.%@"
+          }
+        }
+      }
+    },
+    "avatar.display.select" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请先选择一个角色…"
+          }
+        }
+      }
+    },
     "avatar.no_data.fetch" : {
       "extractionState" : "manual",
       "localizations" : {

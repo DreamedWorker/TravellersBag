@@ -137,6 +137,7 @@ class HoyoResKit {
     
     /// 通过ID获取名称 找不到的话返回「?」
     func getNameById(id: String) -> String {
+        if id == "10000007" { return "旅行者" }
         if id.count == 5 {
             if weapon.contains(where: { $0["Id"].intValue == Int(id) }) {
                 let result = weapon.filter({ $0["Id"].intValue == Int(id) }).first!

@@ -126,6 +126,16 @@ class ApiEndpoints {
         return "\(ApiEndpoints.ApiTakumiRecordApi)/index?server=\(game)&role_id=\(roleID)"
     }
     
+    /// 从战绩面板获取角色列表
+    func getAvatarList() -> String {
+        return "\(ApiEndpoints.ApiTakumiRecordApi)/character/list"
+    }
+    
+    /// 从战绩面板获取角色详情
+    func getAvatarDetail() -> String {
+        return "\(ApiEndpoints.ApiTakumiRecordApi)/character/detail"
+    }
+    
     /// 获取战绩面板的大纲内容
     func getGameOutline(game: String = "cn_gf01", avatarType: String = "1", roleID: String) -> String {
         return "\(ApiEndpoints.ApiTakumiRecordApi)/index?avatar_list_type=\(avatarType)&server=\(game)&role_id=\(roleID)"

@@ -6,24 +6,57 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct AvatarScreen: View {
     @StateObject private var viewModel = AvatarModel.shared
     @State private var showContext = GlobalUIModel.exported.hasDefAccount()
+    @State private var selectedAvatar: AvatarIntro? = nil
     
     var body: some View {
-        if GlobalUIModel.exported.hasDefAccount() {
+        if showContext {
             if viewModel.showUI {
-                Text("app.name")
+                HSplitView {
+                    List(selection: $selectedAvatar) {
+                        ForEach(viewModel.avatarList) { avatar in
+                            HStack(spacing: 8, content: {
+                                KFImage(URL(string: avatar.sideIcon))
+                                    .loadDiskFileSynchronously(true)
+                                    .resizable()
+                                    .frame(width: 36, height: 36)
+                                VStack(alignment: .leading, content: {
+                                    Text(avatar.name)
+                                    Text(
+                                        String.localizedStringWithFormat(
+                                            NSLocalizedString("avatar.display.lv", comment: ""), String(avatar.level))
+                                    ).font(.callout).foregroundStyle(.secondary)
+                                })
+                                Spacer()
+                            }).tag(avatar)
+                        }
+                    }.frame(minWidth: 130, maxWidth: 150)
+                    VStack {
+                        if let selected = selectedAvatar {
+                            AvatarDetail(intro: selected, detail: viewModel.getAvatarDetail(id: selected.id))
+                        } else {
+                            Text("avatar.display.select")
+                        }
+                    }.frame(minWidth: 300, maxWidth: .infinity, maxHeight: .infinity)
+                }
             } else {
                 VStack {
                     Image("avatar_need_login").resizable().scaledToFit().frame(width: 72, height: 72).padding(.bottom, 8)
                     Text("avatar.no_data.title").font(.title2).bold()
-                    Button("avatar.no_data.fetch", action: {}).buttonStyle(BorderedProminentButtonStyle())
+                    Button("avatar.no_data.fetch", action: {
+                        Task {
+                            await viewModel.getOrRefresh()
+                        }
+                    }).buttonStyle(BorderedProminentButtonStyle())
                 }
                 .padding()
                 .background(RoundedRectangle(cornerRadius: 8, style: .continuous).fill(BackgroundStyle()))
                 .frame(minWidth: 400)
+                .onAppear { viewModel.initSomething() }
             }
         } else {
             VStack {
