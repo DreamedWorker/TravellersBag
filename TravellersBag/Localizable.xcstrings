@@ -759,6 +759,17 @@
         }
       }
     },
+    "avatar.skill.info" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "天赋信息"
+          }
+        }
+      }
+    },
     "avatar.weapon.main_prop" : {
       "extractionState" : "manual",
       "localizations" : {

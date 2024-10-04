@@ -111,13 +111,65 @@ struct ConstellationSheet: View {
                             Spacer()
                             Text((single.is_actived) ? "app.yes" : "app.no").foregroundStyle(.secondary)
                         }
-                    }.scrollDisabled(true).formStyle(.grouped)
+                    }.scrollDisabled(true).formStyle(.grouped).padding(.bottom, 4)
                     ScrollView {
                         Text(AttributedString(colorfulString(from: single.effect.replacingOccurrences(of: "\\n", with: "\n"))))
                     }
                 }
             } else {
                 Image(systemName: "exclamationmark.octagon")
+            }
+        }
+        .padding()
+        .toolbar {
+            ToolbarItem(placement: .confirmationAction, content: {
+                Button("app.confirm", action: hide)
+            })
+        }
+    }
+}
+
+struct SkillSheet: View {
+    let skill: AvatarSkill
+    let hide: () -> Void
+    
+    init(skill: AvatarSkill, hide: @escaping () -> Void) {
+        self.skill = skill
+        self.hide = hide
+    }
+    
+    var body: some View {
+        NavigationStack {
+            Text(skill.name).font(.title).bold()
+            ScrollView {
+                GroupBox("avatar.skill.info", content: {
+                    ForEach(skill.skill_affix_list, id: \.name) { affix in
+                        HStack {
+                            Text(affix.name)
+                            Spacer()
+                            Text(affix.value).foregroundStyle(.secondary)
+                        }
+                        .padding(2)
+                    }
+                })
+                VStack(alignment: .leading, content: {
+                    HStack {
+                        Text(
+                            AttributedString(
+                                colorfulString(
+                                    from: String(skill.desc.replacingOccurrences(of: "\\n", with: "\n").split(separator: "<i>")[0])
+                                )
+                            )
+                        ).padding(2)
+                        Spacer()
+                    }
+                    HStack {
+                        Text(String(skill.desc.split(separator: "<i>")[1]).replacingOccurrences(of: "</i>", with: ""))
+                            .foregroundStyle(.secondary)
+                            .italic()
+                        Spacer()
+                    }
+                })
             }
         }
         .padding()

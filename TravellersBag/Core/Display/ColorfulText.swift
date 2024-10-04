@@ -8,6 +8,7 @@
 import Foundation
 import AppKit
 
+/// 解析了角色命座、天赋介绍中的信息的富文本
 func colorfulString(from string: String) -> NSAttributedString {
     let pattern = "<color=(#.*?)>(.*?)</color>"
     let regex = try! NSRegularExpression(pattern: pattern, options: [])

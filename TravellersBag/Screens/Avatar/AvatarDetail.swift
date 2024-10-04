@@ -258,23 +258,7 @@ struct AvatarDetail: View {
                 Spacer()
                 HStack(spacing: 4, content: {
                     ForEach(skills) { skill in
-                        VStack {
-                            ZStack {
-                                Rectangle().foregroundStyle(.secondary.opacity(0.4)).frame(width: 36, height: 36)
-                                if let localImg = skill.localIcon {
-                                    Image(nsImage: NSImage(contentsOfFile: localImg) ?? NSImage())
-                                        .resizable().frame(width: 36, height: 36).colorScheme(.dark)
-                                } else {
-                                    KFImage(URL(string: skill.icon))
-                                        .loadDiskFileSynchronously(true)
-                                        .resizable().frame(width: 36, height: 36).colorScheme(.dark)
-                                }
-                            }
-                            .help(skill.name)
-                            .clipShape(RoundedRectangle(cornerRadius: 8))
-                            Text(String.localizedStringWithFormat(NSLocalizedString("avatar.display.lv", comment: ""), String(skill.level)))
-                                .font(.callout)
-                        }
+                        SkillUnit(skill: skill)
                     }
                 })
             })
