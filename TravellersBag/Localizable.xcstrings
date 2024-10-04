@@ -594,6 +594,17 @@
         }
       }
     },
+    "app.no" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "否"
+          }
+        }
+      }
+    },
     "app.notice" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -627,6 +638,28 @@
         }
       }
     },
+    "app.yes" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "是"
+          }
+        }
+      }
+    },
+    "avatar.constellation.active" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已激活"
+          }
+        }
+      }
+    },
     "avatar.detail.no_avatar" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -645,6 +678,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "精炼%@阶"
+          }
+        }
+      }
+    },
+    "avatar.display.detail" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "点按天赋、命座或装备图标查看详细信息"
           }
         }
       }
@@ -711,6 +755,28 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "没有本地角色数据"
+          }
+        }
+      }
+    },
+    "avatar.weapon.main_prop" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "主词条"
+          }
+        }
+      }
+    },
+    "avatar.weapon.sub_prop" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "副词条"
           }
         }
       }

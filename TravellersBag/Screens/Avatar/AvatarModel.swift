@@ -91,12 +91,25 @@ class AvatarModel: ObservableObject {
                 name: HoyoResKit.default.getNameById(id: String(midWeaponData["id"].intValue)), level: midWeaponData["level"].intValue,
                 rarity: midWeaponData["rarity"].intValue, icon: HoyoResKit.default.getGachaItemIcon(key: String(midWeaponData["id"].intValue))
             )
-            avatarList.append(
-                AvatarIntro(
-                    id: i["id"].intValue, name: HoyoResKit.default.getNameById(id: String(i["id"].intValue)), level: i["level"].intValue,
-                    element: i["element"].stringValue, fetter: i["fetter"].intValue, rarity: i["rarity"].intValue,
-                    icon: HoyoResKit.default.getGachaItemIcon(key: String(i["id"].intValue)), sideIcon: i["side_icon"].stringValue, weapon: weapon)
-            )
+            if i["id"].intValue == 10000007 { // 解决「旅行者」的正面头像不能显示的问题
+                avatarList.append(
+                    AvatarIntro(
+                        id: i["id"].intValue, name: HoyoResKit.default.getNameById(id: String(i["id"].intValue)), level: i["level"].intValue,
+                        element: i["element"].stringValue, fetter: i["fetter"].intValue, rarity: i["rarity"].intValue,
+                        icon: "C@\(i["icon"].stringValue.replacingOccurrences(of: "\\", with: ""))", sideIcon: i["side_icon"].stringValue,
+                        weapon: weapon
+                    )
+                )
+            } else {
+                avatarList.append(
+                    AvatarIntro(
+                        id: i["id"].intValue, name: HoyoResKit.default.getNameById(id: String(i["id"].intValue)), level: i["level"].intValue,
+                        element: i["element"].stringValue, fetter: i["fetter"].intValue, rarity: i["rarity"].intValue,
+                        icon: HoyoResKit.default.getGachaItemIcon(key: String(i["id"].intValue)), sideIcon: i["side_icon"].stringValue,
+                        weapon: weapon
+                    )
+                )
+            }
         }
     }
 }

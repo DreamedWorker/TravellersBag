@@ -52,6 +52,8 @@
 		5DA45D482C8E0DA300949164 /* GlobalUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA45D472C8E0DA300949164 /* GlobalUIModel.swift */; };
 		5DA45D4E2C8E12D800949164 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA45D4D2C8E12D800949164 /* CardView.swift */; };
 		5DC896F92CA31DFB003C5426 /* GachaActivities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC896F82CA31DFB003C5426 /* GachaActivities.swift */; };
+		5DD2DF562CAFEC110057B86E /* AvatarSheets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD2DF552CAFEC110057B86E /* AvatarSheets.swift */; };
+		5DD2DF592CAFF99A0057B86E /* ColorfulText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD2DF582CAFF99A0057B86E /* ColorfulText.swift */; };
 		5DD653CE2C9AABFA00B0DA2B /* HutaoPassport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD653CD2C9AABE900B0DA2B /* HutaoPassport.swift */; };
 		5DD653D02C9AAD3B00B0DA2B /* PassportModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD653CF2C9AAD3B00B0DA2B /* PassportModel.swift */; };
 		5DD653D22C9AB61B00B0DA2B /* HutaoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD653D12C9AB61B00B0DA2B /* HutaoService.swift */; };
@@ -128,6 +130,8 @@
 		5DA45D472C8E0DA300949164 /* GlobalUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalUIModel.swift; sourceTree = "<group>"; };
 		5DA45D4D2C8E12D800949164 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		5DC896F82CA31DFB003C5426 /* GachaActivities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GachaActivities.swift; sourceTree = "<group>"; };
+		5DD2DF552CAFEC110057B86E /* AvatarSheets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarSheets.swift; sourceTree = "<group>"; };
+		5DD2DF582CAFF99A0057B86E /* ColorfulText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorfulText.swift; sourceTree = "<group>"; };
 		5DD653CA2C9AA4B300B0DA2B /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		5DD653CD2C9AABE900B0DA2B /* HutaoPassport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HutaoPassport.swift; sourceTree = "<group>"; };
 		5DD653CF2C9AAD3B00B0DA2B /* PassportModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassportModel.swift; sourceTree = "<group>"; };
@@ -253,6 +257,7 @@
 				5D7B727C2CAD840E00416296 /* AvatarScreen.swift */,
 				5D7B727E2CAD84F600416296 /* AvatarModel.swift */,
 				5D9A6CB12CAE763A00EA96BE /* AvatarDetail.swift */,
+				5DD2DF552CAFEC110057B86E /* AvatarSheets.swift */,
 			);
 			path = Avatar;
 			sourceTree = "<group>";
@@ -313,6 +318,7 @@
 		5DA45D3C2C8DA2C000949164 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				5DD2DF572CAFF9820057B86E /* Display */,
 				5DEA774D2CA313B4004EF4E7 /* Data */,
 				5DDA5AA22C9C9C33002793CF /* Misc */,
 				5D670C1B2C98984000E0D958 /* Service */,
@@ -349,6 +355,14 @@
 				5DFA357C2CA6D4820047D96E /* AchievementEntry.swift */,
 			);
 			path = Compositions;
+			sourceTree = "<group>";
+		};
+		5DD2DF572CAFF9820057B86E /* Display */ = {
+			isa = PBXGroup;
+			children = (
+				5DD2DF582CAFF99A0057B86E /* ColorfulText.swift */,
+			);
+			path = Display;
 			sourceTree = "<group>";
 		};
 		5DD653C72C9AA3C300B0DA2B /* LibHutaoKit */ = {
@@ -557,6 +571,7 @@
 				5DDA5AA12C9C06C9002793CF /* NoticeDetail.swift in Sources */,
 				5DFA357D2CA6D4820047D96E /* AchievementEntry.swift in Sources */,
 				5D670C232C98ABC400E0D958 /* AccountDetail.swift in Sources */,
+				5DD2DF562CAFEC110057B86E /* AvatarSheets.swift in Sources */,
 				5DD653D02C9AAD3B00B0DA2B /* PassportModel.swift in Sources */,
 				5DA45D442C8E0D1300949164 /* HomeScreen.swift in Sources */,
 				5DD653E02C9B353400B0DA2B /* NoticeModel.swift in Sources */,
@@ -603,6 +618,7 @@
 				5D670C0D2C971AE500E0D958 /* HoyoResKit.swift in Sources */,
 				5D9A6CB02CAE6A2500EA96BE /* Avatar.swift in Sources */,
 				5D67B85D2CA4E4FB00AC1EFD /* AchievementScreen.swift in Sources */,
+				5DD2DF592CAFF99A0057B86E /* ColorfulText.swift in Sources */,
 				5DA17BCB2CAAACE100D3E4BD /* DailyModel.swift in Sources */,
 				5DD653D62C9AC0BF00B0DA2B /* SecurityTool.swift in Sources */,
 				5D670C0A2C97178D00E0D958 /* WizardModel.swift in Sources */,

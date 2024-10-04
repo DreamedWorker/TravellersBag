@@ -14,6 +14,7 @@ struct AvatarDetail: View {
     let detail: JSON?
     let aditional: JSON?
     var constellations: [Constellation] = []
+    //@State var selectedConstellation: Constellation? = nil
     var skills: [AvatarSkill] = []
     var properties: [AvatarProperty] = []
     var reliquaries: [AvatarReliquary] = []
@@ -24,6 +25,8 @@ struct AvatarDetail: View {
     ]
     
     @State private var showAvatarInfo: Bool = false
+    @State private var showWeaponDetail: Bool = false
+    @State private var showConstellationDetail: Bool = false
     
     init(intro: AvatarIntro, detail: JSON?, getPropNameById: @escaping (String) -> String) {
         self.intro = intro
@@ -204,6 +207,15 @@ struct AvatarDetail: View {
                 })
             }
             .padding(8)
+            .sheet(
+                isPresented: $showWeaponDetail,
+                content: {
+                    WeaponSheet(
+                        weaponDetail: detail?["weapon"], weaponIntro: intro.weapon, propName: { it in return getPropNameById(it) },
+                        hide: { showWeaponDetail = false }
+                    )
+                }
+            )
         } else {
             VStack {
                 Image("avatar_need_login").resizable().scaledToFit().frame(width: 72, height: 72).padding(.bottom, 8)
@@ -218,7 +230,7 @@ struct AvatarDetail: View {
     var BasicInfoPane: some View {
         let iconGroup = intro.icon.split(separator: "@")
         let weaponGroup = intro.weapon.icon.split(separator: "@")
-        return VStack {
+        return VStack(alignment: .leading) {
             HStack(spacing: 8, content: {
                 ZStack {
                     switch intro.rarity {
@@ -286,6 +298,13 @@ struct AvatarDetail: View {
                     }
                     .help(skill.name)
                     .clipShape(RoundedRectangle(cornerRadius: 8))
+                    .onTapGesture {
+                        //selectedConstellation = skill
+                        showConstellationDetail = true
+                    }
+                    .sheet(isPresented: $showConstellationDetail, content: {
+                        ConstellationSheet(single: skill, hide: { showConstellationDetail = false })
+                    })
                 }
                 Spacer()
             })
@@ -311,6 +330,9 @@ struct AvatarDetail: View {
                             .frame(width: 56, height: 56)
                     }
                 }
+                .onTapGesture {
+                    showWeaponDetail = true
+                }
                 VStack(alignment: .leading, content: {
                     Text(intro.weapon.name).font(.title3).bold()
                     Text(String.localizedStringWithFormat(NSLocalizedString("avatar.display.lv", comment: ""), String(intro.weapon.level)))
@@ -320,6 +342,7 @@ struct AvatarDetail: View {
                 })
                 Spacer()
             })
+            Text("avatar.display.detail").font(.footnote).foregroundStyle(.secondary).padding(.top, 2)
         }
         .padding()
         .background(RoundedRectangle(cornerRadius: 8, style: .continuous).fill(BackgroundStyle()))
