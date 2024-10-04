@@ -54,6 +54,7 @@
 		5DC896F92CA31DFB003C5426 /* GachaActivities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC896F82CA31DFB003C5426 /* GachaActivities.swift */; };
 		5DD2DF562CAFEC110057B86E /* AvatarSheets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD2DF552CAFEC110057B86E /* AvatarSheets.swift */; };
 		5DD2DF592CAFF99A0057B86E /* ColorfulText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD2DF582CAFF99A0057B86E /* ColorfulText.swift */; };
+		5DD2DF5B2CB052DA0057B86E /* AvatarDisplayUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD2DF5A2CB052DA0057B86E /* AvatarDisplayUnit.swift */; };
 		5DD653CE2C9AABFA00B0DA2B /* HutaoPassport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD653CD2C9AABE900B0DA2B /* HutaoPassport.swift */; };
 		5DD653D02C9AAD3B00B0DA2B /* PassportModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD653CF2C9AAD3B00B0DA2B /* PassportModel.swift */; };
 		5DD653D22C9AB61B00B0DA2B /* HutaoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD653D12C9AB61B00B0DA2B /* HutaoService.swift */; };
@@ -132,6 +133,7 @@
 		5DC896F82CA31DFB003C5426 /* GachaActivities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GachaActivities.swift; sourceTree = "<group>"; };
 		5DD2DF552CAFEC110057B86E /* AvatarSheets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarSheets.swift; sourceTree = "<group>"; };
 		5DD2DF582CAFF99A0057B86E /* ColorfulText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorfulText.swift; sourceTree = "<group>"; };
+		5DD2DF5A2CB052DA0057B86E /* AvatarDisplayUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarDisplayUnit.swift; sourceTree = "<group>"; };
 		5DD653CA2C9AA4B300B0DA2B /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		5DD653CD2C9AABE900B0DA2B /* HutaoPassport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HutaoPassport.swift; sourceTree = "<group>"; };
 		5DD653CF2C9AAD3B00B0DA2B /* PassportModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassportModel.swift; sourceTree = "<group>"; };
@@ -258,6 +260,7 @@
 				5D7B727E2CAD84F600416296 /* AvatarModel.swift */,
 				5D9A6CB12CAE763A00EA96BE /* AvatarDetail.swift */,
 				5DD2DF552CAFEC110057B86E /* AvatarSheets.swift */,
+				5DD2DF5A2CB052DA0057B86E /* AvatarDisplayUnit.swift */,
 			);
 			path = Avatar;
 			sourceTree = "<group>";
@@ -611,6 +614,7 @@
 				5D67B85F2CA4E62700AC1EFD /* AchieveModel.swift in Sources */,
 				5DDCB93A2CA1BB44007EF232 /* GachaModel.swift in Sources */,
 				5DA45D1F2C8D991100949164 /* TravellersBagApp.swift in Sources */,
+				5DD2DF5B2CB052DA0057B86E /* AvatarDisplayUnit.swift in Sources */,
 				5D670C1F2C98A4B700E0D958 /* FileHandler.swift in Sources */,
 				5D7B72852CADBAE600416296 /* AvatarService.swift in Sources */,
 				5D2B85772C9D1CB300ED1DD8 /* DashboardScreen.swift in Sources */,

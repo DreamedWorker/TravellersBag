@@ -14,7 +14,6 @@ struct AvatarDetail: View {
     let detail: JSON?
     let aditional: JSON?
     var constellations: [Constellation] = []
-    //@State var selectedConstellation: Constellation? = nil
     var skills: [AvatarSkill] = []
     var properties: [AvatarProperty] = []
     var reliquaries: [AvatarReliquary] = []
@@ -26,7 +25,6 @@ struct AvatarDetail: View {
     
     @State private var showAvatarInfo: Bool = false
     @State private var showWeaponDetail: Bool = false
-    @State private var showConstellationDetail: Bool = false
     
     init(intro: AvatarIntro, detail: JSON?, getPropNameById: @escaping (String) -> String) {
         self.intro = intro
@@ -282,29 +280,7 @@ struct AvatarDetail: View {
             })
             HStack(spacing: 8, content: {
                 ForEach(constellations) { skill in
-                    ZStack {
-                        Rectangle().foregroundStyle(.secondary.opacity(0.4)).frame(width: 36, height: 36)
-                        if let localImg = skill.localIcon {
-                            Image(nsImage: NSImage(contentsOfFile: localImg) ?? NSImage())
-                                .resizable().frame(width: 36, height: 36).colorScheme(.dark)
-                        } else {
-                            KFImage(URL(string: skill.icon))
-                                .loadDiskFileSynchronously(true)
-                                .resizable().frame(width: 36, height: 36).colorScheme(.dark)
-                        }
-                        if !skill.is_actived {
-                            Image("skill_not_active").resizable().frame(width: 16, height: 16).colorScheme(.dark)
-                        }
-                    }
-                    .help(skill.name)
-                    .clipShape(RoundedRectangle(cornerRadius: 8))
-                    .onTapGesture {
-                        //selectedConstellation = skill
-                        showConstellationDetail = true
-                    }
-                    .sheet(isPresented: $showConstellationDetail, content: {
-                        ConstellationSheet(single: skill, hide: { showConstellationDetail = false })
-                    })
+                    ConstellationUnit(skill: skill)
                 }
                 Spacer()
             })

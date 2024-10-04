@@ -92,7 +92,7 @@ struct WeaponSheet: View {
 
 /// 角色命座详情表
 struct ConstellationSheet: View {
-    let single: Constellation?
+    var single: Constellation?
     let hide: () -> Void
     
     init(single: Constellation?, hide: @escaping () -> Void) {
