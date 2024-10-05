@@ -47,6 +47,20 @@ struct AvatarScreen: View {
                         }
                     }.frame(minWidth: 300, maxWidth: .infinity, maxHeight: .infinity)
                 }
+                .toolbar {
+                    ToolbarItem {
+                        Button(
+                            action: {
+                                if showContext {
+                                    viewModel.showUI = false
+                                    viewModel.overview = nil; viewModel.detail = nil
+                                    Task { await viewModel.getOrRefresh() }
+                                }
+                            },
+                            label: { Image(systemName: "arrow.clockwise") }
+                        ).disabled(!viewModel.showUI)
+                    }
+                }
             } else {
                 VStack {
                     Image("avatar_need_login").resizable().scaledToFit().frame(width: 72, height: 72).padding(.bottom, 8)

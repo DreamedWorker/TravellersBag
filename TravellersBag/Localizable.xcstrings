@@ -737,6 +737,39 @@
         }
       }
     },
+    "avatar.error.fetch" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "获取数据时失败，%@。"
+          }
+        }
+      }
+    },
+    "avatar.error.fetch_unknown" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "出现了未知问题，请稍后重试。"
+          }
+        }
+      }
+    },
+    "avatar.info.fetch_ok" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "获取数据成功。"
+          }
+        }
+      }
+    },
     "avatar.no_data.fetch" : {
       "extractionState" : "manual",
       "localizations" : {

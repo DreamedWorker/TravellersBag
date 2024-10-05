@@ -55,15 +55,18 @@ class AvatarModel: ObservableObject {
             DispatchQueue.main.async { [self] in
                 loadFile()
                 if showUI {
-                    GlobalUIModel.exported.makeAnAlert(type: 1, msg: "获取数据成功")
+                    GlobalUIModel.exported.makeAnAlert(type: 1, msg: NSLocalizedString("avatar.info.fetch_ok", comment: ""))
                 } else {
-                    GlobalUIModel.exported.makeAnAlert(type: 3, msg: "出现了未知问题，请稍后重试。")
+                    GlobalUIModel.exported.makeAnAlert(type: 3, msg: NSLocalizedString("avatar.error.fetch_unknown", comment: ""))
                 }
             }
         } catch {
             DispatchQueue.main.async {
                 self.showUI = false
-                GlobalUIModel.exported.makeAnAlert(type: 3, msg: "获取数据时失败，\(error.localizedDescription)")
+                GlobalUIModel.exported.makeAnAlert(
+                    type: 3,
+                    msg: String.localizedStringWithFormat(NSLocalizedString("avatar.error.fetch", comment: ""), error.localizedDescription)
+                )
             }
         }
     }

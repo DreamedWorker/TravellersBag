@@ -114,7 +114,7 @@ struct ConstellationSheet: View {
                     }.scrollDisabled(true).formStyle(.grouped).padding(.bottom, 4)
                     ScrollView {
                         Text(AttributedString(colorfulString(from: single.effect.replacingOccurrences(of: "\\n", with: "\n"))))
-                    }
+                    }.padding(.top, 8)
                 }
             } else {
                 Image(systemName: "exclamationmark.octagon")
