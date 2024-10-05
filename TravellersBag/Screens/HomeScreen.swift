@@ -28,6 +28,7 @@ struct HomeScreen: View {
                         Text("home.side.title.game").font(.callout).bold().padding(4)
                         NavigationLink(value: ScreenPart.DialyNote, label: { Label("home.sider.daily", systemImage: "macbook.and.ipad")})
                         NavigationLink(value: ScreenPart.Avatar, label: { Label("home.sider.avatar", systemImage: "figure.wave")})
+                        NavigationLink(value: ScreenPart.Index, label: { Label("home.sider.index", systemImage: "info.bubble")})
                     }
                 },
                 detail: {
@@ -46,6 +47,8 @@ struct HomeScreen: View {
                         DailyNotePane().navigationTitle(Text("home.sider.daily"))
                     case .Avatar:
                         AvatarScreen().navigationTitle(Text("home.sider.avatar"))
+                    case .Index:
+                        ShequIndexView().navigationTitle(Text("home.sider.index"))
                     }
                 }
             )
@@ -92,4 +95,5 @@ private enum ScreenPart {
     case Achievement
     case DialyNote
     case Avatar
+    case Index
 }

@@ -2176,6 +2176,17 @@
         }
       }
     },
+    "home.sider.index" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "社区信息面板"
+          }
+        }
+      }
+    },
     "home.sider.notice" : {
       "extractionState" : "manual",
       "localizations" : {

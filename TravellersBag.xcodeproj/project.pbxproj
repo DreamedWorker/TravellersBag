@@ -34,6 +34,9 @@
 		5D7B727F2CAD84F600416296 /* AvatarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7B727E2CAD84F600416296 /* AvatarModel.swift */; };
 		5D7B72852CADBAE600416296 /* AvatarService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7B72842CADBAE600416296 /* AvatarService.swift */; };
 		5D9036B72CAEED4200617817 /* Reliquary.json in Resources */ = {isa = PBXBuildFile; fileRef = 5D9036B62CAEED4200617817 /* Reliquary.json */; };
+		5D9184AB2CB11A08006B2B1D /* ShequIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9184AA2CB11A08006B2B1D /* ShequIndex.swift */; };
+		5D9184AE2CB11E9F006B2B1D /* CommonJsBrg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9184AD2CB11E9F006B2B1D /* CommonJsBrg.swift */; };
+		5D9184B02CB122C2006B2B1D /* JsDynamicSecurity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9184AF2CB122C2006B2B1D /* JsDynamicSecurity.swift */; };
 		5D9A6CB02CAE6A2500EA96BE /* Avatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9A6CAF2CAE6A2500EA96BE /* Avatar.swift */; };
 		5D9A6CB22CAE763A00EA96BE /* AvatarDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9A6CB12CAE763A00EA96BE /* AvatarDetail.swift */; };
 		5DA17BC92CAAAB3100D3E4BD /* DailyNotePane.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA17BC82CAAAB3100D3E4BD /* DailyNotePane.swift */; };
@@ -115,6 +118,9 @@
 		5D7B727E2CAD84F600416296 /* AvatarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarModel.swift; sourceTree = "<group>"; };
 		5D7B72842CADBAE600416296 /* AvatarService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarService.swift; sourceTree = "<group>"; };
 		5D9036B62CAEED4200617817 /* Reliquary.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Reliquary.json; sourceTree = "<group>"; };
+		5D9184AA2CB11A08006B2B1D /* ShequIndex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShequIndex.swift; sourceTree = "<group>"; };
+		5D9184AD2CB11E9F006B2B1D /* CommonJsBrg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonJsBrg.swift; sourceTree = "<group>"; };
+		5D9184AF2CB122C2006B2B1D /* JsDynamicSecurity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsDynamicSecurity.swift; sourceTree = "<group>"; };
 		5D9A6CAF2CAE6A2500EA96BE /* Avatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Avatar.swift; sourceTree = "<group>"; };
 		5D9A6CB12CAE763A00EA96BE /* AvatarDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarDetail.swift; sourceTree = "<group>"; };
 		5DA17BC82CAAAB3100D3E4BD /* DailyNotePane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyNotePane.swift; sourceTree = "<group>"; };
@@ -265,6 +271,23 @@
 			path = Avatar;
 			sourceTree = "<group>";
 		};
+		5D9184A92CB119EE006B2B1D /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				5D9184AA2CB11A08006B2B1D /* ShequIndex.swift */,
+			);
+			path = Misc;
+			sourceTree = "<group>";
+		};
+		5D9184AC2CB11E62006B2B1D /* JsBridge */ = {
+			isa = PBXGroup;
+			children = (
+				5D9184AD2CB11E9F006B2B1D /* CommonJsBrg.swift */,
+				5D9184AF2CB122C2006B2B1D /* JsDynamicSecurity.swift */,
+			);
+			path = JsBridge;
+			sourceTree = "<group>";
+		};
 		5DA17BC72CAAA82200D3E4BD /* DailyNote */ = {
 			isa = PBXGroup;
 			children = (
@@ -321,6 +344,7 @@
 		5DA45D3C2C8DA2C000949164 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				5D9184AC2CB11E62006B2B1D /* JsBridge */,
 				5DD2DF572CAFF9820057B86E /* Display */,
 				5DEA774D2CA313B4004EF4E7 /* Data */,
 				5DDA5AA22C9C9C33002793CF /* Misc */,
@@ -335,6 +359,7 @@
 		5DA45D422C8E0CFA00949164 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				5D9184A92CB119EE006B2B1D /* Misc */,
 				5D7B727B2CAD83AD00416296 /* Avatar */,
 				5DA17BC72CAAA82200D3E4BD /* DailyNote */,
 				5D67B85B2CA4E14300AC1EFD /* Achievement */,
@@ -577,6 +602,7 @@
 				5DD2DF562CAFEC110057B86E /* AvatarSheets.swift in Sources */,
 				5DD653D02C9AAD3B00B0DA2B /* PassportModel.swift in Sources */,
 				5DA45D442C8E0D1300949164 /* HomeScreen.swift in Sources */,
+				5D9184B02CB122C2006B2B1D /* JsDynamicSecurity.swift in Sources */,
 				5DD653E02C9B353400B0DA2B /* NoticeModel.swift in Sources */,
 				5DDCB9382CA1B4F6007EF232 /* GachaOverview.swift in Sources */,
 				5DE6B5472C8E854C00690B5C /* TBEnv.swift in Sources */,
@@ -595,6 +621,7 @@
 				5DD653D22C9AB61B00B0DA2B /* HutaoService.swift in Sources */,
 				5DEA77392CA26399004EF4E7 /* GachaBulletin.swift in Sources */,
 				5DA45D482C8E0DA300949164 /* GlobalUIModel.swift in Sources */,
+				5D9184AE2CB11E9F006B2B1D /* CommonJsBrg.swift in Sources */,
 				5DDCB93C2CA1BC80007EF232 /* MDLikeTile.swift in Sources */,
 				5DA45D4E2C8E12D800949164 /* CardView.swift in Sources */,
 				5DFA35792CA642F60047D96E /* AchievementData.swift in Sources */,
@@ -606,6 +633,7 @@
 				5D7B727D2CAD840E00416296 /* AvatarScreen.swift in Sources */,
 				5D2B85792C9D1DD800ED1DD8 /* DashboardModel.swift in Sources */,
 				5D9A6CB22CAE763A00EA96BE /* AvatarDetail.swift in Sources */,
+				5D9184AB2CB11A08006B2B1D /* ShequIndex.swift in Sources */,
 				5D0E08542CAC574E00FCBB55 /* HutaoGachaModel.swift in Sources */,
 				5D0E08522CAC223500FCBB55 /* HutaoRecords.swift in Sources */,
 				5DFA35772CA640EF0047D96E /* AchieveService.swift in Sources */,
