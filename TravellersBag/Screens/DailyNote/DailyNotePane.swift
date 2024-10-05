@@ -44,7 +44,7 @@ struct DailyNotePane: View {
                             }
                             // 原粹树脂
                             HStack {
-                                Image("resin").resizable().scaledToFit().frame(width: 24, height: 24)
+                                Image(systemName: "moon.circle.fill").font(.title2)
                                 VStack(alignment: .leading, content: {
                                     Text("daily.display.resin").font(.title3).bold()
                                     if viewModel.dailyContext!["resin_recovery_time"].stringValue == "0" {
@@ -67,7 +67,7 @@ struct DailyNotePane: View {
                             }
                             // 周本
                             HStack {
-                                Image("discount").resizable().scaledToFit().frame(width: 24, height: 24)
+                                Image(systemName: "house").font(.title2)
                                 VStack(alignment: .leading, content: {
                                     Text("daily.display.resin_discount").font(.title3).bold()
                                     Text("daily.display.resin_discount_p").foregroundStyle(.secondary)
@@ -81,7 +81,7 @@ struct DailyNotePane: View {
                             }
                             // 洞天宝钱
                             HStack {
-                                Image("home_coin").resizable().scaledToFit().frame(width: 24, height: 24)
+                                Image(systemName: "bitcoinsign").font(.title2)
                                 VStack(alignment: .leading, content: {
                                     Text("daily.display.coin").font(.title3).bold()
                                     if viewModel.dailyContext!["home_coin_recovery_time"].stringValue == "0" {
@@ -104,7 +104,7 @@ struct DailyNotePane: View {
                             }
                             // 每日委托
                             HStack {
-                                Image("task").resizable().scaledToFit().frame(width: 24, height: 24)
+                                Image(systemName: "scope").font(.title2)
                                 VStack(alignment: .leading, content: {
                                     Text("daily.display.task").font(.title3).bold()
                                     HStack {
@@ -122,7 +122,7 @@ struct DailyNotePane: View {
                             }
                             // 参量质变仪
                             HStack {
-                                Image("transformer").resizable().scaledToFit().frame(width: 24, height: 24)
+                                //Image("transformer").resizable().scaledToFit().frame(width: 24, height: 24)
                                 VStack(alignment: .leading, content: {
                                     Text("daily.display.transformer").font(.title3).bold()
                                     if viewModel.dailyContext!["transformer"]["recovery_time"]["reached"].boolValue {
