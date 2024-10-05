@@ -29,6 +29,10 @@ struct HomeScreen: View {
                         NavigationLink(value: ScreenPart.DialyNote, label: { Label("home.sider.daily", systemImage: "macbook.and.ipad")})
                         NavigationLink(value: ScreenPart.Avatar, label: { Label("home.sider.avatar", systemImage: "figure.wave")})
                         NavigationLink(value: ScreenPart.Index, label: { Label("home.sider.index", systemImage: "info.bubble")})
+                        NavigationLink(
+                            value: ScreenPart.Adopt,
+                            label: { Label("home.sider.adopt", systemImage: "person.crop.circle.badge.checkmark")}
+                        )
                     }
                 },
                 detail: {
@@ -49,6 +53,8 @@ struct HomeScreen: View {
                         AvatarScreen().navigationTitle(Text("home.sider.avatar"))
                     case .Index:
                         ShequIndexView().navigationTitle(Text("home.sider.index"))
+                    case .Adopt:
+                        AdoptCalculator().navigationTitle(Text("home.sider.adopt"))
                     }
                 }
             )
@@ -96,4 +102,5 @@ private enum ScreenPart {
     case DialyNote
     case Avatar
     case Index
+    case Adopt
 }

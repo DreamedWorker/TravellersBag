@@ -18,12 +18,7 @@ class JsBridgeHelper {
             Task {
                 DispatchQueue.main.async {
                     web.evaluateJavaScript(js){(_, e) in
-                        if e == nil {
-                            print("完成\(method)")
-                            if method == "login" {
-                                web.evaluateJavaScript("location.reload(true)")
-                            }
-                        } else {
+                        if e != nil {
                             print("执行js报错：\(String(describing: e))")
                         }
                     }
@@ -85,7 +80,7 @@ class JsBridgeHelper {
                     req.setDS(version: SaltVersion.V1, type: SaltType.K2)
                     req.setUser(singleUser: GlobalUIModel.exported.defAccount!)
                     req.setDeviceInfoHeaders()
-                    req.setXRPCAppInfo()
+                    req.setXRPCAppInfo(client: "5")
                     let result = try await req.receiveOrThrow()
                     let payload = """
 {"retcode":0, "message":"", "data": {"action_ticket": "\(result["ticket"].stringValue)"}}

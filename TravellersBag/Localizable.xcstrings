@@ -2132,6 +2132,17 @@
         }
       }
     },
+    "home.sider.adopt" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "养成计算器"
+          }
+        }
+      }
+    },
     "home.sider.avatar" : {
       "extractionState" : "manual",
       "localizations" : {
