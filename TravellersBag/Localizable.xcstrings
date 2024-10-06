@@ -825,6 +825,28 @@
         }
       }
     },
+    "command.add.check_update" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "检查更新"
+          }
+        }
+      }
+    },
+    "command.app" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "我的行囊"
+          }
+        }
+      }
+    },
     "daily.display.coin" : {
       "extractionState" : "manual",
       "localizations" : {

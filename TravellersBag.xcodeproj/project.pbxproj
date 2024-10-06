@@ -806,7 +806,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "旅者行囊";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright (C) 2024-present Yuanshine(BlueDream). All rights reserved. 应用中的部分静态资源来自米哈游、DPG Studio和UIGF组织。";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright (C) 2024-present Yuanshine(BlueDream). All rights reserved.";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -837,7 +837,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "旅者行囊";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright (C) 2024-present Yuanshine(BlueDream). All rights reserved. 应用中的部分静态资源来自米哈游、DPG Studio和UIGF组织。";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright (C) 2024-present Yuanshine(BlueDream). All rights reserved.";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",

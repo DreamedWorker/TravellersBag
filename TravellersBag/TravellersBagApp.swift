@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Sentry
+import AppKit
 
 @main
 struct TravellersBagApp: App {
@@ -32,6 +33,13 @@ struct TravellersBagApp: App {
                 WizardScreen()
             }
         }
+        .commands(content: {
+            CommandMenu("command.app", content: {
+                Button("command.add.check_update", action: {
+                    NSWorkspace.shared.open(URL(string: "https://github.com/DreamedWorker/TravellersBag")!)
+                }).keyboardShortcut(.init("g"))
+            })
+        })
     }
 }
 

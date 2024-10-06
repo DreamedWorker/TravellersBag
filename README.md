@@ -17,6 +17,7 @@ and for all your data, this tool-set only provides read-only functionality to fu
 
 ## 安装需求  /  Requirement
 
+由于「会费」对于业余的、不算活跃的个人开发者来说实在过于昂贵，因此本软件并未通过公证。在打开时会弹窗提示【未知的开发者】，你可以通过「option + 鼠标右键」或者在设置中允许以打开。
 1. 无论Intel芯片还是M系列芯片，但需确保系统是64位的，且系统版本为macOS 13.0及更新。(Whether using Intel chips or M-series chips, it is necessary to ensure that the system is 64 bit and the system version is macOS 13.0 or later.)
 2. 你需要在开源许可协议的范围内使用，详细内容在初次安装后参见「初始化页面」的指引链接。(You need to use it within the scope of the open source license agreement)
 3. 我们将通过「米游社」而不是「HoyoLab」的Api来请求所有与你相关的数据，因此你需要确保你的账号应当是注册在中国大陆（进一步来说是出入境管理相关规定中的「境内」），
