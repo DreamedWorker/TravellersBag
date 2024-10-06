@@ -1,7 +1,7 @@
 //
 //  GlobalUIModel.swift
 //  TravellersBag
-//
+//a
 //  Created by 鸳汐 on 2024/9/9.
 //
 
