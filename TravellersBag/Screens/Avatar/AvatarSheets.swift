@@ -163,11 +163,13 @@ struct SkillSheet: View {
                         ).padding(2)
                         Spacer()
                     }
-                    HStack {
-                        Text(String(skill.desc.split(separator: "<i>")[1]).replacingOccurrences(of: "</i>", with: ""))
-                            .foregroundStyle(.secondary)
-                            .italic()
-                        Spacer()
+                    if !skill.name.contains("普通攻击") {
+                        HStack {
+                            Text(String(skill.desc.split(separator: "<i>")[1]).replacingOccurrences(of: "</i>", with: ""))
+                                .foregroundStyle(.secondary)
+                                .italic()
+                            Spacer()
+                        }
                     }
                 })
             }
