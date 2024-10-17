@@ -12,6 +12,7 @@ import AppKit
 @main
 struct TravellersBagApp: App {
     @StateObject private var coreDataHelper = CoreDataHelper.shared
+    @State private var showDeviceInfo = false
     
     init() {
         TBEnv.default.checkEnvironment()
@@ -29,12 +30,19 @@ struct TravellersBagApp: App {
             if UserDefaultHelper.shared.getValue(forKey: "currentAppVersion", def: "0.0.0") == "0.0.1" {
                 HomeScreen()
                     .environment(\.managedObjectContext, coreDataHelper.persistentContainer.viewContext)
+                    .sheet(isPresented: $showDeviceInfo, content: { DeviceInfoPane(dismissIt: { showDeviceInfo = false }) })
             } else {
                 WizardScreen()
             }
         }
         .commands(content: {
             CommandMenu("command.app", content: {
+                Button("command.add.device_info", action: {
+                    if UserDefaultHelper.shared.getValue(forKey: "currentAppVersion", def: "0.0.0") == "0.0.1" {
+                        showDeviceInfo = true
+                    }
+                })
+                Divider()
                 Button("command.add.check_update", action: {
                     NSWorkspace.shared.open(URL(string: "https://github.com/DreamedWorker/TravellersBag")!)
                 }).keyboardShortcut(.init("g"))

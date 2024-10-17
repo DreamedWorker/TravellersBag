@@ -1879,6 +1879,138 @@
         }
       }
     },
+    "device.show_miyoushe" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "米游社APP版本"
+          }
+        }
+      }
+    },
+    "device.show_miyoushe_p" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "2.71.1"
+          }
+        }
+      }
+    },
+    "device.show.bbs_device_id" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "BBS Device ID"
+          }
+        }
+      }
+    },
+    "device.show.fp" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "设备指纹"
+          }
+        }
+      }
+    },
+    "device.show.fp_last_update" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "上次更新时间：%@"
+          }
+        }
+      }
+    },
+    "device.show.fp_not_official" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "你的设备指纹可能是非法的，请尝试重新获取。"
+          }
+        }
+      }
+    },
+    "device.show.fp_update" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "更新设备指纹"
+          }
+        }
+      }
+    },
+    "device.show.id" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Device ID"
+          }
+        }
+      }
+    },
+    "device.show.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "设备名称"
+          }
+        }
+      }
+    },
+    "device.show.name_p" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "iPhone 15（iOS 16.0）"
+          }
+        }
+      }
+    },
+    "device.show.p" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "你的设备信息在你第一次冷启动时完成初始化并全局不可修改，设备指纹是你唯一可以更新的部分，我们默认每5天更新一次，你不应当过于频繁地更新设备指纹。"
+          }
+        }
+      }
+    },
+    "device.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "虚拟设备基本信息"
+          }
+        }
+      }
+    },
     "gacha.error.fetch_info_err" : {
       "extractionState" : "manual",
       "localizations" : {
