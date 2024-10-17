@@ -42,7 +42,7 @@ struct AccountDetail: View {
                         .clipShape(Circle())
                         .padding(.top, 16)
                     Text(account.shequNicname!).font(.title2).bold().padding(.bottom, 16)
-                    GroupBox("app.name") {
+                    GroupBox("account.detail.tab_genshin") {
                         HStack(spacing: 8, content: {
                             Image(systemName: "person.text.rectangle")
                             Text("account.detail.genshin_uid")
@@ -79,7 +79,7 @@ struct AccountDetail: View {
                             Text(account.level!).foregroundStyle(.secondary)
                         }).padding(4)
                     }.padding(.bottom, 8)
-                    GroupBox("app.confirm") {
+                    GroupBox("account.detail.tab_shequ") {
                         HStack(spacing: 8, content: {
                             Image(systemName: "person.text.rectangle")
                             Text("account.detail.shequ_uid")
