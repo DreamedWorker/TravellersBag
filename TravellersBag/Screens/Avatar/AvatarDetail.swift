@@ -71,7 +71,7 @@ struct AvatarDetail: View {
                         }
                         if name != nil {
                             let useLocalImg = HoyoResKit.default.getImageWithNameAndType(
-                                type: "Talent",
+                                type: "Skill",
                                 name: name!).split(separator: "@")
                             if String(useLocalImg[0]) == "L" {
                                 localImgPath = String(useLocalImg[1])
