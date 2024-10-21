@@ -195,6 +195,11 @@ class AccountModel: ObservableObject {
         }
     }
     
+    /// 检查当前账号的登录状态，如果过期则尝试自动登录
+    func checkLoginState(currentAccount: ShequAccount) async {
+        do {}
+    }
+    
     private func dealImg(pic: String) {
         qrCode = NSImage()
         let context = CIContext()

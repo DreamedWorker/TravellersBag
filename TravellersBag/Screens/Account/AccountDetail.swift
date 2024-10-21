@@ -78,6 +78,10 @@ struct AccountDetail: View {
                             Spacer()
                             Text(account.level!).foregroundStyle(.secondary)
                         }).padding(4)
+                        HStack {
+                            Spacer()
+                            Button("account.detail.connect", action: {})
+                        }.padding(4)
                     }.padding(.bottom, 8)
                     GroupBox("account.detail.tab_shequ") {
                         HStack(spacing: 8, content: {
