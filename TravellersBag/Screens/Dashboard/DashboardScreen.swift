@@ -43,6 +43,7 @@ struct DashboardScreen: View {
                                                 msg: String.localizedStringWithFormat(
                                                     NSLocalizedString("dashboard.unit.widget.fetch_error", comment: ""), error.localizedDescription)
                                             )
+                                            viewModel.showWidget = true
                                         }
                                     }
                                 }
@@ -63,9 +64,10 @@ struct DashboardScreen: View {
                             do {
                                 try await viewModel.fetchContextAndSave(account: GlobalUIModel.exported.defAccount!)
                             } catch {
-                                DispatchQueue.main.async {
+                                DispatchQueue.main.async { [self] in
                                     GlobalUIModel.exported.makeAnAlert(
                                         type: 3, msg: NSLocalizedString("dashboard.error.fetch_data", comment: ""))
+                                    viewModel.showUI = true
                                 }
                             }
                         }
