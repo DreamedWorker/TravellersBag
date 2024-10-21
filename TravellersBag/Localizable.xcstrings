@@ -374,6 +374,50 @@
         }
       }
     },
+    "account.error.update_state" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "刷新账号状态失败，请删除并重新登录。"
+          }
+        }
+      }
+    },
+    "account.error.update_state_reason" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "刷新账号状态失败，%@。"
+          }
+        }
+      }
+    },
+    "account.info.latest" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "你的账号尚未过期。"
+          }
+        }
+      }
+    },
+    "account.info.latest_p" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已更新了你的账号状态。"
+          }
+        }
+      }
+    },
     "account.login_no" : {
       "extractionState" : "manual",
       "localizations" : {

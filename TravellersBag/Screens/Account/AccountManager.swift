@@ -61,6 +61,9 @@ struct AccountManager: View {
                                 selectedAccount = nil
                                 viewModel.fetchUsers()
                                 GlobalUIModel.exported.makeAnAlert(type: 1, msg: "操作完成")
+                            },
+                            checkState: { account in
+                                Task { await viewModel.checkLoginState(currentAccount: account) }
                             }
                         )
                     }

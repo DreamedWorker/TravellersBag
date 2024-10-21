@@ -14,6 +14,7 @@ struct AccountDetail: View {
     private var imgAddress: String
     let setDefaultAccount: () -> Void
     let logout: () -> Void
+    let checkState: (ShequAccount) -> Void
     
     @State private var showLogout = false
     @State var showEverything = true
@@ -21,12 +22,14 @@ struct AccountDetail: View {
     init(
         account: ShequAccount,
         setDefaultAccount: @escaping () -> Void,
-        logout: @escaping () -> Void
+        logout: @escaping () -> Void,
+        checkState: @escaping (ShequAccount) -> Void
     ) {
         self.account = account
         self.imgAddress = HoyoResKit.default.getCharacterHeadAddress(key: account.genshinPicID!)
         self.setDefaultAccount = setDefaultAccount
         self.logout = logout
+        self.checkState = checkState
     }
     
     var body: some View {
@@ -80,7 +83,9 @@ struct AccountDetail: View {
                         }).padding(4)
                         HStack {
                             Spacer()
-                            Button("account.detail.connect", action: {})
+                            Button("account.detail.connect", action: {
+                                checkState(account)
+                            })
                         }.padding(4)
                     }.padding(.bottom, 8)
                     GroupBox("account.detail.tab_shequ") {

@@ -197,7 +197,36 @@ class AccountModel: ObservableObject {
     
     /// 检查当前账号的登录状态，如果过期则尝试自动登录
     func checkLoginState(currentAccount: ShequAccount) async {
-        do {}
+        do {
+            _ = try await WidgetService.default.fetchWidget(user: currentAccount)
+            DispatchQueue.main.async {
+                GlobalUIModel.exported.makeAnAlert(type: 1, msg: NSLocalizedString("account.info.latest", comment: ""))
+            }
+        } catch {
+            // 执行到这里 说明上面报错了 账号过期
+            do {
+                let gameToken = currentAccount.gameToken!
+                let stoken = try await JSON(data: AccountService.shared.pullUserSToken(uid: currentAccount.stuid!, token: gameToken))
+                let cookieToken = try await AccountService.shared.pullUserCookieToken(uid: currentAccount.stuid!, token: gameToken)
+                let ltoken = try await AccountService.shared.pullUserLtoken(uid: currentAccount.stuid!, stoken: stoken["stoken"].stringValue, mid: stoken["mid"].stringValue)
+                currentAccount.stoken = stoken["stoken"].stringValue
+                currentAccount.cookieToken = cookieToken
+                currentAccount.ltoken = ltoken
+                if CoreDataHelper.shared.save() {
+                    DispatchQueue.main.async {
+                        GlobalUIModel.exported.makeAnAlert(type: 1, msg: NSLocalizedString("account.info.latest_p", comment: ""))
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                        GlobalUIModel.exported.makeAnAlert(type: 3, msg: NSLocalizedString("account.error.update_state", comment: ""))
+                    }
+                }
+            } catch {
+                DispatchQueue.main.async {
+                    GlobalUIModel.exported.makeAnAlert(type: 3, msg: String.localizedStringWithFormat(NSLocalizedString("account.error.update_state_reason", comment: ""), error.localizedDescription))
+                }
+            }
+        }
     }
     
     private func dealImg(pic: String) {

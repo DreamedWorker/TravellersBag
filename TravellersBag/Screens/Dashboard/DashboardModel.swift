@@ -57,7 +57,7 @@ class DashboardModel: ObservableObject {
     
     /// 获取小组件【实时便签】的内容并写入本地保存
     func fetchWidgetAndSace(user: ShequAccount) async throws {
-        let result = try await fetchWidget(user: user)
+        let result = try await WidgetService.default.fetchWidget(user: user)
         FileHandler.shared.writeUtf8String(path: widgetFile.toStringPath(), context: result.rawString()!)
         DispatchQueue.main.async { [self] in
             GlobalUIModel.exported.makeAnAlert(type: 1, msg: NSLocalizedString("dashboard.info.fetch_widget_ok", comment: ""))
@@ -82,18 +82,6 @@ class DashboardModel: ObservableObject {
         req.setValue("https://webstatic.mihoyo.com", forHTTPHeaderField: "Origin")
         req.setXRPCAppInfo(client: "5")
         req.setDeviceInfoHeaders()
-        return try await req.receiveOrThrow()
-    }
-    
-    private func fetchWidget(user: ShequAccount) async throws -> JSON {
-        var req = URLRequest(url: URL(string: ApiEndpoints.shared.getWidgetSimple())!)
-        req.setHost(host: "api-takumi-record.mihoyo.com")
-        req.setUser(singleUser: user)
-        req.setIosUA()
-        req.setValue("https://webstatic.mihoyo.com", forHTTPHeaderField: "Origin")
-        req.setDS(version: .V2, type: .X4, include: false)
-        req.setDeviceInfoHeaders()
-        req.setXRPCAppInfo(client: "5")
         return try await req.receiveOrThrow()
     }
 }
