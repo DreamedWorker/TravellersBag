@@ -8,17 +8,25 @@
 import SwiftUI
 
 struct ContentView: View {
+    let needShowWizard: Bool
+    
     var body: some View {
         VStack {
             Image(systemName: "globe")
                 .imageScale(.large)
                 .foregroundStyle(.tint)
-            Text("Hello, world!")
+            if needShowWizard {
+                Text("app.name")
+            } else {
+                Text("Hello, world!")
+            }
         }
         .padding()
     }
 }
 
+#if DEBUG
 #Preview {
-    ContentView()
+    ContentView(needShowWizard: true)
 }
+#endif

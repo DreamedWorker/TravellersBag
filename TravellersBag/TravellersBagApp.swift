@@ -9,9 +9,14 @@ import SwiftUI
 
 @main
 struct TravellersBagApp: App {
+    private var needWizard: Bool = false
+    init() {
+        needWizard = TBCore.shared.configGetConfig(forKey: "currentAppVersion", def: "0.0.0") != "0.0.2"
+    }
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(needShowWizard: needWizard)
         }
     }
 }

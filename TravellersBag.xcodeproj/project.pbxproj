@@ -6,23 +6,47 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		5DD845632CCA1F0100D812C4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5DD845592CCA1F0100D812C4 /* Preview Assets.xcassets */; };
+		5DD845642CCA1F0100D812C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5DD8455C2CCA1F0100D812C4 /* Assets.xcassets */; };
+		5DD845652CCA1F0100D812C4 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 5DD8455E2CCA1F0100D812C4 /* Localizable.xcstrings */; };
+		5DD845662CCA1F0100D812C4 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 5DD8455F2CCA1F0100D812C4 /* README.md */; };
+		5DD845672CCA1F0100D812C4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD8455D2CCA1F0100D812C4 /* ContentView.swift */; };
+		5DD845682CCA1F0100D812C4 /* TravellersBagApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD845612CCA1F0100D812C4 /* TravellersBagApp.swift */; };
+		5DD8456B2CCA1F0C00D812C4 /* TBCoreMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD845692CCA1F0C00D812C4 /* TBCoreMain.swift */; };
+		5DD8456E2CCA21AD00D812C4 /* ConfigHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD8456D2CCA21AD00D812C4 /* ConfigHelper.swift */; };
+		5DD845712CCA238500D812C4 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 5DD845702CCA238500D812C4 /* Kingfisher */; };
+		5DD845742CCA23B600D812C4 /* Zip in Frameworks */ = {isa = PBXBuildFile; productRef = 5DD845732CCA23B600D812C4 /* Zip */; };
+		5DD845772CCA23E800D812C4 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 5DD845762CCA23E800D812C4 /* SwiftyJSON */; };
+		5DD8457A2CCA242C00D812C4 /* AlertToast in Frameworks */ = {isa = PBXBuildFile; productRef = 5DD845792CCA242C00D812C4 /* AlertToast */; };
+		5DD8457D2CCA245700D812C4 /* xxHash-Swift in Frameworks */ = {isa = PBXBuildFile; productRef = 5DD8457C2CCA245700D812C4 /* xxHash-Swift */; };
+		5DD845802CCA24BB00D812C4 /* Sentry in Frameworks */ = {isa = PBXBuildFile; productRef = 5DD8457F2CCA24BB00D812C4 /* Sentry */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		5DD845362CCA14E200D812C4 /* TravellersBag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravellersBag.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5DD845592CCA1F0100D812C4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		5DD8455C2CCA1F0100D812C4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5DD8455D2CCA1F0100D812C4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		5DD8455E2CCA1F0100D812C4 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		5DD8455F2CCA1F0100D812C4 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		5DD845602CCA1F0100D812C4 /* TravellersBag.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TravellersBag.entitlements; sourceTree = "<group>"; };
+		5DD845612CCA1F0100D812C4 /* TravellersBagApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravellersBagApp.swift; sourceTree = "<group>"; };
+		5DD845692CCA1F0C00D812C4 /* TBCoreMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TBCoreMain.swift; sourceTree = "<group>"; };
+		5DD8456D2CCA21AD00D812C4 /* ConfigHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		5DD845382CCA14E200D812C4 /* TravellersBag */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = TravellersBag;
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		5DD845332CCA14E200D812C4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5DD845772CCA23E800D812C4 /* SwiftyJSON in Frameworks */,
+				5DD8457A2CCA242C00D812C4 /* AlertToast in Frameworks */,
+				5DD8457D2CCA245700D812C4 /* xxHash-Swift in Frameworks */,
+				5DD845742CCA23B600D812C4 /* Zip in Frameworks */,
+				5DD845712CCA238500D812C4 /* Kingfisher in Frameworks */,
+				5DD845802CCA24BB00D812C4 /* Sentry in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -32,7 +56,8 @@
 		5DD8452D2CCA14E200D812C4 = {
 			isa = PBXGroup;
 			children = (
-				5DD845382CCA14E200D812C4 /* TravellersBag */,
+				5DD8456A2CCA1F0C00D812C4 /* TBCore */,
+				5DD845622CCA1F0100D812C4 /* TravellersBag */,
 				5DD845372CCA14E200D812C4 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -43,6 +68,53 @@
 				5DD845362CCA14E200D812C4 /* TravellersBag.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		5DD8455A2CCA1F0100D812C4 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				5DD845592CCA1F0100D812C4 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		5DD8455B2CCA1F0100D812C4 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				5DD8455D2CCA1F0100D812C4 /* ContentView.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		5DD845622CCA1F0100D812C4 /* TravellersBag */ = {
+			isa = PBXGroup;
+			children = (
+				5DD8455A2CCA1F0100D812C4 /* Preview Content */,
+				5DD8455B2CCA1F0100D812C4 /* UI */,
+				5DD8455C2CCA1F0100D812C4 /* Assets.xcassets */,
+				5DD8455E2CCA1F0100D812C4 /* Localizable.xcstrings */,
+				5DD8455F2CCA1F0100D812C4 /* README.md */,
+				5DD845602CCA1F0100D812C4 /* TravellersBag.entitlements */,
+				5DD845612CCA1F0100D812C4 /* TravellersBagApp.swift */,
+			);
+			path = TravellersBag;
+			sourceTree = "<group>";
+		};
+		5DD8456A2CCA1F0C00D812C4 /* TBCore */ = {
+			isa = PBXGroup;
+			children = (
+				5DD8456C2CCA219400D812C4 /* Config */,
+				5DD845692CCA1F0C00D812C4 /* TBCoreMain.swift */,
+			);
+			path = TBCore;
+			sourceTree = "<group>";
+		};
+		5DD8456C2CCA219400D812C4 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				5DD8456D2CCA21AD00D812C4 /* ConfigHelper.swift */,
+			);
+			path = Config;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -60,11 +132,14 @@
 			);
 			dependencies = (
 			);
-			fileSystemSynchronizedGroups = (
-				5DD845382CCA14E200D812C4 /* TravellersBag */,
-			);
 			name = TravellersBag;
 			packageProductDependencies = (
+				5DD845702CCA238500D812C4 /* Kingfisher */,
+				5DD845732CCA23B600D812C4 /* Zip */,
+				5DD845762CCA23E800D812C4 /* SwiftyJSON */,
+				5DD845792CCA242C00D812C4 /* AlertToast */,
+				5DD8457C2CCA245700D812C4 /* xxHash-Swift */,
+				5DD8457F2CCA24BB00D812C4 /* Sentry */,
 			);
 			productName = TravellersBag;
 			productReference = 5DD845362CCA14E200D812C4 /* TravellersBag.app */;
@@ -95,6 +170,14 @@
 			);
 			mainGroup = 5DD8452D2CCA14E200D812C4;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				5DD8456F2CCA238500D812C4 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				5DD845722CCA23B600D812C4 /* XCRemoteSwiftPackageReference "Zip" */,
+				5DD845752CCA23E800D812C4 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+				5DD845782CCA242C00D812C4 /* XCRemoteSwiftPackageReference "AlertToast" */,
+				5DD8457B2CCA245700D812C4 /* XCRemoteSwiftPackageReference "xxHash-Swift" */,
+				5DD8457E2CCA24BB00D812C4 /* XCRemoteSwiftPackageReference "sentry-cocoa" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 5DD845372CCA14E200D812C4 /* Products */;
 			projectDirPath = "";
@@ -110,6 +193,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5DD845632CCA1F0100D812C4 /* Preview Assets.xcassets in Resources */,
+				5DD845642CCA1F0100D812C4 /* Assets.xcassets in Resources */,
+				5DD845652CCA1F0100D812C4 /* Localizable.xcstrings in Resources */,
+				5DD845662CCA1F0100D812C4 /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -120,6 +207,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5DD845672CCA1F0100D812C4 /* ContentView.swift in Sources */,
+				5DD845682CCA1F0100D812C4 /* TravellersBagApp.swift in Sources */,
+				5DD8456B2CCA1F0C00D812C4 /* TBCoreMain.swift in Sources */,
+				5DD8456E2CCA21AD00D812C4 /* ConfigHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,6 +419,90 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5DD8456F2CCA238500D812C4 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.1.0;
+			};
+		};
+		5DD845722CCA23B600D812C4 /* XCRemoteSwiftPackageReference "Zip" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/marmelroy/Zip.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.1.2;
+			};
+		};
+		5DD845752CCA23E800D812C4 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.2;
+			};
+		};
+		5DD845782CCA242C00D812C4 /* XCRemoteSwiftPackageReference "AlertToast" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/elai950/AlertToast.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.3.9;
+			};
+		};
+		5DD8457B2CCA245700D812C4 /* XCRemoteSwiftPackageReference "xxHash-Swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/daisuke-t-jp/xxHash-Swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.1;
+			};
+		};
+		5DD8457E2CCA24BB00D812C4 /* XCRemoteSwiftPackageReference "sentry-cocoa" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/getsentry/sentry-cocoa";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.38.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5DD845702CCA238500D812C4 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5DD8456F2CCA238500D812C4 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		5DD845732CCA23B600D812C4 /* Zip */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5DD845722CCA23B600D812C4 /* XCRemoteSwiftPackageReference "Zip" */;
+			productName = Zip;
+		};
+		5DD845762CCA23E800D812C4 /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5DD845752CCA23E800D812C4 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
+		};
+		5DD845792CCA242C00D812C4 /* AlertToast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5DD845782CCA242C00D812C4 /* XCRemoteSwiftPackageReference "AlertToast" */;
+			productName = AlertToast;
+		};
+		5DD8457C2CCA245700D812C4 /* xxHash-Swift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5DD8457B2CCA245700D812C4 /* XCRemoteSwiftPackageReference "xxHash-Swift" */;
+			productName = "xxHash-Swift";
+		};
+		5DD8457F2CCA24BB00D812C4 /* Sentry */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5DD8457E2CCA24BB00D812C4 /* XCRemoteSwiftPackageReference "sentry-cocoa" */;
+			productName = Sentry;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5DD8452E2CCA14E200D812C4 /* Project object */;
 }
