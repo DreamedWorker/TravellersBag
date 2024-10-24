@@ -1,0 +1,27 @@
+{
+  "sourceLanguage" : "zh-Hans",
+  "strings" : {
+    "app.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "旅者行囊"
+          }
+        }
+      }
+    },
+    "Hello, world!" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hello World"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}
