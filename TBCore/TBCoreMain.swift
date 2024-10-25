@@ -9,7 +9,7 @@ import Foundation
 
 struct TBCore {
     private init() {}
-    @MainActor static let `shared` = TBCore()
+    static let `shared` = TBCore()
     
     let preference = UserDefaults.init(suiteName: "preferences")!
 }

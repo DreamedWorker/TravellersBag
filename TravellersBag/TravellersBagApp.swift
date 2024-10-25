@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+let groupName = "NV65B8VFUD.travellersbag"
+
 @main
 struct TravellersBagApp: App {
     private var needWizard: Bool = false

@@ -11,17 +11,21 @@ struct ContentView: View {
     let needShowWizard: Bool
     
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            if needShowWizard {
-                Text("app.name")
-            } else {
-                Text("Hello, world!")
+        if needShowWizard {
+            WizardPane()
+        } else {
+            VStack {
+                Image(systemName: "globe")
+                    .imageScale(.large)
+                    .foregroundStyle(.tint)
+                if needShowWizard {
+                    Text("app.name")
+                } else {
+                    Text("Hello, world!")
+                }
             }
+            .padding()
         }
-        .padding()
     }
 }
 
