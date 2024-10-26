@@ -7,52 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5DD512372CCC069000E24985 /* TBErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD512362CCC069000E24985 /* TBErrors.swift */; };
 		5DD845712CCA238500D812C4 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 5DD845702CCA238500D812C4 /* Kingfisher */; };
 		5DD845742CCA23B600D812C4 /* Zip in Frameworks */ = {isa = PBXBuildFile; productRef = 5DD845732CCA23B600D812C4 /* Zip */; };
 		5DD845772CCA23E800D812C4 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 5DD845762CCA23E800D812C4 /* SwiftyJSON */; };
 		5DD8457A2CCA242C00D812C4 /* AlertToast in Frameworks */ = {isa = PBXBuildFile; productRef = 5DD845792CCA242C00D812C4 /* AlertToast */; };
 		5DD8457D2CCA245700D812C4 /* xxHash-Swift in Frameworks */ = {isa = PBXBuildFile; productRef = 5DD8457C2CCA245700D812C4 /* xxHash-Swift */; };
 		5DD845802CCA24BB00D812C4 /* Sentry in Frameworks */ = {isa = PBXBuildFile; productRef = 5DD8457F2CCA24BB00D812C4 /* Sentry */; };
-		5DE8CD382CCB91160039DE0E /* ConfigHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE8CD322CCB91160039DE0E /* ConfigHelper.swift */; };
-		5DE8CD392CCB91160039DE0E /* LanguageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE8CD332CCB91160039DE0E /* LanguageHelper.swift */; };
-		5DE8CD3A2CCB91160039DE0E /* TBCoreMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE8CD362CCB91160039DE0E /* TBCoreMain.swift */; };
-		5DE8CD4B2CCB91190039DE0E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5DE8CD3B2CCB91190039DE0E /* Preview Assets.xcassets */; };
-		5DE8CD4C2CCB91190039DE0E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5DE8CD452CCB91190039DE0E /* Assets.xcassets */; };
-		5DE8CD4D2CCB91190039DE0E /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 5DE8CD462CCB91190039DE0E /* Localizable.xcstrings */; };
-		5DE8CD4E2CCB91190039DE0E /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 5DE8CD472CCB91190039DE0E /* README.md */; };
-		5DE8CD4F2CCB91190039DE0E /* WizardFuncUnits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE8CD3D2CCB91190039DE0E /* WizardFuncUnits.swift */; };
-		5DE8CD502CCB91190039DE0E /* WizardPane.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE8CD3E2CCB91190039DE0E /* WizardPane.swift */; };
-		5DE8CD512CCB91190039DE0E /* WizardResourceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE8CD412CCB91190039DE0E /* WizardResourceModel.swift */; };
-		5DE8CD522CCB91190039DE0E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE8CD432CCB91190039DE0E /* ContentView.swift */; };
-		5DE8CD532CCB91190039DE0E /* TravellersBagApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE8CD492CCB91190039DE0E /* TravellersBagApp.swift */; };
-		5DE8CD552CCB912B0039DE0E /* TBDownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE8CD542CCB912B0039DE0E /* TBDownloadManager.swift */; };
-		5DE8CD5D2CCBB44D0039DE0E /* URLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE8CD5B2CCBB44D0039DE0E /* URLs.swift */; };
-		5DE8CD602CCBB59A0039DE0E /* URLSessions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE8CD5E2CCBB4560039DE0E /* URLSessions.swift */; };
-		5DE8CD632CCBB7AD0039DE0E /* WizardResourceData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE8CD622CCBB7AD0039DE0E /* WizardResourceData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5DD512362CCC069000E24985 /* TBErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TBErrors.swift; sourceTree = "<group>"; };
 		5DD845362CCA14E200D812C4 /* TravellersBag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravellersBag.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		5DE8CD322CCB91160039DE0E /* ConfigHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigHelper.swift; sourceTree = "<group>"; };
-		5DE8CD332CCB91160039DE0E /* LanguageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageHelper.swift; sourceTree = "<group>"; };
-		5DE8CD362CCB91160039DE0E /* TBCoreMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TBCoreMain.swift; sourceTree = "<group>"; };
-		5DE8CD3B2CCB91190039DE0E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		5DE8CD3D2CCB91190039DE0E /* WizardFuncUnits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WizardFuncUnits.swift; sourceTree = "<group>"; };
-		5DE8CD3E2CCB91190039DE0E /* WizardPane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WizardPane.swift; sourceTree = "<group>"; };
-		5DE8CD412CCB91190039DE0E /* WizardResourceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WizardResourceModel.swift; sourceTree = "<group>"; };
-		5DE8CD432CCB91190039DE0E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		5DE8CD452CCB91190039DE0E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		5DE8CD462CCB91190039DE0E /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
-		5DE8CD472CCB91190039DE0E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		5DE8CD482CCB91190039DE0E /* TravellersBag.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TravellersBag.entitlements; sourceTree = "<group>"; };
-		5DE8CD492CCB91190039DE0E /* TravellersBagApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravellersBagApp.swift; sourceTree = "<group>"; };
-		5DE8CD542CCB912B0039DE0E /* TBDownloadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TBDownloadManager.swift; sourceTree = "<group>"; };
-		5DE8CD5B2CCBB44D0039DE0E /* URLs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLs.swift; sourceTree = "<group>"; };
-		5DE8CD5E2CCBB4560039DE0E /* URLSessions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessions.swift; sourceTree = "<group>"; };
-		5DE8CD622CCBB7AD0039DE0E /* WizardResourceData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WizardResourceData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		5D2F59642CCCC8F100011A46 /* TravellersBag */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = TravellersBag;
+			sourceTree = "<group>";
+		};
+		5D2F59792CCCC8F600011A46 /* TBCore */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = TBCore;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		5DD845332CCA14E200D812C4 /* Frameworks */ = {
@@ -74,8 +52,8 @@
 		5DD8452D2CCA14E200D812C4 = {
 			isa = PBXGroup;
 			children = (
-				5DE8CD372CCB91160039DE0E /* TBCore */,
-				5DE8CD4A2CCB91190039DE0E /* TravellersBag */,
+				5D2F59792CCCC8F600011A46 /* TBCore */,
+				5D2F59642CCCC8F100011A46 /* TravellersBag */,
 				5DD845372CCA14E200D812C4 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -86,110 +64,6 @@
 				5DD845362CCA14E200D812C4 /* TravellersBag.app */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		5DE8CD342CCB91160039DE0E /* Config */ = {
-			isa = PBXGroup;
-			children = (
-				5DE8CD322CCB91160039DE0E /* ConfigHelper.swift */,
-				5DE8CD332CCB91160039DE0E /* LanguageHelper.swift */,
-			);
-			path = Config;
-			sourceTree = "<group>";
-		};
-		5DE8CD352CCB91160039DE0E /* Util */ = {
-			isa = PBXGroup;
-			children = (
-				5DE8CD542CCB912B0039DE0E /* TBDownloadManager.swift */,
-			);
-			path = Util;
-			sourceTree = "<group>";
-		};
-		5DE8CD372CCB91160039DE0E /* TBCore */ = {
-			isa = PBXGroup;
-			children = (
-				5DE8CD5C2CCBB44D0039DE0E /* Extension */,
-				5DE8CD342CCB91160039DE0E /* Config */,
-				5DE8CD352CCB91160039DE0E /* Util */,
-				5DE8CD362CCB91160039DE0E /* TBCoreMain.swift */,
-				5DD512362CCC069000E24985 /* TBErrors.swift */,
-			);
-			path = TBCore;
-			sourceTree = "<group>";
-		};
-		5DE8CD3C2CCB91190039DE0E /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				5DE8CD3B2CCB91190039DE0E /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		5DE8CD3F2CCB91190039DE0E /* WizardUnit */ = {
-			isa = PBXGroup;
-			children = (
-				5DE8CD3D2CCB91190039DE0E /* WizardFuncUnits.swift */,
-				5DE8CD3E2CCB91190039DE0E /* WizardPane.swift */,
-			);
-			path = WizardUnit;
-			sourceTree = "<group>";
-		};
-		5DE8CD402CCB91190039DE0E /* Screens */ = {
-			isa = PBXGroup;
-			children = (
-				5DE8CD3F2CCB91190039DE0E /* WizardUnit */,
-			);
-			path = Screens;
-			sourceTree = "<group>";
-		};
-		5DE8CD422CCB91190039DE0E /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-				5DE8CD412CCB91190039DE0E /* WizardResourceModel.swift */,
-			);
-			path = ViewModels;
-			sourceTree = "<group>";
-		};
-		5DE8CD442CCB91190039DE0E /* UI */ = {
-			isa = PBXGroup;
-			children = (
-				5DE8CD402CCB91190039DE0E /* Screens */,
-				5DE8CD422CCB91190039DE0E /* ViewModels */,
-				5DE8CD432CCB91190039DE0E /* ContentView.swift */,
-			);
-			path = UI;
-			sourceTree = "<group>";
-		};
-		5DE8CD4A2CCB91190039DE0E /* TravellersBag */ = {
-			isa = PBXGroup;
-			children = (
-				5DE8CD612CCBB78F0039DE0E /* Data */,
-				5DE8CD3C2CCB91190039DE0E /* Preview Content */,
-				5DE8CD442CCB91190039DE0E /* UI */,
-				5DE8CD452CCB91190039DE0E /* Assets.xcassets */,
-				5DE8CD462CCB91190039DE0E /* Localizable.xcstrings */,
-				5DE8CD472CCB91190039DE0E /* README.md */,
-				5DE8CD482CCB91190039DE0E /* TravellersBag.entitlements */,
-				5DE8CD492CCB91190039DE0E /* TravellersBagApp.swift */,
-			);
-			path = TravellersBag;
-			sourceTree = "<group>";
-		};
-		5DE8CD5C2CCBB44D0039DE0E /* Extension */ = {
-			isa = PBXGroup;
-			children = (
-				5DE8CD5E2CCBB4560039DE0E /* URLSessions.swift */,
-				5DE8CD5B2CCBB44D0039DE0E /* URLs.swift */,
-			);
-			path = Extension;
-			sourceTree = "<group>";
-		};
-		5DE8CD612CCBB78F0039DE0E /* Data */ = {
-			isa = PBXGroup;
-			children = (
-				5DE8CD622CCBB7AD0039DE0E /* WizardResourceData.swift */,
-			);
-			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -206,6 +80,10 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				5D2F59642CCCC8F100011A46 /* TravellersBag */,
+				5D2F59792CCCC8F600011A46 /* TBCore */,
 			);
 			name = TravellersBag;
 			packageProductDependencies = (
@@ -268,10 +146,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5DE8CD4B2CCB91190039DE0E /* Preview Assets.xcassets in Resources */,
-				5DE8CD4C2CCB91190039DE0E /* Assets.xcassets in Resources */,
-				5DE8CD4D2CCB91190039DE0E /* Localizable.xcstrings in Resources */,
-				5DE8CD4E2CCB91190039DE0E /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,19 +156,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5DE8CD602CCBB59A0039DE0E /* URLSessions.swift in Sources */,
-				5DE8CD4F2CCB91190039DE0E /* WizardFuncUnits.swift in Sources */,
-				5DE8CD632CCBB7AD0039DE0E /* WizardResourceData.swift in Sources */,
-				5DD512372CCC069000E24985 /* TBErrors.swift in Sources */,
-				5DE8CD502CCB91190039DE0E /* WizardPane.swift in Sources */,
-				5DE8CD512CCB91190039DE0E /* WizardResourceModel.swift in Sources */,
-				5DE8CD522CCB91190039DE0E /* ContentView.swift in Sources */,
-				5DE8CD532CCB91190039DE0E /* TravellersBagApp.swift in Sources */,
-				5DE8CD5D2CCBB44D0039DE0E /* URLs.swift in Sources */,
-				5DE8CD382CCB91160039DE0E /* ConfigHelper.swift in Sources */,
-				5DE8CD552CCB912B0039DE0E /* TBDownloadManager.swift in Sources */,
-				5DE8CD392CCB91160039DE0E /* LanguageHelper.swift in Sources */,
-				5DE8CD3A2CCB91160039DE0E /* TBCoreMain.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

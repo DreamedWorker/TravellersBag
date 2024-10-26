@@ -199,8 +199,8 @@ struct FinshSettings : View {
         ZStack {
             Image("wizard_bg").resizable()
             VStack {
-                Spacer()
                 Text("wizard.ok").foregroundStyle(.white).frame(maxWidth: 300).padding().multilineTextAlignment(.center)
+                Spacer()
             }
         }
     }
