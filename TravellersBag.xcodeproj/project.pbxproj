@@ -7,25 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5DD845712CCA238500D812C4 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 5DD845702CCA238500D812C4 /* Kingfisher */; };
-		5DD845742CCA23B600D812C4 /* Zip in Frameworks */ = {isa = PBXBuildFile; productRef = 5DD845732CCA23B600D812C4 /* Zip */; };
-		5DD845772CCA23E800D812C4 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 5DD845762CCA23E800D812C4 /* SwiftyJSON */; };
-		5DD8457A2CCA242C00D812C4 /* AlertToast in Frameworks */ = {isa = PBXBuildFile; productRef = 5DD845792CCA242C00D812C4 /* AlertToast */; };
-		5DD8457D2CCA245700D812C4 /* xxHash-Swift in Frameworks */ = {isa = PBXBuildFile; productRef = 5DD8457C2CCA245700D812C4 /* xxHash-Swift */; };
-		5DD845802CCA24BB00D812C4 /* Sentry in Frameworks */ = {isa = PBXBuildFile; productRef = 5DD8457F2CCA24BB00D812C4 /* Sentry */; };
+		5DDD25152CCD4D7C00DE50B1 /* Zip in Frameworks */ = {isa = PBXBuildFile; productRef = 5DDD25142CCD4D7C00DE50B1 /* Zip */; };
+		5DDD25182CCD4DB100DE50B1 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 5DDD25172CCD4DB100DE50B1 /* SwiftyJSON */; };
+		5DDD251B2CCD4DDE00DE50B1 /* xxHash-Swift in Frameworks */ = {isa = PBXBuildFile; productRef = 5DDD251A2CCD4DDE00DE50B1 /* xxHash-Swift */; };
+		5DDD251E2CCD4E6F00DE50B1 /* AlertToast in Frameworks */ = {isa = PBXBuildFile; productRef = 5DDD251D2CCD4E6F00DE50B1 /* AlertToast */; };
+		5DDD25212CCD4ED500DE50B1 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 5DDD25202CCD4ED500DE50B1 /* Kingfisher */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5DD845362CCA14E200D812C4 /* TravellersBag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravellersBag.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5DDD23F22CCD161200DE50B1 /* TravellersBag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravellersBag.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		5D2F59642CCCC8F100011A46 /* TravellersBag */ = {
+		5DDD23F42CCD161200DE50B1 /* TravellersBag */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = TravellersBag;
 			sourceTree = "<group>";
 		};
-		5D2F59792CCCC8F600011A46 /* TBCore */ = {
+		5DDD261D2CCD501000DE50B1 /* TBCore */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = TBCore;
 			sourceTree = "<group>";
@@ -33,35 +32,34 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		5DD845332CCA14E200D812C4 /* Frameworks */ = {
+		5DDD23EF2CCD161200DE50B1 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5DD845772CCA23E800D812C4 /* SwiftyJSON in Frameworks */,
-				5DD8457A2CCA242C00D812C4 /* AlertToast in Frameworks */,
-				5DD8457D2CCA245700D812C4 /* xxHash-Swift in Frameworks */,
-				5DD845742CCA23B600D812C4 /* Zip in Frameworks */,
-				5DD845712CCA238500D812C4 /* Kingfisher in Frameworks */,
-				5DD845802CCA24BB00D812C4 /* Sentry in Frameworks */,
+				5DDD25182CCD4DB100DE50B1 /* SwiftyJSON in Frameworks */,
+				5DDD251E2CCD4E6F00DE50B1 /* AlertToast in Frameworks */,
+				5DDD25152CCD4D7C00DE50B1 /* Zip in Frameworks */,
+				5DDD251B2CCD4DDE00DE50B1 /* xxHash-Swift in Frameworks */,
+				5DDD25212CCD4ED500DE50B1 /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5DD8452D2CCA14E200D812C4 = {
+		5DDD23E92CCD161200DE50B1 = {
 			isa = PBXGroup;
 			children = (
-				5D2F59792CCCC8F600011A46 /* TBCore */,
-				5D2F59642CCCC8F100011A46 /* TravellersBag */,
-				5DD845372CCA14E200D812C4 /* Products */,
+				5DDD261D2CCD501000DE50B1 /* TBCore */,
+				5DDD23F42CCD161200DE50B1 /* TravellersBag */,
+				5DDD23F32CCD161200DE50B1 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		5DD845372CCA14E200D812C4 /* Products */ = {
+		5DDD23F32CCD161200DE50B1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5DD845362CCA14E200D812C4 /* TravellersBag.app */,
+				5DDD23F22CCD161200DE50B1 /* TravellersBag.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -69,51 +67,50 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5DD845352CCA14E200D812C4 /* TravellersBag */ = {
+		5DDD23F12CCD161200DE50B1 /* TravellersBag */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5DD845452CCA14E400D812C4 /* Build configuration list for PBXNativeTarget "TravellersBag" */;
+			buildConfigurationList = 5DDD24012CCD161400DE50B1 /* Build configuration list for PBXNativeTarget "TravellersBag" */;
 			buildPhases = (
-				5DD845322CCA14E200D812C4 /* Sources */,
-				5DD845332CCA14E200D812C4 /* Frameworks */,
-				5DD845342CCA14E200D812C4 /* Resources */,
+				5DDD23EE2CCD161200DE50B1 /* Sources */,
+				5DDD23EF2CCD161200DE50B1 /* Frameworks */,
+				5DDD23F02CCD161200DE50B1 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				5D2F59642CCCC8F100011A46 /* TravellersBag */,
-				5D2F59792CCCC8F600011A46 /* TBCore */,
+				5DDD23F42CCD161200DE50B1 /* TravellersBag */,
+				5DDD261D2CCD501000DE50B1 /* TBCore */,
 			);
 			name = TravellersBag;
 			packageProductDependencies = (
-				5DD845702CCA238500D812C4 /* Kingfisher */,
-				5DD845732CCA23B600D812C4 /* Zip */,
-				5DD845762CCA23E800D812C4 /* SwiftyJSON */,
-				5DD845792CCA242C00D812C4 /* AlertToast */,
-				5DD8457C2CCA245700D812C4 /* xxHash-Swift */,
-				5DD8457F2CCA24BB00D812C4 /* Sentry */,
+				5DDD25142CCD4D7C00DE50B1 /* Zip */,
+				5DDD25172CCD4DB100DE50B1 /* SwiftyJSON */,
+				5DDD251A2CCD4DDE00DE50B1 /* xxHash-Swift */,
+				5DDD251D2CCD4E6F00DE50B1 /* AlertToast */,
+				5DDD25202CCD4ED500DE50B1 /* Kingfisher */,
 			);
 			productName = TravellersBag;
-			productReference = 5DD845362CCA14E200D812C4 /* TravellersBag.app */;
+			productReference = 5DDD23F22CCD161200DE50B1 /* TravellersBag.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		5DD8452E2CCA14E200D812C4 /* Project object */ = {
+		5DDD23EA2CCD161200DE50B1 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1600;
 				LastUpgradeCheck = 1600;
 				TargetAttributes = {
-					5DD845352CCA14E200D812C4 = {
+					5DDD23F12CCD161200DE50B1 = {
 						CreatedOnToolsVersion = 16.0;
 					};
 				};
 			};
-			buildConfigurationList = 5DD845312CCA14E200D812C4 /* Build configuration list for PBXProject "TravellersBag" */;
+			buildConfigurationList = 5DDD23ED2CCD161200DE50B1 /* Build configuration list for PBXProject "TravellersBag" */;
 			developmentRegion = "zh-Hans";
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -121,28 +118,27 @@
 				Base,
 				"zh-Hans",
 			);
-			mainGroup = 5DD8452D2CCA14E200D812C4;
+			mainGroup = 5DDD23E92CCD161200DE50B1;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				5DD8456F2CCA238500D812C4 /* XCRemoteSwiftPackageReference "Kingfisher" */,
-				5DD845722CCA23B600D812C4 /* XCRemoteSwiftPackageReference "Zip" */,
-				5DD845752CCA23E800D812C4 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
-				5DD845782CCA242C00D812C4 /* XCRemoteSwiftPackageReference "AlertToast" */,
-				5DD8457B2CCA245700D812C4 /* XCRemoteSwiftPackageReference "xxHash-Swift" */,
-				5DD8457E2CCA24BB00D812C4 /* XCRemoteSwiftPackageReference "sentry-cocoa" */,
+				5DDD25132CCD4D7C00DE50B1 /* XCRemoteSwiftPackageReference "Zip" */,
+				5DDD25162CCD4DB100DE50B1 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+				5DDD25192CCD4DDE00DE50B1 /* XCRemoteSwiftPackageReference "xxHash-Swift" */,
+				5DDD251C2CCD4E6F00DE50B1 /* XCRemoteSwiftPackageReference "AlertToast" */,
+				5DDD251F2CCD4ED500DE50B1 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			preferredProjectObjectVersion = 77;
-			productRefGroup = 5DD845372CCA14E200D812C4 /* Products */;
+			productRefGroup = 5DDD23F32CCD161200DE50B1 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5DD845352CCA14E200D812C4 /* TravellersBag */,
+				5DDD23F12CCD161200DE50B1 /* TravellersBag */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		5DD845342CCA14E200D812C4 /* Resources */ = {
+		5DDD23F02CCD161200DE50B1 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -152,7 +148,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		5DD845322CCA14E200D812C4 /* Sources */ = {
+		5DDD23EE2CCD161200DE50B1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -162,7 +158,7 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		5DD845432CCA14E400D812C4 /* Debug */ = {
+		5DDD23FF2CCD161400DE50B1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -221,12 +217,11 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
-				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
-		5DD845442CCA14E400D812C4 /* Release */ = {
+		5DDD24002CCD161400DE50B1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -278,11 +273,10 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
 				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_EMIT_LOC_STRINGS = YES;
 			};
 			name = Release;
 		};
-		5DD845462CCA14E400D812C4 /* Debug */ = {
+		5DDD24022CCD161400DE50B1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -290,7 +284,7 @@
 				CODE_SIGN_ENTITLEMENTS = TravellersBag/TravellersBag.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 20241024;
+				CURRENT_PROJECT_VERSION = 20241023;
 				DEVELOPMENT_ASSET_PATHS = "\"TravellersBag/Preview Content\"";
 				DEVELOPMENT_TEAM = NV65B8VFUD;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -312,7 +306,7 @@
 			};
 			name = Debug;
 		};
-		5DD845472CCA14E400D812C4 /* Release */ = {
+		5DDD24032CCD161400DE50B1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -320,7 +314,7 @@
 				CODE_SIGN_ENTITLEMENTS = TravellersBag/TravellersBag.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 20241024;
+				CURRENT_PROJECT_VERSION = 20241023;
 				DEVELOPMENT_ASSET_PATHS = "\"TravellersBag/Preview Content\"";
 				DEVELOPMENT_TEAM = NV65B8VFUD;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -345,20 +339,20 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5DD845312CCA14E200D812C4 /* Build configuration list for PBXProject "TravellersBag" */ = {
+		5DDD23ED2CCD161200DE50B1 /* Build configuration list for PBXProject "TravellersBag" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5DD845432CCA14E400D812C4 /* Debug */,
-				5DD845442CCA14E400D812C4 /* Release */,
+				5DDD23FF2CCD161400DE50B1 /* Debug */,
+				5DDD24002CCD161400DE50B1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5DD845452CCA14E400D812C4 /* Build configuration list for PBXNativeTarget "TravellersBag" */ = {
+		5DDD24012CCD161400DE50B1 /* Build configuration list for PBXNativeTarget "TravellersBag" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5DD845462CCA14E400D812C4 /* Debug */,
-				5DD845472CCA14E400D812C4 /* Release */,
+				5DDD24022CCD161400DE50B1 /* Debug */,
+				5DDD24032CCD161400DE50B1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -366,15 +360,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		5DD8456F2CCA238500D812C4 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 8.1.0;
-			};
-		};
-		5DD845722CCA23B600D812C4 /* XCRemoteSwiftPackageReference "Zip" */ = {
+		5DDD25132CCD4D7C00DE50B1 /* XCRemoteSwiftPackageReference "Zip" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/marmelroy/Zip.git";
 			requirement = {
@@ -382,7 +368,7 @@
 				minimumVersion = 2.1.2;
 			};
 		};
-		5DD845752CCA23E800D812C4 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+		5DDD25162CCD4DB100DE50B1 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
 			requirement = {
@@ -390,15 +376,7 @@
 				minimumVersion = 5.0.2;
 			};
 		};
-		5DD845782CCA242C00D812C4 /* XCRemoteSwiftPackageReference "AlertToast" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/elai950/AlertToast.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.3.9;
-			};
-		};
-		5DD8457B2CCA245700D812C4 /* XCRemoteSwiftPackageReference "xxHash-Swift" */ = {
+		5DDD25192CCD4DDE00DE50B1 /* XCRemoteSwiftPackageReference "xxHash-Swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/daisuke-t-jp/xxHash-Swift.git";
 			requirement = {
@@ -406,48 +384,51 @@
 				minimumVersion = 1.1.1;
 			};
 		};
-		5DD8457E2CCA24BB00D812C4 /* XCRemoteSwiftPackageReference "sentry-cocoa" */ = {
+		5DDD251C2CCD4E6F00DE50B1 /* XCRemoteSwiftPackageReference "AlertToast" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/getsentry/sentry-cocoa";
+			repositoryURL = "https://github.com/elai950/AlertToast.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		5DDD251F2CCD4ED500DE50B1 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 8.38.0;
+				minimumVersion = 8.1.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		5DD845702CCA238500D812C4 /* Kingfisher */ = {
+		5DDD25142CCD4D7C00DE50B1 /* Zip */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 5DD8456F2CCA238500D812C4 /* XCRemoteSwiftPackageReference "Kingfisher" */;
-			productName = Kingfisher;
-		};
-		5DD845732CCA23B600D812C4 /* Zip */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 5DD845722CCA23B600D812C4 /* XCRemoteSwiftPackageReference "Zip" */;
+			package = 5DDD25132CCD4D7C00DE50B1 /* XCRemoteSwiftPackageReference "Zip" */;
 			productName = Zip;
 		};
-		5DD845762CCA23E800D812C4 /* SwiftyJSON */ = {
+		5DDD25172CCD4DB100DE50B1 /* SwiftyJSON */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 5DD845752CCA23E800D812C4 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			package = 5DDD25162CCD4DB100DE50B1 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
 			productName = SwiftyJSON;
 		};
-		5DD845792CCA242C00D812C4 /* AlertToast */ = {
+		5DDD251A2CCD4DDE00DE50B1 /* xxHash-Swift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 5DD845782CCA242C00D812C4 /* XCRemoteSwiftPackageReference "AlertToast" */;
-			productName = AlertToast;
-		};
-		5DD8457C2CCA245700D812C4 /* xxHash-Swift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 5DD8457B2CCA245700D812C4 /* XCRemoteSwiftPackageReference "xxHash-Swift" */;
+			package = 5DDD25192CCD4DDE00DE50B1 /* XCRemoteSwiftPackageReference "xxHash-Swift" */;
 			productName = "xxHash-Swift";
 		};
-		5DD8457F2CCA24BB00D812C4 /* Sentry */ = {
+		5DDD251D2CCD4E6F00DE50B1 /* AlertToast */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 5DD8457E2CCA24BB00D812C4 /* XCRemoteSwiftPackageReference "sentry-cocoa" */;
-			productName = Sentry;
+			package = 5DDD251C2CCD4E6F00DE50B1 /* XCRemoteSwiftPackageReference "AlertToast" */;
+			productName = AlertToast;
+		};
+		5DDD25202CCD4ED500DE50B1 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5DDD251F2CCD4ED500DE50B1 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
-	rootObject = 5DD8452E2CCA14E200D812C4 /* Project object */;
+	rootObject = 5DDD23EA2CCD161200DE50B1 /* Project object */;
 }
