@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D296FEC2CCEAB78008BF950 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 5D296FEB2CCEAB6F008BF950 /* .gitignore */; };
 		5DD845712CCA238500D812C4 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 5DD845702CCA238500D812C4 /* Kingfisher */; };
 		5DD845742CCA23B600D812C4 /* Zip in Frameworks */ = {isa = PBXBuildFile; productRef = 5DD845732CCA23B600D812C4 /* Zip */; };
 		5DD845772CCA23E800D812C4 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 5DD845762CCA23E800D812C4 /* SwiftyJSON */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5D296FEB2CCEAB6F008BF950 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		5DD845362CCA14E200D812C4 /* TravellersBag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravellersBag.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -50,6 +52,7 @@
 		5DD8452D2CCA14E200D812C4 = {
 			isa = PBXGroup;
 			children = (
+				5D296FEB2CCEAB6F008BF950 /* .gitignore */,
 				5D2F59792CCCC8F600011A46 /* TBCore */,
 				5D2F59642CCCC8F100011A46 /* TravellersBag */,
 				5DD845372CCA14E200D812C4 /* Products */,
@@ -142,6 +145,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D296FEC2CCEAB78008BF950 /* .gitignore in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
