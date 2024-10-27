@@ -2,7 +2,7 @@
 //  ContentView.swift
 //  TravellersBag
 //
-//  Created by 鸳汐 on 2024/10/24.
+//  Created by Yuan Shine on 2024/10/26.
 //
 
 import SwiftUI
@@ -18,11 +18,7 @@ struct ContentView: View {
                 Image(systemName: "globe")
                     .imageScale(.large)
                     .foregroundStyle(.tint)
-                if needShowWizard {
-                    Text("app.name")
-                } else {
-                    Text("Hello, world!")
-                }
+                Text("Hello, world!")
             }
             .padding()
         }
