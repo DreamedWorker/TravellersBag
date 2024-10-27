@@ -38,16 +38,21 @@ class WizardResourceModel : ObservableObject {
     }
     
     func fetchMetaFile() async throws {
+        func writeDownloadTime() {
+            TBCore.shared.configSetValue(key: "metaLastDownloaded", data: Int(Date().timeIntervalSince1970))
+        }
         let metaFile = resJson.appending(component: "meta.json")
         let metaRequest = URLRequest(url: URL(string: meta)!)
         if fs.fileExists(atPath: metaFile.toStringPath()) {
             let currentTime = Int(Date().timeIntervalSince1970)
-            let lastTime = TBCore.shared.configGetConfig(forKey: "staticLastUpdated", def: 0)
+            let lastTime = TBCore.shared.configGetConfig(forKey: "metaLastDownloaded", def: 0)
             if currentTime - lastTime > 432000 {
                 try await httpSession().download2File(url: metaFile, req: metaRequest)
+                writeDownloadTime()
             }
         } else {
             try await httpSession().download2File(url: metaFile, req: metaRequest)
+            writeDownloadTime()
         }
         let metaList = try JSONSerialization.jsonObject(with: Data(contentsOf: metaFile)) as! [String:String]
         DispatchQueue.main.async { [self] in

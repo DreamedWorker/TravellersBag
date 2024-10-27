@@ -4,6 +4,12 @@
     "app.cancel" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancel"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -15,6 +21,12 @@
     "app.confirm" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Confirm"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -43,6 +55,12 @@
     "error.wizard.resourceAvatarDownload" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The downloaded resource is incomplete. Please download it again."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -63,6 +81,115 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Hello World"
+          }
+        }
+      }
+    },
+    "wizard.device.bbs" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "BBS Device ID"
+          }
+        }
+      }
+    },
+    "wizard.device.fp" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "设备指纹"
+          }
+        }
+      }
+    },
+    "wizard.device.fpGen" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "生成指纹"
+          }
+        }
+      }
+    },
+    "wizard.device.fpGenOk" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "生成指纹成功"
+          }
+        }
+      }
+    },
+    "wizard.device.fpGenYaagl" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "如果你使用 Yaagl 作为游戏启动器，请先在系统的 hosts 文件中注释其对「public-data-api.mihoyo.com」这个域名的屏蔽，我们尚不知悉该启动器禁用这个域名的原因。"
+          }
+        }
+      }
+    },
+    "wizard.device.fpVerified" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "指纹经过了验证"
+          }
+        }
+      }
+    },
+    "wizard.device.fpVerifiedNot" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "指纹未经验证"
+          }
+        }
+      }
+    },
+    "wizard.device.id" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Device ID"
+          }
+        }
+      }
+    },
+    "wizard.device.subtitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "我们需要生成必要的设备信息，这对于后续的使用至关重要。"
+          }
+        }
+      }
+    },
+    "wizard.device.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "确认设备信息"
           }
         }
       }
@@ -124,13 +251,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Let’s start with Langages"
+            "value" : "Langages"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "让我们先从语言设置开始"
+            "value" : "语言设置"
           }
         }
       }
@@ -189,6 +316,12 @@
     "wizard.ok" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tap anywhere on the screen, we'll make some final settings and close the app, and when you open it again, the new world on the Macintosh will be open to you!"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -265,7 +398,7 @@
         }
       }
     },
-    "wizard.policy.title" : {
+    "wizard.policy.subtitle" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -278,6 +411,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "我们应当在下列协议的约束下共同使用旅者行囊"
+          }
+        }
+      }
+    },
+    "wizard.policy.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Agreements"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "许可与协议"
           }
         }
       }
@@ -336,6 +486,12 @@
     "wizard.resource.download" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Download"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -347,6 +503,12 @@
     "wizard.resource.downloadJsonOK" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Download successfully"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -358,6 +520,12 @@
     "wizard.resource.imageGo" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Downloading…"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -369,6 +537,12 @@
     "wizard.resource.imageGoP" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "We are downloading %@ …"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -380,6 +554,12 @@
     "wizard.resource.imageSee" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Slide the mouse over the list to see more."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -391,6 +571,12 @@
     "wizard.resource.imageTitle" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Image Resource(Optional)"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -402,6 +588,12 @@
     "wizard.resource.next" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Next"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -413,6 +605,12 @@
     "wizard.resource.staticExplanation" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "These resources include character information, weapon information, relic information, etc. Content closely related to basic software functions. You must download these files to continue using this software."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -424,6 +622,12 @@
     "wizard.resource.staticIndex" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Do Index"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -435,6 +639,12 @@
     "wizard.resource.staticSource" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The files you download are compiled and provided by DGP Studio."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -446,6 +656,12 @@
     "wizard.resource.staticTitle" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Json Resource(Required)"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -457,6 +673,12 @@
     "wizard.resource.staticWait" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Downloading %@ of %@."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -465,13 +687,53 @@
         }
       }
     },
-    "wizard.resource.title" : {
+    "wizard.resource.subtitle" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "We also need to download some necessary resource files."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "我们还需要下载一些必要的资源文件"
+          }
+        }
+      }
+    },
+    "wizard.resource.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Resource Download"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "资源下载"
+          }
+        }
+      }
+    },
+    "wizard.resource.useBuiltIn" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Use Built-in"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "使用内嵌资源"
           }
         }
       }

@@ -8,69 +8,6 @@
 import SwiftUI
 import AlertToast
 
-struct LanguageChange : View {
-    @State private var lang: String = "def"
-    
-    var body: some View {
-        VStack {
-            Text("wizard.language.title").font(.title).bold().padding(.bottom, 4)
-            Text("wizard.language.subtitle").font(.title3)
-            Form {
-                Picker(
-                    selection: $lang,
-                    content: {
-                        Text("wizard.language.typeDef").tag("def")
-                        Text("wizard.language.typeEN").tag("en")
-                        Text("wizard.language.typeCHS").tag("chs")
-                    },
-                    label: { Label("wizard.language.label", systemImage: "globe") }
-                )
-                .onAppear {
-                    switch TBCore.shared.langGetCurrentLanguage() {
-                    case "zh-Hans":
-                        lang = "chs"
-                        break
-                    default:
-                        lang = "en"
-                        break
-                    }
-                }
-            }.formStyle(.grouped)
-            Spacer()
-            Button("wizard.language.confirm", action: {
-                TBCore.shared.langWriteNeoLanguage(langType: lang)
-                TBCore.shared.configSetValue(key: "configuredLang", data: true)
-                NSApplication.shared.terminate(self)
-            })
-        }
-    }
-}
-
-struct PolicyReading : View {
-    let navigator: (Int) -> Void
-    
-    var body: some View {
-        VStack {
-            Text("wizard.policy.title").font(.title).bold().padding(.bottom, 32).multilineTextAlignment(.center)
-            HStack(spacing: 16) {
-                Image("app_logo").resizable().scaledToFit().frame(width: 98, height: 98)
-                VStack(alignment: .leading, spacing: 16) {
-                    PolicyTile(name: "wizard.policy.typeLicense", url: "https://www.gnu.org/licenses/gpl-3.0.html")
-                    PolicyTile(name: "wizard.policy.typeUser", url: "https://buledream.icu/TravellersBag")
-                    PolicyTile(name: "wizard.policy.typePrivate", url: "https://buledream.icu/TravellersBag")
-                }
-            }.padding(.bottom, 8)
-            Text("wizard.policy.hutao").font(.callout).foregroundStyle(.secondary)
-            Spacer()
-            HStack(spacing: 16) {
-                Button("wizard.policy.previous", action: { navigator(0) })
-                Button("wizard.policy.confirm", action: { navigator(1) })
-                    .buttonStyle(BorderedProminentButtonStyle())
-            }
-        }
-    }
-}
-
 struct ResourceDownload : View {
     @StateObject private var model = WizardResourceModel()
     @State private var downloadState: Float = 0
@@ -97,8 +34,10 @@ struct ResourceDownload : View {
     }
     
     var body: some View {
-        VStack {
-            Text("wizard.resource.title").font(.title).bold().padding(.bottom, 16)
+        ScrollView {
+            Image(systemName: "square.and.arrow.down.on.square.fill").resizable().foregroundStyle(.accent).frame(width: 72, height: 72)
+            Text("wizard.resource.title").font(.title).bold().padding(.bottom, 4)
+            Text("wizard.resource.subtitle").font(.title3).padding(.bottom, 16)
             VStack {
                 HStack(spacing: 8, content: {
                     Image(systemName: "star.square.on.square.fill").font(.title3)
@@ -152,6 +91,7 @@ struct ResourceDownload : View {
             .background(RoundedRectangle(cornerRadius: 8, style: .continuous).fill(BackgroundStyle()))
             Spacer()
             HStack(spacing: 16) {
+                Button("wizard.resource.useBuiltIn", action: { navigator(3) }).buttonStyle(BorderedProminentButtonStyle())
                 if model.uiState.canGoNext || TBCore.shared.configGetConfig(forKey: "staticWizardDownloaded", def: false) {
                     Button("wizard.resource.next", action: { navigator(1) }).buttonStyle(BorderedProminentButtonStyle())
                 }
@@ -202,18 +142,6 @@ struct FinshSettings : View {
                 Text("wizard.ok").foregroundStyle(.white).frame(maxWidth: 300).padding().multilineTextAlignment(.center)
                 Spacer()
             }
-        }
-    }
-}
-
-private struct PolicyTile : View {
-    let name: String
-    let url: String
-    
-    var body: some View {
-        HStack(spacing: 8) {
-            Label("wizard.policy.read", systemImage: "doc.append.fill")
-            Link(NSLocalizedString(name, comment: ""), destination: URL(string: url)!)
         }
     }
 }

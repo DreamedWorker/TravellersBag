@@ -12,7 +12,6 @@
 		5DD845772CCA23E800D812C4 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 5DD845762CCA23E800D812C4 /* SwiftyJSON */; };
 		5DD8457A2CCA242C00D812C4 /* AlertToast in Frameworks */ = {isa = PBXBuildFile; productRef = 5DD845792CCA242C00D812C4 /* AlertToast */; };
 		5DD8457D2CCA245700D812C4 /* xxHash-Swift in Frameworks */ = {isa = PBXBuildFile; productRef = 5DD8457C2CCA245700D812C4 /* xxHash-Swift */; };
-		5DD845802CCA24BB00D812C4 /* Sentry in Frameworks */ = {isa = PBXBuildFile; productRef = 5DD8457F2CCA24BB00D812C4 /* Sentry */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,7 +41,6 @@
 				5DD8457D2CCA245700D812C4 /* xxHash-Swift in Frameworks */,
 				5DD845742CCA23B600D812C4 /* Zip in Frameworks */,
 				5DD845712CCA238500D812C4 /* Kingfisher in Frameworks */,
-				5DD845802CCA24BB00D812C4 /* Sentry in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,7 +90,6 @@
 				5DD845762CCA23E800D812C4 /* SwiftyJSON */,
 				5DD845792CCA242C00D812C4 /* AlertToast */,
 				5DD8457C2CCA245700D812C4 /* xxHash-Swift */,
-				5DD8457F2CCA24BB00D812C4 /* Sentry */,
 			);
 			productName = TravellersBag;
 			productReference = 5DD845362CCA14E200D812C4 /* TravellersBag.app */;
@@ -129,7 +126,6 @@
 				5DD845752CCA23E800D812C4 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 				5DD845782CCA242C00D812C4 /* XCRemoteSwiftPackageReference "AlertToast" */,
 				5DD8457B2CCA245700D812C4 /* XCRemoteSwiftPackageReference "xxHash-Swift" */,
-				5DD8457E2CCA24BB00D812C4 /* XCRemoteSwiftPackageReference "sentry-cocoa" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 5DD845372CCA14E200D812C4 /* Products */;
@@ -406,14 +402,6 @@
 				minimumVersion = 1.1.1;
 			};
 		};
-		5DD8457E2CCA24BB00D812C4 /* XCRemoteSwiftPackageReference "sentry-cocoa" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/getsentry/sentry-cocoa";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 8.38.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -441,11 +429,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 5DD8457B2CCA245700D812C4 /* XCRemoteSwiftPackageReference "xxHash-Swift" */;
 			productName = "xxHash-Swift";
-		};
-		5DD8457F2CCA24BB00D812C4 /* Sentry */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 5DD8457E2CCA24BB00D812C4 /* XCRemoteSwiftPackageReference "sentry-cocoa" */;
-			productName = Sentry;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

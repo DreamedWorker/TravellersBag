@@ -32,14 +32,17 @@ struct WizardPane: View {
                 }
             case .Resources:
                 ResourceDownload(
-                    navigator: { waht in
-                        if waht == 0 {
-                            pane = .Policy
-                        } else {
-                            pane = .Finished
+                    navigator: { what in
+                        if what == 3 {
+                            TBCore.shared.configSetValue(key: "useBundledItems", data: true)
+                        } else if what == 1 {
+                            TBCore.shared.configSetValue(key: "useBundledItems", data: false)
                         }
+                        pane = .DeviceInfo
                     }
                 ).padding()
+            case .DeviceInfo:
+                DeviceInfo()
             case .Finished:
                 FinshSettings()
                     .onTapGesture {
@@ -55,7 +58,7 @@ struct WizardPane: View {
     }
     
     enum PresetParts {
-        case Language; case Policy; case Resources; case Finished
+        case Language; case Policy; case Resources; case Finished; case DeviceInfo
     }
 }
 

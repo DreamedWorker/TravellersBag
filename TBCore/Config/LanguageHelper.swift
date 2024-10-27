@@ -16,7 +16,7 @@ extension TBCore {
     func langWriteNeoLanguage(langType: String) {
         switch langType {
         case "chs":
-            UserDefaults.standard.set(["zh-Hans"], forKey: "AppleLanguages")
+            UserDefaults.standard.set(["zh-Hans-CN"], forKey: "AppleLanguages")
             break
         case "en":
             UserDefaults.standard.set([langType], forKey: "AppleLanguages")
