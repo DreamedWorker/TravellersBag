@@ -106,7 +106,6 @@ extension TBCore {
         var req = URLRequest(url: URL(string: ApiEndpoints.getFp)!)
         req.setIosUA()
         let result = try await req.receiveOrThrow(isPost: true, reqBody: JSON(allDic).rawData())
-        print(result.rawString())
         if result["code"].intValue == 200 {
             return result["device_fp"].stringValue
         } else {
