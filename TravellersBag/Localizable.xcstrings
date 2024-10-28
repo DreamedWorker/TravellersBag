@@ -254,6 +254,17 @@
         }
       }
     },
+    "wizard.finished" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "完成设置"
+          }
+        }
+      }
+    },
     "wizard.language.confirm" : {
       "extractionState" : "manual",
       "localizations" : {

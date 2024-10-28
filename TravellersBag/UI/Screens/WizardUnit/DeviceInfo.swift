@@ -9,6 +9,7 @@ import SwiftUI
 
 struct DeviceInfo : View {
     @StateObject private var model = DeviceInfoModel()
+    let navigator: () -> Void
     
     var body: some View {
         VStack {
@@ -45,7 +46,8 @@ struct DeviceInfo : View {
             Spacer()
             HStack {
                 if model.uiState.deviceFp.starts(with: "38d") || model.canGoNext {
-                    Button("wizard.resource.next", action: {}).buttonStyle(BorderedProminentButtonStyle())
+                    Button("wizard.resource.next", action: { navigator() })
+                        .buttonStyle(BorderedProminentButtonStyle())
                 }
             }
         }

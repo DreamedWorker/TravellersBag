@@ -139,9 +139,14 @@ struct FinshSettings : View {
         ZStack {
             Image("wizard_bg").resizable()
             VStack {
-                Text("wizard.ok").foregroundStyle(.white).frame(maxWidth: 300).padding().multilineTextAlignment(.center)
-                Spacer()
-            }
+                ZStack {}.frame(height: 150)
+                Button("wizard.finished", action: {
+                    TBCore.shared.configSetValue(key: "currentAppVersion", data: "0.0.2")
+                    NSApplication.shared.terminate(self)
+                }).buttonStyle(BorderedProminentButtonStyle())
+                Text("wizard.ok")
+                    .foregroundColor(Color(red: 0.17, green: 0.59, blue: 0.47)).bold()
+            }.frame(width: 300)
         }
     }
 }

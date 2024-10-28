@@ -42,12 +42,9 @@ struct WizardPane: View {
                     }
                 ).padding()
             case .DeviceInfo:
-                DeviceInfo()
+                DeviceInfo(navigator: { pane = .Finished })
             case .Finished:
                 FinshSettings()
-                    .onTapGesture {
-                        print("ok yes")
-                    }
             }
         }
         .navigationTitle(Text("wizard.windowTitle"))

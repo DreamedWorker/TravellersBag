@@ -24,9 +24,3 @@ struct ContentView: View {
         }
     }
 }
-
-#if DEBUG
-#Preview {
-    ContentView(needShowWizard: true)
-}
-#endif
