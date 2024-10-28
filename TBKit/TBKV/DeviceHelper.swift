@@ -2,40 +2,38 @@
 //  DeviceHelper.swift
 //  TravellersBag
 //
-//  Created by Yuan Shine on 2024/10/27.
+//  Created by Yuan Shine on 2024/10/28.
 //
-
 
 import Foundation
 import SwiftyJSON
 
-extension TBCore {
-    //公开的常量
+extension TBData {
     static var gameBizGenshin = "hk4e_cn"  //原神游戏ID
     static var xrpcVersion = "2.71.1" //米社版本
     static var clientType = "2" //类型：客户端
     static var hoyoUA = "Mozilla/5.0 (Linux; Android 12; M2101K9C Build/TKQ1.220829.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/108.0.5359.128 Mobile Safari/537.36 miHoYoBBS/2.71.1" //米社请求UA
-    static var commonUA = "Mozilla/5.0 (Linux; Android 12; M2101K9C Build/TKQ1.220829.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/108.0.5359.128 Mobile Safari/537.36" //人机验证采用的UA
     static var iosHoyoUA = "Mozilla/5.0 (iPhone; CPU iPhone OS 160 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) miHoYoBBS/2.71.1"
     static let DEVICE_ID = "deviceID"
     static let BBS_DEVICE_ID = "bbsDeviceID"
     static let DEVICE_FP = "deviceFp"
     static let USE_KEY_CHAIN = "use_key_chain"
     static let KEY_CHAIN_NAME = "keychain_name"
-    
-    //方法区
+}
+
+struct TBDeviceKit {
     /// 检查本地环境是否完整 本方法应该只在应用启动时调用
-    func checkEnvironment(){
-        if self.configGetConfig(forKey: "deviceID", def: "") == "" {
-            self.configSetValue(key: "deviceID", data: UUID().uuidString.lowercased())
+    static func checkEnvironment(){
+        if UserDefaults.configGetConfig(forKey: TBData.DEVICE_ID, def: "") == "" {
+            UserDefaults.configSetValue(key: TBData.DEVICE_ID, data: UUID().uuidString.lowercased())
         }
-        if self.configGetConfig(forKey: "bbsDeviceID", def: "") == "" {
-            self.configSetValue(key: "bbsDeviceID", data: UUID().uuidString.lowercased())
+        if UserDefaults.configGetConfig(forKey: TBData.BBS_DEVICE_ID, def: "") == "" {
+            UserDefaults.configSetValue(key: TBData.BBS_DEVICE_ID, data: UUID().uuidString.lowercased())
         }
     }
     
     /// 据说设备指纹最好要定期更换，故封装之以供其他部分使用。非必要不得随意调用此方法！！！
-    func updateDeviceFp() async throws -> String {
+    static func updateDeviceFp() async throws -> String {
         let device = GetUpperAndNumberString(length: 12)
         let product = GetUpperAndNumberString(length: 6)
         let ext: [String:Any] = [
@@ -100,7 +98,7 @@ extension TBCore {
             "seed_time": "\(String(Int(Date().timeIntervalSince1970)))000", //我就说怎么这个方法一直说参数有误，这个**
             "ext_fields": "\(String(data: try! JSONSerialization.data(withJSONObject: ext), encoding: .utf8)!)",
             "app_name": "bbs_cn",
-            "bbs_device_id": TBCore.shared.configGetConfig(forKey: TBCore.BBS_DEVICE_ID, def: ""),
+            "bbs_device_id": UserDefaults.configGetConfig(forKey: TBData.BBS_DEVICE_ID, def: ""),
             "device_fp": getLowerHexString(length: 13)
         ]
         var req = URLRequest(url: URL(string: ApiEndpoints.getFp)!)
@@ -114,7 +112,7 @@ extension TBCore {
     }
     
     // 私有区 不确定是否会公开它们
-    func getLowerHexString(length: Int) -> String {
+    static func getLowerHexString(length: Int) -> String {
         let base = "0123456789abcdef"
         var randomString: String = ""
         
@@ -126,7 +124,7 @@ extension TBCore {
         return randomString
     }
     
-    private func GetUpperAndNumberString(length: Int) -> String {
+    static private func GetUpperAndNumberString(length: Int) -> String {
         let base = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
         var randomString: String = ""
         
@@ -138,7 +136,7 @@ extension TBCore {
         return randomString
     }
     
-    private func GetLowerAndNumberString(length: Int) -> String {
+    static private func GetLowerAndNumberString(length: Int) -> String {
         let base = "0123456789abcdefghijklmnopqrstuvwxyz"
         var randomString: String = ""
         

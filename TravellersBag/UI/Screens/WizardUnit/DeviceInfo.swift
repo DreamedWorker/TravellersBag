@@ -54,7 +54,7 @@ struct DeviceInfo : View {
         .padding()
         .alert(model.uiState.deviceFpInfo.errMsg, isPresented: $model.uiState.deviceFpInfo.showErrAlert, actions: {})
         .onAppear {
-            TBCore.shared.checkEnvironment()
+            TBDeviceKit.checkEnvironment()
             model.refreshData()
         }
     }
@@ -65,23 +65,23 @@ private class DeviceInfoModel : ObservableObject {
     @Published var canGoNext = false
     
     func refreshData() {
-        uiState.deviceId = TBCore.shared.configGetConfig(forKey: TBCore.DEVICE_ID, def: "")
-        uiState.bbsDeviceId = TBCore.shared.configGetConfig(forKey: TBCore.BBS_DEVICE_ID, def: "")
-        uiState.deviceFp = TBCore.shared.configGetConfig(forKey: TBCore.DEVICE_FP, def: "")
+        uiState.deviceId = UserDefaults.configGetConfig(forKey: TBData.DEVICE_ID, def: "")
+        uiState.bbsDeviceId = UserDefaults.configGetConfig(forKey: TBData.BBS_DEVICE_ID, def: "")
+        uiState.deviceFp = UserDefaults.configGetConfig(forKey: TBData.DEVICE_FP, def: "")
     }
     
     func generateDeviceFp() async {
         do {
-            let fp = try await TBCore.shared.updateDeviceFp()
-            TBCore.shared.configSetValue(key: TBCore.DEVICE_FP, data: fp)
-            TBCore.shared.configSetValue(key: "deviceFpLastUpdated", data: Int(Date().timeIntervalSince1970))
+            let fp = try await TBDeviceKit.updateDeviceFp()
+            UserDefaults.configSetValue(key: TBData.DEVICE_FP, data: fp)
+            UserDefaults.configSetValue(key: "deviceFpLastUpdated", data: Int(Date().timeIntervalSince1970))
             DispatchQueue.main.async {
                 self.refreshData()
                 self.uiState.deviceFpInfo.makeAlert(msg: NSLocalizedString("wizard.device.fpGenOk", comment: ""))
                 self.canGoNext = true
             }
         } catch {
-            TBCore.shared.configSetValue(key: TBCore.DEVICE_FP, data: TBCore.shared.getLowerHexString(length: 13))
+            UserDefaults.configSetValue(key: TBData.DEVICE_FP, data: TBDeviceKit.getLowerHexString(length: 13))
             DispatchQueue.main.async {
                 self.refreshData()
                 self.uiState.deviceFpInfo.makeAlert(msg: error.localizedDescription)

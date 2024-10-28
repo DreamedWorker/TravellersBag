@@ -21,22 +21,22 @@ struct WizardPane: View {
                         if what == 0 {
                             pane = .Language
                         } else {
-                            TBCore.shared.configSetValue(key: "licenseAgreed", data: true)
+                            UserDefaults.configSetValue(key: "licenseAgreed", data: true)
                             pane = .Resources
                         }
                     }
                 )
                 .padding()
                 .onAppear {
-                    if TBCore.shared.configGetConfig(forKey: "licenseAgreed", def: false) { pane = .Resources }
+                    if UserDefaults.configGetConfig(forKey: "licenseAgreed", def: false) { pane = .Resources }
                 }
             case .Resources:
                 ResourceDownload(
                     navigator: { what in
                         if what == 3 {
-                            TBCore.shared.configSetValue(key: "useBundledItems", data: true)
+                            UserDefaults.configSetValue(key: "useBundledItems", data: true)
                         } else if what == 1 {
-                            TBCore.shared.configSetValue(key: "useBundledItems", data: false)
+                            UserDefaults.configSetValue(key: "useBundledItems", data: false)
                         }
                         pane = .DeviceInfo
                     }
@@ -49,7 +49,7 @@ struct WizardPane: View {
         }
         .navigationTitle(Text("wizard.windowTitle"))
         .onAppear {
-            let needLanguage = TBCore.shared.configGetConfig(forKey: "configuredLang", def: false)
+            let needLanguage = UserDefaults.configGetConfig(forKey: "configuredLang", def: false)
             if !needLanguage { pane = .Language } else { pane = .Policy }
         }
     }

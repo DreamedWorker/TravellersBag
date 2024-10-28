@@ -92,7 +92,7 @@ struct ResourceDownload : View {
             Spacer()
             HStack(spacing: 16) {
                 Button("wizard.resource.useBuiltIn", action: { navigator(3) }).buttonStyle(BorderedProminentButtonStyle())
-                if model.uiState.canGoNext || TBCore.shared.configGetConfig(forKey: "staticWizardDownloaded", def: false) {
+                if model.uiState.canGoNext || UserDefaults.configGetConfig(forKey: "staticWizardDownloaded", def: false) {
                     Button("wizard.resource.next", action: { navigator(1) }).buttonStyle(BorderedProminentButtonStyle())
                 }
             }
@@ -141,7 +141,7 @@ struct FinshSettings : View {
             VStack {
                 ZStack {}.frame(height: 150)
                 Button("wizard.finished", action: {
-                    TBCore.shared.configSetValue(key: "currentAppVersion", data: "0.0.2")
+                    UserDefaults.configSetValue(key: "currentAppVersion", data: "0.0.2")
                     NSApplication.shared.terminate(self)
                 }).buttonStyle(BorderedProminentButtonStyle())
                 Text("wizard.ok")

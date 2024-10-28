@@ -26,9 +26,9 @@
 			path = TravellersBag;
 			sourceTree = "<group>";
 		};
-		5D2F59792CCCC8F600011A46 /* TBCore */ = {
+		5D2F59792CCCC8F600011A46 /* TBKit */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = TBCore;
+			path = TBKit;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -53,7 +53,7 @@
 			isa = PBXGroup;
 			children = (
 				5D296FEB2CCEAB6F008BF950 /* .gitignore */,
-				5D2F59792CCCC8F600011A46 /* TBCore */,
+				5D2F59792CCCC8F600011A46 /* TBKit */,
 				5D2F59642CCCC8F100011A46 /* TravellersBag */,
 				5DD845372CCA14E200D812C4 /* Products */,
 			);
@@ -84,7 +84,7 @@
 			);
 			fileSystemSynchronizedGroups = (
 				5D2F59642CCCC8F100011A46 /* TravellersBag */,
-				5D2F59792CCCC8F600011A46 /* TBCore */,
+				5D2F59792CCCC8F600011A46 /* TBKit */,
 			);
 			name = TravellersBag;
 			packageProductDependencies = (

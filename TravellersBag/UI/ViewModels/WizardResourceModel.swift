@@ -39,13 +39,13 @@ class WizardResourceModel : ObservableObject {
     
     func fetchMetaFile() async throws {
         func writeDownloadTime() {
-            TBCore.shared.configSetValue(key: "metaLastDownloaded", data: Int(Date().timeIntervalSince1970))
+            UserDefaults.configSetValue(key: "metaLastDownloaded", data: Int(Date().timeIntervalSince1970))
         }
         let metaFile = resJson.appending(component: "meta.json")
         let metaRequest = URLRequest(url: URL(string: meta)!)
         if fs.fileExists(atPath: metaFile.toStringPath()) {
             let currentTime = Int(Date().timeIntervalSince1970)
-            let lastTime = TBCore.shared.configGetConfig(forKey: "metaLastDownloaded", def: 0)
+            let lastTime = UserDefaults.configGetConfig(forKey: "metaLastDownloaded", def: 0)
             if currentTime - lastTime > 432000 {
                 try await httpSession().download2File(url: metaFile, req: metaRequest)
                 writeDownloadTime()
@@ -152,8 +152,8 @@ class WizardResourceModel : ObservableObject {
             allAvatars = allAvatars.sorted(by: { $0["Id"].intValue < $1["Id"].intValue }) // 排序 然后输出
             fs.createFile(atPath: resJson.appending(component: "Avatar.json").toStringPath(), contents: allAvatars.description.data(using: .utf8))
             uiState.successfulAlert = true
-            TBCore.shared.configSetValue(key: "staticLastUpdated", data: Int(Date().timeIntervalSince1970))
-            TBCore.shared.configSetValue(key: "staticWizardDownloaded", data: true)
+            UserDefaults.configSetValue(key: "staticLastUpdated", data: Int(Date().timeIntervalSince1970))
+            UserDefaults.configSetValue(key: "staticWizardDownloaded", data: true)
             uiState.canGoNext = true
         } catch TBErrors.avatarDownloadError {
             uiState.fatalMsg = TBErrors.avatarDownloadError.localizedDescription

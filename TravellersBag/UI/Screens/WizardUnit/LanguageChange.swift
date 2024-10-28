@@ -26,7 +26,7 @@ struct LanguageChange : View {
                     label: { Label("wizard.language.label", systemImage: "globe") }
                 )
                 .onAppear {
-                    switch TBCore.shared.langGetCurrentLanguage() {
+                    switch UserDefaults.langGetCurrentLanguage() {
                     case "zh-Hans", "zh-Hans-CN":
                         lang = "chs"
                         break
@@ -38,8 +38,8 @@ struct LanguageChange : View {
             }.formStyle(.grouped)
             Spacer()
             Button("wizard.language.confirm", action: {
-                TBCore.shared.langWriteNeoLanguage(langType: lang)
-                TBCore.shared.configSetValue(key: "configuredLang", data: true)
+                UserDefaults.langWriteNeoLanguage(langType: lang)
+                UserDefaults.configSetValue(key: "configuredLang", data: true)
                 NSApplication.shared.terminate(self)
             })
         }

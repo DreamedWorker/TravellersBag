@@ -56,9 +56,9 @@ extension URLRequest {
 extension URLRequest {
     /// 设置设备基本信息
     mutating func setDeviceInfoHeaders() {
-        self.setValue(TBCore.shared.configGetConfig(forKey: TBCore.DEVICE_FP, def: ""), forHTTPHeaderField: "x-rpc-device_fp")
+        self.setValue(UserDefaults.configGetConfig(forKey: TBData.DEVICE_FP, def: ""), forHTTPHeaderField: "x-rpc-device_fp")
         self.setValue("iPhone15,1", forHTTPHeaderField: "x-rpc-device_name")
-        self.setValue(TBCore.shared.configGetConfig(forKey: TBCore.DEVICE_ID, def: ""), forHTTPHeaderField: "x-rpc-device_id")
+        self.setValue(UserDefaults.configGetConfig(forKey: TBData.DEVICE_ID, def: ""), forHTTPHeaderField: "x-rpc-device_id")
         self.setValue("16_0", forHTTPHeaderField: "x-rpc-sys_version")
     }
     
@@ -88,18 +88,18 @@ extension URLRequest {
     
     /// 设置UA
     mutating func setUA() {
-        self.setValue(TBCore.hoyoUA, forHTTPHeaderField: "User-Agent")
+        self.setValue(TBData.hoyoUA, forHTTPHeaderField: "User-Agent")
     }
     
     mutating func setIosUA() {
-        self.setValue(TBCore.iosHoyoUA, forHTTPHeaderField: "User-Agent")
+        self.setValue(TBData.iosHoyoUA, forHTTPHeaderField: "User-Agent")
     }
     
     /// 设置请求头app信息
     mutating func setXRPCAppInfo(appID: String = "bll8iq97cem8", client: String = "2") {
         self.setValue(appID, forHTTPHeaderField: "x-rpc-app_id")
         self.setValue(client, forHTTPHeaderField: "x-rpc-client_type")
-        self.setValue(TBCore.xrpcVersion, forHTTPHeaderField: "x-rpc-app_version")
+        self.setValue(TBData.xrpcVersion, forHTTPHeaderField: "x-rpc-app_version")
     }
     
     /// 设置 X-Requested-With

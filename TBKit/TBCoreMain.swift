@@ -13,3 +13,13 @@ struct TBCore {
     
     let preference = UserDefaults.init(suiteName: "preferences")!
 }
+
+struct TBData {
+    private init() {}
+    static let shared = TBData()
+}
+
+struct TBKit {
+    private init() {}
+    static let shared = TBKit()
+}
