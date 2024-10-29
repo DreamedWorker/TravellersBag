@@ -339,6 +339,23 @@
         }
       }
     },
+    "wizard.language.translation" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The translation is not 100% accurate. If there is any ambiguity, please give feedback in time. (Simplified Chinese is always the governing text)"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "翻译并不100%准确，如有歧义望及时反馈。（简体中文始终为准据文本）"
+          }
+        }
+      }
+    },
     "wizard.language.typeCHS" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -704,6 +721,12 @@
     "wizard.resource.oldUse" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Use Built-in"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -718,13 +741,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "These resources include character information, weapon information, relic information, etc. Content closely related to basic software functions. You must download these files to continue using this software."
+            "value" : "These resources include character information, weapon information, relic information, etc. Content closely related to basic software functions. You must download these files and do “Index” to continue using this software."
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "这些资源包含角色信息（名字、元素力、天赋、命座等）、武器信息（名字、词条等）、圣遗物信息（词条、套装信息）、历史祈愿活动、游戏成就词条等与软件基础功能密切相关的内容。你必须要下载这些文件才能继续使用本软件。"
+            "value" : "这些资源包含角色信息（名字、元素力、天赋、命座等）、武器信息（名字、词条等）、圣遗物信息（词条、套装信息）、历史祈愿活动、游戏成就词条等与软件基础功能密切相关的内容。你必须要下载这些文件并完成「资源索引」后才能继续使用本软件。"
           }
         }
       }

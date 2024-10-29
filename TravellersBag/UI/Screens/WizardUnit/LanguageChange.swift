@@ -36,6 +36,7 @@ struct LanguageChange : View {
                     }
                 }
             }.formStyle(.grouped)
+            Text("wizard.language.translation").font(.callout).foregroundStyle(.secondary).multilineTextAlignment(.leading)
             Spacer()
             Button(
                 action: {

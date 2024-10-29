@@ -9,7 +9,7 @@ import Foundation
 
 /// 自定义存储
 extension UserDefaults {
-    public static let preferences = UserDefaults.init(suiteName: groupName)!//UserDefaults.init(suiteName: "preferences")!
+    public static let preferences = UserDefaults.init(suiteName: "preferences")!
     
     /// 从全局K-V存储中获取值
     static func configGetConfig<T>(forKey key: String, def defaultKey: T) -> T {

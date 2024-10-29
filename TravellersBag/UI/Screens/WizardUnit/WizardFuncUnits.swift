@@ -9,15 +9,18 @@ import SwiftUI
 import AlertToast
 
 struct ResourceDownload : View {
-    @StateObject private var model = WizardResourceModel()
+    @StateObject private var model = ResourceModel() //WizardResourceModel()
     let navigator: (Int) -> Void
-    @State private var name: String = ""
     @State private var useBundleAlert: Bool = false
     
     var DownloadStateSheet: some View {
         return NavigationStack {
             Text("wizard.resource.imageGo").font(.title).bold().padding(.bottom, 8)
-            Text(String.localizedStringWithFormat(NSLocalizedString("wizard.resource.imageGoP", comment: ""), name))
+            Text(
+                String.localizedStringWithFormat(
+                    NSLocalizedString("wizard.resource.imageGoP", comment: ""),
+                    model.uiState.downloadName)
+            )
             ProgressView(value: model.uiState.downloadState, total: 1.0)
         }
         .padding()
@@ -73,11 +76,7 @@ struct ResourceDownload : View {
                             Button("wizard.resource.download", action: {
                                 model.uiState.downloadName = imageName
                                 model.uiState.showDownloadSheet = true
-                                model.startDownload(
-                                    url: "https://static-zip.snapgenshin.cn/\(imageName).zip",
-                                    beforeDownload: {
-                                        model.checkBeforeDownload(url: "https://static-zip.snapgenshin.cn/\(imageName).zip")
-                                    })
+                                model.startDownload(url: "https://static-zip.snapgenshin.cn/\(imageName).zip")
                             })
                         }
                     }
@@ -96,7 +95,7 @@ struct ResourceDownload : View {
             }
         }
         .onAppear {
-            model.mkdir()
+            model.startup()
             Task {
                 do {
                     try await model.fetchMetaFile()
