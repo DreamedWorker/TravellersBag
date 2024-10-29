@@ -11,10 +11,10 @@ struct LanguageChange : View {
     @State private var lang: String = "def"
     
     var body: some View {
-        VStack {
+        NavigationStack {
             Image(systemName: "globe").resizable().foregroundStyle(.accent).frame(width: 72, height: 72)
             Text("wizard.language.title").font(.title).bold().padding(.bottom, 4)
-            Text("wizard.language.subtitle").font(.title3)
+            Text("wizard.language.subtitle")
             Form {
                 Picker(
                     selection: $lang,
@@ -37,11 +37,14 @@ struct LanguageChange : View {
                 }
             }.formStyle(.grouped)
             Spacer()
-            Button("wizard.language.confirm", action: {
-                UserDefaults.langWriteNeoLanguage(langType: lang)
-                UserDefaults.configSetValue(key: "configuredLang", data: true)
-                NSApplication.shared.terminate(self)
-            })
+            Button(
+                action: {
+                    UserDefaults.langWriteNeoLanguage(langType: lang)
+                    UserDefaults.configSetValue(key: "configuredLang", data: true)
+                    NSApplication.shared.terminate(self)
+                },
+                label: { Text("wizard.language.confirm").padding(4) }
+            )
         }
     }
 }

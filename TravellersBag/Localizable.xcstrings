@@ -257,6 +257,12 @@
     "wizard.finished" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Continue"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -305,13 +311,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "We chosen your display language according to your system’s default language:"
+            "value" : "We chosen your display language according to your system’s default language"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "我们根据你的系统语言为你选择了如下语言："
+            "value" : "我们根据你的系统语言为你选择了如下语言"
           }
         }
       }
@@ -669,6 +675,39 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "下一步"
+          }
+        }
+      }
+    },
+    "wizard.resource.old" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "你的资源可能落后于游戏版本"
+          }
+        }
+      }
+    },
+    "wizard.resource.oldP" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "我们的内嵌资源从应用发布起就已经落后了，除非你在下载和索引资源时遇到无法解决的问题，否则我们不会建议你使用内嵌资源。"
+          }
+        }
+      }
+    },
+    "wizard.resource.oldUse" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "使用内嵌"
           }
         }
       }

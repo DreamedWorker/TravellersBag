@@ -15,6 +15,7 @@ struct ResourceDownload : View {
     @State private var showDownloadSheet: Bool = false
     @State private var dm: TBDownloadManager? = nil
     @State private var name: String = ""
+    @State private var useBundleAlert: Bool = false
     
     var DownloadStateSheet: some View {
         return NavigationStack {
@@ -91,7 +92,8 @@ struct ResourceDownload : View {
             .background(RoundedRectangle(cornerRadius: 8, style: .continuous).fill(BackgroundStyle()))
             Spacer()
             HStack(spacing: 16) {
-                Button("wizard.resource.useBuiltIn", action: { navigator(3) }).buttonStyle(BorderedProminentButtonStyle())
+                Button(action: {}, label: { Text("wizard.resource.useBuiltIn").padding(4) })
+                Button("wizard.resource.useBuiltIn", action: { useBundleAlert = true }).buttonStyle(BorderedProminentButtonStyle())
                 if model.uiState.canGoNext || UserDefaults.configGetConfig(forKey: "staticWizardDownloaded", def: false) {
                     Button("wizard.resource.next", action: { navigator(1) }).buttonStyle(BorderedProminentButtonStyle())
                 }
@@ -131,6 +133,13 @@ struct ResourceDownload : View {
         .toast(isPresenting: $model.uiState.fatalAlert, alert: { AlertToast(type: .error(.red), title: model.uiState.fatalMsg) })
         .alert("wizard.resource.downloadJsonOK", isPresented: $model.uiState.successfulAlert, actions: {})
         .sheet(isPresented: $showDownloadSheet, content: { DownloadStateSheet })
+        .alert(
+            "wizard.resource.old", isPresented: $useBundleAlert,
+            actions: {
+                Button(role: .destructive, action: { navigator(3) }, label: { Text("wizard.resource.oldUse") })
+            },
+            message: { Text("wizard.resource.oldP") }
+        )
     }
 }
 

@@ -12,9 +12,9 @@ struct PolicyReading : View {
     
     var body: some View {
         VStack {
-            Image(systemName: "doc.richtext").resizable().foregroundStyle(.accent).frame(width: 72, height: 72)
+            Image(systemName: "checkmark.rectangle.stack").resizable().foregroundStyle(.accent).frame(width: 72, height: 72)
             Text("wizard.policy.title").font(.title).bold().padding(.bottom, 4)
-            Text("wizard.policy.subtitle").font(.title3).multilineTextAlignment(.leading).padding(.bottom, 32)
+            Text("wizard.policy.subtitle").multilineTextAlignment(.leading).padding(.bottom, 28)
             HStack(spacing: 16) {
                 Image("app_logo").resizable().scaledToFit().frame(width: 98, height: 98)
                 VStack(alignment: .leading, spacing: 16) {
@@ -26,8 +26,8 @@ struct PolicyReading : View {
             Text("wizard.policy.hutao").font(.callout).foregroundStyle(.secondary)
             Spacer()
             HStack(spacing: 16) {
-                Button("wizard.policy.previous", action: { navigator(0) })
-                Button("wizard.policy.confirm", action: { navigator(1) })
+                Button(action: { navigator(0) }, label: { Text("wizard.policy.previous").padding(4) })
+                Button(action: { navigator(1) }, label: { Text("wizard.policy.confirm").padding(4) })
                     .buttonStyle(BorderedProminentButtonStyle())
             }
         }
