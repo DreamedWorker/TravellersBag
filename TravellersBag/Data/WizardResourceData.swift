@@ -15,5 +15,9 @@ struct WizardResourceData {
     var fatalMsg: String = ""
     var canGoNext: Bool = false
     
+    var downloadState: Float = 0
+    var downloadName: String = ""
+    var showDownloadSheet: Bool = false
+    
     init() {}
 }

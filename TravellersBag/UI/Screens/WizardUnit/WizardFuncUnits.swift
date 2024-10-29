@@ -10,10 +10,7 @@ import AlertToast
 
 struct ResourceDownload : View {
     @StateObject private var model = WizardResourceModel()
-    @State private var downloadState: Float = 0
     let navigator: (Int) -> Void
-    @State private var showDownloadSheet: Bool = false
-    @State private var dm: TBDownloadManager? = nil
     @State private var name: String = ""
     @State private var useBundleAlert: Bool = false
     
@@ -21,15 +18,16 @@ struct ResourceDownload : View {
         return NavigationStack {
             Text("wizard.resource.imageGo").font(.title).bold().padding(.bottom, 8)
             Text(String.localizedStringWithFormat(NSLocalizedString("wizard.resource.imageGoP", comment: ""), name))
-            ProgressView(value: downloadState, total: 1.0)
+            ProgressView(value: model.uiState.downloadState, total: 1.0)
         }
         .padding()
         .frame(maxWidth: 300)
         .toolbar {
             ToolbarItem(placement: .cancellationAction, content: {
                 Button("app.cancel", action: {
-                    dm?.cancelDownload(relative: { showDownloadSheet = false; downloadState = 0; name = "" }) }
-                )
+                    model.cancelDownload()
+                    model.uiState.showDownloadSheet = false
+                })
             })
         }
     }
@@ -73,15 +71,13 @@ struct ResourceDownload : View {
                             Text(imageName)
                             Spacer()
                             Button("wizard.resource.download", action: {
-                                name = imageName
-                                let url = "https://static-zip.snapgenshin.cn/\(imageName).zip"
-                                dm!.startDownload(
-                                    url: url,
+                                model.uiState.downloadName = imageName
+                                model.uiState.showDownloadSheet = true
+                                model.startDownload(
+                                    url: "https://static-zip.snapgenshin.cn/\(imageName).zip",
                                     beforeDownload: {
-                                        showDownloadSheet = true
-                                        model.checkBeforeDownload(url: url)
-                                    }
-                                )
+                                        model.checkBeforeDownload(url: "https://static-zip.snapgenshin.cn/\(imageName).zip")
+                                    })
                             })
                         }
                     }
@@ -101,16 +97,6 @@ struct ResourceDownload : View {
         }
         .onAppear {
             model.mkdir()
-            dm = TBDownloadManager(
-                postDownload: { file in
-                    model.postDownloadEvent(url: file, name: name, dismiss: { downloadState = 0; showDownloadSheet = false } )
-                },
-                onDownload: { state in
-                    DispatchQueue.main.async {
-                        self.downloadState = state
-                    }
-                }
-            )
             Task {
                 do {
                     try await model.fetchMetaFile()
@@ -132,7 +118,7 @@ struct ResourceDownload : View {
         )
         .toast(isPresenting: $model.uiState.fatalAlert, alert: { AlertToast(type: .error(.red), title: model.uiState.fatalMsg) })
         .alert("wizard.resource.downloadJsonOK", isPresented: $model.uiState.successfulAlert, actions: {})
-        .sheet(isPresented: $showDownloadSheet, content: { DownloadStateSheet })
+        .sheet(isPresented: $model.uiState.showDownloadSheet, content: { DownloadStateSheet })
         .alert(
             "wizard.resource.old", isPresented: $useBundleAlert,
             actions: {

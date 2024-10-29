@@ -10,7 +10,29 @@ import xxHash_Swift
 import SwiftyJSON
 import Zip
 
-class WizardResourceModel : ObservableObject {
+class WizardResourceModel : NSObject, ObservableObject, URLSessionDownloadDelegate, @unchecked Sendable {
+    private lazy var urlSession = URLSession(configuration: .default, delegate: self, delegateQueue: nil)
+    private var downloadTask: URLSessionDownloadTask? = nil
+    
+    func startDownload(url: String, beforeDownload: () -> Void) {
+        beforeDownload()
+        downloadTask = urlSession.downloadTask(with: URLRequest(url: URL(string: url)!))
+        downloadTask?.resume()
+    }
+    func cancelDownload() { downloadTask?.cancel() }
+    //下载过程中的代理
+    func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64) {
+        print(uiState.downloadName)
+        DispatchQueue.main.async {
+            self.uiState.downloadState = Float(totalBytesWritten) / Float(totalBytesExpectedToWrite)
+        }
+    }
+    //完成下载的代理
+    func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
+        DispatchQueue.main.async {
+            self.postDownloadEvent(url: location, name: self.uiState.downloadName)
+        }
+    }
     let resRoot = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: groupName)!.appending(component: "resources")
     let resImgs = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: groupName)!
         .appending(component: "resources").appending(component: "imgs")
@@ -174,7 +196,10 @@ class WizardResourceModel : ObservableObject {
         }
     }
     
-    func postDownloadEvent(url: URL, name: String, dismiss: @escaping () -> Void) {
+    func postDownloadEvent(url: URL, name: String) {
+        func dismiss() {
+            self.uiState.downloadState = 0; self.uiState.showDownloadSheet = false; //self.uiState.downloadName = ""
+        }
         try! fs.moveItem(at: url, to: resImgs.appending(component: "\(name).zip"))
         let dir = resImgs.appending(component: name)
         if fs.fileExists(atPath: dir.toStringPath()) { try! fs.removeItem(at: dir) }
