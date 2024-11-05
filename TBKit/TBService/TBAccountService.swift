@@ -64,6 +64,32 @@ class TBAccountService {
         return result["cookie_token"].stringValue
     }
     
+    /// 通过Stoken获取CookieToken
+    static func pullUserCookieToken(uid: String, stoken: String, mid: String) async throws -> String {
+        var req = URLRequest(url: URL(string: ApiEndpoints.shared.getCookieTokenByStoken())!)
+        req.setValue("stoken=\(stoken)==.CAE=;mid=\(mid)", forHTTPHeaderField: "Cookie")
+        // 写的时候没有注意到split方法把token的尾部给干掉了，难怪之前一直调不通
+        req.setDS(version: SaltVersion.V2, type: SaltType.PROD)
+        req.setDeviceInfoHeaders()
+        req.setXRPCAppInfo()
+        req.setValue("okhttp/4.9.3", forHTTPHeaderField: "User-Agent")
+        req.setValue("bbs_cn", forHTTPHeaderField: "x-rpc-game_biz")
+        req.setValue("2.20.2", forHTTPHeaderField: "x-rpc-sdk_version")
+        req.setValue("2.20.2", forHTTPHeaderField: "x-rpc-account_version")
+        req.setValue(UUID().uuidString.lowercased(), forHTTPHeaderField: "x-rpc-lifecycle_id")
+        req.setHost(host: "passport-api.mihoyo.com")
+        let result = try await req.receiveOrThrow()
+        return result["cookie_token"].stringValue
+    }
+    
+    /// 通过Stoken获取GameToken
+    static func pullUserGameToken(stoken: String, mid: String) async throws -> String {
+        var req = URLRequest(url: URL(string: ApiEndpoints.shared.getGameTokenByStoken())!)
+        req.setValue("stoken=\(stoken)==.CAE=;mid=\(mid)", forHTTPHeaderField: "Cookie")
+        let result = try await req.receiveOrThrow()
+        return result["game_token"].stringValue
+    }
+    
     /// 获取用户的Ltoken
     static func pullUserLtoken(uid: String, stoken: String, mid: String) async throws -> String {
         var req = URLRequest(url: URL(string: ApiEndpoints.shared.getLTokenBySToken())!)

@@ -68,12 +68,13 @@ struct AccountScreen: View {
                     model.showAddType = false
                     Task { await model.getQrAndShowWindow() }
                 })
-                Button("account.side.loginByCookie", action: {})
+                Button("account.side.loginByCookie", action: { model.loginByCookie = true })
                 Button("app.cancel", role: .cancel, action: { model.showAddType = false })
             },
             message: { Text("account.side.addP2") }
         )
         .sheet(isPresented: $model.loginByQr, content: { LoginByQr })
+        .sheet(isPresented: $model.loginByCookie, content: { LoginByCookie })
         .alert(model.alertMate.msg, isPresented: $model.alertMate.showIt, actions: {})
         .onAppear { model.getLocalAccounts() }
     }
@@ -100,6 +101,27 @@ struct AccountScreen: View {
             })
         }
     }
+    
+    var LoginByCookie: some View {
+        return NavigationStack {
+            Text("account.side.loginByCookie").font(.title).bold()
+            Form {
+                TextField("account.cookie.input", text: $model.loginCookie)
+            }.formStyle(.grouped)
+            Text("account.cookie.tip").foregroundStyle(.secondary).font(.footnote)
+        }
+        .padding()
+        .toolbar {
+            ToolbarItem(placement: .cancellationAction, content: {
+                Button("app.cancel", action: { model.loginByCookie = false; model.loginCookie = "" })
+            })
+            ToolbarItem(placement: .confirmationAction, content: {
+                Button("app.confirm", action: {
+                    Task { await model.loginByCookieFunc() }
+                }).disabled(model.loginCookie.isEmpty)
+            })
+        }
+    }
 }
 
 private struct AccountDetail: View {
@@ -111,7 +133,7 @@ private struct AccountDetail: View {
     let account: MihoyoAccount
     
     var body: some View {
-        ScrollView {
+        LazyVStack {
             KFImage(URL(string: account.misheHead))
                 .placeholder({ ProgressView() })
                 .loadDiskFileSynchronously(true)

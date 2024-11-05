@@ -17,6 +17,8 @@ class AccountViewModel: ObservableObject {
     @Published var showAddType: Bool = false
     @Published var loginByQr: Bool = false
     @Published var loginQRCode: NSImage? = nil
+    @Published var loginByCookie: Bool = false
+    @Published var loginCookie: String = ""
     
     private var picURL: String = ""
     
@@ -109,6 +111,56 @@ class AccountViewModel: ObservableObject {
         }
     }
     
+    func loginByCookieFunc() async {
+        let cookieGroup = loginCookie.split(separator: ";")
+        let stuid = cookieGroup.filter({$0.starts(with: "stuid")}).first?.split(separator: "=")[1]
+        let stoken = cookieGroup.filter({$0.starts(with: "stoken")}).first?.split(separator: "=")[1]
+        let mid = cookieGroup.filter({$0.starts(with: "mid")}).first?.split(separator: "=")[1]
+        if stuid != nil && stoken != nil && mid != nil {
+            do {
+                let sameCount = self.accounts.filter({$0.stuidForTest == String(stuid!)}).count
+                if sameCount == 0 {
+                    let cookieToken = try await TBAccountService.pullUserCookieToken(uid: String(stuid!), stoken: String(stoken!), mid: String(mid!))
+                    let gameToken = try await TBAccountService.pullUserGameToken(stoken: String(stoken!), mid: String(mid!))
+                    let sheBasic = try await JSON(data: TBAccountService.pullUserSheInfo(uid: String(stuid!)))
+                    let hk4e = try await JSON(data: TBAccountService.pullHk4eBasic(uid: String(stuid!), stoken: "\(String(stoken!))==.CAE=", mid: String(mid!)))
+                    let ltoken = try await TBAccountService.pullUserLtoken(uid: String(stuid!), stoken: "\(String(stoken!))==.CAE=", mid: String(mid!))
+                    try await writeAccount(
+                        cookieToken: cookieToken,
+                        gameToken: gameToken,
+                        genshinServer: hk4e["region"].stringValue,
+                        genshinServerName: hk4e["genshinName"].stringValue,
+                        genshinUID: hk4e["genshinUid"].stringValue,
+                        genshinNicname: hk4e["genshinNicname"].stringValue,
+                        level: hk4e["level"].stringValue,
+                        ltoken: ltoken,
+                        mid: String(mid!),
+                        misheHead: sheBasic["avatar_url"].stringValue,
+                        misheNicname: sheBasic["nickname"].stringValue,
+                        stoken: "\(String(stoken!))==.CAE=",
+                        stuid: String(stuid!),
+                        genshinPicId: "other"
+                    )
+                    DispatchQueue.main.async { [self] in
+                        getLocalAccounts()
+                        loginByCookie = false; loginCookie = ""
+                        alertMate.showAlert(msg: NSLocalizedString("account.login.ok", comment: ""))
+                    }
+                } else {
+                    makeAToastInIOThread(msg: NSLocalizedString("account.error.same", comment: ""))
+                }
+            } catch {
+                DispatchQueue.main.async { [self] in
+                    getLocalAccounts()
+                    loginByCookie = false; loginCookie = ""
+                    alertMate.showAlert(msg: String.localizedStringWithFormat(
+                        NSLocalizedString("account.login.no", comment: ""), error.localizedDescription)
+                    )
+                }
+            }
+        }
+    }
+    
     @MainActor func setDefault(account: MihoyoAccount) {
         if account.active {
             alertMate.showAlert(msg: NSLocalizedString("account.error.setDef", comment: ""))
@@ -127,8 +179,7 @@ class AccountViewModel: ObservableObject {
     
     @MainActor func logoutFunc(account: MihoyoAccount) {
         let isDef = account.active
-        tbDatabase.mainContext.delete(account)
-        try! tbDatabase.mainContext.save()
+        try! TBDatabaseOperation.delete4db(item: account)
         getLocalAccounts()
         if accounts.count == 0 {
             NSApplication.shared.terminate(self)
@@ -161,7 +212,7 @@ class AccountViewModel: ObservableObject {
                     neoAccount.cookies.stoken = stoken["stoken"].stringValue
                     neoAccount.cookies.cookieToken = cookieToken
                     neoAccount.cookies.ltoken = ltoken
-                    try! tbDatabase.mainContext.save()
+                    try! TBDatabaseOperation.saveAfterChanges()
                     self.getLocalAccounts()
                 }
                 makeAToastInIOThread(msg: NSLocalizedString("account.info.updated", comment: ""))
@@ -182,8 +233,7 @@ class AccountViewModel: ObservableObject {
             active: (accounts.count == 0) ? true : false, stuidForTest: stuid, cookies: cookies, gameInfo: game,
             misheHead: misheHead, misheNicname: misheNicname
         )
-        tbDatabase.mainContext.insert(newData)
-        try tbDatabase.mainContext.save()
+        try TBDatabaseOperation.write2db(item: newData)
     }
     
     func generateQRCode(from string: String) {

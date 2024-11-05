@@ -35,6 +35,28 @@
         }
       }
     },
+    "account.cookie.input" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "键入Cookie"
+          }
+        }
+      }
+    },
+    "account.cookie.tip" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "你的Cookie应当包含stuid、stoken和mid。"
+          }
+        }
+      }
+    },
     "account.detail.connect" : {
       "extractionState" : "manual",
       "localizations" : {
