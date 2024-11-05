@@ -1,5 +1,5 @@
 {
-  "originHash" : "9872f02f2def503a61436100c1b65f4eda019fca11c44ada3599e59d4542d453",
+  "originHash" : "f4ece387162a8a018763a4dfdab0b39c6b599e4004a0deb235253a81c9808a8a",
   "pins" : [
     {
       "identity" : "alerttoast",
@@ -15,17 +15,17 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/onevcat/Kingfisher.git",
       "state" : {
-        "revision" : "2ef543ee21d63734e1c004ad6c870255e8716c50",
-        "version" : "7.12.0"
+        "revision" : "c0940e241945e6378c01fbd45fd3815579d47ef5",
+        "version" : "8.1.0"
       }
     },
     {
-      "identity" : "sentry-cocoa",
+      "identity" : "sparkle",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/getsentry/sentry-cocoa",
+      "location" : "https://github.com/sparkle-project/Sparkle",
       "state" : {
-        "revision" : "5575af93efb776414f243e93d6af9f6258dc539a",
-        "version" : "8.36.0"
+        "revision" : "0ef1ee0220239b3776f433314515fd849025673f",
+        "version" : "2.6.4"
       }
     },
     {
@@ -38,12 +38,12 @@
       }
     },
     {
-      "identity" : "waterfallgrid",
+      "identity" : "xxhash-swift",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/paololeonardi/WaterfallGrid.git",
+      "location" : "https://github.com/daisuke-t-jp/xxHash-Swift.git",
       "state" : {
-        "revision" : "c7c08652c3540adf8e48409c351879b4caea7e89",
-        "version" : "1.1.0"
+        "revision" : "e86a07ab4867f81481d430e1370a5ec97b6e3359",
+        "version" : "1.1.1"
       }
     },
     {

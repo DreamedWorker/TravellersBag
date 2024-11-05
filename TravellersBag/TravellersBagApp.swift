@@ -2,62 +2,49 @@
 //  TravellersBagApp.swift
 //  TravellersBag
 //
-//  Created by 鸳汐 on 2024/9/8.
+//  Created by 鸳汐 on 2024/11/1.
 //
 
 import SwiftUI
-import Sentry
-import AppKit
+import Sparkle
+import SwiftData
+
+let groupName = "NV65B8VFUD.travellersbag"
+
+/// 应用数据库
+let tbDatabase = try! ModelContainer(
+    for: MihoyoAccount.self
+)
+
+@MainActor func getDefaultAccount() -> MihoyoAccount? {
+    let fetch = FetchDescriptor<MihoyoAccount>(predicate: #Predicate { $0.active == true })
+    return try? tbDatabase.mainContext.fetch(fetch).first
+}
 
 @main
 struct TravellersBagApp: App {
-    @StateObject private var coreDataHelper = CoreDataHelper.shared
-    @State private var showDeviceInfo = false
+    private var needWizard: Bool = false
+    private let updaterController: SPUStandardUpdaterController
     
     init() {
-        TBEnv.default.checkEnvironment()
-        SentrySDK.start { options in
-            options.dsn = "https://94ef38f68876d3a718cf007d6fbb46e1@o4507083124834304.ingest.de.sentry.io/4507887457337424"
-            //options.debug = true
-            options.tracesSampleRate = 1.0
-            options.profilesSampleRate = 1.0
-        }
-        _ = HoyoResKit.default
+        needWizard = UserDefaults.configGetConfig(forKey: "currentAppVersion", def: "0.0.0") != "0.0.2"
+        updaterController = SPUStandardUpdaterController(startingUpdater: true, updaterDelegate: nil, userDriverDelegate: nil)
     }
     
     var body: some Scene {
         WindowGroup {
-            if UserDefaultHelper.shared.getValue(forKey: "currentAppVersion", def: "0.0.0") == "0.0.1" {
-                HomeScreen()
-                    .environment(\.managedObjectContext, coreDataHelper.persistentContainer.viewContext)
-                    .sheet(isPresented: $showDeviceInfo, content: { DeviceInfoPane(dismissIt: { showDeviceInfo = false }) })
-            } else {
-                WizardScreen()
+            ContentView(needShowWizard: needWizard)
+                .onAppear {
+                    appPresetSettings()
+                }
+        }
+        .commands {
+            CommandGroup(after: .appInfo) {
+                CheckForUpdate(updater: updaterController.updater)
             }
         }
-        .commands(content: {
-            CommandMenu("command.app", content: {
-                Button("command.add.device_info", action: {
-                    if UserDefaultHelper.shared.getValue(forKey: "currentAppVersion", def: "0.0.0") == "0.0.1" {
-                        showDeviceInfo = true
-                    }
-                })
-                Divider()
-                Button("command.add.check_update", action: {
-                    NSWorkspace.shared.open(URL(string: "https://github.com/DreamedWorker/TravellersBag")!)
-                }).keyboardShortcut(.init("g"))
-            })
-        })
-    }
-}
-
-/// 上传错误
-func uploadAnError(fatalInfo: Error){
-    SentrySDK.capture(error: fatalInfo)
-}
-
-extension URL {
-    func toStringPath() -> String {
-        return self.path().removingPercentEncoding!
+        Settings {
+            SettingsPane().frame(maxWidth: 600)
+        }
     }
 }

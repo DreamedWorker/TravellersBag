@@ -1,53 +1,36 @@
 {
   "sourceLanguage" : "zh-Hans",
   "strings" : {
-    "account.cookie.helper" : {
+    "account.alert.logout" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Your Cookie should contains stuid, stoken and mid. "
+            "value" : "Are you sure you want to log out?"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "你的Cookie应当包含stuid、stoken和mid。"
+            "value" : "确定要退出登录？"
           }
         }
       }
     },
-    "account.cookie.hint" : {
+    "account.alert.logoutM" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Type Cookie"
+            "value" : "Logging out will delete the information of this account. You will not be able to view pages closely related to your account such as “Gacha Records\", but the corresponding data will not be deleted. If this is the only account, the app will automatically close after logging out to apply the changes!"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "输入Cookie"
-          }
-        }
-      }
-    },
-    "account.cookie.title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Type your cookie to login"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "填入Cookie以登录"
+            "value" : "退出登录将删除本账号的信息，你将无法查看「祈愿记录」等与账号密切相关的页面，但相应的数据不会被删除。如果这是唯一的账号，退出账号后应用会自动关闭以应用更改！"
           }
         }
       }
@@ -55,10 +38,16 @@
     "account.detail.connect" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Check status"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "检查登录状态"
+            "value" : "检查状态"
           }
         }
       }
@@ -69,13 +58,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Copy Cookie"
+            "value" : "Copy cookies"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "复制账号Cookie"
+            "value" : "复制Cookie"
           }
         }
       }
@@ -92,63 +81,12 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "设置默认状态"
+            "value" : "设为默认"
           }
         }
       }
     },
-    "account.detail.genshin_head" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Head Img"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "角色头像"
-          }
-        }
-      }
-    },
-    "account.detail.genshin_level" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Game Level"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "游戏等级"
-          }
-        }
-      }
-    },
-    "account.detail.genshin_name" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Traveller’s Name"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "原神角色名"
-          }
-        }
-      }
-    },
-    "account.detail.genshin_uid" : {
+    "account.detail.game_uid" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -160,7 +98,41 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "游戏UID"
+            "value" : "UID"
+          }
+        }
+      }
+    },
+    "account.detail.genshin_level" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Level"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "冒险等阶"
+          }
+        }
+      }
+    },
+    "account.detail.genshin_name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Game Nicname"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "游戏昵称"
           }
         }
       }
@@ -171,64 +143,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Logout"
+            "value" : "Log out"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "退出登录…"
-          }
-        }
-      }
-    },
-    "account.detail.logout_p" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Do you want to logout? The data you store locally will not be deleted due to logging out, but you will not be able to view any content associated with this account."
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "要退出本账号吗？你存储在本地的数据不会因为退出登录而被删除，但你将无法查看与这个账号关联的任何内容。"
-          }
-        }
-      }
-    },
-    "account.detail.select_first" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Please select an account first or log in first"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "请先选择一个账号或先登录"
-          }
-        }
-      }
-    },
-    "account.detail.shequ" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Account info of 米游社"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "米游社账号信息"
+            "value" : "退出登录"
           }
         }
       }
@@ -256,86 +177,81 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AID"
+            "value" : "Account ID"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "社区账号ID"
+            "value" : "通行证ID"
           }
         }
       }
     },
-    "account.detail.tab_genshin" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "游戏账号信息"
-          }
-        }
-      }
-    },
-    "account.detail.tab_shequ" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "米游社账号信息"
-          }
-        }
-      }
-    },
-    "account.error.fetch_qr" : {
+    "account.error.cannot_copy_hk4e_detail" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Failed to get QR Code, because: %@"
+            "value" : "This pass is not bound to the Genshin Impact account"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "获取二维码时失败，%@。"
+            "value" : "该通行证没有绑定原神游戏账号"
           }
         }
       }
     },
-    "account.error.fetch_users" : {
+    "account.error.createQR" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Failed to get user’s list, %@"
+            "value" : "An unknown error occurred while creating the QR code."
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "获取用户列表时出错，%@。"
+            "value" : "创建二维码时发生未知错误。"
           }
         }
       }
     },
-    "account.error.only_this_account" : {
+    "account.error.localEnv" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "This is the only account and cannot be reset to default status."
+            "value" : "The local account storage environment is abnormal. Please delete all accounts first and then log in again."
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "这是唯一的账号，不能取消设置默认状态。"
+            "value" : "本地账号存储环境异常，请先删除所有账号，然后重新登录。"
+          }
+        }
+      }
+    },
+    "account.error.prepare" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "An error occurred while preparing to login: %@"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "准备登录时出错：%@"
           }
         }
       }
@@ -346,102 +262,177 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "The status of this QRCode is %@, which does not meet the requirement."
+            "value" : "QR code status is illegal: %@"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "二维码状态是%@，不符合要求。"
+            "value" : "二维码状态不合法：%@"
           }
         }
       }
     },
-    "account.error.same_account" : {
+    "account.error.queryAccounts" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Found duplicate accounts, block this login."
+            "value" : "Failed to query login account information, %@"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "发现重复账号，阻止本次登录。"
+            "value" : "查询登录账号信息失败，%@。"
           }
         }
       }
     },
-    "account.error.update_state" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "刷新账号状态失败，请删除并重新登录。"
-          }
-        }
-      }
-    },
-    "account.error.update_state_reason" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "刷新账号状态失败，%@。"
-          }
-        }
-      }
-    },
-    "account.info.latest" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "你的账号尚未过期。"
-          }
-        }
-      }
-    },
-    "account.info.latest_p" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "已更新了你的账号状态。"
-          }
-        }
-      }
-    },
-    "account.login_no" : {
+    "account.error.same" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Failed to login, %@"
+            "value" : "The account already exists and cannot be added repeatedly."
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "登录失败，%@。"
+            "value" : "账号已存在，不得反复添加。"
           }
         }
       }
     },
-    "account.login_ok" : {
+    "account.error.setDef" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Login successfully."
+            "value" : "This account is already the default account!"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "该账号已经是默认账号了！"
+          }
+        }
+      }
+    },
+    "account.error.update" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "We cannot automatically update your account. Please log out and log in again."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "我们无法自动更新你的账号，请退出登录后重新登录。"
+          }
+        }
+      }
+    },
+    "account.info.noUpdate" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your account status is normal and no need to be updated."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "你的账号状态正常，无需更新。"
+          }
+        }
+      }
+    },
+    "account.info.reDef" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The current account has been logged out and the first item in the list has been used as the default."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已退出当前账号并将列表的第一项用作默认。"
+          }
+        }
+      }
+    },
+    "account.info.setAsDef" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The current account has been set as the default."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已将当前账号设为默认。"
+          }
+        }
+      }
+    },
+    "account.info.updated" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "We just updated your account."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "我们刚刚更新了你的账号信息。"
+          }
+        }
+      }
+    },
+    "account.login.no" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Login failed: %@"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "登录失败：%@"
+          }
+        }
+      }
+    },
+    "account.login.ok" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Login successfully"
           }
         },
         "zh-Hans" : {
@@ -452,75 +443,24 @@
         }
       }
     },
-    "account.login.by_cookie" : {
+    "account.nothing.title" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "By Cookie"
+            "value" : "Please select an account first before viewing"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Cookie 登录"
+            "value" : "请先选择账号再查看"
           }
         }
       }
     },
-    "account.login.by_qr" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "By QR"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "扫码登录"
-          }
-        }
-      }
-    },
-    "account.login.hutao" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Hutao Passport"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "胡桃通行证…"
-          }
-        }
-      }
-    },
-    "account.qr.finish" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Finish"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "完成扫描"
-          }
-        }
-      }
-    },
-    "account.qr.refresh_one" : {
+    "account.qr.refresh" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -537,277 +477,104 @@
         }
       }
     },
-    "account.qr.title" : {
+    "account.qr.tip" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Please use [米游社] to scan the Code"
+            "value" : "Please use the \"Miyoushe\" App to scan the code (scanning the code will not allow you to sign in to the game, nor will it lead to the creation of a game account.), And press the confirm button after the scan is complete."
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "请使用「米游社」扫码"
+            "value" : "请使用「米游社」App扫码（扫码并不会使你登录游戏，亦不会导致游戏账号的创建。），并在扫描完成后按下确认按钮。"
           }
         }
       }
     },
-    "account.service.cannot_copy_hk4e_detail" : {
+    "account.side.add" : {
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Unable to obtain basic game account data."
+            "value" : "Add"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "无法获取游戏账号基本数据。"
+            "value" : "添加账号"
           }
         }
       }
     },
-    "achieve.content.finished_at" : {
+    "account.side.addP" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "we support the following methods to add accounts"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "完成于：%@"
+            "value" : "旅者行囊支持以下方式添加账号"
           }
         }
       }
     },
-    "achieve.content.select" : {
+    "account.side.addP2" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Due to the security of personal information, Traveler's Bag will not ask you to enter your mobile phone number, SMS Captcha and email address."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "先从左侧选择一项…"
+            "value" : "出于对个信安全的考量，旅者行囊不会要求你输入手机号码、短信验证码和电子邮箱地址。"
           }
         }
       }
     },
-    "achieve.error.delete" : {
+    "account.side.loginByCookie" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "By Cookie"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "删除失败，%@。"
+            "value" : "Cookie登录"
           }
         }
       }
     },
-    "achieve.error.leak_res" : {
+    "account.side.loginByQr" : {
       "extractionState" : "manual",
       "localizations" : {
-        "zh-Hans" : {
+        "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "有资源缺失，无法创建存档。"
+            "value" : "By QR Code"
           }
-        }
-      }
-    },
-    "achieve.error.same" : {
-      "extractionState" : "manual",
-      "localizations" : {
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "存在同名存档。"
-          }
-        }
-      }
-    },
-    "achieve.error.standard" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "文件不符合UIAFv1.1标准。"
-          }
-        }
-      }
-    },
-    "achieve.error.unknown" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "出现未知错误，请删除本存档。"
-          }
-        }
-      }
-    },
-    "achieve.manager.delete" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "删除存档"
-          }
-        }
-      }
-    },
-    "achieve.manager.export" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "导出存档"
-          }
-        }
-      }
-    },
-    "achieve.manager.help" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "管理存档"
-          }
-        }
-      }
-    },
-    "achieve.manager.update" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "更新存档"
-          }
-        }
-      }
-    },
-    "achieve.no_archive.make" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "新建档案"
-          }
-        }
-      }
-    },
-    "achieve.no_archive.sheet.name" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "档案名"
-          }
-        }
-      }
-    },
-    "achieve.no_archive.sheet.name_p" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "你的档案名不应以数字和特殊字符开头，否则可能会导致程序崩溃。"
-          }
-        }
-      }
-    },
-    "achieve.no_archive.sheet.title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "创建新的成就档案"
-          }
-        }
-      }
-    },
-    "achieve.no_archive.title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "当前暂无存档…"
-          }
-        }
-      }
-    },
-    "achieve.no_resource.download" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "下载"
-          }
-        }
-      }
-    },
-    "achieve.no_resource.title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "成就资源缺失…"
-          }
-        }
-      }
-    },
-    "achieve.search.clear" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "清空结果"
-          }
-        }
-      }
-    },
-    "achieve.search.help" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "检索成就"
-          }
-        }
-      }
-    },
-    "achieve.search.type" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "键入成就名以搜索"
-          }
-        }
-      }
-    },
-    "app.a" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "/"
+            "value" : "扫码登录"
           }
         }
       }
@@ -815,6 +582,12 @@
     "app.cancel" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancel"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -823,9 +596,32 @@
         }
       }
     },
+    "app.command.checkUpdate" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Check for updates…"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "检查更新…"
+          }
+        }
+      }
+    },
     "app.confirm" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Confirm"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -837,6 +633,12 @@
     "app.name" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "TravellersBag"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -845,1120 +647,168 @@
         }
       }
     },
-    "app.no" : {
+    "app.settings" : {
       "extractionState" : "manual",
       "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "否"
-          }
-        }
-      }
-    },
-    "app.notice" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "提示"
-          }
-        }
-      }
-    },
-    "app.waiting" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "请稍等…"
-          }
-        }
-      }
-    },
-    "app.warning" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "警告"
-          }
-        }
-      }
-    },
-    "app.yes" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "是"
-          }
-        }
-      }
-    },
-    "avatar.constellation.active" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "已激活"
-          }
-        }
-      }
-    },
-    "avatar.detail.no_avatar" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "从云端获取的数据中没有这个角色的信息，请刷新数据。"
-          }
-        }
-      }
-    },
-    "avatar.display.affix_level" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "精炼%@阶"
-          }
-        }
-      }
-    },
-    "avatar.display.detail" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "点按天赋、命座或装备图标查看详细信息"
-          }
-        }
-      }
-    },
-    "avatar.display.fetter" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "好感度：%@"
-          }
-        }
-      }
-    },
-    "avatar.display.lv" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Lv.%@"
-          }
-        }
-      }
-    },
-    "avatar.display.prop" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "角色信息"
-          }
-        }
-      }
-    },
-    "avatar.display.select" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "请先选择一个角色…"
-          }
-        }
-      }
-    },
-    "avatar.error.fetch" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "获取数据时失败，%@。"
-          }
-        }
-      }
-    },
-    "avatar.error.fetch_unknown" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "出现了未知问题，请稍后重试。"
-          }
-        }
-      }
-    },
-    "avatar.info.fetch_ok" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "获取数据成功。"
-          }
-        }
-      }
-    },
-    "avatar.no_data.fetch" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "从战绩面板获取"
-          }
-        }
-      }
-    },
-    "avatar.no_data.title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "没有本地角色数据"
-          }
-        }
-      }
-    },
-    "avatar.skill.info" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "天赋信息"
-          }
-        }
-      }
-    },
-    "avatar.weapon.main_prop" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "主词条"
-          }
-        }
-      }
-    },
-    "avatar.weapon.sub_prop" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "副词条"
-          }
-        }
-      }
-    },
-    "command.add.check_update" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "检查更新"
-          }
-        }
-      }
-    },
-    "command.add.device_info" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "虚拟设备信息"
-          }
-        }
-      }
-    },
-    "command.app" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "我的行囊"
-          }
-        }
-      }
-    },
-    "daily.display.coin" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "洞天宝钱"
-          }
-        }
-      }
-    },
-    "daily.display.coin_off" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "洞天财瓮已经储满"
-          }
-        }
-      }
-    },
-    "daily.display.coin_on" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "预计%@后达到存储上限"
-          }
-        }
-      }
-    },
-    "daily.display.expedition" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "探索派遣"
-          }
-        }
-      }
-    },
-    "daily.display.expedition_off" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "探险完成"
-          }
-        }
-      }
-    },
-    "daily.display.expedition_on" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "还剩%@"
-          }
-        }
-      }
-    },
-    "daily.display.mainline" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "魔神任务"
-          }
-        }
-      }
-    },
-    "daily.display.mainline_off" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "全部完成"
-          }
-        }
-      }
-    },
-    "daily.display.mainline_on" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "进行中"
-          }
-        }
-      }
-    },
-    "daily.display.resin" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "原粹树脂"
-          }
-        }
-      }
-    },
-    "daily.display.resin_discount" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "值得铭记的强敌"
-          }
-        }
-      }
-    },
-    "daily.display.resin_discount_p" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "本周剩余周本消耗减半"
-          }
-        }
-      }
-    },
-    "daily.display.resin_off" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "树脂已满"
-          }
-        }
-      }
-    },
-    "daily.display.resin_on" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "将于%@后全部恢复"
-          }
-        }
-      }
-    },
-    "daily.display.stored_attendance" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "长效历练点：%@"
-          }
-        }
-      }
-    },
-    "daily.display.task" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "每日委托"
-          }
-        }
-      }
-    },
-    "daily.display.transformer" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "参量质变仪"
-          }
-        }
-      }
-    },
-    "daily.display.transformer_off" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "已准备完成"
-          }
-        }
-      }
-    },
-    "daily.display.transformer_on" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "还需要%@天%@小时%@分钟完成准备"
-          }
-        }
-      }
-    },
-    "daily.error.read_local" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "读取本地数据失败。"
-          }
-        }
-      }
-    },
-    "daily.no_account.title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "你需要先登录才能查看…"
-          }
-        }
-      }
-    },
-    "daily.no_content.do" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "请求数据"
-          }
-        }
-      }
-    },
-    "daily.no_content.title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "你需要先获取数据才能继续…"
-          }
-        }
-      }
-    },
-    "daily.refresh" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "更新便签"
-          }
-        }
-      }
-    },
-    "dashboard.alert.refresh_p" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "你要刷新数据吗？请注意你的刷新频率，否则可能导致触发风控。"
-          }
-        }
-      }
-    },
-    "dashboard.empty.context" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "你需要先设定默认账号（登录）才能查看本页内容。"
-          }
-        }
-      }
-    },
-    "dashboard.empty.refresh" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "刷新账号状态"
-          }
-        }
-      }
-    },
-    "dashboard.empty.title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "本页没有内容"
-          }
-        }
-      }
-    },
-    "dashboard.error.fetch_data" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "获取信息失败，你可能需要进行人机验证。"
-          }
-        }
-      }
-    },
-    "dashboard.info.fetch_ok" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "获取信息成功"
-          }
-        }
-      }
-    },
-    "dashboard.info.fetch_widget_ok" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "获取精简版实时便签成功。"
-          }
-        }
-      }
-    },
-    "dashboard.main.load" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "（重）加载内容"
-          }
-        }
-      }
-    },
-    "dashboard.main.title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "旅行者，欢迎来到麦金塔上的提瓦特大陆。"
-          }
-        }
-      }
-    },
-    "dashboard.unit.data.abyss" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "深境螺旋"
-          }
-        }
-      }
-    },
-    "dashboard.unit.data.achievement" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "达成成就"
-          }
-        }
-      }
-    },
-    "dashboard.unit.data.anemoculus" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "风神瞳"
-          }
-        }
-      }
-    },
-    "dashboard.unit.data.avatar" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
+        "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "获得角色"
+            "value" : "Settings"
           }
-        }
-      }
-    },
-    "dashboard.unit.data.dendroculus" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "草神瞳"
-          }
-        }
-      }
-    },
-    "dashboard.unit.data.electroculus" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "雷神瞳"
-          }
-        }
-      }
-    },
-    "dashboard.unit.data.geoculus" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "岩神瞳"
-          }
-        }
-      }
-    },
-    "dashboard.unit.data.hydroculus" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "水神瞳"
-          }
-        }
-      }
-    },
-    "dashboard.unit.data.pyroculus" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "火神瞳"
-          }
-        }
-      }
-    },
-    "dashboard.unit.data.role" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "幻想真境剧诗"
-          }
-        }
-      }
-    },
-    "dashboard.unit.data.title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "基本信息一览"
-          }
-        }
-      }
-    },
-    "dashboard.unit.launcher.error" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "你需要先设置才能继续。"
-          }
-        }
-      }
-    },
-    "dashboard.unit.launcher.settings" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "启动项设置"
-          }
-        }
-      }
-    },
-    "dashboard.unit.launcher.settings_app" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "兼容层app名（一般为XXX.app）"
-          }
-        }
-      }
-    },
-    "dashboard.unit.launcher.settings_command" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "自定义命令的绝对路径"
-          }
-        }
-      }
-    },
-    "dashboard.unit.launcher.settings_help" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "根据你希望的启动方式填写相应的值，对于一般的旅行者，我们推荐使用兼容层app来启动游戏。"
-          }
-        }
-      }
-    },
-    "dashboard.unit.launcher.settings_title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "设置你的启动方式"
-          }
-        }
-      }
-    },
-    "dashboard.unit.launcher.settings_use_app" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "使用兼容层"
-          }
-        }
-      }
-    },
-    "dashboard.unit.launcher.settings_use_command" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "使用命令"
-          }
-        }
-      }
-    },
-    "dashboard.unit.launcher.start" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "开始游戏"
-          }
-        }
-      }
-    },
-    "dashboard.unit.launcher.title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "启动兼容层"
-          }
-        }
-      }
-    },
-    "dashboard.unit.widget.expedition" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "探索派遣"
-          }
-        }
-      }
-    },
-    "dashboard.unit.widget.fetch" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "拉取信息"
-          }
-        }
-      }
-    },
-    "dashboard.unit.widget.fetch_error" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "获取小组件信息失败，%@。"
-          }
-        }
-      }
-    },
-    "dashboard.unit.widget.home_coin" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "洞天宝钱"
-          }
-        }
-      }
-    },
-    "dashboard.unit.widget.no_data" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "当前暂无数据，你需要…"
-          }
-        }
-      }
-    },
-    "dashboard.unit.widget.refresh" : {
-      "extractionState" : "manual",
-      "localizations" : {
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "刷新数据"
+            "value" : "旅者行囊-设置"
           }
         }
       }
     },
-    "dashboard.unit.widget.refresh_p" : {
+    "error.wizard.resourceAvatarDownload" : {
       "extractionState" : "manual",
       "localizations" : {
-        "zh-Hans" : {
+        "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "请控制你的刷新频率以避免触发风控（我们不会自动更新便签）。"
+            "value" : "The downloaded resource is incomplete. Please download it again."
           }
-        }
-      }
-    },
-    "dashboard.unit.widget.resin" : {
-      "extractionState" : "manual",
-      "localizations" : {
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "脆弱树脂"
+            "value" : "下载的资源不完整，请重新下载。"
           }
         }
       }
     },
-    "dashboard.unit.widget.task" : {
+    "home.sidebar.account" : {
       "extractionState" : "manual",
       "localizations" : {
-        "zh-Hans" : {
+        "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "每日委托"
+            "value" : "Accounts"
           }
-        }
-      }
-    },
-    "dashboard.unit.widget.title" : {
-      "extractionState" : "manual",
-      "localizations" : {
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "简易实时便签"
+            "value" : "账户管理"
           }
         }
       }
     },
-    "dashboard.unit.world.boss" : {
+    "home.sidebar.notice" : {
       "extractionState" : "manual",
       "localizations" : {
-        "zh-Hans" : {
+        "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "区域首领信息"
+            "value" : "Notices"
           }
-        }
-      }
-    },
-    "dashboard.unit.world.boss_kill" : {
-      "extractionState" : "manual",
-      "localizations" : {
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "击败%@次"
+            "value" : "通知公告"
           }
         }
       }
     },
-    "dashboard.unit.world.ee" : {
+    "settings.general.fpUpdateCircle" : {
       "extractionState" : "manual",
       "localizations" : {
-        "zh-Hans" : {
+        "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "探索度"
+            "value" : "Device fingerprint update cycle"
           }
-        }
-      }
-    },
-    "dashboard.unit.world.ee.sub" : {
-      "extractionState" : "manual",
-      "localizations" : {
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "子区域探索度"
+            "value" : "设备指纹更新周期"
           }
         }
       }
     },
-    "dashboard.unit.world.ee.sub_p" : {
+    "settings.general.staticUpdateCircle" : {
       "extractionState" : "manual",
       "localizations" : {
-        "zh-Hans" : {
+        "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%@探索度：%@"
+            "value" : "Static resource update cycle"
           }
-        }
-      }
-    },
-    "dashboard.unit.world.level" : {
-      "extractionState" : "manual",
-      "localizations" : {
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "声望等级：%@"
+            "value" : "静态资源更新周期"
           }
         }
       }
     },
-    "dashboard.unit.world.offering" : {
+    "settings.general.staticUpdateCircleP" : {
       "extractionState" : "manual",
       "localizations" : {
-        "zh-Hans" : {
+        "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%@等级：%@"
+            "value" : "We will regularly request a static document resource (json) metadata from the server based on the update cycle you set, so that when you click the update button in each functional section, you will always download the latest content."
           }
-        }
-      }
-    },
-    "dashboard.unit.world.per" : {
-      "extractionState" : "manual",
-      "localizations" : {
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%@ %"
+            "value" : "我们将根据你设置的更新周期定期向服务器请求一份静态文档资源（json）的元数据，以便于你在各个功能分区中点按更新按钮时下载到的始终是最新的内容。"
           }
         }
       }
     },
-    "dashboard.unit.world.see" : {
+    "settings.title.general" : {
       "extractionState" : "manual",
       "localizations" : {
-        "zh-Hans" : {
+        "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "左右滑动以查看更多，点按地区查看详情信息。"
+            "value" : "General"
           }
-        }
-      }
-    },
-    "dashboard.unit.world.statue" : {
-      "extractionState" : "manual",
-      "localizations" : {
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "七天神像等级：%@"
+            "value" : "通用"
           }
         }
       }
     },
-    "dashboard.unit.world.title" : {
+    "settings.unit.day" : {
       "extractionState" : "manual",
       "localizations" : {
-        "zh-Hans" : {
+        "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "世界探索度"
+            "value" : "Day"
           }
-        }
-      }
-    },
-    "device.show_miyoushe" : {
-      "extractionState" : "manual",
-      "localizations" : {
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "米游社APP版本"
+            "value" : "天"
           }
         }
       }
     },
-    "device.show_miyoushe_p" : {
+    "wizard.device.bbs" : {
       "extractionState" : "manual",
       "localizations" : {
-        "zh-Hans" : {
+        "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "2.71.1"
+            "value" : "BBS Device ID"
           }
-        }
-      }
-    },
-    "device.show.bbs_device_id" : {
-      "extractionState" : "manual",
-      "localizations" : {
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1967,9 +817,15 @@
         }
       }
     },
-    "device.show.fp" : {
+    "wizard.device.fp" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Device Fingerprint"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1978,42 +834,99 @@
         }
       }
     },
-    "device.show.fp_last_update" : {
+    "wizard.device.fpGen" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Generate Fp"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "上次更新时间：%@"
+            "value" : "生成指纹"
           }
         }
       }
     },
-    "device.show.fp_not_official" : {
+    "wizard.device.fpGenOk" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Generating Successfully"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "你的设备指纹可能是非法的，请尝试重新获取。"
+            "value" : "生成指纹成功"
           }
         }
       }
     },
-    "device.show.fp_update" : {
+    "wizard.device.fpGenYaagl" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "If you use Yaagl as a game launcher, please first disable in the system's hosts file on its blocking of the domain name \"public-data-api.mihoyo.com\". We don't know why the launcher disables this domain name."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "更新设备指纹"
+            "value" : "如果你使用 Yaagl 作为游戏启动器，请先在系统的 hosts 文件中注释其对「public-data-api.mihoyo.com」这个域名的屏蔽，我们尚不知悉该启动器禁用这个域名的原因。"
           }
         }
       }
     },
-    "device.show.id" : {
+    "wizard.device.fpVerified" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verified fingerprint"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "指纹经过了验证"
+          }
+        }
+      }
+    },
+    "wizard.device.fpVerifiedNot" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fingerprint not verified"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "指纹未经验证"
+          }
+        }
+      }
+    },
+    "wizard.device.id" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Device ID"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2022,1018 +935,474 @@
         }
       }
     },
-    "device.show.name" : {
+    "wizard.device.subtitle" : {
       "extractionState" : "manual",
       "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "设备名称"
-          }
-        }
-      }
-    },
-    "device.show.name_p" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "iPhone 15（iOS 16.0）"
-          }
-        }
-      }
-    },
-    "device.show.p" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "你的设备信息在你第一次冷启动时完成初始化并全局不可修改，设备指纹是你唯一可以更新的部分，我们默认每5天更新一次，你不应当过于频繁地更新设备指纹。"
-          }
-        }
-      }
-    },
-    "device.title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "虚拟设备基本信息"
-          }
-        }
-      }
-    },
-    "gacha.error.fetch_info_err" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "获取祈愿记录失败，%@。"
-          }
-        }
-      }
-    },
-    "gacha.error.file_empty" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "你的文件中不包含%@的祈愿数据！"
-          }
-        }
-      }
-    },
-    "gacha.error.get_authkey" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "获取AuthKey v2时出错。"
-          }
-        }
-      }
-    },
-    "gacha.error.import_from_file" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "从文件中导入信息失败，%@。"
-          }
-        }
-      }
-    },
-    "gacha.export.error" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "导出记录到文件时出错：%@。"
-          }
-        }
-      }
-    },
-    "gacha.history.five" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "当期五星角色（武器）"
-          }
-        }
-      }
-    },
-    "gacha.history.four" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "当期四星角色（武器）"
-          }
-        }
-      }
-    },
-    "gacha.history.other" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "其他祈愿成果"
-          }
-        }
-      }
-    },
-    "gacha.history.refresh" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "刷新历史活动"
-          }
-        }
-      }
-    },
-    "gacha.history.refresh_p" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "我们将从第三方服务器获取新的祈愿历史记录文件并覆盖你本地的当前文件，要继续吗？"
-          }
-        }
-      }
-    },
-    "gacha.history.select" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "请先选择一个祈愿池…"
-          }
-        }
-      }
-    },
-    "gacha.history.version" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "版本"
-          }
-        }
-      }
-    },
-    "gacha.home.avatar" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "角色活动祈愿"
-          }
-        }
-      }
-    },
-    "gacha.home.collection" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "集录祈愿"
-          }
-        }
-      }
-    },
-    "gacha.home.menu.delete" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "删除记录"
-          }
-        }
-      }
-    },
-    "gacha.home.menu.delete_ok" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "确认删除"
-          }
-        }
-      }
-    },
-    "gacha.home.menu.delete_p" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "这将删除与这个账号相关的全部祈愿数据且不可撤销，请确保你备份了数据。"
-          }
-        }
-      }
-    },
-    "gacha.home.menu.export" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "导出记录"
-          }
-        }
-      }
-    },
-    "gacha.home.menu.export_p" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "选择一个位置来存储你导出的记录信息。"
-          }
-        }
-      }
-    },
-    "gacha.home.menu.update" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "更新记录"
-          }
-        }
-      }
-    },
-    "gacha.home.menu.update_p" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "从下面的方式中选择一个以更新你的祈愿数据。"
-          }
-        }
-      }
-    },
-    "gacha.home.menu.update_p2" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "你需要从文件系统中选择一个json文件。"
-          }
-        }
-      }
-    },
-    "gacha.home.resident" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "「奔行世间」"
-          }
-        }
-      }
-    },
-    "gacha.home.tab_activity" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "历史活动"
-          }
-        }
-      }
-    },
-    "gacha.home.tab_overview" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "数据总览"
-          }
-        }
-      }
-    },
-    "gacha.home.weapon" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "神器铸形"
-          }
-        }
-      }
-    },
-    "gacha.info.update_from_cloud" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "成功从服务器获取到了%@条记录。"
-          }
-        }
-      }
-    },
-    "gacha.info.update_from_file" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "成功从文件导入了%@条记录。"
-          }
-        }
-      }
-    },
-    "gacha.login_first" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "刷新登录状态…"
-          }
-        }
-      }
-    },
-    "gacha.no_data.cloud" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "从官方服务器获取数据"
-          }
-        }
-      }
-    },
-    "gacha.no_data.file" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "从UIGFv4文件导入数据"
-          }
-        }
-      }
-    },
-    "gacha.no_data.title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
+        "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "本地没有数据可显示"
+            "value" : "We need to generate the necessary device information, which is crucial for subsequent use."
           }
-        }
-      }
-    },
-    "gacha.overview.count" : {
-      "extractionState" : "manual",
-      "localizations" : {
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%@抽"
+            "value" : "我们需要生成必要的设备信息，这对于后续的使用至关重要。"
           }
         }
       }
     },
-    "gacha.overview.last_five" : {
+    "wizard.device.title" : {
       "extractionState" : "manual",
       "localizations" : {
-        "zh-Hans" : {
+        "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "距上个五星"
+            "value" : "Device Info"
           }
-        }
-      }
-    },
-    "gacha.overview.last_four" : {
-      "extractionState" : "manual",
-      "localizations" : {
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "距上个四星"
+            "value" : "确认设备信息"
           }
         }
       }
     },
-    "gacha.overview.no_record" : {
+    "wizard.finished" : {
       "extractionState" : "manual",
       "localizations" : {
-        "zh-Hans" : {
+        "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "无数据"
+            "value" : "Continue"
           }
-        }
-      }
-    },
-    "gacha.overview.time" : {
-      "extractionState" : "manual",
-      "localizations" : {
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "从%@到%@"
+            "value" : "完成设置"
           }
         }
       }
     },
-    "gacha.overview.total" : {
+    "wizard.language.confirm" : {
       "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "总共抽数"
-          }
-        }
-      }
-    },
-    "gacha.update_error_from_file" : {
       "localizations" : {
-        "zh-Hans" : {
+        "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "无法从文件中导入数据"
+            "value" : "Confirm & Relaunch"
           }
-        }
-      }
-    },
-    "home.before.fp" : {
-      "extractionState" : "manual",
-      "localizations" : {
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "正在获取（更新）设备指纹…"
+            "value" : "确认并重启"
           }
         }
       }
     },
-    "home.side.title.basic" : {
+    "wizard.language.label" : {
       "extractionState" : "manual",
       "localizations" : {
-        "zh-Hans" : {
+        "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "基本"
+            "value" : "Display Language"
           }
-        }
-      }
-    },
-    "home.side.title.game" : {
-      "extractionState" : "manual",
-      "localizations" : {
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "游戏"
+            "value" : "默认语言"
           }
         }
       }
     },
-    "home.sider.account" : {
+    "wizard.language.subtitle" : {
       "extractionState" : "manual",
       "localizations" : {
-        "zh-Hans" : {
+        "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "账号管理"
+            "value" : "We chosen your display language according to your system’s default language"
           }
-        }
-      }
-    },
-    "home.sider.achieve" : {
-      "extractionState" : "manual",
-      "localizations" : {
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "成就管理"
+            "value" : "我们根据你的系统语言为你选择了如下语言"
           }
         }
       }
     },
-    "home.sider.adopt" : {
+    "wizard.language.title" : {
       "extractionState" : "manual",
       "localizations" : {
-        "zh-Hans" : {
+        "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "养成计算器"
+            "value" : "Langages"
           }
-        }
-      }
-    },
-    "home.sider.avatar" : {
-      "extractionState" : "manual",
-      "localizations" : {
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "我的角色"
+            "value" : "语言设置"
           }
         }
       }
     },
-    "home.sider.daily" : {
+    "wizard.language.translation" : {
       "extractionState" : "manual",
       "localizations" : {
-        "zh-Hans" : {
+        "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "实时便签"
+            "value" : "The translation is not 100% accurate. If there is any ambiguity, please give feedback in time. (Simplified Chinese is always the governing text)"
           }
-        }
-      }
-    },
-    "home.sider.dashboard" : {
-      "extractionState" : "manual",
-      "localizations" : {
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "仪表盘"
+            "value" : "翻译并不100%准确，如有歧义望及时反馈。（简体中文始终为准据文本）"
           }
         }
       }
     },
-    "home.sider.gacha" : {
+    "wizard.language.typeCHS" : {
       "extractionState" : "manual",
       "localizations" : {
-        "zh-Hans" : {
+        "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "祈愿记录"
+            "value" : "简体中文"
           }
-        }
-      }
-    },
-    "home.sider.index" : {
-      "extractionState" : "manual",
-      "localizations" : {
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "社区信息面板"
+            "value" : "简体中文"
           }
         }
       }
     },
-    "home.sider.notice" : {
+    "wizard.language.typeDef" : {
       "extractionState" : "manual",
       "localizations" : {
-        "zh-Hans" : {
+        "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "通知公告"
+            "value" : "Sync with my Mac"
           }
-        }
-      }
-    },
-    "hutao.error.crypto" : {
-      "extractionState" : "manual",
-      "localizations" : {
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "加密错误：%@"
+            "value" : "跟随系统"
           }
         }
       }
     },
-    "hutao.error.crypto_key" : {
+    "wizard.language.typeEN" : {
       "extractionState" : "manual",
       "localizations" : {
-        "zh-Hans" : {
+        "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "处理公钥时出错"
+            "value" : "English"
           }
-        }
-      }
-    },
-    "hutao.error.fetch_gacha_info" : {
-      "extractionState" : "manual",
-      "localizations" : {
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "获取云端祈愿信息时失败，%@。"
+            "value" : "English"
           }
         }
       }
     },
-    "hutao.error.login" : {
+    "wizard.ok" : {
       "extractionState" : "manual",
       "localizations" : {
-        "zh-Hans" : {
+        "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "登录失败，%@。"
+            "value" : "Tap anywhere on the screen, we'll make some final settings and close the app, and when you open it again, the new world on the Macintosh will be open to you!"
           }
-        }
-      }
-    },
-    "hutao.gacha.count" : {
-      "extractionState" : "manual",
-      "localizations" : {
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "总计：%@抽"
+            "value" : "点按屏幕任意位置，我们将进行一些最后的设置并关闭应用，当你再次打开时，麦金塔上的提瓦特大陆就将向你敞开了！"
           }
         }
       }
     },
-    "hutao.gacha.delete" : {
+    "wizard.policy.confirm" : {
       "extractionState" : "manual",
       "localizations" : {
-        "zh-Hans" : {
+        "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "删除云数据"
+            "value" : "Agree & Continue"
           }
-        }
-      }
-    },
-    "hutao.gacha.delete_p" : {
-      "extractionState" : "manual",
-      "localizations" : {
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "删除云数据后将无法找回，我们建议你先确保云端当前内容与本地的备份一致后再执行此操作。"
+            "value" : "同意并继续"
           }
         }
       }
     },
-    "hutao.gacha.error_load_local" : {
+    "wizard.policy.hutao" : {
       "extractionState" : "manual",
       "localizations" : {
-        "zh-Hans" : {
+        "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "加载本地祈愿记录时失败。"
+            "value" : "Our application is connected to services from ‘胡桃云', and before using these services, you should also read and agree to the relevant documents provided by 'DGP Studio'."
           }
-        }
-      }
-    },
-    "hutao.gacha.error_sync" : {
-      "extractionState" : "manual",
-      "localizations" : {
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "与云端同步祈愿数据时失败，%@。"
+            "value" : "我们的应用接入了来自「胡桃云」的服务，你在使用这些服务之前还应当前阅读并同意由「DGP Studio」提供的相关文件。"
           }
         }
       }
     },
-    "hutao.gacha.no_record" : {
+    "wizard.policy.previous" : {
       "extractionState" : "manual",
       "localizations" : {
-        "zh-Hans" : {
+        "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "当前的默认账号没有云端记录"
+            "value" : "Reset language"
           }
-        }
-      }
-    },
-    "hutao.gacha.record" : {
-      "extractionState" : "manual",
-      "localizations" : {
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "胡桃云记录"
+            "value" : "重新设置语言"
           }
         }
       }
     },
-    "hutao.gacha.sync_ok" : {
+    "wizard.policy.read" : {
       "extractionState" : "manual",
       "localizations" : {
-        "zh-Hans" : {
+        "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "已与云端同步了%@条数据。"
+            "value" : "I have read and agreed"
           }
-        }
-      }
-    },
-    "hutao.gacha.sync_with_cloud" : {
-      "extractionState" : "manual",
-      "localizations" : {
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "与云端同步"
+            "value" : "我已阅读并同意受该协议约束："
           }
         }
       }
     },
-    "hutao.gacha.title" : {
+    "wizard.policy.subtitle" : {
       "extractionState" : "manual",
       "localizations" : {
-        "zh-Hans" : {
+        "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "云祈愿管理"
+            "value" : "We should jointly use 旅者行囊 under the constraints of the following agreements"
           }
-        }
-      }
-    },
-    "hutao.gacha.uid" : {
-      "extractionState" : "manual",
-      "localizations" : {
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "UID: %@"
+            "value" : "我们应当在下列协议的约束下共同使用旅者行囊"
           }
         }
       }
     },
-    "hutao.gacha.upload" : {
+    "wizard.policy.title" : {
       "extractionState" : "manual",
       "localizations" : {
-        "zh-Hans" : {
+        "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "上传记录"
+            "value" : "Agreements"
           }
-        }
-      }
-    },
-    "hutao.logout" : {
-      "extractionState" : "manual",
-      "localizations" : {
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "退出登录"
+            "value" : "许可与协议"
           }
         }
       }
     },
-    "hutao.main.gacha" : {
+    "wizard.policy.typeLicense" : {
       "extractionState" : "manual",
       "localizations" : {
-        "zh-Hans" : {
+        "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "管理云祈愿数据"
+            "value" : "GNU GPL v3.0"
           }
-        }
-      }
-    },
-    "hutao.main.table_developer" : {
-      "extractionState" : "manual",
-      "localizations" : {
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "认证的开发者"
+            "value" : "GNU GPL v3.0"
           }
         }
       }
     },
-    "hutao.main.table_expire" : {
+    "wizard.policy.typePrivate" : {
       "extractionState" : "manual",
       "localizations" : {
-        "zh-Hans" : {
+        "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "祈愿数据存储到期时间"
+            "value" : "Privacy Policy"
           }
-        }
-      }
-    },
-    "hutao.passport.login" : {
-      "extractionState" : "manual",
-      "localizations" : {
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "请先登录通行证以继续"
+            "value" : "隐私条款"
           }
         }
       }
     },
-    "hutao.passport.login_btn" : {
+    "wizard.policy.typeUser" : {
       "extractionState" : "manual",
       "localizations" : {
-        "zh-Hans" : {
+        "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "登录"
+            "value" : "User Service Agreement"
           }
-        }
-      }
-    },
-    "hutao.passport.login_sheet_agree" : {
-      "extractionState" : "manual",
-      "localizations" : {
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "登录意味着你同意DGP Studio的相关服务协议。"
+            "value" : "用户服务协议"
           }
         }
       }
     },
-    "hutao.passport.login_sheet_email" : {
+    "wizard.resource.download" : {
       "extractionState" : "manual",
       "localizations" : {
-        "zh-Hans" : {
+        "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "电子邮箱"
+            "value" : "Download"
           }
-        }
-      }
-    },
-    "hutao.passport.login_sheet_password" : {
-      "extractionState" : "manual",
-      "localizations" : {
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "密码"
+            "value" : "下载"
           }
         }
       }
     },
-    "hutao.passport.login_sheet_title" : {
+    "wizard.resource.downloadJsonOK" : {
       "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "登录你的通行证"
-          }
-        }
-      }
-    },
-    "notice.detail.no_content" : {
       "localizations" : {
-        "zh-Hans" : {
+        "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "没有内容"
+            "value" : "Download successfully"
           }
-        }
-      }
-    },
-    "notice.error.fetch_notice_detail" : {
-      "extractionState" : "manual",
-      "localizations" : {
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "获取通知内容时失败，%@。"
+            "value" : "文本资源下载成功"
           }
         }
       }
     },
-    "notice.error.fetch_notice_list" : {
+    "wizard.resource.imageGo" : {
       "extractionState" : "manual",
       "localizations" : {
-        "zh-Hans" : {
+        "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "获取通知列表时失败，%@。"
+            "value" : "Downloading…"
           }
-        }
-      }
-    },
-    "notice.error.fetch_notice_list_local" : {
-      "extractionState" : "manual",
-      "localizations" : {
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "读取缓存通知失败，请刷新。"
+            "value" : "正在下载资源"
           }
         }
       }
     },
-    "notice.main.current_gacha" : {
+    "wizard.resource.imageGoP" : {
       "extractionState" : "manual",
       "localizations" : {
-        "zh-Hans" : {
+        "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "当期祈愿"
+            "value" : "We are downloading %@ …"
           }
-        }
-      }
-    },
-    "notice.main.gacha_time" : {
-      "extractionState" : "manual",
-      "localizations" : {
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "本期起止时间"
+            "value" : "我们正在下载%@…"
           }
         }
       }
     },
-    "notice.main.gacha_time_p" : {
+    "wizard.resource.imageSee" : {
       "extractionState" : "manual",
       "localizations" : {
-        "zh-Hans" : {
+        "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%@到%@"
+            "value" : "Slide the mouse over the list to see more."
           }
-        }
-      }
-    },
-    "notice.menu.refresh" : {
-      "extractionState" : "manual",
-      "localizations" : {
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "刷新通知"
+            "value" : "在列表上滑动鼠标查看更多。"
           }
         }
       }
     },
-    "notice.tag.game" : {
+    "wizard.resource.imageTitle" : {
       "extractionState" : "manual",
       "localizations" : {
-        "zh-Hans" : {
+        "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "游戏活动"
+            "value" : "Image Resource(Optional)"
           }
-        }
-      }
-    },
-    "notice.tag.notice" : {
-      "extractionState" : "manual",
-      "localizations" : {
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "通知公告"
+            "value" : "图像资源（可选）"
           }
         }
       }
     },
-    "wizard.data.download_title" : {
+    "wizard.resource.next" : {
       "extractionState" : "manual",
       "localizations" : {
-        "zh-Hans" : {
+        "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "将要下载的内容"
+            "value" : "Next"
           }
-        }
-      }
-    },
-    "wizard.data.next" : {
-      "extractionState" : "manual",
-      "localizations" : {
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3042,277 +1411,206 @@
         }
       }
     },
-    "wizard.data.not_agree" : {
+    "wizard.resource.old" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your resources may lag behind the game version"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "你还没有同意我们的《用户协议》，不得跳跃设置步骤。"
+            "value" : "你的资源可能落后于游戏版本"
           }
         }
       }
     },
-    "wizard.data.p1" : {
+    "wizard.resource.oldP" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Our embedded resources have been lagging behind since application release, and unless you encounter unsolvable problems while downloading and indexing resources, we will not recommend you using embedded resources."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "我们为你内置了一份数据源，但它的最新数据保持在5.0上半。我们强烈建议你更新数据源，否则可能存在一些异常（我们无法确保这些异常不会导致程序崩溃）。"
+            "value" : "我们的内嵌资源从应用发布起就已经落后了，除非你在下载和索引资源时遇到无法解决的问题，否则我们不会建议你使用内嵌资源。"
           }
         }
       }
     },
-    "wizard.data.title" : {
+    "wizard.resource.oldUse" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Use Built-in"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "更新你的数据源"
+            "value" : "使用内嵌"
           }
         }
       }
     },
-    "wizard.download" : {
+    "wizard.resource.staticExplanation" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "These resources include character information, weapon information, relic information, etc. Content closely related to basic software functions. You must download these files and do “Index” to continue using this software."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "下载资源"
+            "value" : "这些资源包含角色信息（名字、元素力、天赋、命座等）、武器信息（名字、词条等）、圣遗物信息（词条、套装信息）、历史祈愿活动、游戏成就词条等与软件基础功能密切相关的内容。你必须要下载这些文件并完成「资源索引」后才能继续使用本软件。"
           }
         }
       }
     },
-    "wizard.finally.p" : {
+    "wizard.resource.staticIndex" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Do Index"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "我们需要重启应用以应用更改。"
+            "value" : "索引资源"
           }
         }
       }
     },
-    "wizard.finally.title" : {
+    "wizard.resource.staticSource" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The files you download are compiled and provided by DGP Studio."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "马上就好！"
+            "value" : "你所下载的这些文件由 DGP Studio 整理提供。"
           }
         }
       }
     },
-    "wizard.go" : {
+    "wizard.resource.staticTitle" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Json Resource(Required)"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "重启应用"
+            "value" : "文本信息资源（必须）"
           }
         }
       }
     },
-    "wizard.images.go" : {
+    "wizard.resource.staticWait" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Downloading %@ of %@."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "下载资源"
+            "value" : "正在为你下载第%@个文件，共%@个文件。"
           }
         }
       }
     },
-    "wizard.images.p1" : {
+    "wizard.resource.subtitle" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "We also need to download some necessary resource files."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "列表中（滑动查看全部）的图像也不是必须要现在下载，如果你不下载，那么我们将会在日后需要显示这些图片时向服务器请求。你可以选择需要下载的图像包，现在预装载是一个不错的选择。"
+            "value" : "我们还需要下载一些必要的资源文件"
           }
         }
       }
     },
-    "wizard.images.title" : {
+    "wizard.resource.title" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Resource Download"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "使用本地静态图像"
+            "value" : "资源下载"
           }
         }
       }
     },
-    "wizard.neo.get_meta" : {
+    "wizard.resource.useBuiltIn" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Use Built-in"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "「整合资源」是你在更新完数据之后的必须步骤，我们将对文件建立索引。如果你不做这一步，那么我们将不会使用你下载的数据而继续使用内置数据。"
+            "value" : "使用内嵌资源"
           }
         }
       }
     },
-    "wizard.neo.index" : {
+    "wizard.windowTitle" : {
       "extractionState" : "manual",
       "localizations" : {
-        "zh-Hans" : {
+        "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "整合资源"
+            "value" : "Welcome to use TravellersBag"
           }
-        }
-      }
-    },
-    "wizard.neo.op_ok" : {
-      "extractionState" : "manual",
-      "localizations" : {
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "操作完成"
-          }
-        }
-      }
-    },
-    "wizard.neo.refresh_license" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "刷新状态"
-          }
-        }
-      }
-    },
-    "wizard.neo.sheet_p1" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "我们正在为你下载，请稍等。"
-          }
-        }
-      }
-    },
-    "wizard.splash.agree" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "同意"
-          }
-        }
-      }
-    },
-    "wizard.splash.disagree" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "不同意"
-          }
-        }
-      }
-    },
-    "wizard.splash.license" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "阅读《用户协议》"
-          }
-        }
-      }
-    },
-    "wizard.splash.look_gpl" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "查看开源许可"
-          }
-        }
-      }
-    },
-    "wizard.splash.look_repo" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "查看项目存储库"
-          }
-        }
-      }
-    },
-    "wizard.splash.p1" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "欢迎你使用《旅者行囊》。你可以使用本应用以实现查看你的《原神》游戏数据等的功能。在使用本应用的过程中，我们将联网提供必要服务。在你同意后，我们会先关闭软件以应用若干更改。"
-          }
-        }
-      }
-    },
-    "wizard.splash.p2" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "在使用的过程中，为获得更多服务，我们可能还将随时读取位于你的文件系统上的本应用的沙盘中的全部文件。为确保安全，建议你不要在「系统设置」中对你不确认权限行为的软件开放「完全磁盘访问权限」以保证 Apple 的沙盘机制发挥作用。此外，本应用系开源软件，你的使用、修改、复制等行为均系自愿，本应用不含任何担保。当你点按「同意」即视为你愿意接受我们的服务协议。当然，如果你想要使用来自胡桃云提供的服务，你还需要阅读并同意DGP Studio的用户协议和其他相关文件。"
-          }
-        }
-      }
-    },
-    "wizard.tab.data" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "数据源配置"
-          }
-        }
-      }
-    },
-    "wizard.tab.images" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "图像资源下载"
-          }
-        }
-      }
-    },
-    "wizard.tab.splash" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "基本信息"
+            "value" : "欢迎使用旅者行囊"
           }
         }
       }
