@@ -13,7 +13,7 @@ let groupName = "NV65B8VFUD.travellersbag"
 
 /// 应用数据库
 let tbDatabase = try! ModelContainer(
-    for: MihoyoAccount.self
+    for: MihoyoAccount.self, HutaoPassport.self
 )
 
 @MainActor func getDefaultAccount() -> MihoyoAccount? {
@@ -25,6 +25,7 @@ let tbDatabase = try! ModelContainer(
 struct TravellersBagApp: App {
     private var needWizard: Bool = false
     private let updaterController: SPUStandardUpdaterController
+    @State var showHutaoPassport: Bool = false
     
     init() {
         needWizard = UserDefaults.configGetConfig(forKey: "currentAppVersion", def: "0.0.0") != "0.0.2"
@@ -37,12 +38,23 @@ struct TravellersBagApp: App {
                 .onAppear {
                     appPresetSettings()
                 }
+                .sheet(isPresented: $showHutaoPassport, content: { HutaoLogin(
+                    dismiss: { showHutaoPassport = false }
+                ) })
         }
         .commands {
             CommandGroup(after: .appInfo) {
                 CheckForUpdate(updater: updaterController.updater)
             }
+            CommandGroup(replacing: .newItem, addition: {}) // 移除「文件」命令组 因为没有必要
         }
+        .commands(content: {
+            CommandMenu("app.command.title", content: {
+                Button("app.command.hutao", action: {
+                    showHutaoPassport = true
+                }).keyboardShortcut(.init("h"), modifiers: .shift)
+            })
+        })
         Settings {
             SettingsPane().frame(maxWidth: 600)
         }

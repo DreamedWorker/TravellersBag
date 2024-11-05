@@ -635,6 +635,28 @@
         }
       }
     },
+    "app.command.hutao" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "胡桃通行证…"
+          }
+        }
+      }
+    },
+    "app.command.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "我的行囊"
+          }
+        }
+      }
+    },
     "app.confirm" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -733,6 +755,192 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "通知公告"
+          }
+        }
+      }
+    },
+    "hutao.error.crypto" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法加密内容"
+          }
+        }
+      }
+    },
+    "hutao.error.fetch_gacha_info" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法获取云端祈愿信息，%@。"
+          }
+        }
+      }
+    },
+    "hutao.ExpireAt" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "服务到期时间"
+          }
+        }
+      }
+    },
+    "hutao.gacga.deleteDialog" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "要删除这条祈愿记录吗？"
+          }
+        }
+      }
+    },
+    "hutao.gacga.deleteDialogP" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "这项操作不可逆，请确认你知道你正在做什么。建议在删除之前在本地做好备份避免数据无法找回。"
+          }
+        }
+      }
+    },
+    "hutao.gacha.count" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@抽"
+          }
+        }
+      }
+    },
+    "hutao.gacha.delete" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "删除该记录"
+          }
+        }
+      }
+    },
+    "hutao.gacha.sync" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "更新记录信息"
+          }
+        }
+      }
+    },
+    "hutao.gacha.sync_with_cloud" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "从胡桃云同步记录信息"
+          }
+        }
+      }
+    },
+    "hutao.gacha.uid" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "UID: %@"
+          }
+        }
+      }
+    },
+    "hutao.gacha.upload" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "上传记录"
+          }
+        }
+      }
+    },
+    "hutao.login" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "登录胡桃通行证"
+          }
+        }
+      }
+    },
+    "hutao.login.email" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "邮箱"
+          }
+        }
+      }
+    },
+    "hutao.login.password" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "密码"
+          }
+        }
+      }
+    },
+    "hutao.loginP" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "登录到你的胡桃通行证以访问胡桃云的有关服务。"
+          }
+        }
+      }
+    },
+    "hutao.loginP2" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在登录之前请确保你已经阅读并同意胡桃云的服务协议，否则请勿登录。"
+          }
+        }
+      }
+    },
+    "hutao.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "欢迎你，%@。"
           }
         }
       }
