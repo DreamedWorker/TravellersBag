@@ -147,6 +147,9 @@ class AccountViewModel: ObservableObject {
                         alertMate.showAlert(msg: NSLocalizedString("account.login.ok", comment: ""))
                     }
                 } else {
+                    DispatchQueue.main.async { [self] in
+                        loginByCookie = false; loginCookie = ""
+                    }
                     makeAToastInIOThread(msg: NSLocalizedString("account.error.same", comment: ""))
                 }
             } catch {

@@ -759,6 +759,17 @@
         }
       }
     },
+    "home.waiting" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请等待数据完成更新…"
+          }
+        }
+      }
+    },
     "hutao.error.crypto" : {
       "extractionState" : "manual",
       "localizations" : {
