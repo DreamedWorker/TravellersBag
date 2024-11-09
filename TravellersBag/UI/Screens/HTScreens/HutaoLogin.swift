@@ -201,6 +201,8 @@ private class HutaoLoginModel: ObservableObject {
                     } catch {
                         getDataFromNetwork()
                     }
+                } else {
+                    getDataFromNetwork()
                 }
             }
         } else {

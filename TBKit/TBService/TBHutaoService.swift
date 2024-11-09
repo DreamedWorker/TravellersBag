@@ -82,6 +82,24 @@ extension TBHutaoService {
             ] as [String : Any]
         return SecItemAdd(passwordItem as CFDictionary, nil)
     }
+    
+    static func read4keychain(username: String) throws -> HutaoPassportStruct {
+        let query = [
+            kSecClass as String : kSecClassGenericPassword,
+            kSecAttrService as String : service,
+            kSecAttrAccount as String : username,
+            kSecReturnData as String : kCFBooleanTrue ?? true,
+            kSecMatchLimit as String : kSecMatchLimitOne
+        ] as [String : Any]
+        var result: AnyObject?
+        let status = SecItemCopyMatching(query as CFDictionary, &result)
+        guard status == noErr, let data = result as? Data else {
+            throw NSError(domain: "app.security", code: -1, userInfo: [
+                NSLocalizedDescriptionKey: "无法获取对应的钥匙串值"
+            ])
+        }
+        return HutaoPassportStruct(username: username, password: String(data: data, encoding: .utf8)!)
+    }
 }
 
 // 与祈愿记录沟通的部分

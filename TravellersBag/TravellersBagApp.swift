@@ -51,7 +51,38 @@ struct TravellersBagApp: App {
         .commands(content: {
             CommandMenu("app.command.title", content: {
                 Button("app.command.hutao", action: {
-                    showHutaoPassport = true
+                    let lastLogin = UserDefaults.configGetConfig(forKey: "hutaoLastLogin", def: 0)
+                    let current = Int(Date().timeIntervalSince1970)
+                    if current - lastLogin >= 7200 {
+                        if UserDefaults.configGetConfig(forKey: "use_key_chain", def: false) {
+                            Task {
+                                if let account = try? TBHutaoService.read4keychain(
+                                    username: UserDefaults.configGetConfig(forKey: "keychain_name", def: "")) {
+                                    let result = try? await TBHutaoService.loginPassport(username: account.username, password: account.password)
+                                    if let surely = result {
+                                        let query = FetchDescriptor<HutaoPassport>()
+                                        let account = try? tbDatabase.mainContext.fetch(query).first
+                                        if let ht = account {
+                                            ht.auth = surely["data"].stringValue
+                                            try! TBDatabaseOperation.saveAfterChanges()
+                                            UserDefaults.configSetValue(key: "hutaoLastLogin", data: current)
+                                        }
+                                    }
+                                    DispatchQueue.main.async {
+                                        self.showHutaoPassport = true
+                                    }
+                                } else {
+                                    DispatchQueue.main.async {
+                                        self.showHutaoPassport = true
+                                    }
+                                }
+                            }
+                        } else {
+                            showHutaoPassport = true
+                        }
+                    } else {
+                        showHutaoPassport = true
+                    }
                 }).keyboardShortcut(.init("h"), modifiers: .shift)
             })
         })
