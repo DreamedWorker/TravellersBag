@@ -39,7 +39,7 @@ struct ContentPane: View {
                 case .Account:
                     AccountScreen()
                 case .Notice:
-                    Text("app.confirm")
+                    NoticeScreen()
                 }
             }
         )
