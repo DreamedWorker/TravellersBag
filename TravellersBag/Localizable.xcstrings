@@ -732,6 +732,176 @@
         }
       }
     },
+    "dashboard.and" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lv.%@ | %@"
+          }
+        }
+      }
+    },
+    "dashboard.empty" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "暂无数据，请更新…"
+          }
+        }
+      }
+    },
+    "dashboard.fetch" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "获取信息"
+          }
+        }
+      }
+    },
+    "dashboard.info.baseSpiralAbyss" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "深境螺旋"
+          }
+        }
+      }
+    },
+    "dashboard.info.baseTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "基本信息"
+          }
+        }
+      }
+    },
+    "dashboard.info.houseTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "尘歌壶"
+          }
+        }
+      }
+    },
+    "dashboard.info.worldTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "世界探索度"
+          }
+        }
+      }
+    },
+    "dashboard.tab.basic" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "战绩"
+          }
+        }
+      }
+    },
+    "dashboard.unit.world.boss" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "区域首领"
+          }
+        }
+      }
+    },
+    "dashboard.unit.world.boss_kill" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@次击败"
+          }
+        }
+      }
+    },
+    "dashboard.unit.world.ee" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "探索度"
+          }
+        }
+      }
+    },
+    "dashboard.unit.world.ee.sub" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "子区域探索度："
+          }
+        }
+      }
+    },
+    "dashboard.unit.world.level" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "声望等级：%@"
+          }
+        }
+      }
+    },
+    "dashboard.unit.world.offering" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@等级：%@"
+          }
+        }
+      }
+    },
+    "dashboard.unit.world.per" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ %"
+          }
+        }
+      }
+    },
+    "dashboard.unit.world.statue" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "七天神像等级：%@"
+          }
+        }
+      }
+    },
     "error.wizard.resourceAvatarDownload" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -762,6 +932,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "账户管理"
+          }
+        }
+      }
+    },
+    "home.sidebar.dashboard" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dashboard"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "仪表盘"
           }
         }
       }

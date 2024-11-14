@@ -21,7 +21,7 @@ struct ContentView: View {
 
 struct ContentPane: View {
     @StateObject private var model = ContentPaneControl()
-    @State var panePart: ContentPart = .Account
+    @State var panePart: ContentPart = .Notice
     
     var body: some View {
         NavigationSplitView(
@@ -31,6 +31,10 @@ struct ContentPane: View {
                     content: {
                         NavigationLink(value: ContentPart.Account, label: { Label("home.sidebar.account", systemImage: "person.crop.circle") })
                         NavigationLink(value: ContentPart.Notice, label: { Label("home.sidebar.notice", systemImage: "bell.badge") })
+                        NavigationLink(
+                            value: ContentPart.Dashboard,
+                            label: { Label("home.sidebar.dashboard", systemImage: "gauge.with.dots.needle.33percent") }
+                        )
                     }
                 )
             },
@@ -40,6 +44,8 @@ struct ContentPane: View {
                     AccountScreen()
                 case .Notice:
                     NoticeScreen()
+                case .Dashboard:
+                    DashboardScreen()
                 }
             }
         )
@@ -97,5 +103,5 @@ class ContentPaneControl: ObservableObject {
 }
 
 enum ContentPart {
-    case Account; case Notice;
+    case Account; case Notice; case Dashboard
 }
