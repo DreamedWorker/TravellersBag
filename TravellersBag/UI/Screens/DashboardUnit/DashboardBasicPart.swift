@@ -17,7 +17,7 @@ struct DashboardBasicPart: View {
         if let content = content {
             ScrollView {
                 LazyVStack {
-                    HStack {
+                    HStack(spacing: 8) {
                         KFImage(URL(string: content["role"]["game_head_icon"].stringValue))
                             .loadDiskFileSynchronously(true)
                             .placeholder({ ProgressView() })
@@ -35,6 +35,10 @@ struct DashboardBasicPart: View {
                             Text(getDefaultAccount()!.gameInfo.genshinUID)
                         }
                         Spacer()
+                        Image(systemName: "arrow.clockwise").font(.title2)
+                            .onTapGesture {
+                                checkFileExist()
+                            }
                     }
                     .padding()
                     .background(RoundedRectangle(cornerRadius: 8, style: .continuous).fill(BackgroundStyle()).shadow(radius: 4, y: 4))
