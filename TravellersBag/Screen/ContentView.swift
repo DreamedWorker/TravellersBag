@@ -2,25 +2,13 @@
 //  ContentView.swift
 //  TravellersBag
 //
-//  Created by Yuan Shine on 2024/10/26.
+//  Created by 鸳汐 on 2024/11/25.
 //
 
 import SwiftUI
 
-struct ContentView: View {
-    let needShowWizard: Bool
-    
-    var body: some View {
-        if needShowWizard {
-            WizardPane()
-        } else {
-            ContentPane()
-        }
-    }
-}
-
-struct ContentPane: View {
-    @StateObject private var model = ContentPaneControl()
+private struct ContentPane: View {
+    @StateObject private var model = ContentPaneController()
     @State var panePart: ContentPart = .Notice
     
     var body: some View {
@@ -39,14 +27,7 @@ struct ContentPane: View {
                 )
             },
             detail: {
-                switch panePart {
-                case .Account:
-                    AccountScreen()
-                case .Notice:
-                    NoticeScreen()
-                case .Dashboard:
-                    DashboardScreen()
-                }
+                Text("app.name")
             }
         )
         .alert(model.alertMate.msg, isPresented: $model.alertMate.showIt, actions: {})
@@ -58,7 +39,7 @@ struct ContentPane: View {
     }
 }
 
-class ContentPaneControl: ObservableObject {
+private class ContentPaneController: ObservableObject {
     @Published var alertMate = AlertMate()
     
     func refreshDeviceFp() async {
@@ -66,9 +47,9 @@ class ContentPaneControl: ObservableObject {
             let currentTime = Int(Date().timeIntervalSince1970)
             let lastTime = UserDefaults.configGetConfig(forKey: "deviceFpLastUpdated", def: 0)
             if currentTime - lastTime >= UserDefaults.configGetConfig(forKey: "settingsFpUpdateCircle", def: 0) {
-                let newFp = try await TBDeviceKit.updateDeviceFp()
+                let newFp = try await ModifiedConfigHelper.updateDeviceFp()
                 UserDefaults.configSetValue(key: "deviceFpLastUpdated", data: currentTime)
-                UserDefaults.configSetValue(key: TBData.DEVICE_FP, data: newFp)
+                UserDefaults.configSetValue(key: TBConfigKeys.DEVICE_FP, data: newFp)
             }
         } catch {
             DispatchQueue.main.async {
@@ -104,4 +85,16 @@ class ContentPaneControl: ObservableObject {
 
 enum ContentPart {
     case Account; case Notice; case Dashboard
+}
+
+struct ContentView: View {
+    let needShowWizard: Bool
+    
+    var body: some View {
+        if needShowWizard {
+            WizardPane()
+        } else {
+            ContentPane()
+        }
+    }
 }

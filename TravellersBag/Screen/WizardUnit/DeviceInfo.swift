@@ -54,7 +54,7 @@ struct DeviceInfo : View {
         .padding()
         .alert(model.uiState.deviceFpInfo.errMsg, isPresented: $model.uiState.deviceFpInfo.showErrAlert, actions: {})
         .onAppear {
-            TBDeviceKit.checkEnvironment()
+            ModifiedConfigHelper.checkEnvironment()
             model.refreshData()
         }
     }
@@ -65,15 +65,15 @@ private class DeviceInfoModel : ObservableObject {
     @Published var canGoNext = false
     
     func refreshData() {
-        uiState.deviceId = UserDefaults.configGetConfig(forKey: TBData.DEVICE_ID, def: "")
-        uiState.bbsDeviceId = UserDefaults.configGetConfig(forKey: TBData.BBS_DEVICE_ID, def: "")
-        uiState.deviceFp = UserDefaults.configGetConfig(forKey: TBData.DEVICE_FP, def: "")
+        uiState.deviceId = UserDefaults.configGetConfig(forKey: TBConfigKeys.DEVICE_ID, def: "")
+        uiState.bbsDeviceId = UserDefaults.configGetConfig(forKey: TBConfigKeys.BBS_DEVICE_ID, def: "")
+        uiState.deviceFp = UserDefaults.configGetConfig(forKey: TBConfigKeys.DEVICE_FP, def: "")
     }
     
     func generateDeviceFp() async {
         do {
-            let fp = try await TBDeviceKit.updateDeviceFp()
-            UserDefaults.configSetValue(key: TBData.DEVICE_FP, data: fp)
+            let fp = try await ModifiedConfigHelper.updateDeviceFp()
+            UserDefaults.configSetValue(key: TBConfigKeys.DEVICE_FP, data: fp)
             UserDefaults.configSetValue(key: "deviceFpLastUpdated", data: Int(Date().timeIntervalSince1970))
             DispatchQueue.main.async {
                 self.refreshData()
@@ -81,7 +81,7 @@ private class DeviceInfoModel : ObservableObject {
                 self.canGoNext = true
             }
         } catch {
-            UserDefaults.configSetValue(key: TBData.DEVICE_FP, data: TBDeviceKit.getLowerHexString(length: 13))
+            UserDefaults.configSetValue(key: TBConfigKeys.DEVICE_FP, data: ModifiedConfigHelper.getLowerHexString(length: 13))
             DispatchQueue.main.async {
                 self.refreshData()
                 self.uiState.deviceFpInfo.makeAlert(msg: error.localizedDescription)

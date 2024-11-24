@@ -1,14 +1,58 @@
 //
-//  DeviceHelper.swift
+//  ModifiedConfigHelper.swift
 //  TravellersBag
 //
-//  Created by Yuan Shine on 2024/10/28.
+//  Created by 鸳汐 on 2024/11/24.
 //
 
 import Foundation
 import SwiftyJSON
 
-extension TBData {
+extension UserDefaults {
+    public static let preferences = UserDefaults.init(suiteName: "preferences")!
+    
+    /// 从全局K-V存储中获取值
+    static func configGetConfig<T>(forKey key: String, def defaultKey: T) -> T {
+        if let result = UserDefaults.preferences.object(forKey: key) as? T {
+            return result
+        } else {
+            return defaultKey
+        }
+    }
+    
+    /// 将值插入全局K-V中
+    static func configSetValue<T>(key forKey: String, data value: T) {
+        UserDefaults.preferences.set(value, forKey: forKey)
+    }
+}
+
+/// 系统自带存储
+extension UserDefaults {
+    static func langGetCurrentLanguage() -> String {
+        return (UserDefaults.standard.object(forKey: "AppleLanguages") as! NSArray).firstObject as! String
+    }
+    
+    static func langWriteNeoLanguage(langType: String) {
+        switch langType {
+        case "chs":
+            UserDefaults.standard.set(["zh-Hans-CN"], forKey: "AppleLanguages")
+            break
+        case "en":
+            UserDefaults.standard.set([langType], forKey: "AppleLanguages")
+            break
+        case "def":
+            UserDefaults.standard.removeObject(forKey: "AppleLanguages")
+            break
+        default:
+            UserDefaults.standard.removeObject(forKey: "AppleLanguages")
+            break
+        }
+        UserDefaults.standard.synchronize()
+    }
+}
+
+/// 一些约定的访问key
+struct TBConfigKeys {
     static var gameBizGenshin = "hk4e_cn"  //原神游戏ID
     static var xrpcVersion = "2.71.1" //米社版本
     static var clientType = "2" //类型：客户端
@@ -21,14 +65,14 @@ extension TBData {
     static let KEY_CHAIN_NAME = "keychain_name"
 }
 
-struct TBDeviceKit {
+class ModifiedConfigHelper {
     /// 检查本地环境是否完整 本方法应该只在应用启动时调用
     static func checkEnvironment(){
-        if UserDefaults.configGetConfig(forKey: TBData.DEVICE_ID, def: "") == "" {
-            UserDefaults.configSetValue(key: TBData.DEVICE_ID, data: UUID().uuidString.lowercased())
+        if UserDefaults.configGetConfig(forKey: TBConfigKeys.DEVICE_ID, def: "") == "" {
+            UserDefaults.configSetValue(key: TBConfigKeys.DEVICE_ID, data: UUID().uuidString.lowercased())
         }
-        if UserDefaults.configGetConfig(forKey: TBData.BBS_DEVICE_ID, def: "") == "" {
-            UserDefaults.configSetValue(key: TBData.BBS_DEVICE_ID, data: UUID().uuidString.lowercased())
+        if UserDefaults.configGetConfig(forKey: TBConfigKeys.BBS_DEVICE_ID, def: "") == "" {
+            UserDefaults.configSetValue(key: TBConfigKeys.BBS_DEVICE_ID, data: UUID().uuidString.lowercased())
         }
     }
     
@@ -98,7 +142,7 @@ struct TBDeviceKit {
             "seed_time": "\(String(Int(Date().timeIntervalSince1970)))000", //我就说怎么这个方法一直说参数有误，这个**
             "ext_fields": "\(String(data: try! JSONSerialization.data(withJSONObject: ext), encoding: .utf8)!)",
             "app_name": "bbs_cn",
-            "bbs_device_id": UserDefaults.configGetConfig(forKey: TBData.BBS_DEVICE_ID, def: ""),
+            "bbs_device_id": UserDefaults.configGetConfig(forKey: TBConfigKeys.BBS_DEVICE_ID, def: ""),
             "device_fp": getLowerHexString(length: 13)
         ]
         var req = URLRequest(url: URL(string: ApiEndpoints.getFp)!)
@@ -111,6 +155,7 @@ struct TBDeviceKit {
         }
     }
     
+    //MARK: PRIVATE METHODS
     // 私有区 不确定是否会公开它们
     static func getLowerHexString(length: Int) -> String {
         let base = "0123456789abcdef"
