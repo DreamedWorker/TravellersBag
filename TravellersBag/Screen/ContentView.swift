@@ -27,7 +27,14 @@ private struct ContentPane: View {
                 )
             },
             detail: {
-                Text("app.name")
+                switch panePart {
+                case .Account:
+                    Text("app.name")
+                case .Notice:
+                    NoticeScreen()
+                case .Dashboard:
+                    Text("app.name")
+                }
             }
         )
         .alert(model.alertMate.msg, isPresented: $model.alertMate.showIt, actions: {})
