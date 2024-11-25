@@ -851,25 +851,7 @@
         }
       }
     },
-    "dashboard.tab.basic" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Infomation"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "战绩"
-          }
-        }
-      }
-    },
     "dashboard.unit.world.boss" : {
-      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -886,7 +868,6 @@
       }
     },
     "dashboard.unit.world.boss_kill" : {
-      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -920,7 +901,6 @@
       }
     },
     "dashboard.unit.world.ee.sub" : {
-      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -937,7 +917,6 @@
       }
     },
     "dashboard.unit.world.level" : {
-      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -954,7 +933,6 @@
       }
     },
     "dashboard.unit.world.offering" : {
-      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -988,7 +966,6 @@
       }
     },
     "dashboard.unit.world.statue" : {
-      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1311,7 +1288,6 @@
       }
     },
     "hutao.login.password" : {
-      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {

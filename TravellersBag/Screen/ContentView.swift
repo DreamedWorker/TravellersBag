@@ -33,7 +33,7 @@ private struct ContentPane: View {
                 case .Notice:
                     NoticeScreen()
                 case .Dashboard:
-                    Text("app.name")
+                    DashboardScreen()
                 }
             }
         )
