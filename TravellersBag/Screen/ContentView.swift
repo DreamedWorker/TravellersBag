@@ -29,7 +29,7 @@ private struct ContentPane: View {
             detail: {
                 switch panePart {
                 case .Account:
-                    Text("app.name")
+                    AccountScreen()
                 case .Notice:
                     NoticeScreen()
                 case .Dashboard:

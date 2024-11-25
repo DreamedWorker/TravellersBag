@@ -25,5 +25,11 @@ struct TravellersBagApp: App {
         WindowGroup {
             ContentView(needShowWizard: needWizard)
         }
+        .commands {
+            CommandGroup(after: .appInfo) {
+                CheckForUpdate(updater: updaterController.updater)
+            }
+            CommandGroup(replacing: .newItem, addition: {}) // 移除「文件」命令组 因为没有必要
+        }
     }
 }
