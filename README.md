@@ -1,6 +1,5 @@
 <div align="center">
 <img src="https://github.com/DreamedWorker/TravellersBag/blob/dev/TravellersBag/Assets.xcassets/AppIcon.appiconset/icon_128@2x.png" alt="tb logo" width=72 height=72 />
-![AppLogo](/TravellersBag/Assets.xcassets/AppIcon.appiconset/icon_128@2x.png)
 <h1>旅者行囊(TravellersBag)</h1>
 </div>
 
