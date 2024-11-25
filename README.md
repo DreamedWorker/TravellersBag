@@ -1,10 +1,7 @@
-#  旅者行囊 （TravellersBag）
-
 <div align="center">
 <img src="https://github.com/DreamedWorker/TravellersBag/blob/dev/TravellersBag/Assets.xcassets/AppIcon.appiconset/icon_128@2x.png" alt="tb logo" width=72 height=72 />
 ![AppLogo](/TravellersBag/Assets.xcassets/AppIcon.appiconset/icon_128@2x.png)
-<h1>旅者行囊</h1>
-<h3>TravellersBag</h3>
+<h1>旅者行囊(TravellersBag)</h1>
 </div>
 
 An open source and easy-to-use Genshin Impact toolbox application designed for modern Macs(Mac powered by Apple Silicon).
@@ -41,7 +38,10 @@ I am not a professional developer, and my major has almost nothing to do with co
 
 I welcome you to join the development process, and please join the Discord server to communicate together.
 
-## Dependencies
+## Acknowledgement
+This app could not have been created without Mihoyo's excellent work, Genshin Impact, and its inclusive approach to community content creation, and we look forward to further future.
+
+Also the completion of this application is inseparable from the support of other open source software:
 - Alamofire under MIT License
 - AlertToast under MIT License
 - Kingfisher under MIT License
@@ -49,6 +49,3 @@ I welcome you to join the development process, and please join the Discord serve
 - Sparkle under MIT License
 - xxHash-Swift under MIT License
 - Zip under MIT License
-
-## Acknowledgement
-This app could not have been created without Mihoyo's excellent work, Genshin Impact, and its inclusive approach to community content creation, and we look forward to further future.
