@@ -23,6 +23,7 @@ private struct ContentPane: View {
                             value: ContentPart.Dashboard,
                             label: { Label("home.sidebar.dashboard", systemImage: "gauge.with.dots.needle.33percent") }
                         )
+                        NavigationLink(value: ContentPart.DailyNote, label: { Label("home.sidebar.note", systemImage: "note.text") })
                     }
                 )
             },
@@ -34,6 +35,8 @@ private struct ContentPane: View {
                     NoticeScreen()
                 case .Dashboard:
                     DashboardScreen()
+                case .DailyNote:
+                    DailyNoteScreen().navigationTitle(Text("home.sidebar.note"))
                 }
             }
         )
@@ -91,7 +94,7 @@ private class ContentPaneController: ObservableObject {
 }
 
 enum ContentPart {
-    case Account; case Notice; case Dashboard
+    case Account; case Notice; case Dashboard; case DailyNote
 }
 
 struct ContentView: View {

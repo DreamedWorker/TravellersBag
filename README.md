@@ -41,7 +41,6 @@ I welcome you to join the development process, and please join the Discord serve
 This app could not have been created without Mihoyo's excellent work, Genshin Impact, and its inclusive approach to community content creation, and we look forward to further future.
 
 Also the completion of this application is inseparable from the support of other open source software:
-- Alamofire under MIT License
 - AlertToast under MIT License
 - Kingfisher under MIT License
 - SwiftyJSON under MIT License

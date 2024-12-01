@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5D6A049C2CF31943004607C8 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 5D6A049B2CF31943004607C8 /* Alamofire */; };
 		5DD71F342CD3F71B0020AA68 /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = 5DD71F332CD3F71B0020AA68 /* Sparkle */; };
 		5DD71F372CD3F7590020AA68 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 5DD71F362CD3F7590020AA68 /* SwiftyJSON */; };
 		5DD71F3A2CD3F7BF0020AA68 /* AlertToast in Frameworks */ = {isa = PBXBuildFile; productRef = 5DD71F392CD3F7BF0020AA68 /* AlertToast */; };
@@ -49,7 +48,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5DD71F432CD3F88D0020AA68 /* Kingfisher in Frameworks */,
-				5D6A049C2CF31943004607C8 /* Alamofire in Frameworks */,
 				5DD71F3A2CD3F7BF0020AA68 /* AlertToast in Frameworks */,
 				5DD71F372CD3F7590020AA68 /* SwiftyJSON in Frameworks */,
 				5DD71F3D2CD3F7E90020AA68 /* xxHash-Swift in Frameworks */,
@@ -104,7 +102,6 @@
 				5DD71F3C2CD3F7E90020AA68 /* xxHash-Swift */,
 				5DD71F3F2CD3F82D0020AA68 /* Zip */,
 				5DD71F422CD3F88D0020AA68 /* Kingfisher */,
-				5D6A049B2CF31943004607C8 /* Alamofire */,
 			);
 			productName = TravellersBag;
 			productReference = 5DD71CEE2CD3F2760020AA68 /* TravellersBag.app */;
@@ -142,7 +139,6 @@
 				5DD71F3B2CD3F7E90020AA68 /* XCRemoteSwiftPackageReference "xxHash-Swift" */,
 				5DD71F3E2CD3F82D0020AA68 /* XCRemoteSwiftPackageReference "Zip" */,
 				5DD71F412CD3F88D0020AA68 /* XCRemoteSwiftPackageReference "Kingfisher" */,
-				5D6A049A2CF31943004607C8 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 5DD71CEF2CD3F2760020AA68 /* Products */;
@@ -382,14 +378,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		5D6A049A2CF31943004607C8 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.10.1;
-			};
-		};
 		5DD71F322CD3F71B0020AA68 /* XCRemoteSwiftPackageReference "Sparkle" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/sparkle-project/Sparkle";
@@ -441,11 +429,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		5D6A049B2CF31943004607C8 /* Alamofire */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 5D6A049A2CF31943004607C8 /* XCRemoteSwiftPackageReference "Alamofire" */;
-			productName = Alamofire;
-		};
 		5DD71F332CD3F71B0020AA68 /* Sparkle */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 5DD71F322CD3F71B0020AA68 /* XCRemoteSwiftPackageReference "Sparkle" */;
