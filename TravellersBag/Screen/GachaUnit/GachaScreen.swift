@@ -17,7 +17,20 @@ struct GachaScreen: View {
                 let character = vm.currentAccountGachaRecords
                     .filter { $0.gachaType == vm.characterGacha || $0.gachaType == "400" }
                     .sorted(by: { Int($0.id)! < Int($1.id)! }) // 按照时间先后顺序原地排序（才发现这个id才是真正排序时的依据 用time代表的时间戳一定出事）
-                GachaBulletin(specificData: character, gachaTitle: "gacha.home.avatar")
+                let weapon = vm.currentAccountGachaRecords
+                    .filter({ $0.gachaType == vm.weaponGacha }).sorted(by: { Int($0.id)! < Int($1.id)! })
+                let resident = vm.currentAccountGachaRecords
+                    .filter({ $0.gachaType == vm.residentGacha }).sorted(by: { Int($0.id)! < Int($1.id)! })
+                let collection = vm.currentAccountGachaRecords
+                    .filter({ $0.gachaType == vm.collectionGacha }).sorted(by: { Int($0.id)! < Int($1.id)! })
+                ScrollView(.horizontal, content: {
+                    LazyHStack(alignment: .top) {
+                        GachaBulletin(specificData: character, gachaTitle: "gacha.home.avatar")
+                        GachaBulletin(specificData: weapon, gachaTitle: "gacha.home.weapon")
+                        GachaBulletin(specificData: resident, gachaTitle: "gacha.home.resident")
+                        GachaBulletin(specificData: collection, gachaTitle: "gacha.home.collection")
+                    }
+                })
             } else {
                 DefaultPane(fetchEvt: {
                     vm.showWaitingDialog = true
