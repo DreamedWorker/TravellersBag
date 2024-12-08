@@ -1438,6 +1438,113 @@
         }
       }
     },
+    "gacha.empty.fetch" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "从官方获取记录"
+          }
+        }
+      }
+    },
+    "gacha.empty.login" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请先登录以继续"
+          }
+        }
+      }
+    },
+    "gacha.empty.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "本地祈愿数据为空"
+          }
+        }
+      }
+    },
+    "gacha.home.avatar" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "角色活动祈愿"
+          }
+        }
+      }
+    },
+    "gacha.overview.count" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ 抽"
+          }
+        }
+      }
+    },
+    "gacha.overview.last_five" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "上个五星"
+          }
+        }
+      }
+    },
+    "gacha.overview.last_four" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "上个四星"
+          }
+        }
+      }
+    },
+    "gacha.overview.no_record" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "没有记录"
+          }
+        }
+      }
+    },
+    "gacha.overview.time" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "记录时间：%@ — %@"
+          }
+        }
+      }
+    },
+    "gacha.overview.total" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "总计数"
+          }
+        }
+      }
+    },
     "home.sidebar.account" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1468,6 +1575,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "仪表盘"
+          }
+        }
+      }
+    },
+    "home.sidebar.gacha" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "祈愿记录"
           }
         }
       }
@@ -1994,6 +2112,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "天"
+          }
+        }
+      }
+    },
+    "traveller.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "旅行者"
           }
         }
       }

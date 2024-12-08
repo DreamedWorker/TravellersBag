@@ -18,7 +18,7 @@ struct GachaBulletin: View {
     
     init(specificData: [GachaItem], gachaTitle: String) {
         self.specificData = specificData
-        self.goldenCharacter = specificData.filter { $0.rankType == "5" }.sorted(by: { Int($0.id!)! < Int($1.id!)! })
+        self.goldenCharacter = specificData.filter { $0.rankType == "5" }.sorted(by: { Int($0.id)! < Int($1.id)! })
         self.gachaTitle = gachaTitle
     }
     
@@ -46,8 +46,12 @@ struct GachaBulletin: View {
                     )
                     ProgressView(value: Float(exactly: specificData.count - lastWantedItem(rank: 4))!, total: 10.0).padding(.bottom, 4)
                     if showDetail {
-                        ForEach(goldenCharacter.sorted(by: { Int($0.id!)! > Int($1.id!)! })){ single in
-                            FiveStarAvatarTile(avatar: single, count: getPosition(item: single))
+                        ScrollView {
+                            LazyVStack {
+                                ForEach(goldenCharacter.sorted(by: { Int($0.id)! > Int($1.id)! })){ single in
+                                    FiveStarAvatarTile(avatar: single, count: getPosition(item: single))
+                                }
+                            }
                         }
                     }
                 },
@@ -56,7 +60,7 @@ struct GachaBulletin: View {
                         Text(
                             String.localizedStringWithFormat(
                                 NSLocalizedString("gacha.overview.time", comment: ""),
-                                dateTransfer(date: specificData.first!.time!), dateTransfer(date: specificData.last!.time!))
+                                specificData.first!.time, specificData.last!.time)
                         )
                     } else {
                         Text("gacha.overview.no_record")
@@ -86,12 +90,13 @@ struct GachaBulletin: View {
     /// 五星角色显示条
     struct FiveStarAvatarTile: View {
         let avatar: GachaItem
-        let result: [Substring]
+        let result: ResHandler.TBResource
         let count: String
         
         init(avatar: GachaItem, count: String) {
             self.avatar = avatar
-            result = HoyoResKit.default.getGachaItemIcon(key: HoyoResKit.default.getIdByName(name: avatar.name!)).split(separator: "@")
+            let itemId = ResHandler.default.getIdByName(name: avatar.name)
+            result = ResHandler.default.getGachaItemIcon(key: itemId)
             self.count = count
         }
         
@@ -102,20 +107,20 @@ struct GachaBulletin: View {
                         .resizable()
                         .scaledToFill()
                         .frame(width: 32, height: 32)
-                    if String(result[0]) == "C" {
-                        KFImage(URL(string: String(result[1])))
+                    if !result.useLocal {
+                        KFImage(URL(string: result.resPath))
                             .loadDiskFileSynchronously(true)
                             .resizable()
                             .scaledToFill()
                             .frame(width: 32, height: 32)
                     } else {
-                        Image(nsImage: NSImage(contentsOfFile: String(result[1])) ?? NSImage())
+                        Image(nsImage: NSImage(contentsOfFile: result.resPath) ?? NSImage())
                             .resizable()
                             .scaledToFill()
                             .frame(width: 32, height: 32)
                     }
                 }.frame(width: 32, height: 32)
-                Text(avatar.name!)
+                Text(avatar.name)
                 Spacer()
                 Text(String.localizedStringWithFormat(NSLocalizedString("gacha.overview.count", comment: ""), count))
                     .foregroundStyle(.secondary)

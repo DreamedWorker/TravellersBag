@@ -10,7 +10,7 @@ import SwiftData
 
 /// 应用数据库
 let tbDatabase = try! ModelContainer(
-    for: MihoyoAccount.self, HutaoPassport.self
+    for: MihoyoAccount.self, HutaoPassport.self, GachaItem.self
 )
 
 /// 应用数据库操作封装
@@ -51,5 +51,19 @@ extension TBDao {
     @MainActor static func getDefaultAccount() -> MihoyoAccount? {
         let fetch = FetchDescriptor<MihoyoAccount>(predicate: #Predicate { $0.active == true })
         return try? tbDatabase.mainContext.fetch(fetch).first
+    }
+    
+    @MainActor static func getCurrentAccountGachaRecords() -> [GachaItem] {
+        if let current = self.getDefaultAccount() {
+            let uid = current.gameInfo.genshinUID
+            let querier = FetchDescriptor<GachaItem>(predicate: #Predicate { $0.uid == uid })
+            do {
+                return try tbDatabase.mainContext.fetch(querier)
+            } catch {
+                return []
+            }
+        } else {
+            return []
+        }
     }
 }
