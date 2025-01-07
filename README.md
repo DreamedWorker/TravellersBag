@@ -9,7 +9,7 @@ An open source and easy-to-use Genshin Impact toolbox application designed for m
 
 ------
 <i>
-Note: Some content (depending on the system language) of this application and its copies may be displayed in "English" or other non-simplified Chinese text, 
+Note: Some content (depending on the system language) of this application and its copies may be displayed in "English" or other non-simplified Chinese text,
 but the default language of this application and its copies is "Simplified Chinese." If there is a semantic conflict between the two, the "simplified Chinese text" will be the "governing text."
 </i>
 
@@ -21,8 +21,8 @@ You can compile and use it from our source code. Of course, you can also downloa
 It should be noted that if you download the application directly to install it, you will need to go to the `system settings` to allow this software to run after opening the application.
 
 ## Goal
-Currently, the community has produced quite a lot of excellent results in terms of Genshin Impact toolbox app, but most of them are aimed at the Windows platform. 
-And Apple is gradually making an effort in gaming to create a gaming ecosystem on the Mac platform, and at the same time, Genshin Impact can also run perfectly on the Mac through the translation layer of wine and so on. 
+Currently, the community has produced quite a lot of excellent results in terms of Genshin Impact toolbox app, but most of them are aimed at the Windows platform.
+And Apple is gradually making an effort in gaming to create a gaming ecosystem on the Mac platform, and at the same time, Genshin Impact can also run perfectly on the Mac through the translation layer of wine and so on.
 In addition, there is still a need to develop relatively complete toolbox app for the Mac platform (for Windows), so we hope to use this repository as an introduction to provide a convenient toolset for travelers using Macs.
 
 ## Reference

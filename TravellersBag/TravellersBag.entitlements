@@ -6,7 +6,7 @@
 	<true/>
 	<key>com.apple.security.application-groups</key>
 	<array>
-		<string>$(TeamIdentifierPrefix)travellersbag</string>
+		<string>$(TeamIdentifierPrefix)TravellersBag</string>
 	</array>
 	<key>com.apple.security.files.user-selected.read-write</key>
 	<true/>
