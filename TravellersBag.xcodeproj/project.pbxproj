@@ -11,6 +11,7 @@
 		5D134FD12D2D16350056A041 /* xxHash-Swift in Frameworks */ = {isa = PBXBuildFile; productRef = 5D134FD02D2D16350056A041 /* xxHash-Swift */; };
 		5D134FD42D2D45710056A041 /* Zip in Frameworks */ = {isa = PBXBuildFile; productRef = 5D134FD32D2D45710056A041 /* Zip */; };
 		5DAEE0642D1134E6003AA13B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 5DAEE0632D1134DD003AA13B /* README.md */; };
+		5DAFEBC42D2EA18400306612 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 5DAFEBC32D2EA18400306612 /* Kingfisher */; };
 		5DD35F962D2BAD140042C48D /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = 5DD35F952D2BAD140042C48D /* Sparkle */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +50,7 @@
 				5DD35F962D2BAD140042C48D /* Sparkle in Frameworks */,
 				5D134FD42D2D45710056A041 /* Zip in Frameworks */,
 				5D134FD12D2D16350056A041 /* xxHash-Swift in Frameworks */,
+				5DAFEBC42D2EA18400306612 /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,6 +98,7 @@
 				5D134FC82D2D10CB0056A041 /* SwiftyJSON */,
 				5D134FD02D2D16350056A041 /* xxHash-Swift */,
 				5D134FD32D2D45710056A041 /* Zip */,
+				5DAFEBC32D2EA18400306612 /* Kingfisher */,
 			);
 			productName = TravellersBag;
 			productReference = 5DAEE0472D11335C003AA13B /* TravellersBag.app */;
@@ -131,6 +134,7 @@
 				5D134FC72D2D10CB0056A041 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 				5D134FCF2D2D16350056A041 /* XCRemoteSwiftPackageReference "xxHash-Swift" */,
 				5D134FD22D2D45710056A041 /* XCRemoteSwiftPackageReference "Zip" */,
+				5DAFEBC22D2EA18400306612 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 5DAEE0482D11335C003AA13B /* Products */;
@@ -394,6 +398,14 @@
 				minimumVersion = 2.1.2;
 			};
 		};
+		5DAFEBC22D2EA18400306612 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.1.3;
+			};
+		};
 		5DD35F942D2BAD140042C48D /* XCRemoteSwiftPackageReference "Sparkle" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/sparkle-project/Sparkle";
@@ -419,6 +431,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 5D134FD22D2D45710056A041 /* XCRemoteSwiftPackageReference "Zip" */;
 			productName = Zip;
+		};
+		5DAFEBC32D2EA18400306612 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5DAFEBC22D2EA18400306612 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 		5DD35F952D2BAD140042C48D /* Sparkle */ = {
 			isa = XCSwiftPackageProductDependency;

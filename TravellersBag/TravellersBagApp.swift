@@ -20,6 +20,9 @@ struct TravellersBagApp: App {
         WindowGroup {
             if checkCrtVer() {
                 ContentView()
+                    .onAppear { // 生成除设备指纹外的uuid信息
+                        TBDeviceKit.checkEnvironment()
+                    }
             } else {
                 WizardView()
             }

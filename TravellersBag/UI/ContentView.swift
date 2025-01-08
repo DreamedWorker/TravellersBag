@@ -8,39 +8,38 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var welcomeSheetDisplay: Bool = false
     
-    private func theFirstTime() -> String {
-        if let version = UserDefaults.standard.string(forKey: "theFirstTime") {
-            return version
-        } else {
-            return "0.0.0"
-        }
-    }
+    @State private var panePart: ContentPart = .Notice
     
     init() {
-        welcomeSheetDisplay = theFirstTime() != "0.0.3"
-        print(welcomeSheetDisplay)
     }
     
     var body: some View {
-        if welcomeSheetDisplay {
-            VStack {
-                Image(systemName: "globe")
-                    .imageScale(.large)
-                    .foregroundStyle(.tint)
+        NavigationSplitView(
+            sidebar: {
+                List(selection: $panePart) {
+                    NavigationLink(value: ContentPart.Account, label: { Label("home.sidebar.account", systemImage: "person.crop.circle") })
+                    NavigationLink(value: ContentPart.Notice, label: { Label("home.sidebar.notice", systemImage: "bell.badge") })
+                    NavigationLink(
+                        value: ContentPart.Dashboard,
+                        label: { Label("home.sidebar.dashboard", systemImage: "gauge.with.dots.needle.33percent") }
+                    )
+                }
+            },
+            detail: {
+                switch panePart {
+                case .Account:
+                    Text("app.name")
+                case .Notice:
+                    NoticeView()
+                case .Dashboard:
+                    Text("app.name")
+                }
             }
-            .padding()
-        } else {
-            VStack {
-                Image(systemName: "alarm").font(.title).bold()
-                Text("def.holding").font(.title2).bold().padding(.top, 8)
-            }
-            .padding()
-        }
+        )
     }
-}
-
-#Preview {
-    ContentView()
+    
+    private enum ContentPart {
+        case Account; case Notice; case Dashboard
+    }
 }
