@@ -98,12 +98,12 @@ extension URLRequest {
     }
     
     /// 设置用户信息
-//    mutating func setUser(singleUser: MihoyoAccount) {
-//        self.setValue(
-//            "stuid=\(singleUser.cookies.stuid);stoken=\(singleUser.cookies.stoken);mid=\(singleUser.cookies.mid);",
-//            forHTTPHeaderField: "cookie"
-//        )
-//    }
+    mutating func setUser(singleUser: MihoyoAccount) {
+        self.setValue(
+            "stuid=\(singleUser.cookies.stuid);stoken=\(singleUser.cookies.stoken);mid=\(singleUser.cookies.mid);",
+            forHTTPHeaderField: "cookie"
+        )
+    }
     
     mutating func setUser(uid: String, stoken: String, mid: String) {
         self.setValue("stuid=\(uid);stoken=\(stoken);mid=\(mid);", forHTTPHeaderField: "cookie")
