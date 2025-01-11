@@ -54,23 +54,23 @@ extension DashboardView {
                                 columns: [.init(), .init(), .init(), .init(), .init()],
                                 content: {
                                     //第一行
-                                    InfoCell(count: content["stats"]["avatar_number"].intValue, name: "获得角色数")
-                                    InfoCell(count: content["stats"]["full_fetter_avatar_num"].intValue, name: "满好感角色")
-                                    InfoCell(count: content["stats"]["achievement_number"].intValue, name: "获得成就数")
-                                    InfoCell(count: content["stats"]["way_point_number"].intValue, name: "解锁传送点")
-                                    InfoCell(count: content["stats"]["domain_number"].intValue, name: "解锁秘境数")
+                                    InfoCell(count: content["stats"]["avatar_number"].intValue, name: NSLocalizedString("dashboard.detail.avatarNumber", comment: ""))
+                                    InfoCell(count: content["stats"]["full_fetter_avatar_num"].intValue, name: NSLocalizedString("dashboard.detail.full_fetter_avatar_num", comment: ""))
+                                    InfoCell(count: content["stats"]["achievement_number"].intValue, name: NSLocalizedString("dashboard.detail.achievement_number", comment: ""))
+                                    InfoCell(count: content["stats"]["way_point_number"].intValue, name: NSLocalizedString("dashboard.detail.way_point_number", comment: ""))
+                                    InfoCell(count: content["stats"]["domain_number"].intValue, name: NSLocalizedString("dashboard.detail.domain_number", comment: ""))
                                     //第二行
-                                    InfoCell(count: content["stats"]["anemoculus_number"].intValue, name: "风神瞳")
-                                    InfoCell(count: content["stats"]["geoculus_number"].intValue, name: "岩神瞳")
-                                    InfoCell(count: content["stats"]["electroculus_number"].intValue, name: "雷神瞳")
-                                    InfoCell(count: content["stats"]["dendroculus_number"].intValue, name: "草神瞳")
-                                    InfoCell(count: content["stats"]["hydroculus_number"].intValue, name: "水神瞳")
+                                    InfoCell(count: content["stats"]["anemoculus_number"].intValue, name: NSLocalizedString("dashboard.detail.anemoculus_number", comment: ""))
+                                    InfoCell(count: content["stats"]["geoculus_number"].intValue, name: NSLocalizedString("dashboard.detail.geoculus_number", comment: ""))
+                                    InfoCell(count: content["stats"]["electroculus_number"].intValue, name: NSLocalizedString("dashboard.detail.electroculus_number", comment: ""))
+                                    InfoCell(count: content["stats"]["dendroculus_number"].intValue, name: NSLocalizedString("dashboard.detail.dendroculus_number", comment: ""))
+                                    InfoCell(count: content["stats"]["hydroculus_number"].intValue, name: NSLocalizedString("dashboard.detail.hydroculus_number", comment: ""))
                                     //第三行
-                                    InfoCell(count: content["stats"]["pyroculus_number"].intValue, name: "火神瞳")
-                                    InfoCell(count: content["stats"]["luxurious_chest_number"].intValue, name: "华丽宝箱数")
-                                    InfoCell(count: content["stats"]["active_day_number"].intValue, name: "活跃天数")
+                                    InfoCell(count: content["stats"]["pyroculus_number"].intValue, name: NSLocalizedString("dashboard.detail.pyroculus_number", comment: ""))
+                                    InfoCell(count: content["stats"]["luxurious_chest_number"].intValue, name: NSLocalizedString("dashboard.detail.luxurious_chest_number", comment: ""))
+                                    InfoCell(count: content["stats"]["active_day_number"].intValue, name: NSLocalizedString("dashboard.detail.active_day_number", comment: ""))
                                     if content["stats"]["role_combat"]["has_data"].boolValue {
-                                        InfoCell(count: content["stats"]["role_combat"]["max_round_id"].intValue, name: "幻想真境剧诗演出幕")
+                                        InfoCell(count: content["stats"]["role_combat"]["max_round_id"].intValue, name: NSLocalizedString("dashboard.detail.role_combat", comment: ""))
                                     }
                                     VStack {
                                         Text(content["stats"]["spiral_abyss"].stringValue).bold()
@@ -211,10 +211,10 @@ extension DashboardView {
                         LazyVGrid(
                             columns: [.init(), .init(), .init(), .init()],
                             content: {
-                                InfoCell(count: cell.level, name: "信任等阶")
-                                InfoCell(count: cell.comfort_num, name: "最高洞天仙力")
-                                InfoCell(count: cell.item_num, name: "获得摆设数")
-                                InfoCell(count: cell.visit_num, name: "历史访客数")
+                                InfoCell(count: cell.level, name: NSLocalizedString("dashboard.detail.house.level", comment: ""))
+                                InfoCell(count: cell.comfort_num, name: NSLocalizedString("dashboard.detail.house.comfort", comment: ""))
+                                InfoCell(count: cell.item_num, name: NSLocalizedString("dashboard.detail.house.items", comment: ""))
+                                InfoCell(count: cell.visit_num, name: NSLocalizedString("dashboard.detail.house.visit", comment: ""))
                             }
                         )
                         .background(.gray.opacity(0.5))

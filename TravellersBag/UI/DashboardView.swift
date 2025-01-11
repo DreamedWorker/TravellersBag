@@ -12,6 +12,7 @@ struct DashboardView: View {
     @StateObject private var vm = DashboardViewModel()
     @Query private var allUsers: [MihoyoAccount]
     @State private var gameUID: String = ""
+    @State private var selectAccount: Bool = false
     
     var body: some View {
         if vm.shouldShowContent {
@@ -27,6 +28,15 @@ struct DashboardView: View {
                 )
             }
             .navigationTitle(Text("home.sidebar.dashboard"))
+            .toolbar {
+                ToolbarItem {
+                    Button(
+                        action: { selectAccount = true },
+                        label: { Image(systemName: "list.bullet.circle").help("dashboard.menu.another") }
+                    )
+                }
+            }
+            .sheet(isPresented: $selectAccount, content: { SelectOtherAccountsProfile })
         } else {
             VStack {
                 Image("dashboard_empty").resizable().frame(width: 72, height: 72)
@@ -41,6 +51,31 @@ struct DashboardView: View {
                     Task { await vm.getSomething(account: defAccount) }
                 }
             }
+        }
+    }
+    
+    private var SelectOtherAccountsProfile: some View {
+        return NavigationStack {
+            Text("dashboard.more.title").font(.title).bold()
+            Text("dashboard.more.description").multilineTextAlignment(.center)
+            Form {
+                ForEach(allUsers) { user in
+                    HStack {
+                        Label(user.gameInfo.genshinNicname, systemImage: "person.crop.circle")
+                        Spacer()
+                        Button("dashboard.more.choose", action: {
+                            selectAccount = false; vm.shouldShowContent = false; vm.basicData = nil
+                            Task { await vm.getSomething(account: user) }
+                        }).buttonStyle(.borderless)
+                    }
+                }
+            }.formStyle(.grouped)
+        }
+        .padding()
+        .toolbar {
+            ToolbarItem(placement: .cancellationAction, content: {
+                Button("def.cancel", action: { selectAccount = false })
+            })
         }
     }
 }
