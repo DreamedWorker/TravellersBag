@@ -58,10 +58,12 @@ struct AccountView: View {
                                 if allUsers.count == 0 {
                                     NSApplication.shared.terminate(self)
                                 } else {
-                                    let neoAccount = allUsers.first!
-                                    neoAccount.active = true
-                                    try! tbDao.save()
-                                    vm.alertMate.showAlert(msg: NSLocalizedString("account.info.reDef", comment: ""))
+                                    if isDef {
+                                        let neoAccount = allUsers.first!
+                                        neoAccount.active = true
+                                        try! tbDao.save()
+                                        vm.alertMate.showAlert(msg: NSLocalizedString("account.info.reDef", comment: ""))
+                                    }
                                 }
                             },
                             checkState: { act in

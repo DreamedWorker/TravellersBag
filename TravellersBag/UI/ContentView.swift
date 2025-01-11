@@ -33,7 +33,7 @@ struct ContentView: View {
                 case .Notice:
                     NoticeView()
                 case .Dashboard:
-                    Text("app.name")
+                    DashboardView()
                 }
             }
         )

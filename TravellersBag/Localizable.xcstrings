@@ -520,6 +520,178 @@
         }
       }
     },
+    "dashboard.and" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lv.%@ | %@"
+          }
+        }
+      }
+    },
+    "dashboard.empty" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "暂无数据，请更新…"
+          }
+        }
+      }
+    },
+    "dashboard.error.fetch" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法从服务器获取战绩信息，%@"
+          }
+        }
+      }
+    },
+    "dashboard.fetch" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "获取信息"
+          }
+        }
+      }
+    },
+    "dashboard.info.baseSpiralAbyss" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "深境螺旋"
+          }
+        }
+      }
+    },
+    "dashboard.info.baseTitle" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "基本信息"
+          }
+        }
+      }
+    },
+    "dashboard.info.houseTitle" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "尘歌壶"
+          }
+        }
+      }
+    },
+    "dashboard.info.worldTitle" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "世界探索度"
+          }
+        }
+      }
+    },
+    "dashboard.unit.world.boss" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "区域首领"
+          }
+        }
+      }
+    },
+    "dashboard.unit.world.boss_kill" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@次击败"
+          }
+        }
+      }
+    },
+    "dashboard.unit.world.ee" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "探索度"
+          }
+        }
+      }
+    },
+    "dashboard.unit.world.ee.sub" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "子区域探索度："
+          }
+        }
+      }
+    },
+    "dashboard.unit.world.level" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "声望等级：%@"
+          }
+        }
+      }
+    },
+    "dashboard.unit.world.offering" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@等级：%@"
+          }
+        }
+      }
+    },
+    "dashboard.unit.world.per" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ %"
+          }
+        }
+      }
+    },
+    "dashboard.unit.world.statue" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "七天神像等级：%@"
+          }
+        }
+      }
+    },
+    "dashboard.waiting" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请先登录或等待信息获取完成…"
+          }
+        }
+      }
+    },
     "def.cancel" : {
       "extractionState" : "manual",
       "localizations" : {
