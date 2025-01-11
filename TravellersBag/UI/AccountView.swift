@@ -15,6 +15,7 @@ struct AccountView: View {
     
     @StateObject private var vm = AccountViewModel()
     @State private var selectedAccount: MihoyoAccount? = nil
+    @State private var showHutaoPassport: Bool = false
     
     var body: some View {
         NavigationStack {
@@ -100,6 +101,7 @@ struct AccountView: View {
         .alert(vm.alertMate.msg, isPresented: $vm.alertMate.showIt, actions: {})
         .sheet(isPresented: $vm.loginByQr, content: { LoginByQr })
         .sheet(isPresented: $vm.loginByCookie, content: { LoginByCookie })
+        .sheet(isPresented: $showHutaoPassport, content: { HutaoLogin(dismiss: { showHutaoPassport = false }) })
         .toolbar {
             ToolbarItem {
                 Button(
@@ -116,6 +118,9 @@ struct AccountView: View {
                     },
                     label: { Image(systemName: "cooktop").help("account.side.loginByCookie") }
                 )
+            }
+            ToolbarItem {
+                HutaoCommand(show: { showHutaoPassport = true })
             }
         }
     }

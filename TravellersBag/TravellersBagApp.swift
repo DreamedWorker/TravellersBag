@@ -8,11 +8,13 @@
 import SwiftUI
 import Sparkle
 import SwiftData
+import SwiftyJSON
 
 @main
 struct TravellersBagApp: App {
     private let updaterController: SPUStandardUpdaterController
     @State private var showFPError: Bool = false
+    @State var showHutaoPassport: Bool = false
     
     init() {
         updaterController = SPUStandardUpdaterController(startingUpdater: true, updaterDelegate: nil, userDriverDelegate: nil)
@@ -26,7 +28,7 @@ struct TravellersBagApp: App {
                         TBDeviceKit.checkEnvironment()
                         Task { await updateDeviceFigerprint() }
                     }
-                    .modelContainer(for: [MihoyoAccount.self])
+                    .modelContainer(for: [MihoyoAccount.self, HutaoPassport.self])
                     .alert("def.error.updateFP", isPresented: $showFPError, actions: {})
             } else {
                 WizardView()
