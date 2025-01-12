@@ -24,6 +24,7 @@ struct ContentView: View {
                         value: ContentPart.Dashboard,
                         label: { Label("home.sidebar.dashboard", systemImage: "gauge.with.dots.needle.33percent") }
                     )
+                    NavigationLink(value: ContentPart.DailyNote, label: { Label("home.sidebar.note", systemImage: "note.text") })
                 }
             },
             detail: {
@@ -34,6 +35,8 @@ struct ContentView: View {
                     NoticeView()
                 case .Dashboard:
                     DashboardView()
+                case .DailyNote:
+                    DailyNoteView()
                 }
             }
         )
@@ -41,5 +44,6 @@ struct ContentView: View {
     
     private enum ContentPart {
         case Account; case Notice; case Dashboard
+        case DailyNote
     }
 }
