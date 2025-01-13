@@ -1836,6 +1836,23 @@
         }
       }
     },
+    "home.sidebar.adopt" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Adopt calculator"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "养成计算器"
+          }
+        }
+      }
+    },
     "home.sidebar.dashboard" : {
       "extractionState" : "manual",
       "localizations" : {

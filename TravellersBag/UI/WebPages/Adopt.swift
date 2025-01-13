@@ -1,15 +1,15 @@
 //
-//  ShequIndex.swift
+//  Adopt.swift
 //  TravellersBag
-//  米游社 「我的」-- 「「原神」卡片」 中的内容；开出这个页面另一方面主要是用于人机验证？不好说
-//  Created by 鸳汐 on 2024/10/5.
 //
+//  Created by 鸳汐 on 2024/10/5.
+// https://webstatic.mihoyo.com/ys/event/e20200923adopt_calculator/index.html
 
 import SwiftUI
 import WebKit
 import SwiftData
 
-struct ShequIndexView: View {
+struct AdoptCalculator: View {
     @Environment(\.modelContext) private var mc
     @Query private var accounts: [MihoyoAccount]
     
@@ -52,12 +52,10 @@ private struct WebView: NSViewRepresentable {
     
     func updateNSView(_ nsView: NSViewType, context: Context) {
         let web = nsView as! WKWebView
-        let url = URL(string: "https://webstatic.mihoyo.com/app/community-game-records/")!
+        let url = URL(string: "https://webstatic.mihoyo.com/ys/event/e20200923adopt_calculator/")!
         var req = URLRequest(url: url)
         req.setDeviceInfoHeaders()
         req.setXRPCAppInfo(client: "5")
-        req.setValue("2", forHTTPHeaderField: "x-rpc-challenge_game")
-        req.setValue("https://api-takumi-record.mihoyo.com/game_record/app/genshin/api/index", forHTTPHeaderField: "x-rpc-challenge_path")
         web.customUserAgent = "Mozilla/5.0 (iPhone; CPU iPhone OS 16_0 like Mac OS X) Mobile miHoYoBBS/2.71.1"
         (nsView as! WKWebView).load(req)
     }
@@ -78,43 +76,29 @@ private struct WebView: NSViewRepresentable {
             if !message.name.isEmpty {
                 let data = (message.body as! NSDictionary)
                 let method = (data["method"]) as! String
-                if method != "setPresentationStyle" {
-                    if method == "getDS2" || method == "getActionTicket" {
+                if method == "getActionTicket" {
+                    JsBridge.communicateWithWeb(
+                        web: parentContainer.webView,
+                        callback: data["callback"] as! String,
+                        method: method,
+                        account: act,
+                        data: data
+                    )
+                } else {
+                    if method == "pushPage" {
+                        let nextPage = (data["payload"] as! NSDictionary)["page"] as! String
+                        parentContainer.webView.load(URLRequest(url: URL(string: nextPage)!))
+                    } else if method == "closePage" {
+                        if parentContainer.webView.canGoBack {
+                            parentContainer.webView.goBack()
+                        }
+                    } else {
                         JsBridge.communicateWithWeb(
                             web: parentContainer.webView,
                             callback: data["callback"] as! String,
                             method: method,
-                            account: act,
-                            data: data
+                            account: act
                         )
-                    } else {
-                        if method != "eventTrack" {
-                            if method == "pushPage" {
-                                let nextPage = (data["payload"] as! NSDictionary)["page"] as! String
-                                if nextPage.contains("adopt_calculator") ||
-                                    nextPage.contains("ysjournal") ||
-                                    nextPage.contains("lineup-fe") || nextPage.contains("e20221121ugc")
-                                {
-                                    //GlobalUIModel.exported.makeAnAlert(type: 3, msg: "请避免在此打开该旅行工具。")
-                                } else {
-                                    parentContainer.webView.load(URLRequest(url: URL(string: nextPage)!))
-                                }
-                            } else if method == "closePage" {
-                                if parentContainer.webView.canGoBack {
-                                    parentContainer.webView.goBack()
-                                }
-                            } else if method == "login" || method == "configure_share" {
-                                //parentContainer.webView.reload()
-                            } else {
-                                let callback: String = data["callback"] as? String ?? ""
-                                JsBridge.communicateWithWeb(
-                                    web: parentContainer.webView,
-                                    callback: callback,
-                                    method: method,
-                                    account: act
-                                )
-                            }
-                        }
                     }
                 }
             }
