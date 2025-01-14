@@ -106,20 +106,22 @@ struct GachaBulletin: View {
                     Image("UI_QUALITY_ORANGE")
                         .resizable()
                         .scaledToFill()
-                        .frame(width: 32, height: 32)
+                        .frame(width: 48, height: 48)
                     if !result.useLocal {
                         KFImage(URL(string: result.resPath))
                             .loadDiskFileSynchronously(true)
                             .resizable()
                             .scaledToFill()
-                            .frame(width: 32, height: 32)
+                            .frame(width: 48, height: 48)
                     } else {
                         Image(nsImage: NSImage(contentsOfFile: result.resPath) ?? NSImage())
                             .resizable()
                             .scaledToFill()
-                            .frame(width: 32, height: 32)
+                            .frame(width: 48, height: 48)
                     }
-                }.frame(width: 32, height: 32)
+                }
+                .clipShape(RoundedRectangle(cornerRadius: 8))
+                .frame(width: 48, height: 48)
                 Text(avatar.name)
                 Spacer()
                 Text(String.localizedStringWithFormat(NSLocalizedString("gacha.overview.count", comment: ""), count))

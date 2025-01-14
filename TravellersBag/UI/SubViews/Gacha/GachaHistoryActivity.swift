@@ -34,7 +34,7 @@ struct GachaHistoryActivity: View {
                             }).tag(single)
                         }
                     }.frame(minWidth: 130, maxWidth: 150)
-                    LazyVStack {
+                    VStack {
                         if let selected = selectedActivity {
                             GachaHistoryDetail(
                                 entry: selected,
@@ -60,49 +60,6 @@ struct GachaHistoryActivity: View {
             })
         }
         .alert("gacha.history.uniqueUpdate", isPresented: $showUpdate, actions: {})
-    }
-    
-    private struct ItemCell: View {
-        let msg: String
-        let count: Int
-        
-        var body: some View {
-            VStack {
-                ZStack {
-                    switch String(msg.split(separator: "@")[3]) {
-                    case "5":
-                        Image("UI_QUALITY_ORANGE")
-                            .resizable()
-                            .scaledToFill()
-                            .frame(width: 48, height: 48)
-                    case "4":
-                        Image("UI_QUALITY_PURPLE")
-                            .resizable()
-                            .scaledToFill()
-                            .frame(width: 48, height: 48)
-                    default:
-                        Image("UI_QUALITY_NONE")
-                            .resizable()
-                            .scaledToFill()
-                            .frame(width: 48, height: 48)
-                    }
-                    if msg.split(separator: "@")[0] == "C" {
-                        KFImage(URL(string: String(msg.split(separator: "@")[1])))
-                            .loadDiskFileSynchronously(true)
-                            .resizable()
-                            .frame(width: 48, height: 48)
-                    } else {
-                        Image(nsImage: NSImage(contentsOfFile: String(msg.split(separator: "@")[1])) ?? NSImage())
-                            .resizable()
-                            .frame(width: 48, height: 48)
-                    }
-                }
-                Text(String(count))
-            }
-            .help(msg.split(separator: "@")[2])
-            .padding(4)
-            .background(RoundedRectangle(cornerRadius: 8, style: .continuous).fill(BackgroundStyle()))
-        }
     }
 }
 

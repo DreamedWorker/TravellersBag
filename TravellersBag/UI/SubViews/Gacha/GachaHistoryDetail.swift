@@ -30,7 +30,7 @@ extension GachaHistoryActivity {
                     KFImage(URL(string: entry.banner))
                         .loadDiskFileSynchronously(true)
                         .resizable()
-                        .frame(height: 150)
+                        .aspectRatio(contentMode: .fill)
                         .padding(.bottom, 16)
                     Text("gacha.history.five").bold()
                     ScrollView(.horizontal) {

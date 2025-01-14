@@ -27,6 +27,7 @@ struct ContentView: View {
                         value: ContentPart.Dashboard,
                         label: { Label("home.sidebar.dashboard", systemImage: "gauge.with.dots.needle.33percent") }
                     )
+                    NavigationLink(value: ContentPart.Character, label: { Label("home.sidebar.avatar", systemImage: "figure.wave")})
                     NavigationLink(value: ContentPart.DailyNote, label: { Label("home.sidebar.note", systemImage: "note.text") })
                     NavigationLink(value: ContentPart.Gacha, label: { Label("home.sidebar.gacha", systemImage: "gift") })
                     Spacer()
@@ -54,6 +55,8 @@ struct ContentView: View {
                     AdoptCalculator()
                 case .Gacha:
                     GachaView()
+                case .Character:
+                    AvatarView()
                 }
             }
         )
@@ -62,6 +65,6 @@ struct ContentView: View {
     private enum ContentPart {
         case Account; case Notice; case Dashboard
         case DailyNote; case Shequ; case Adopt
-        case Gacha
+        case Gacha; case Character
     }
 }
