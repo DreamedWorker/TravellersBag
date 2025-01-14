@@ -17,6 +17,7 @@ struct GachaView: View {
     @State private var displayAccount: MihoyoAccount? = nil
     @State private var showWaitingSheet: Bool = false
     @State private var showHistory: Bool = false
+    @State private var selectAccount: Bool = false
     
     var body: some View {
         NavigationStack {
@@ -68,11 +69,18 @@ struct GachaView: View {
                         .toolbar {
                             ToolbarItem {
                                 Button(
+                                    action: { selectAccount = true },
+                                    label: { Image(systemName: "list.bullet.circle").help("dashboard.menu.another") }
+                                )
+                            }
+                            ToolbarItem {
+                                Button(
                                     action: { showHistory = true },
                                     label: { Image(systemName: "clock").help("gacha.history") }
                                 )
                             }
                         }
+                        .sheet(isPresented: $selectAccount, content: { SelectOtherAccountsProfile })
                     }
                 }
             } else {
@@ -104,6 +112,33 @@ struct GachaView: View {
         .navigationTitle(Text("home.sidebar.gacha"))
         .alert(vm.alertMate.msg, isPresented: $vm.alertMate.showIt, actions: {})
         .sheet(isPresented: $showWaitingSheet, content: { WaitingSheet })
+    }
+    
+    private var SelectOtherAccountsProfile: some View {
+        return NavigationStack {
+            Text("dashboard.more.title").font(.title).bold()
+            Text("dashboard.more.description").multilineTextAlignment(.center)
+            Form {
+                ForEach(accounts) { user in
+                    HStack {
+                        Label(user.gameInfo.genshinNicname, systemImage: "person.crop.circle")
+                        Spacer()
+                        Button("dashboard.more.choose", action: {
+                            thisAccountGachaRecords.removeAll(); displayAccount = user
+                            fetchRequiredContent(account: displayAccount!)
+                            selectAccount = false
+                            vm.alertMate.showAlert(msg: NSLocalizedString("def.operationSuccessful", comment: ""))
+                        }).buttonStyle(.borderless)
+                    }
+                }
+            }.formStyle(.grouped)
+        }
+        .padding()
+        .toolbar {
+            ToolbarItem(placement: .cancellationAction, content: {
+                Button("def.cancel", action: { selectAccount = false })
+            })
+        }
     }
     
     private var WaitingSheet: some View {
