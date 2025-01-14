@@ -28,6 +28,7 @@ struct ContentView: View {
                         label: { Label("home.sidebar.dashboard", systemImage: "gauge.with.dots.needle.33percent") }
                     )
                     NavigationLink(value: ContentPart.DailyNote, label: { Label("home.sidebar.note", systemImage: "note.text") })
+                    NavigationLink(value: ContentPart.Gacha, label: { Label("home.sidebar.gacha", systemImage: "gift") })
                     Spacer()
                     Text("home.sidePart.web").bold()
                     NavigationLink(value: ContentPart.Shequ, label: { Label("home.sidebar.shequ", systemImage: "flag.checkered") })
@@ -51,6 +52,8 @@ struct ContentView: View {
                     ShequIndexView().navigationTitle(Text("home.sidebar.shequ"))
                 case .Adopt:
                     AdoptCalculator()
+                case .Gacha:
+                    GachaView()
                 }
             }
         )
@@ -59,5 +62,6 @@ struct ContentView: View {
     private enum ContentPart {
         case Account; case Notice; case Dashboard
         case DailyNote; case Shequ; case Adopt
+        case Gacha
     }
 }
