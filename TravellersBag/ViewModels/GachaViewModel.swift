@@ -49,11 +49,19 @@ extension GachaView {
                 if errorPart.count == 0 || errorPart.count < 5 {
                     return allList
                 } else {
-                    alertMate.showAlert(msg: "同步\(errorPart.description)时出现问题。")
+                    alertMate.showAlert(
+                        msg: String.localizedStringWithFormat(
+                            NSLocalizedString("gacha.error.syncPool", comment: ""),
+                            errorPart.description)
+                    )
                     return []
                 }
             } catch {
-                alertMate.showAlert(msg: "无法从云端同步，\(error.localizedDescription)")
+                alertMate.showAlert(
+                    msg: String.localizedStringWithFormat(
+                        NSLocalizedString("gacha.error.sync", comment: ""),
+                        error.localizedDescription)
+                )
                 return []
             }
         }

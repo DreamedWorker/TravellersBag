@@ -16,7 +16,9 @@ struct HutaoLogin: View {
     @Query private var mihoyoAccount: [MihoyoAccount]
     @State private var deleteCloud = false
     
+    var gachaRecords: [GachaItem] = []
     let dismiss: () -> Void
+
     
     var body: some View {
         NavigationStack {
@@ -41,6 +43,16 @@ struct HutaoLogin: View {
                                     syncAction: {
                                         Task {
                                             await vm.fetchRecordInfo(miAccount: mihoyoAccount.filter({ $0.active == true }).first, useNetwork: true)
+                                        }
+                                    },
+                                    updateRecordFromHutao: {
+                                        if let account = mihoyoAccount.filter({ $0.active == true }).first {
+                                            Task { await vm.updateRecord(user: account, hutaoAccount: surelyPassport, mc: mc) }
+                                        }
+                                    },
+                                    upload2hutao: { full in
+                                        if let account = mihoyoAccount.filter({ $0.active == true }).first {
+                                            Task { await vm.uploadGachaRecord(user: account, mc: mc, ht: surelyPassport, isFullUpload: full) }
                                         }
                                     }
                                 )
@@ -94,11 +106,7 @@ struct HutaoLogin: View {
                 Button("account.detail.logout", action: {
                     vm.dismissBefore(); dismiss()
                     for i in hutaoAccounts {
-                        let query: [String: Any] = [kSecClass as String: kSecClassGenericPassword,
-                                                    kSecAttrServer as String: tbService,
-                                                    kSecAttrAccount as String: i.userName
-                        ]
-                        SecItemDelete(query as CFDictionary)
+                        TBHutaoService.delete4keychain(i: i)
                         mc.delete(i)
                     }
                     try! mc.save()

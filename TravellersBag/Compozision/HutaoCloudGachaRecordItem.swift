@@ -12,6 +12,8 @@ extension HutaoLogin {
         let entry: HutaoRecordEntry
         let deleteAction: () -> Void
         let syncAction: () -> Void
+        let updateRecordFromHutao: () -> Void
+        let upload2hutao: (Bool) -> Void
         
         var body: some View {
             VStack {
@@ -27,9 +29,7 @@ extension HutaoLogin {
                     Spacer()
                     Button(
                         action: {
-                            Task {
-                                /*await viewModel.updateRecordFromHutao()*/
-                            }
+                            updateRecordFromHutao()
                         },
                         label: { Image(systemName: "square.and.arrow.down.on.square") }
                     ).help("hutao.gacha.sync_with_cloud")
@@ -42,6 +42,7 @@ extension HutaoLogin {
                     Spacer()
                     Button("hutao.gacha.sync", action: syncAction)
                     Button("hutao.gacha.upload", action: {
+                        upload2hutao(entry.ItemCount == 0)
                         Task {
 //                                            await viewModel.uploadGachaRecord(isFullUpload: entry.ItemCount == 0)
                         }

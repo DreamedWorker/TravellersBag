@@ -9,7 +9,7 @@ import Foundation
 import SwiftyJSON
 
 // 账号登录的部分
-class TBHutaoService {
+class TBHutaoService: @unchecked Sendable {
     private static let publicKeyPEM = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA5W2SEyZSlP2zBI1Sn8GdTwbZoXlUGNKyoVrY8SVYu9GMefdGZCrUQNkCG/Np8pWPmSSEFGd5oeug/oIMtCZQNOn0drlR+pul/XZ1KQhKmj/arWjN1XNok2qXF7uxhqD0JyNT/Fxy6QvzqIpBsM9S7ajm8/BOGlPG1SInDPaqTdTRTT30AuN+IhWEEFwT3Ctv1SmDupHs2Oan5qM7Y3uwb6K1rbnk5YokiV2FzHajGUymmSKXqtG1USZzwPqImpYb4Z0M/StPFWdsKqexBqMMmkXckI5O98GdlszEmQ0Ejv5Fx9fR2rXRwM76S4iZTfabYpiMbb4bM42mHMauupj69QIDAQAB"
     private static func key2pem() throws -> SecKey {
         guard let keyData = Data(base64Encoded: publicKeyPEM) else { throw NSError() }
@@ -56,7 +56,7 @@ class TBHutaoService {
         } else {
             UserDefaults.standard.set(Int(Date().timeIntervalSince1970), forKey: "hutaoLastLogin")
         }
-        return try result.rawData()
+        return result
     }
     
     /// 获取通行证信息
@@ -83,6 +83,24 @@ extension TBHutaoService {
         var req = URLRequest(url: URL(string: HutaoApiEndpoints.shared.gachaDelete(uid: uid))!)
         req.setHost(host: "homa.snapgenshin.com")
         req.setValue("Bearer \(hutao.auth)", forHTTPHeaderField: "Authorization")
-        return try await req.receiveOrThrowHutao().rawData()
+        return try await req.receiveOrThrowHutao()
+    }
+    
+    /// 获取云端每个卡池的最新值 用于增量更新的判断
+    static func fetchRecordEndIDs(uid: String, hutao: String) async throws -> Data {
+        var req = URLRequest(url: URL(string: HutaoApiEndpoints.shared.gachaEndIds(uid: uid))!)
+        req.setHost(host: "homa.snapgenshin.com")
+        req.setValue("Bearer \(hutao)", forHTTPHeaderField: "Authorization")
+        return try await req.receiveOrThrowHutao()
+    }
+    
+    /// 上传祈愿数据 由于胡桃云遵循增量上传规则，故需要进行本地与云端数据比对，但如果云端没有数据时则全量上传。
+    static func uploadGachaRecord(records: Data, uid: String, hutao: String) async throws -> Data {
+        var req = URLRequest(url: URL(string: HutaoApiEndpoints.shared.gachaUpload())!)
+        req.setHost(host: "homa.snapgenshin.com")
+        req.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
+        req.setValue("Bearer \(hutao)", forHTTPHeaderField: "Authorization")
+        req.setValue("\(records.count)", forHTTPHeaderField: "Content-Length")
+        return try await req.receiveOrThrowHutao(isPost: true, reqBody: records)
     }
 }

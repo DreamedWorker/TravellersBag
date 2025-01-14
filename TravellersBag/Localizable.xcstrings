@@ -2194,6 +2194,40 @@
         }
       }
     },
+    "gacha.error.sync" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unable to synchronize from the cloud,%@"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法从云端同步，%@"
+          }
+        }
+      }
+    },
+    "gacha.error.syncPool" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "There was a problem synchronizing %@."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在同步%@时出现问题。"
+          }
+        }
+      }
+    },
     "gacha.history" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -2692,6 +2726,23 @@
         }
       }
     },
+    "hutao.error.deleteRecord" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Failed to delete, %@"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "删除失败，%@"
+          }
+        }
+      }
+    },
     "hutao.error.fetch_gacha_info" : {
       "localizations" : {
         "en" : {
@@ -2704,6 +2755,57 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "无法获取云端祈愿信息，%@。"
+          }
+        }
+      }
+    },
+    "hutao.error.login" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cannot log in, %@"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法登录你的通行证：%@"
+          }
+        }
+      }
+    },
+    "hutao.error.sync" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unable to synchronize data from Hutao Cloud because:%@"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法从胡桃云同步数据，因为：%@"
+          }
+        }
+      }
+    },
+    "hutao.error.upload" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Failed to upload, %@"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "上传失败，%@"
           }
         }
       }
@@ -2848,6 +2950,57 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "上传记录"
+          }
+        }
+      }
+    },
+    "hutao.info.recordDeleted" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The deletion operation was successfully executed."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "删除操作执行成功。"
+          }
+        }
+      }
+    },
+    "hutao.info.syncOK" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ records have been synchronized from Hutao Cloud  for %@."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已经从胡桃云为%@同步了%@条记录。"
+          }
+        }
+      }
+    },
+    "hutao.info.uploadOK" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Task finished."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "完成上传任务"
           }
         }
       }

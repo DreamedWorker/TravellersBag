@@ -20,6 +20,14 @@ extension TBHutaoService {
         return SecItemAdd(passwordItem as CFDictionary, nil)
     }
     
+    static func delete4keychain(i: HutaoPassport) {
+        let query: [String: Any] = [kSecClass as String: kSecClassGenericPassword,
+                                    kSecAttrServer as String: tbService,
+                                    kSecAttrAccount as String: i.userName
+        ]
+        SecItemDelete(query as CFDictionary)
+    }
+    
     static func read4keychain(username: String) throws -> HutaoPassportStruct {
         let query = [
             kSecClass as String : kSecClassGenericPassword,
