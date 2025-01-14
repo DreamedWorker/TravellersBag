@@ -22,65 +22,137 @@ struct GachaView: View {
     var body: some View {
         NavigationStack {
             if displayAccount != nil {
-                if thisAccountGachaRecords.isEmpty {
-                    VStack {
-                        Image("dailynote_empty").resizable().frame(width: 72, height: 72)
-                        Text("gacha.empty.title").font(.title2).bold().padding(.bottom, 16)
+                VStack {
+                    if thisAccountGachaRecords.isEmpty {
+                        VStack {
+                            Image("dailynote_empty").resizable().frame(width: 72, height: 72)
+                            Text("gacha.empty.title").font(.title2).bold().padding(.bottom, 16)
+                            Button(
+                                action: {
+                                    showWaitingSheet = true
+                                    Task {
+                                        let counts = await processHk4e2CoreData(
+                                            hk4eList: vm.updateDataFromCloud(user: displayAccount!),
+                                            account: displayAccount!
+                                        )
+                                        DispatchQueue.main.async {
+                                            vm.alertMate.showAlert(msg: "已从云端为\(displayAccount!.gameInfo.genshinUID)同步了\(counts)条记录。")
+                                        }
+                                    }
+                                },
+                                label: { Text("gacha.empty.fetch").padding() }
+                            )
+                        }
+                        .padding()
+                        .background(RoundedRectangle(cornerRadius: 8, style: .continuous).fill(BackgroundStyle()).shadow(radius: 4, y: 4))
+                    } else {
+                        let character = thisAccountGachaRecords
+                            .filter { $0.gachaType == vm.characterGacha || $0.gachaType == "400" }
+                            .sorted(by: { Int($0.id)! < Int($1.id)! })
+                        let weapon = thisAccountGachaRecords
+                            .filter({ $0.gachaType == vm.weaponGacha }).sorted(by: { Int($0.id)! < Int($1.id)! })
+                        let resident = thisAccountGachaRecords
+                            .filter({ $0.gachaType == vm.residentGacha }).sorted(by: { Int($0.id)! < Int($1.id)! })
+                        let collection = thisAccountGachaRecords
+                            .filter({ $0.gachaType == vm.collectionGacha }).sorted(by: { Int($0.id)! < Int($1.id)! })
+                        if showHistory {
+                            GachaHistoryActivity(thisAccountRecord: thisAccountGachaRecords, dismiss: { showHistory = false })
+                        } else {
+                            ScrollView(.horizontal) {
+                                LazyHStack(alignment: .top) {
+                                    GachaBulletin(specificData: character, gachaTitle: "gacha.home.avatar")
+                                    GachaBulletin(specificData: weapon, gachaTitle: "gacha.home.weapon")
+                                    GachaBulletin(specificData: resident, gachaTitle: "gacha.home.resident")
+                                    GachaBulletin(specificData: collection, gachaTitle: "gacha.home.collection")
+                                }
+                                .padding(8)
+                            }
+                            .toolbar {
+                                ToolbarItem {
+                                    Button(
+                                        action: { selectAccount = true },
+                                        label: { Image(systemName: "list.bullet.circle").help("dashboard.menu.another") }
+                                    )
+                                }
+                                ToolbarItem {
+                                    Button(
+                                        action: { showHistory = true },
+                                        label: { Image(systemName: "clock").help("gacha.history") }
+                                    )
+                                }
+                                ToolbarItem {
+                                    Button(
+                                        action: {
+                                            let panel = NSSavePanel()
+                                            panel.message = NSLocalizedString("gacha.home.menu.export_p", comment: "")
+                                            panel.allowedContentTypes = [.json]
+                                            panel.directoryURL = URL(string: NSHomeDirectory())
+                                            panel.canCreateDirectories = true
+                                            panel.begin { result in
+                                                if result == NSApplication.ModalResponse.OK {
+                                                    do {
+                                                        try UIGF.exportRecords2UIGFv4(
+                                                            record: thisAccountGachaRecords,
+                                                            uid: displayAccount!.gameInfo.genshinUID,
+                                                            fileUri: panel.url!
+                                                        )
+                                                        vm.alertMate.showAlert(msg: NSLocalizedString("gacha.info.outputOK", comment: ""))
+                                                    } catch {
+                                                        vm.alertMate.showAlert(
+                                                            msg: String.localizedStringWithFormat(
+                                                                NSLocalizedString("gacha.error.output", comment: ""),
+                                                                error.localizedDescription)
+                                                        )
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        label: {
+                                            Image(systemName: "square.and.arrow.up").help("gacha.home.menu.export")
+                                        }
+                                    )
+                                }
+                            }
+                            .sheet(isPresented: $selectAccount, content: { SelectOtherAccountsProfile })
+                        }
+                    }
+                }
+                .toolbar {
+                    ToolbarItem {
                         Button(
                             action: {
-                                showWaitingSheet = true
-                                Task {
-                                    let counts = await processHk4e2CoreData(
-                                        hk4eList: vm.updateDataFromCloud(user: displayAccount!),
-                                        account: displayAccount!
-                                    )
-                                    DispatchQueue.main.async {
-                                        vm.alertMate.showAlert(msg: "已从云端为\(displayAccount!.gameInfo.genshinUID)同步了\(counts)条记录。")
+                                let openPanel = NSOpenPanel()
+                                openPanel.allowedContentTypes = [.json]; openPanel.allowsMultipleSelection = false
+                                openPanel.message = NSLocalizedString("gacha.home.menu.update_p2", comment: "")
+                                openPanel.begin { result in
+                                    if result == NSApplication.ModalResponse.OK {
+                                        if let url = openPanel.url {
+                                            do {
+                                                let count = try UIGF.updateFromFile(
+                                                    url: url,
+                                                    uid: displayAccount!.gameInfo.genshinUID,
+                                                    mc: mc,
+                                                    oriList: thisAccountGachaRecords
+                                                )
+                                                vm.alertMate.showAlert(
+                                                    msg: String.localizedStringWithFormat(
+                                                        NSLocalizedString("gacha.info.update4fileOK", comment: ""),
+                                                        String(count)
+                                                    )
+                                                )
+                                            } catch {
+                                                vm.alertMate.showAlert(
+                                                    msg: String.localizedStringWithFormat(
+                                                        NSLocalizedString("gacha.error.update4file", comment: ""),
+                                                        error.localizedDescription)
+                                                )
+                                            }
+                                        }
                                     }
                                 }
                             },
-                            label: { Text("gacha.empty.fetch").padding() }
+                            label: { Image(systemName: "square.and.arrow.down").help("gacha.home.menu.import") }
                         )
-                    }
-                    .padding()
-                    .background(RoundedRectangle(cornerRadius: 8, style: .continuous).fill(BackgroundStyle()).shadow(radius: 4, y: 4))
-                } else {
-                    let character = thisAccountGachaRecords
-                        .filter { $0.gachaType == vm.characterGacha || $0.gachaType == "400" }
-                        .sorted(by: { Int($0.id)! < Int($1.id)! })
-                    let weapon = thisAccountGachaRecords
-                        .filter({ $0.gachaType == vm.weaponGacha }).sorted(by: { Int($0.id)! < Int($1.id)! })
-                    let resident = thisAccountGachaRecords
-                        .filter({ $0.gachaType == vm.residentGacha }).sorted(by: { Int($0.id)! < Int($1.id)! })
-                    let collection = thisAccountGachaRecords
-                        .filter({ $0.gachaType == vm.collectionGacha }).sorted(by: { Int($0.id)! < Int($1.id)! })
-                    if showHistory {
-                        GachaHistoryActivity(thisAccountRecord: thisAccountGachaRecords, dismiss: { showHistory = false })
-                    } else {
-                        ScrollView(.horizontal) {
-                            LazyHStack(alignment: .top) {
-                                GachaBulletin(specificData: character, gachaTitle: "gacha.home.avatar")
-                                GachaBulletin(specificData: weapon, gachaTitle: "gacha.home.weapon")
-                                GachaBulletin(specificData: resident, gachaTitle: "gacha.home.resident")
-                                GachaBulletin(specificData: collection, gachaTitle: "gacha.home.collection")
-                            }
-                            .padding(8)
-                        }
-                        .toolbar {
-                            ToolbarItem {
-                                Button(
-                                    action: { selectAccount = true },
-                                    label: { Image(systemName: "list.bullet.circle").help("dashboard.menu.another") }
-                                )
-                            }
-                            ToolbarItem {
-                                Button(
-                                    action: { showHistory = true },
-                                    label: { Image(systemName: "clock").help("gacha.history") }
-                                )
-                            }
-                        }
-                        .sheet(isPresented: $selectAccount, content: { SelectOtherAccountsProfile })
                     }
                 }
             } else {

@@ -2194,6 +2194,57 @@
         }
       }
     },
+    "gacha.error.incourrentFileVersion" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The file you have selected does not comply with the UIGF4.0 standard."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "你所选择的文件不符合UIGF4.0标准。"
+          }
+        }
+      }
+    },
+    "gacha.error.noCurrentAccountData" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This file does not contain your current display account."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "该文件并不包含你当前的显示账号。"
+          }
+        }
+      }
+    },
+    "gacha.error.output" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Error exporting record,%@"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "导出祈愿记录时出错，%@"
+          }
+        }
+      }
+    },
     "gacha.error.sync" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -2224,6 +2275,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "在同步%@时出现问题。"
+          }
+        }
+      }
+    },
+    "gacha.error.update4file" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unable to import records from file,%@"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法从文件中导入记录，%@"
           }
         }
       }
@@ -2392,6 +2460,74 @@
         }
       }
     },
+    "gacha.home.menu.export" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Export records"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "导出记录"
+          }
+        }
+      }
+    },
+    "gacha.home.menu.export_p" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choose a location to store the exported record information."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "选择一个位置来存储你导出的记录信息。"
+          }
+        }
+      }
+    },
+    "gacha.home.menu.import" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Import records"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "导入记录"
+          }
+        }
+      }
+    },
+    "gacha.home.menu.update_p2" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You need to select a JSON file from the filesystem."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "你需要从文件系统中选择一个json文件。"
+          }
+        }
+      }
+    },
     "gacha.home.resident" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -2422,6 +2558,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "神器铸形"
+          }
+        }
+      }
+    },
+    "gacha.info.outputOK" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Export successfully."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "祈愿数据导出成功。"
+          }
+        }
+      }
+    },
+    "gacha.info.update4fileOK" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Successfully imported %@ records from the file."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已成功从文件中导入了%@条记录。"
           }
         }
       }
