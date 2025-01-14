@@ -16,6 +16,7 @@ struct GachaView: View {
     @Query private var accounts: [MihoyoAccount]
     @State private var displayAccount: MihoyoAccount? = nil
     @State private var showWaitingSheet: Bool = false
+    @State private var showHistory: Bool = false
     
     var body: some View {
         NavigationStack {
@@ -52,14 +53,26 @@ struct GachaView: View {
                         .filter({ $0.gachaType == vm.residentGacha }).sorted(by: { Int($0.id)! < Int($1.id)! })
                     let collection = thisAccountGachaRecords
                         .filter({ $0.gachaType == vm.collectionGacha }).sorted(by: { Int($0.id)! < Int($1.id)! })
-                    ScrollView(.horizontal) {
-                        LazyHStack(alignment: .top) {
-                            GachaBulletin(specificData: character, gachaTitle: "gacha.home.avatar")
-                            GachaBulletin(specificData: weapon, gachaTitle: "gacha.home.weapon")
-                            GachaBulletin(specificData: resident, gachaTitle: "gacha.home.resident")
-                            GachaBulletin(specificData: collection, gachaTitle: "gacha.home.collection")
+                    if showHistory {
+                        GachaHistoryActivity(thisAccountRecord: thisAccountGachaRecords, dismiss: { showHistory = false })
+                    } else {
+                        ScrollView(.horizontal) {
+                            LazyHStack(alignment: .top) {
+                                GachaBulletin(specificData: character, gachaTitle: "gacha.home.avatar")
+                                GachaBulletin(specificData: weapon, gachaTitle: "gacha.home.weapon")
+                                GachaBulletin(specificData: resident, gachaTitle: "gacha.home.resident")
+                                GachaBulletin(specificData: collection, gachaTitle: "gacha.home.collection")
+                            }
+                            .padding(8)
                         }
-                        .padding(8)
+                        .toolbar {
+                            ToolbarItem {
+                                Button(
+                                    action: { showHistory = true },
+                                    label: { Image(systemName: "clock").help("gacha.history") }
+                                )
+                            }
+                        }
                     }
                 }
             } else {

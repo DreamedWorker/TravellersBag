@@ -18,6 +18,7 @@ class ResHandler: @unchecked Sendable {
     var avatars: [JSON]
     var weapon: [JSON]
     var reliquary: [JSON]
+    var gachaEvent: [JSON]
     
     init() {
         if UserDefaults.standard.bool(forKey: "useLocalTextResource") {
@@ -48,6 +49,16 @@ class ResHandler: @unchecked Sendable {
             }
         } else {
             reliquary = try! JSON(data: Data(contentsOf: Bundle.main.url(forResource: "Reliquary", withExtension: "json")!)).arrayValue
+        }
+        
+        if UserDefaults.standard.bool(forKey: "useLocalTextResource") {
+            if let got = try? JSON(data: Data(contentsOf: staticRoot.appending(component: "GachaEvent.json"))).arrayValue {
+                gachaEvent = got
+            } else {
+                gachaEvent = try! JSON(data: Data(contentsOf: Bundle.main.url(forResource: "GachaEvent", withExtension: "json")!)).arrayValue
+            }
+        } else {
+            gachaEvent = try! JSON(data: Data(contentsOf: Bundle.main.url(forResource: "GachaEvent", withExtension: "json")!)).arrayValue
         }
     }
     

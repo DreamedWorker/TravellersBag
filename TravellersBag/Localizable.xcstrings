@@ -1904,6 +1904,88 @@
         }
       }
     },
+    "gacha.history" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "祈愿版本历史"
+          }
+        }
+      }
+    },
+    "gacha.history.five" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "五星角色（武器）"
+          }
+        }
+      }
+    },
+    "gacha.history.four" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "四星角色（武器）"
+          }
+        }
+      }
+    },
+    "gacha.history.other" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "三星物品"
+          }
+        }
+      }
+    },
+    "gacha.history.refresh" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "刷新历史记录"
+          }
+        }
+      }
+    },
+    "gacha.history.select" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请先选择要查看的卡池"
+          }
+        }
+      }
+    },
+    "gacha.history.uniqueUpdate" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请在设置页面统一更新全部的文本资源和图片资源。"
+          }
+        }
+      }
+    },
+    "gacha.history.version" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "版本"
+          }
+        }
+      }
+    },
     "gacha.home.avatar" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -2469,7 +2551,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Log in to your Walnut Pass to access the relevant services of Hutao Cloud."
+            "value" : "Log in to your Hutao Pass to access the relevant services of Hutao Cloud."
           }
         },
         "zh-Hans" : {
