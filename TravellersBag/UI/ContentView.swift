@@ -21,6 +21,7 @@ struct ContentView: View {
                     Text("home.sidePart.normal").bold()
                     NavigationLink(value: ContentPart.Account, label: { Label("home.sidebar.account", systemImage: "person.crop.circle") })
                     NavigationLink(value: ContentPart.Notice, label: { Label("home.sidebar.notice", systemImage: "bell.badge") })
+                    NavigationLink(value: ContentPart.Achievement, label: { Label("home.sider.achieve", systemImage: "flag.checkered.2.crossed") })
                     Spacer()
                     Text("home.sidePart.functional").bold()
                     NavigationLink(
@@ -57,6 +58,8 @@ struct ContentView: View {
                     GachaView()
                 case .Character:
                     AvatarView()
+                case .Achievement:
+                    AchievementView()
                 }
             }
         )
@@ -65,6 +68,6 @@ struct ContentView: View {
     private enum ContentPart {
         case Account; case Notice; case Dashboard
         case DailyNote; case Shequ; case Adopt
-        case Gacha; case Character
+        case Gacha; case Character; case Achievement
     }
 }

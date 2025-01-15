@@ -28,7 +28,7 @@ struct TravellersBagApp: App {
                         TBDeviceKit.checkEnvironment()
                         Task { await updateDeviceFigerprint() }
                     }
-                    .modelContainer(for: [MihoyoAccount.self, HutaoPassport.self, GachaItem.self])
+                    .modelContainer(for: [MihoyoAccount.self, HutaoPassport.self, GachaItem.self, AchieveItem.self, AchieveArchive.self])
                     .alert("def.error.updateFP", isPresented: $showFPError, actions: {})
             } else {
                 WizardView()
