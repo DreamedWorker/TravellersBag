@@ -1135,6 +1135,40 @@
         }
       }
     },
+    "command.content.updateWidget" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Update widgets…"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "更新小组件…"
+          }
+        }
+      }
+    },
+    "command.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Function"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "我的行囊"
+          }
+        }
+      }
+    },
     "daily.abnormal.delete" : {
       "localizations" : {
         "en" : {
@@ -1588,6 +1622,12 @@
     "daily.error.open" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unable to open the subscription information of this account to the widget,%@"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1632,6 +1672,12 @@
     "daily.note.openForWidget" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Allow widgets to access"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1643,6 +1689,12 @@
     "daily.note.openOK" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The subscription for this account can now be accessed by desktop widgets."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",

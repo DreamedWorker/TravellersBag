@@ -9,6 +9,7 @@ import SwiftUI
 import Sparkle
 import SwiftData
 import SwiftyJSON
+import WidgetKit
 
 @main
 struct TravellersBagApp: App {
@@ -36,6 +37,11 @@ struct TravellersBagApp: App {
         }
         .commands {
             CommandGroup(after: .appInfo, addition: { CheckForUpdatesView(updater: updaterController.updater) })
+        }
+        .commands {
+            CommandMenu("command.title", content: {
+                Button("command.content.updateWidget", action: { WidgetCenter.shared.reloadAllTimelines() })
+            })
         }
     }
     
