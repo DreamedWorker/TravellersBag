@@ -30,11 +30,14 @@ extension DailyNoteView {
         var dailyContext: JSON
         var archonTasks: [ArchonTask] = []
         var expeditionTasks: [ExpeditionTask] = []
-        var account: String
+        var account: MihoyoAccount
         var delete: () -> Void
         var refresh: () -> Void
         
-        init(dailyContext: JSON, account: String, deleteEvt: @escaping () -> Void, refreshEvt: @escaping () -> Void) {
+        let groupDailyNoteRoot = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "NV65B8VFUD.TravellersBag")!
+            .appending(component: "NoteWidgets").appending(component: "AllowedList")
+        
+        init(dailyContext: JSON, account: MihoyoAccount, deleteEvt: @escaping () -> Void, refreshEvt: @escaping () -> Void) {
             self.dailyContext = dailyContext
             self.account = account
             self.delete = deleteEvt
@@ -60,12 +63,13 @@ extension DailyNoteView {
         
         @State private var alert = AlertMate()
         @State private var useBtn = false
+        @State private var infoAlert = AlertMate()
         
         var body: some View {
             VStack {
                 //顶部标题栏
                 HStack {
-                    Text(account).font(.title3).bold()
+                    Text(account.gameInfo.genshinUID).font(.title3).bold()
                     Spacer()
                     Image(systemName: "arrow.clockwise")
                         .onTapGesture {
@@ -76,6 +80,21 @@ extension DailyNoteView {
                         .onTapGesture {
                             useBtn = true
                             alert.showAlert(msg: "要删除这个便签吗？")
+                        }
+                    Image(systemName: "desktopcomputer")
+                        .help("daily.note.openForWidget")
+                        .onTapGesture {
+                            do {
+                                let json = try JSONEncoder().encode(account.cookies)
+                                let file = groupDailyNoteRoot.appending(component: "\(account.gameInfo.genshinUID).json")
+                                try json.write(to: file)
+                                infoAlert.showAlert(msg: NSLocalizedString("daily.note.openOK", comment: ""))
+                            } catch {
+                                infoAlert.showAlert(
+                                    msg: String.localizedStringWithFormat(
+                                        NSLocalizedString("daily.error.open", comment: ""), error.localizedDescription)
+                                )
+                            }
                         }
                 }.padding(.bottom, 4)
                 // 便签内容区
@@ -237,6 +256,7 @@ extension DailyNoteView {
                     Button("def.confirm", role: .destructive, action: { alert.showIt = false; useBtn = false; delete() })
                 }
             })
+            .alert(infoAlert.msg, isPresented: $infoAlert.showIt, actions: {})
         }
         
         /// 将秒转换为【xx分xx秒】的形式

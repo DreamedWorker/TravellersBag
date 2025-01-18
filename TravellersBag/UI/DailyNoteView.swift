@@ -14,28 +14,36 @@ struct DailyNoteView: View {
     @Query private var mihoyoAccounts: [MihoyoAccount]
     @State private var showAddSheet: Bool = false
     
+    init() {
+        let groupDailyNoteRoot = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "NV65B8VFUD.TravellersBag")!
+            .appending(component: "NoteWidgets").appending(component: "AllowedList")
+        if !FileManager.default.fileExists(atPath: groupDailyNoteRoot.toStringPath()) {
+            try! FileManager.default.createDirectory(at: groupDailyNoteRoot, withIntermediateDirectories: true)
+        }
+    }
+    
     var body: some View {
         NavigationStack {
             if vm.shouldShowContent {
                 ScrollView(.horizontal) {
                     LazyHStack {
                         ForEach(vm.notes) { note in
-                            if let noteContent = note.content {
-                                NoteCell(
-                                    dailyContext: noteContent,
-                                    account: note.id,
-                                    deleteEvt: { vm.deleteNote(note: note) },
-                                    refreshEvt: {
-                                        if let thisAct = mihoyoAccounts.filter({ $0.gameInfo.genshinUID == note.id }).first {
+                            if let thisAct = mihoyoAccounts.filter({ $0.gameInfo.genshinUID == note.id }).first {
+                                if let noteContent = note.content {
+                                    NoteCell(
+                                        dailyContext: noteContent,
+                                        account: thisAct,
+                                        deleteEvt: { vm.deleteNote(note: note) },
+                                        refreshEvt: {
                                             Task {
                                                 await vm.fetchDailyNote(account: thisAct)
                                                 vm.alertMate.showAlert(msg: NSLocalizedString("def.operationSuccessful", comment: ""))
                                             }
-                                        } else {
-                                            vm.alertMate.showAlert(msg: NSLocalizedString("daily.error.updateUnknown", comment: ""))
                                         }
-                                    }
-                                )
+                                    )
+                                } else {
+                                    AbnormalPane(delete: { vm.deleteNote(note: note) })
+                                }
                             } else {
                                 AbnormalPane(delete: { vm.deleteNote(note: note) })
                             }

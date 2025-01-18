@@ -1585,6 +1585,17 @@
         }
       }
     },
+    "daily.error.open" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法将此账号的便筹信息向小组件开放，%@"
+          }
+        }
+      }
+    },
     "daily.error.updateUnknown" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1614,6 +1625,28 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "请先设定默认账号！"
+          }
+        }
+      }
+    },
+    "daily.note.openForWidget" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "允许桌面小组件访问"
+          }
+        }
+      }
+    },
+    "daily.note.openOK" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "此账号的便筹现在可以被桌面小组件访问了。"
           }
         }
       }

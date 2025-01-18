@@ -10,17 +10,73 @@
 		5D134FC92D2D10CB0056A041 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 5D134FC82D2D10CB0056A041 /* SwiftyJSON */; };
 		5D134FD12D2D16350056A041 /* xxHash-Swift in Frameworks */ = {isa = PBXBuildFile; productRef = 5D134FD02D2D16350056A041 /* xxHash-Swift */; };
 		5D134FD42D2D45710056A041 /* Zip in Frameworks */ = {isa = PBXBuildFile; productRef = 5D134FD32D2D45710056A041 /* Zip */; };
+		5D6441EF2D3AC07200E9B9E5 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D4F553E2D37E0720031CA6B /* WidgetKit.framework */; };
+		5D6441F02D3AC07200E9B9E5 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D4F55402D37E0720031CA6B /* SwiftUI.framework */; };
+		5D6441FC2D3AC07400E9B9E5 /* NoteWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 5D6441EE2D3AC07200E9B9E5 /* NoteWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		5D6443D82D3B769100E9B9E5 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 5D6443D72D3B769100E9B9E5 /* SwiftyJSON */; };
 		5DAEE0642D1134E6003AA13B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 5DAEE0632D1134DD003AA13B /* README.md */; };
 		5DAFEBC42D2EA18400306612 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 5DAFEBC32D2EA18400306612 /* Kingfisher */; };
 		5DD35F962D2BAD140042C48D /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = 5DD35F952D2BAD140042C48D /* Sparkle */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		5D6441FA2D3AC07400E9B9E5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5DAEE03F2D11335C003AA13B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5D6441ED2D3AC07200E9B9E5;
+			remoteInfo = NoteWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		5D4F55542D37E0740031CA6B /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				5D6441FC2D3AC07400E9B9E5 /* NoteWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		5D4F553E2D37E0720031CA6B /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		5D4F55402D37E0720031CA6B /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		5D6441EE2D3AC07200E9B9E5 /* NoteWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = NoteWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DAEE0472D11335C003AA13B /* TravellersBag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravellersBag.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DAEE0632D1134DD003AA13B /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		5D6442002D3AC07400E9B9E5 /* Exceptions for "NoteWidget" folder in "NoteWidgetExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 5D6441ED2D3AC07200E9B9E5 /* NoteWidgetExtension */;
+		};
+		5D6443C52D3AC48C00E9B9E5 /* Exceptions for "NoteWidget" folder in "TravellersBag" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				DailyNoteIntents.intentdefinition,
+			);
+			target = 5DAEE0462D11335C003AA13B /* TravellersBag */;
+		};
+		5D6443CA2D3AC57D00E9B9E5 /* Exceptions for "TravellersBag" folder in "NoteWidgetExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Core/DS/DynamicSecret.swift,
+				Core/Extensions/URLs.swift,
+				Core/TBCoreMain.swift,
+				Core/Util/DeviceHelper.swift,
+				Core/Web/ApiEndpoints.swift,
+			);
+			target = 5D6441ED2D3AC07200E9B9E5 /* NoteWidgetExtension */;
+		};
 		5DD35FA02D2BB1FE0042C48D /* Exceptions for "TravellersBag" folder in "TravellersBag" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -31,10 +87,20 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		5D6441F12D3AC07200E9B9E5 /* NoteWidget */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				5D6443C52D3AC48C00E9B9E5 /* Exceptions for "NoteWidget" folder in "TravellersBag" target */,
+				5D6442002D3AC07400E9B9E5 /* Exceptions for "NoteWidget" folder in "NoteWidgetExtension" target */,
+			);
+			path = NoteWidget;
+			sourceTree = "<group>";
+		};
 		5DAEE0492D11335C003AA13B /* TravellersBag */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
 				5DD35FA02D2BB1FE0042C48D /* Exceptions for "TravellersBag" folder in "TravellersBag" target */,
+				5D6443CA2D3AC57D00E9B9E5 /* Exceptions for "TravellersBag" folder in "NoteWidgetExtension" target */,
 			);
 			path = TravellersBag;
 			sourceTree = "<group>";
@@ -42,6 +108,16 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		5D6441EB2D3AC07200E9B9E5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5D6443D82D3B769100E9B9E5 /* SwiftyJSON in Frameworks */,
+				5D6441F02D3AC07200E9B9E5 /* SwiftUI.framework in Frameworks */,
+				5D6441EF2D3AC07200E9B9E5 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5DAEE0442D11335C003AA13B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -57,11 +133,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5D4F553D2D37E0720031CA6B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5D4F553E2D37E0720031CA6B /* WidgetKit.framework */,
+				5D4F55402D37E0720031CA6B /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		5DAEE03E2D11335C003AA13B = {
 			isa = PBXGroup;
 			children = (
 				5DAEE0632D1134DD003AA13B /* README.md */,
 				5DAEE0492D11335C003AA13B /* TravellersBag */,
+				5D6441F12D3AC07200E9B9E5 /* NoteWidget */,
+				5D4F553D2D37E0720031CA6B /* Frameworks */,
 				5DAEE0482D11335C003AA13B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -70,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				5DAEE0472D11335C003AA13B /* TravellersBag.app */,
+				5D6441EE2D3AC07200E9B9E5 /* NoteWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -77,6 +165,29 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		5D6441ED2D3AC07200E9B9E5 /* NoteWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5D6441FD2D3AC07400E9B9E5 /* Build configuration list for PBXNativeTarget "NoteWidgetExtension" */;
+			buildPhases = (
+				5D6441EA2D3AC07200E9B9E5 /* Sources */,
+				5D6441EB2D3AC07200E9B9E5 /* Frameworks */,
+				5D6441EC2D3AC07200E9B9E5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				5D6441F12D3AC07200E9B9E5 /* NoteWidget */,
+			);
+			name = NoteWidgetExtension;
+			packageProductDependencies = (
+				5D6443D72D3B769100E9B9E5 /* SwiftyJSON */,
+			);
+			productName = NoteWidgetExtension;
+			productReference = 5D6441EE2D3AC07200E9B9E5 /* NoteWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		5DAEE0462D11335C003AA13B /* TravellersBag */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5DAEE0562D11335D003AA13B /* Build configuration list for PBXNativeTarget "TravellersBag" */;
@@ -84,10 +195,12 @@
 				5DAEE0432D11335C003AA13B /* Sources */,
 				5DAEE0442D11335C003AA13B /* Frameworks */,
 				5DAEE0452D11335C003AA13B /* Resources */,
+				5D4F55542D37E0740031CA6B /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				5D6441FB2D3AC07400E9B9E5 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				5DAEE0492D11335C003AA13B /* TravellersBag */,
@@ -114,6 +227,9 @@
 				LastSwiftUpdateCheck = 1620;
 				LastUpgradeCheck = 1620;
 				TargetAttributes = {
+					5D6441ED2D3AC07200E9B9E5 = {
+						CreatedOnToolsVersion = 16.2;
+					};
 					5DAEE0462D11335C003AA13B = {
 						CreatedOnToolsVersion = 16.2;
 					};
@@ -142,11 +258,19 @@
 			projectRoot = "";
 			targets = (
 				5DAEE0462D11335C003AA13B /* TravellersBag */,
+				5D6441ED2D3AC07200E9B9E5 /* NoteWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		5D6441EC2D3AC07200E9B9E5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5DAEE0452D11335C003AA13B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -158,6 +282,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		5D6441EA2D3AC07200E9B9E5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5DAEE0432D11335C003AA13B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -167,7 +298,73 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		5D6441FB2D3AC07400E9B9E5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5D6441ED2D3AC07200E9B9E5 /* NoteWidgetExtension */;
+			targetProxy = 5D6441FA2D3AC07400E9B9E5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		5D6441FE2D3AC07400E9B9E5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = NoteWidget/NoteWidget.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 20241024;
+				DEVELOPMENT_TEAM = NV65B8VFUD;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NoteWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = NoteWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 0.0.3;
+				PRODUCT_BUNDLE_IDENTIFIER = icu.bluedream.TravellersBag.NoteWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		5D6441FF2D3AC07400E9B9E5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = NoteWidget/NoteWidget.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 20241024;
+				DEVELOPMENT_TEAM = NV65B8VFUD;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NoteWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = NoteWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 0.0.3;
+				PRODUCT_BUNDLE_IDENTIFIER = icu.bluedream.TravellersBag.NoteWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 		5DAEE0542D11335D003AA13B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -353,6 +550,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		5D6441FD2D3AC07400E9B9E5 /* Build configuration list for PBXNativeTarget "NoteWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5D6441FE2D3AC07400E9B9E5 /* Debug */,
+				5D6441FF2D3AC07400E9B9E5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		5DAEE0422D11335C003AA13B /* Build configuration list for PBXProject "TravellersBag" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -431,6 +637,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 5D134FD22D2D45710056A041 /* XCRemoteSwiftPackageReference "Zip" */;
 			productName = Zip;
+		};
+		5D6443D72D3B769100E9B9E5 /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5D134FC72D2D10CB0056A041 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
 		};
 		5DAFEBC32D2EA18400306612 /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
