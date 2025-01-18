@@ -1,69 +1,49 @@
-#  TravellersBag
+<div align="center">
+<img src="https://github.com/DreamedWorker/TravellersBag/blob/dev/TravellersBag/Assets.xcassets/AppIcon.appiconset/icon_128@2x.png" alt="tb logo" width=72 height=72 />
+<h1>旅者行囊(TravellersBag)</h1>
+</div>
 
-注：本软件及其副本可能存在部分内容（根据系统语言而异）是采用「英语」文本显示的，但本软件及其副本的默认语言是「简体中文」。如果两者
-在语义上发生冲突的话，以「简体中文文本」为「准据文本」。
+An open source and easy-to-use Genshin Impact toolbox application designed for modern Macs(Mac powered by Apple Silicon).
 
-Attention: This software and its copies may have some content displayed in "English" text (depending on the system language), 
-but the default language of this software and its copies is "Simplified Chinese". If there is a semantic conflict between the two, 
-the "Simplified Chinese text" shall be used as the "basis text".
+如果你是来自中国的旅行者，或者你的母语是中文，请参阅我们的简体中文版本的自述文件哦～
 
-旅者行囊是一款专为现代macOS设计的，基于GPLv3.0协议开源的，旨在改善Mac用户的原神游戏外体验的工具集软件。
-它通过官方的访问接口，提供了相对完整的功能，并且对于你的所有数据，本工具集都仅提供只读功能以充分保证使用时的数据安全。
+------
+<i>
+Note: Some content (depending on the system language) of this application and its copies may be displayed in "English" or other non-simplified Chinese text,
+but the default language of this application and its copies is "Simplified Chinese." If there is a semantic conflict between the two, the "simplified Chinese text" will be the "governing text."
+</i>
 
-TravellersBag is a tool set software designed for modern macOS, open source based on GPLv3.0 protocol, 
-and designed to improve Mac users' Genshin Impact out of game experience.
-It provides relatively complete functionality through the official access interface, 
-and for all your data, this tool-set only provides read-only functionality to fully ensure data security during use.
+TravellersBag is a tool set app designed for modern macOS, open source based on GPLv3.0 protocol, and designed to improve Mac users' Genshin Impact out of game experience. It provides relatively complete functionality through the official access interface, and for all your data, this tool-set only provides read-only functionality to fully ensure data security during use.
 
-## 安装需求  /  Requirement
+## Installation
+You can compile and use it from our source code. Of course, you can also download the `.zip` file that we have compiled based on the latest version from the "release" tab of this repo, and move the app to the `/Applications` folder after unpacking, and then you can start it.
 
-由于「会费」对于业余的、不算活跃的个人开发者来说实在过于昂贵，因此本软件并未通过公证。在打开时会弹窗提示【未知的开发者】，你可以通过「option + 鼠标右键」或者在设置中允许以打开。
-1. 无论Intel芯片还是M系列芯片，但需确保系统是64位的，且系统版本为macOS 13.0及更新。(Whether using Intel chips or M-series chips, it is necessary to ensure that the system is 64 bit and the system version is macOS 13.0 or later.)
-2. 你需要在开源许可协议的范围内使用，详细内容在初次安装后参见「初始化页面」的指引链接。(You need to use it within the scope of the open source license agreement)
-3. 我们将通过「米游社」而不是「HoyoLab」的Api来请求所有与你相关的数据，因此你需要确保你的账号应当是注册在中国大陆（进一步来说是出入境管理相关规定中的「境内」），
-换言之你的游戏服务器名应当是「天空岛」或者是「世界树」。
-All of the interfaces we use are from miyoushe instead of HoYoLab, so you need to make sure your account is registed in China Mainland
-(Your server's name should be 「天空岛」or「世界树？」).
+It should be noted that if you download the application directly to install it, you will need to go to the `system settings` to allow this software to run after opening the application.
 
-## 引用和参考  /  Reference
+## Goal
+Currently, the community has produced quite a lot of excellent results in terms of Genshin Impact toolbox app, but most of them are aimed at the Windows platform.
+And Apple is gradually making an effort in gaming to create a gaming ecosystem on the Mac platform, and at the same time, Genshin Impact can also run perfectly on the Mac through the translation layer of wine and so on.
+In addition, there is still a need to develop relatively complete toolbox app for the Mac platform (for Windows), so we hope to use this repository as an introduction to provide a convenient toolset for travelers using Macs.
 
-在开发的过程中，我们借鉴了当前社区中的很多优秀的成果和案例，它们对于本软件的完成有重要的意义。
+## Reference
+In the development process, we drew on many excellent achievements and cases in the current community, which are of great significance to the completion of this software.
+- `Snap Hutao`(Excellent GI toolset app for Windows): The user-selectable downloads on the bootstrap page during the first cold start of the app come from the efforts of `DGP Studio`.
+- `Enka.Network`(Website): In case we can't locate the required image resources locally, we cache some of the images from this website through the KFImage component.
 
-In the development process, we drew on many excellent achievements and cases in the current community, 
-which are of great significance to the completion of this software.
+The use of static resources in this app if there is an infringement of your rights, please promptly raised in the repository, I will be the first time to remove the resources involved and the relevant Releases.
 
-【静态资源】
-1. Enka.Network -- 在我们不能从本地定位所需的图片资源时，我们会通过`KFImage`组件缓存从此网站获取的图片
-2. Snap Hutao （胡桃工具箱；优秀的 Windows 端原神工具）【MIT协议】-- 
-在软件第一次冷启动时，引导页面中用户可选的下载项（静态文字资源中部分已经嵌入本应用中，图片资源完全可选）来自DGP Studio的努力
+## Contribution
+I am not a professional developer, and my major has almost nothing to do with computers. I developed this app out of programming interest and love for the game.
 
-本软件中的静态资源的使用如果有侵害到你的权利，请及时在本仓库中提出，我会在第一时间删除涉及的资源和有关的Releases
+I welcome you to join the development process, and please join the Discord server to communicate together.
 
-If the use of static resources in this software infringes on your rights, please promptly raise it in this repository.
+## Acknowledgement
+This app could not have been created without Mihoyo's excellent work, Genshin Impact, and its inclusive approach to community content creation, and we look forward to further future.
 
-## 贡献 / Contribution
-1. Feel free to open an issue when you find anything wrong with this app during use. (You'd better use Chinese Simplified)
-2. Fork and Pull request
-
-## 用到的技术栈 / Tech Stacks
-1. [macOS SDK](https://developer.apple.com/documentation/)
-
-## 从源码构建  / Build it yourself
-确保你拥有 Xcode 15.0 及以上版本，或者你拥有 macOS SDK 14.0 及以上版本，这是我们在编写本程序时所依赖的开发环境。我们建议你前往 Apple Store 下载最新Xcode。
-** 注意，你不应当使用 Swift6.0 作为 Swift 语言版本，否则本项目所依赖的SwiftyJSON库将无法通过编译。 **
-
-Make sure you have Xcode 15.0 or above, or macOS SDK 14.0 or above, which is the development environment we rely on when writing this program. We suggest that you go to the Apple Store to download the latest Xcode.
-** Note that you should not use Swift6.0 as the Swift language version, otherwise the SwiftyJSON library that this project relies on will not be able to compile. **
-
-## Dependencies
-1. [AlertToast](https://https://github.com/elai950/AlertToast) under MIT License
-2. [Kingfisher](https://raw.githubusercontent.com/onevcat/Kingfisher) under MIT License
-3. [Sentry](https://sentry.io) under MIT License
-4. [SwiftyJSON](https://github.com/IBM-Swift/SwiftyJSON) under MIT License
-5. [WaterfallGrid](https://paololeonardi.github.io/waterfallgrid) under MIT License
-6. [Zip](https://github.com/nmoinvaz/minizip) under MIT License
-
-## 写在最后
-本软件的诞生离不开米哈游公司优秀的作品《原神》及其对社区内容创作的包容态度，期待进一步发展。
-
-# Have fun with Genshin Impact and TravellersBag!
+Also the completion of this application is inseparable from the support of other open source software:
+- AlertToast under MIT License
+- Kingfisher under MIT License
+- SwiftyJSON under MIT License
+- Sparkle under MIT License
+- xxHash-Swift under MIT License
+- Zip under MIT License

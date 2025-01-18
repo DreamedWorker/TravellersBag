@@ -2,62 +2,67 @@
 //  TravellersBagApp.swift
 //  TravellersBag
 //
-//  Created by 鸳汐 on 2024/9/8.
+//  Created by 鸳汐 on 2024/12/17.
 //
 
 import SwiftUI
-import Sentry
-import AppKit
+import Sparkle
+import SwiftData
+import SwiftyJSON
+import WidgetKit
 
 @main
 struct TravellersBagApp: App {
-    @StateObject private var coreDataHelper = CoreDataHelper.shared
-    @State private var showDeviceInfo = false
+    private let updaterController: SPUStandardUpdaterController
+    @State private var showFPError: Bool = false
+    @State var showHutaoPassport: Bool = false
     
     init() {
-        TBEnv.default.checkEnvironment()
-        SentrySDK.start { options in
-            options.dsn = "https://94ef38f68876d3a718cf007d6fbb46e1@o4507083124834304.ingest.de.sentry.io/4507887457337424"
-            //options.debug = true
-            options.tracesSampleRate = 1.0
-            options.profilesSampleRate = 1.0
-        }
-        _ = HoyoResKit.default
+        updaterController = SPUStandardUpdaterController(startingUpdater: true, updaterDelegate: nil, userDriverDelegate: nil)
     }
     
     var body: some Scene {
         WindowGroup {
-            if UserDefaultHelper.shared.getValue(forKey: "currentAppVersion", def: "0.0.0") == "0.0.1" {
-                HomeScreen()
-                    .environment(\.managedObjectContext, coreDataHelper.persistentContainer.viewContext)
-                    .sheet(isPresented: $showDeviceInfo, content: { DeviceInfoPane(dismissIt: { showDeviceInfo = false }) })
+            if checkCrtVer() {
+                ContentView()
+                    .onAppear { // 生成除设备指纹外的uuid信息
+                        TBDeviceKit.checkEnvironment()
+                        Task { await updateDeviceFigerprint() }
+                    }
+                    .modelContainer(for: [MihoyoAccount.self, HutaoPassport.self, GachaItem.self, AchieveItem.self, AchieveArchive.self])
+                    .alert("def.error.updateFP", isPresented: $showFPError, actions: {})
             } else {
-                WizardScreen()
+                WizardView()
             }
         }
-        .commands(content: {
-            CommandMenu("command.app", content: {
-                Button("command.add.device_info", action: {
-                    if UserDefaultHelper.shared.getValue(forKey: "currentAppVersion", def: "0.0.0") == "0.0.1" {
-                        showDeviceInfo = true
-                    }
-                })
-                Divider()
-                Button("command.add.check_update", action: {
-                    NSWorkspace.shared.open(URL(string: "https://github.com/DreamedWorker/TravellersBag")!)
-                }).keyboardShortcut(.init("g"))
+        .commands {
+            CommandGroup(after: .appInfo, addition: { CheckForUpdatesView(updater: updaterController.updater) })
+        }
+        .commands {
+            CommandMenu("command.title", content: {
+                Button("command.content.updateWidget", action: { WidgetCenter.shared.reloadAllTimelines() })
             })
-        })
+        }
     }
-}
-
-/// 上传错误
-func uploadAnError(fatalInfo: Error){
-    SentrySDK.capture(error: fatalInfo)
-}
-
-extension URL {
-    func toStringPath() -> String {
-        return self.path().removingPercentEncoding!
+    
+    private func checkCrtVer() -> Bool {
+        let version = UserDefaults.standard.string(forKey: "lastUsedVersion") ?? "0.0.0"
+        return version == "0.0.3"
+    }
+    
+    @MainActor private func updateDeviceFigerprint() async {
+        let currentTime = Int(Date().timeIntervalSince1970)
+        let lastUpdateTime = UserDefaults.standard.integer(forKey: "deviceFpLastUpdated")
+        if currentTime - lastUpdateTime >= 432000 {
+            do {
+                let newFp = try await TBDeviceKit.updateDeviceFp()
+                UserDefaults.standard.set(currentTime, forKey: "deviceFpLastUpdated")
+                UserDefaults.standard.set(newFp, forKey: TBData.DEVICE_FP)
+            } catch {
+                DispatchQueue.main.async {
+                    self.showFPError = true
+                }
+            }
+        }
     }
 }
