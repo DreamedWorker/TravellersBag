@@ -16,6 +16,7 @@ struct TravellersBagApp: App {
     private let updaterController: SPUStandardUpdaterController
     @State private var showFPError: Bool = false
     @State var showHutaoPassport: Bool = false
+    @State var showAbout: Bool = false
     
     init() {
         updaterController = SPUStandardUpdaterController(startingUpdater: true, updaterDelegate: nil, userDriverDelegate: nil)
@@ -31,11 +32,14 @@ struct TravellersBagApp: App {
                     }
                     .modelContainer(for: [MihoyoAccount.self, HutaoPassport.self, GachaItem.self, AchieveItem.self, AchieveArchive.self])
                     .alert("def.error.updateFP", isPresented: $showFPError, actions: {})
+                    .sheet(isPresented: $showAbout, content: { AboutSheet(dismiss: { showAbout = false}) })
             } else {
                 WizardView()
+                    .sheet(isPresented: $showAbout, content: { AboutSheet(dismiss: { showAbout = false}) })
             }
         }
         .commands {
+            CommandGroup(replacing: .appInfo, addition: { Button("def.about", action: { showAbout = true }) })
             CommandGroup(after: .appInfo, addition: { CheckForUpdatesView(updater: updaterController.updater) })
         }
         .commands {
@@ -43,6 +47,7 @@ struct TravellersBagApp: App {
                 Button("command.content.updateWidget", action: { WidgetCenter.shared.reloadAllTimelines() })
             })
         }
+        Settings {}
     }
     
     private func checkCrtVer() -> Bool {

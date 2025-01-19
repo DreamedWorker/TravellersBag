@@ -169,7 +169,7 @@ struct AvatarDetail: View {
                                     case 4:
                                         Image("UI_QUALITY_PURPLE").resizable().frame(width: 32, height: 32)
                                     default:
-                                        Image("UI_QUALITY_NONE").resizable().frame(width: 32, height: 32)
+                                        Image("UI_QUALITY_BLUE").resizable().frame(width: 32, height: 32)
                                     }
                                     if let surelyLocal = reliquary.localIcon {
                                         if surelyLocal.hasPrefix("/") {
@@ -243,7 +243,7 @@ struct AvatarDetail: View {
                     case 4:
                         Image("UI_QUALITY_PURPLE").resizable().frame(width: 56, height: 56)
                     default:
-                        Image("UI_QUALITY_NONE").resizable().frame(width: 56, height: 56)
+                        Image("UI_QUALITY_BLUE").resizable().frame(width: 56, height: 56)
                     }
                     if iconGroup.hasPrefix("/") {
                         Image(nsImage: NSImage(contentsOfFile: iconGroup) ?? NSImage())
@@ -283,7 +283,7 @@ struct AvatarDetail: View {
                     case 4:
                         Image("UI_QUALITY_PURPLE").resizable().frame(width: 56, height: 56)
                     default:
-                        Image("UI_QUALITY_NONE").resizable().frame(width: 56, height: 56)
+                        Image("UI_QUALITY_BLUE").resizable().frame(width: 56, height: 56)
                     }
                     if weaponGroup.hasPrefix("/") {
                         Image(nsImage: NSImage(contentsOfFile: weaponGroup) ?? NSImage())

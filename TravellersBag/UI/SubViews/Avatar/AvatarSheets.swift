@@ -38,7 +38,7 @@ struct WeaponSheet: View {
                             case 4:
                                 Image("UI_QUALITY_PURPLE").resizable().frame(width: 56, height: 56)
                             default:
-                                Image("UI_QUALITY_NONE").resizable().frame(width: 56, height: 56)
+                                Image("UI_QUALITY_BLUE").resizable().frame(width: 56, height: 56)
                             }
                             if weaponGroup.hasPrefix("/") {
                                 Image(nsImage: NSImage(contentsOfFile: weaponGroup) ?? NSImage())

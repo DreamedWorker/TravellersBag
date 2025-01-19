@@ -1,6 +1,91 @@
 {
   "sourceLanguage" : "zh-Hans",
   "strings" : {
+    "about.copyright" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Copyright © YuanShine 2024-present. TravellersBag is a work belongs to Project Yuanshine. The development of TravelersBag cannot be separated from the efforts of the community and the support of open source programs."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Copyright © YuanShine 2024-present. 旅者行囊是Project Yuanshine项目组中的一个作品。 旅者行囊的开发离不开社区的努力和开放源代码程序的支持。"
+          }
+        }
+      }
+    },
+    "about.normative" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Normative files"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "规范性文件"
+          }
+        }
+      }
+    },
+    "about.openSource" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Open source licenses"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "开发源代码许可"
+          }
+        }
+      }
+    },
+    "about.subtitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Toolset app for Genshin Impact designed for modern Mac"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "专为现代Mac设计的原神工具箱软件"
+          }
+        }
+      }
+    },
+    "about.version" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Version 0.0.3(20241024)"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Version 0.0.3(20241024)"
+          }
+        }
+      }
+    },
     "account.alert.logout" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -2347,6 +2432,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "请先登录或等待信息获取完成…"
+          }
+        }
+      }
+    },
+    "def.about" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "About TravellersBag"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "关于旅者行囊"
           }
         }
       }
