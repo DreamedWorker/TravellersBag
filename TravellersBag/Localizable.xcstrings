@@ -2923,6 +2923,23 @@
         }
       }
     },
+    "gacha.home.update" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Update records"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "更新记录"
+          }
+        }
+      }
+    },
     "gacha.home.weapon" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -2953,6 +2970,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "祈愿数据导出成功。"
+          }
+        }
+      }
+    },
+    "gacha.info.syncOK" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ records have been synchronized from the cloud for %@."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已从云端为%@同步了%@条数据。"
           }
         }
       }
