@@ -10,6 +10,7 @@ import Sparkle
 import SwiftData
 import SwiftyJSON
 import WidgetKit
+import Sentry
 
 @main
 struct TravellersBagApp: App {
@@ -20,6 +21,12 @@ struct TravellersBagApp: App {
     
     init() {
         updaterController = SPUStandardUpdaterController(startingUpdater: true, updaterDelegate: nil, userDriverDelegate: nil)
+        SentrySDK.start { options in
+            options.dsn = "https://94ef38f68876d3a718cf007d6fbb46e1@o4507083124834304.ingest.de.sentry.io/4507887457337424"
+            options.debug = false
+            options.tracesSampleRate = 1.0
+            options.profilesSampleRate = 1.0
+        }
     }
     
     var body: some Scene {
