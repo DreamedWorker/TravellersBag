@@ -1,0 +1,5 @@
+
+User-agent:*
+Disallow:
+
+Sitemap: https://bluedream.icu/TravellersBag/TravellersBag/sitemap.xml
