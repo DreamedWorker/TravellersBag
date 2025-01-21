@@ -3,9 +3,7 @@
 <h1>旅者行囊(TravellersBag)</h1>
 </div>
 
-An open source and easy-to-use Genshin Impact toolbox application designed for modern Macs(Mac powered by Apple Silicon).
-
-如果你是来自中国的旅行者，或者你的母语是中文，请参阅我们的简体中文版本的自述文件哦～
+An open source and easy-to-use Genshin Impact toolbox application designed for modern Macs.
 
 ------
 <i>
@@ -41,9 +39,9 @@ I welcome you to join the development process, and please join the Discord serve
 This app could not have been created without Mihoyo's excellent work, Genshin Impact, and its inclusive approach to community content creation, and we look forward to further future.
 
 Also the completion of this application is inseparable from the support of other open source software:
-- AlertToast under MIT License
 - Kingfisher under MIT License
 - SwiftyJSON under MIT License
 - Sparkle under MIT License
 - xxHash-Swift under MIT License
 - Zip under MIT License
+- Sentry under MIT License
