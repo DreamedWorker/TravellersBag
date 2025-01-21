@@ -31,13 +31,19 @@ struct NoticeView: View {
                                 CurrentGacha(a: a, getContent: { want in return vm.getNoticeDetailEntry(id: a.id) })
                             }
                         } else { // 这里解决了祈愿显示超前的问题
-                            if Date.now >= string2date(str: gachas.first!.end) {
-                                ForEach(gachas[3...]) { a in
+                            if gachas.count <= 4 {
+                                ForEach(gachas) { a in
                                     CurrentGacha(a: a, getContent: { want in return vm.getNoticeDetailEntry(id: a.id) })
                                 }
                             } else {
-                                ForEach(gachas[..<3]) { a in
-                                    CurrentGacha(a: a, getContent: { want in return vm.getNoticeDetailEntry(id: a.id) })
+                                if Date.now >= string2date(str: gachas.first!.end) {
+                                    ForEach(gachas[3...]) { a in
+                                        CurrentGacha(a: a, getContent: { want in return vm.getNoticeDetailEntry(id: a.id) })
+                                    }
+                                } else {
+                                    ForEach(gachas[..<3]) { a in
+                                        CurrentGacha(a: a, getContent: { want in return vm.getNoticeDetailEntry(id: a.id) })
+                                    }
                                 }
                             }
                         }

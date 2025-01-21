@@ -145,7 +145,8 @@ extension NoticeView {
                         NoticeEntry(
                             id: j["ann_id"].intValue,annId: j["ann_id"].intValue, title: j["title"].stringValue,
                             subtitle: j["subtitle"].stringValue, banner: j["banner"].stringValue, type_label: j["type_label"].stringValue,
-                            type: j["type"].intValue, start: j["start_time"].stringValue, end: j["end_time"].stringValue
+                            type: j["type"].intValue, start: j["start_time"].stringValue, end: j["end_time"].stringValue,
+                            tag_label: j["tag_label"].stringValue
                         )
                     )
                 }

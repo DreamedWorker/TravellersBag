@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct NoticeEntry: Identifiable {
+struct NoticeEntry: Identifiable, Codable {
     var id: Int
     var annId: Int
     var title: String
@@ -17,4 +17,5 @@ struct NoticeEntry: Identifiable {
     var type: Int
     var start: String
     var end: String
+    var tag_label: String
 }
