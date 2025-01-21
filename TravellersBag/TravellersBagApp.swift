@@ -54,7 +54,7 @@ struct TravellersBagApp: App {
                 Button("command.content.updateWidget", action: { WidgetCenter.shared.reloadAllTimelines() })
             })
         }
-        Settings {}
+        Settings { SettingsView() }
     }
     
     private func checkCrtVer() -> Bool {

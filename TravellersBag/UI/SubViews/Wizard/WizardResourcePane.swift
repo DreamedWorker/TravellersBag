@@ -14,6 +14,7 @@ extension WizardView {
     struct WizardResourcePane: View {
         @StateObject private var vm = ResourceViewModel()
         let goNext: () -> Void
+        var usedInSettings: Bool = false
         
         var body: some View {
             VStack {
@@ -40,6 +41,13 @@ extension WizardView {
                                 Task { await vm.downloadStaticJsonAssets() }
                             })
                                 .buttonStyle(BorderedProminentButtonStyle())
+                        }
+                        if usedInSettings {
+                            HStack {
+                                Label("settings.updateRes.updateTime", systemImage: "timer")
+                                Spacer()
+                                Text(vm.getLastUpdateTime()).foregroundStyle(.secondary)
+                            }
                         }
                     }
                     .padding(8)
@@ -69,11 +77,13 @@ extension WizardView {
                         .padding(.bottom, 2)
                     Text("wizard.res.tip")
                         .foregroundStyle(.secondary).font(.footnote)
-                    Divider()
-                    Button(
-                        action: { goNext() },
-                        label: { Text("wizard.lang.next").padding(8) }
-                    ).buttonStyle(BorderedProminentButtonStyle())
+                    if !usedInSettings {
+                        Divider()
+                        Button(
+                            action: { goNext() },
+                            label: { Text("wizard.lang.next").padding(8) }
+                        ).buttonStyle(BorderedProminentButtonStyle())
+                    }
                 }
             }
             .onAppear {
@@ -135,6 +145,24 @@ extension WizardView {
         
         private lazy var urlSession = URLSession(configuration: .default, delegate: self, delegateQueue: nil)
         private var downloadTask: URLSessionDownloadTask? = nil
+        
+        override init() {
+            super.init()
+            startup()
+        }
+        
+        func getLastUpdateTime() -> String {
+            let file = resJson!.appending(component: "Avatar.json")
+            if !FileManager.default.fileExists(atPath: file.toStringPath()) {
+                return NSLocalizedString("settings.updateRes.noFile", comment: "")
+            }
+            let attrs = try? FileManager.default.attributesOfItem(atPath: file.toStringPath())[.modificationDate] as? Date
+            if let date = attrs {
+                return date.description(with: .autoupdatingCurrent)
+            } else {
+                return NSLocalizedString("settings.updateRes.noFile", comment: "")
+            }
+        }
         
         /// 在本页面可见时调用 判断并生成相关的文件夹
         func startup() {

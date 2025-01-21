@@ -3920,6 +3920,72 @@
         }
       }
     },
+    "settings.back" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "撤回同意"
+          }
+        }
+      }
+    },
+    "settings.back.des" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "这用于当你对本软件的任何规范性文件存在异议时使用。当你撤回后，我们将立即关闭本软件并阻止你再次进入主业务，除非你重新同意本软件的协议。"
+          }
+        }
+      }
+    },
+    "settings.normal" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "通用"
+          }
+        }
+      }
+    },
+    "settings.resource" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "资源"
+          }
+        }
+      }
+    },
+    "settings.updateRes.noFile" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "没有本地文件"
+          }
+        }
+      }
+    },
+    "settings.updateRes.updateTime" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "上次更新时间"
+          }
+        }
+      }
+    },
     "traveller.name" : {
       "extractionState" : "manual",
       "localizations" : {
