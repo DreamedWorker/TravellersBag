@@ -36,7 +36,12 @@ struct GachaView: View {
                                             account: displayAccount!
                                         )
                                         DispatchQueue.main.async {
-                                            vm.alertMate.showAlert(msg: "已从云端为\(displayAccount!.gameInfo.genshinUID)同步了\(counts)条记录。")
+                                            vm.alertMate.showAlert(
+                                                msg: String.localizedStringWithFormat(
+                                                    NSLocalizedString("gacha.info.syncOK", comment: ""),
+                                                    displayAccount!.gameInfo.genshinUID, String(counts)
+                                                )
+                                            )
                                         }
                                     }
                                 },
@@ -58,6 +63,26 @@ struct GachaView: View {
                         if showHistory {
                             GachaHistoryActivity(thisAccountRecord: thisAccountGachaRecords, dismiss: { showHistory = false })
                         } else {
+                            HStack {
+                                Spacer()
+                                Button("gacha.home.update", action: {
+                                    showWaitingSheet = true
+                                    Task {
+                                        let counts = await processHk4e2CoreData(
+                                            hk4eList: vm.updateDataFromCloud(user: displayAccount!),
+                                            account: displayAccount!
+                                        )
+                                        DispatchQueue.main.async {
+                                            vm.alertMate.showAlert(
+                                                msg: String.localizedStringWithFormat(
+                                                    NSLocalizedString("gacha.info.syncOK", comment: ""),
+                                                    displayAccount!.gameInfo.genshinUID, String(counts)
+                                                )
+                                            )
+                                        }
+                                    }
+                                })
+                            }
                             ScrollView(.horizontal) {
                                 LazyHStack(alignment: .top) {
                                     GachaBulletin(specificData: character, gachaTitle: "gacha.home.avatar")
@@ -216,7 +241,7 @@ struct GachaView: View {
     private var WaitingSheet: some View {
         return NavigationStack {
             ProgressView()
-            Text("gacha.def.waiting").font(.title3).bold().multilineTextAlignment(.center)
+            Text("gacha.def.waiting").multilineTextAlignment(.center)
         }
         .padding()
     }

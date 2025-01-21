@@ -112,6 +112,35 @@ extension AvatarView {
             }
         }
         
+/*
+ // TODO: 这些代码将在下个版本的某个功能中启用
+//        func getAvatarCultivationList(avatarID: String, uid: String, ltoken: String, ltuid: String) async {
+//            let url = URL(string: "https://api-takumi.mihoyo.com/event/e20200928calculate/v1/sync/avatar/list")!
+//            var req = URLRequest(url: url)
+//            req.setUA()
+//            req.setDeviceInfoHeaders()
+//            req.setHost(host: "api-takumi.mihoyo.com")
+//            req.setValue("https://act.mihoyo.com", forHTTPHeaderField: "https://act.mihoyo.com")
+//            req.setReferer(referer: "https://act.mihoyo.com/")
+//            req.setValue("ltoken=\(ltoken);ltuid=\(ltuid)", forHTTPHeaderField: "cookie")
+//            let data = await req.receiveOrBlackData(isPost: true, reqBody: try? JSONSerialization.data(withJSONObject: [
+//                "avatar_ids": [Int(avatarID)], "region": "cn_gf01", "uid": uid, "lang": "zh-cn"
+//            ]))
+//        }
+        
+//        func getAvatarCalculatorInfo(builtBody: Data, uid: String, ltoken: String, ltuid: String) async {
+//            let url = URL(string: "https://api-takumi.mihoyo.com/event/e20200928calculate/v3/batch_compute")!
+//            var req = URLRequest(url: url)
+//            req.setUA()
+//            req.setDeviceInfoHeaders()
+//            req.setHost(host: "api-takumi.mihoyo.com")
+//            req.setValue("https://act.mihoyo.com", forHTTPHeaderField: "https://act.mihoyo.com")
+//            req.setReferer(referer: "https://act.mihoyo.com/")
+//            req.setValue("ltoken=\(ltoken);ltuid=\(ltuid)", forHTTPHeaderField: "cookie")
+//            let data = await req.receiveOrBlackData(isPost: true, reqBody: builtBody)
+//        }
+ */
+        
         private func loadFile(user: String) {
             let entrance = avatarRoot.appending(component: user)
             overview = try? JSON(data: Data(contentsOf: entrance.appending(component: "AvatarIndex.json")))

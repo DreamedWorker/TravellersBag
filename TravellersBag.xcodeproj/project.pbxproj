@@ -10,6 +10,7 @@
 		5D134FC92D2D10CB0056A041 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 5D134FC82D2D10CB0056A041 /* SwiftyJSON */; };
 		5D134FD12D2D16350056A041 /* xxHash-Swift in Frameworks */ = {isa = PBXBuildFile; productRef = 5D134FD02D2D16350056A041 /* xxHash-Swift */; };
 		5D134FD42D2D45710056A041 /* Zip in Frameworks */ = {isa = PBXBuildFile; productRef = 5D134FD32D2D45710056A041 /* Zip */; };
+		5D3738652D3E3C1300D6BCC0 /* Sentry in Frameworks */ = {isa = PBXBuildFile; productRef = 5D3738642D3E3C1300D6BCC0 /* Sentry */; };
 		5D6441EF2D3AC07200E9B9E5 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D4F553E2D37E0720031CA6B /* WidgetKit.framework */; };
 		5D6441F02D3AC07200E9B9E5 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D4F55402D37E0720031CA6B /* SwiftUI.framework */; };
 		5D6441FC2D3AC07400E9B9E5 /* NoteWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 5D6441EE2D3AC07200E9B9E5 /* NoteWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -127,6 +128,7 @@
 				5D134FD42D2D45710056A041 /* Zip in Frameworks */,
 				5D134FD12D2D16350056A041 /* xxHash-Swift in Frameworks */,
 				5DAFEBC42D2EA18400306612 /* Kingfisher in Frameworks */,
+				5D3738652D3E3C1300D6BCC0 /* Sentry in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -212,6 +214,7 @@
 				5D134FD02D2D16350056A041 /* xxHash-Swift */,
 				5D134FD32D2D45710056A041 /* Zip */,
 				5DAFEBC32D2EA18400306612 /* Kingfisher */,
+				5D3738642D3E3C1300D6BCC0 /* Sentry */,
 			);
 			productName = TravellersBag;
 			productReference = 5DAEE0472D11335C003AA13B /* TravellersBag.app */;
@@ -251,6 +254,7 @@
 				5D134FCF2D2D16350056A041 /* XCRemoteSwiftPackageReference "xxHash-Swift" */,
 				5D134FD22D2D45710056A041 /* XCRemoteSwiftPackageReference "Zip" */,
 				5DAFEBC22D2EA18400306612 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				5D3738632D3E3C1300D6BCC0 /* XCRemoteSwiftPackageReference "sentry-cocoa" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 5DAEE0482D11335C003AA13B /* Products */;
@@ -604,6 +608,14 @@
 				minimumVersion = 2.1.2;
 			};
 		};
+		5D3738632D3E3C1300D6BCC0 /* XCRemoteSwiftPackageReference "sentry-cocoa" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/getsentry/sentry-cocoa.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.43.0;
+			};
+		};
 		5DAFEBC22D2EA18400306612 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
@@ -637,6 +649,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 5D134FD22D2D45710056A041 /* XCRemoteSwiftPackageReference "Zip" */;
 			productName = Zip;
+		};
+		5D3738642D3E3C1300D6BCC0 /* Sentry */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5D3738632D3E3C1300D6BCC0 /* XCRemoteSwiftPackageReference "sentry-cocoa" */;
+			productName = Sentry;
 		};
 		5D6443D72D3B769100E9B9E5 /* SwiftyJSON */ = {
 			isa = XCSwiftPackageProductDependency;
