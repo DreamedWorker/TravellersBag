@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>SUPublicEDKey</key>
+	<string>jTd3JuCY5CYK2P7HonZT8l7cHR9/DdHEXCdBs8lWb2U=</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
@@ -23,7 +25,7 @@
 	<key>LSApplicationCategoryType</key>
 	<string>public.app-category.utilities</string>
 	<key>NSHumanReadableCopyright</key>
-	<string>Copyright © YuanShine 2024 - present. Listed in "Project Yuanshine"</string>
+	<string>Copyright © YuanShine 2024 - present. Listed in &quot;Project Yuanshine&quot;</string>
 	<key>NSUserActivityTypes</key>
 	<array>
 		<string>DailyNoteAccountIntent</string>
