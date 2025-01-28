@@ -86,6 +86,17 @@
         }
       }
     },
+    "def.error.systemCFLayer" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在处理网络请求时出现问题，你可能需要检查网络连接或重新登录账号。"
+          }
+        }
+      }
+    },
     "def.info" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -120,6 +131,17 @@
         }
       }
     },
+    "def.unknownError" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "未知错误，服务器未返回错误原因。"
+          }
+        }
+      }
+    },
     "def.warning" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -133,6 +155,28 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "警告"
+          }
+        }
+      }
+    },
+    "router.notice" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "通知公告"
+          }
+        }
+      }
+    },
+    "router.tag.general" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "通用"
           }
         }
       }

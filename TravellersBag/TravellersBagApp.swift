@@ -16,9 +16,8 @@ import Sentry
 struct TravellersBagApp: App {
     private let updaterController: SPUStandardUpdaterController
     @State private var showFPError: Bool = false
-    @State var showHutaoPassport: Bool = false
-    @State var showAbout: Bool = false
     @State private var appStatus: AppStatus = .Waiting
+    @State private var showWhatsNew: Bool = false
     
     init() {
         updaterController = SPUStandardUpdaterController(startingUpdater: true, updaterDelegate: nil, userDriverDelegate: nil)
@@ -40,6 +39,8 @@ struct TravellersBagApp: App {
                 WizardView()
             case .ShowWhatsNew:
                 ContentView()
+                    .sheet(isPresented: $showWhatsNew, content: { WhatsNewSheet(dismiss: { showWhatsNew = false }) })
+                    .modelContainer(for: [MihoyoAccount.self])
             case .Normal:
                 ContentView()
             }
@@ -72,6 +73,7 @@ struct TravellersBagApp: App {
         if version == "0.0.0" {
             appStatus = .ShowWizard
         } else if version != "0.0.0" && version != "0.0.4" {
+            showWhatsNew = true
             appStatus = .ShowWhatsNew
         } else {
             appStatus = .Normal
