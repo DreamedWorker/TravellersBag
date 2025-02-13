@@ -25,6 +25,33 @@ class NoticeService {
         }
     }
     
+    static func fetchNoticeContent() async -> Result<AnnouncementContents, NoticeError> {
+        do {
+            let localData = try read4disk(name: "NoticeDetails")
+            let structureData = try JSONDecoder().decode(AnnouncementContents.self, from: localData)
+            return .success(structureData)
+        } catch {
+            let req = URLRequest(url: URL(string: ApiEndpoints.shared.getHk4eAnnounceContext())!)
+            switch await NetworkTask.fetchFromRemote(request: req) {
+            case .success(let data):
+                do {
+                    write2disk(name: "NoticeDetails", data: data)
+                    let structureData = try JSONDecoder().decode(AnnouncementContents.self, from: data)
+                    return .success(structureData)
+                } catch {
+                    return .failure(.noticeDetailDecode)
+                }
+            case .failure(let fail):
+                switch fail {
+                case .systemLayer(_):
+                    return .failure(.noticeDetailRequest(NSLocalizedString("def.error.systemCFLayer", comment: "")))
+                case .requestLayer(let msg):
+                    return .failure(.noticeDetailRequest(msg))
+                }
+            }
+        }
+    }
+    
     static func fetchNoticeList() async -> Result<AnnouncementList, NoticeError> {
         do {
             let localData = try read4disk(name: "NoticeList")

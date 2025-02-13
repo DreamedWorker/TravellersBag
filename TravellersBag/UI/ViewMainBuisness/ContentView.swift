@@ -11,6 +11,10 @@ struct ContentView: View {
     @AppStorage("defaultPart") var destinationPart: Destinations = .Notice
     @State private var part: Destinations = .Notice
     
+    enum Destinations: String {
+        case Notice
+    }
+    
     var body: some View {
         NavigationSplitView(
             sidebar: {
@@ -25,17 +29,16 @@ struct ContentView: View {
                 }
             },
             detail: {
-                Text("app.name")
+                switch part {
+                case .Notice:
+                    NoticeView()
+                }
             }
         )
         .onAppear {
             part = destinationPart
         }
     }
-}
-
-enum Destinations: String {
-    case Notice
 }
 
 #Preview {

@@ -69,6 +69,17 @@
         }
       }
     },
+    "def.cancel" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "取消"
+          }
+        }
+      }
+    },
     "def.checkForUpdate" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -131,6 +142,28 @@
         }
       }
     },
+    "def.pane.errorRetry" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "重新尝试"
+          }
+        }
+      }
+    },
+    "def.pane.errorTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在执行某一操作时出现了致命错误。"
+          }
+        }
+      }
+    },
     "def.unknownError" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -155,6 +188,39 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "警告"
+          }
+        }
+      }
+    },
+    "notice.gacha.exp" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "本次角色（武器）祈愿活动从%@起至%@，祝各位旅行者顺利。"
+          }
+        }
+      }
+    },
+    "notice.gacha.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "当期祈愿活动"
+          }
+        }
+      }
+    },
+    "notice.recent" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "近期通知"
           }
         }
       }
