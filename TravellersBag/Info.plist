@@ -23,12 +23,14 @@
 	<key>LSApplicationCategoryType</key>
 	<string>public.app-category.utilities</string>
 	<key>NSHumanReadableCopyright</key>
-	<string>Copyright © YuanShine 2024 - present. Listed in "Project Yuanshine"</string>
+	<string>Copyright © YuanShine 2024 - present. Listed in &quot;Project Yuanshine&quot;</string>
 	<key>NSUserActivityTypes</key>
 	<array>
 		<string>DailyNoteAccountIntent</string>
 	</array>
 	<key>SUFeedURL</key>
 	<string>https://bluedream.icu/TravellersBag/tb_appcast.xml</string>
+	<key>SUPublicEDKey</key>
+	<string>jTd3JuCY5CYK2P7HonZT8l7cHR9/DdHEXCdBs8lWb2U=</string>
 </dict>
 </plist>

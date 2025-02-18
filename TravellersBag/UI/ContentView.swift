@@ -11,14 +11,6 @@ struct ContentView: View {
     
     @State private var panePart: ContentPart = .Notice
     
-    init() {
-        let groupDailyNoteRoot = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "NV65B8VFUD.TravellersBag")!
-            .appending(component: "NoteWidgets")
-        if !FileManager.default.fileExists(atPath: groupDailyNoteRoot.toStringPath()) {
-            try! FileManager.default.createDirectory(at: groupDailyNoteRoot, withIntermediateDirectories: true)
-        }
-    }
-    
     var body: some View {
         NavigationSplitView(
             sidebar: {
