@@ -31,7 +31,7 @@ struct SettingsView: View {
                 .frame(maxWidth: 500)
             }.tabItem({ Label("settings.normal", systemImage: "gearshape")})
             ScrollView {
-                WizardView.WizardResourcePane(goNext: {}, usedInSettings: true).frame(maxWidth: 500)
+                //WizardView.WizardResourcePane(goNext: {}, usedInSettings: true).frame(maxWidth: 500)
             }.tabItem({ Label("settings.resource", systemImage: "photo")})
         }
         .padding()

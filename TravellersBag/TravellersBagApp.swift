@@ -59,7 +59,7 @@ struct TravellersBagApp: App {
     
     private func checkCrtVer() -> Bool {
         let version = UserDefaults.standard.string(forKey: "lastUsedVersion") ?? "0.0.0"
-        return version == "0.0.3"
+        return version == "0.0.4"
     }
     
     @MainActor private func updateDeviceFigerprint() async {

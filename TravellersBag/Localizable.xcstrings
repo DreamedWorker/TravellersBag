@@ -2504,6 +2504,17 @@
         }
       }
     },
+    "def.error.systemCFLayer" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在处理网络请求时出现问题，你可能需要检查网络连接或重新登录账号。"
+          }
+        }
+      }
+    },
     "def.error.updateFP" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -2534,6 +2545,27 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "请等待先决操作完成…"
+          }
+        }
+      }
+    },
+    "def.info" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "提示"
+          }
+        }
+      }
+    },
+    "def.next" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "下一步"
           }
         }
       }
@@ -2572,6 +2604,26 @@
         }
       }
     },
+    "def.pane.errorRetry" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "重新尝试"
+          }
+        }
+      }
+    },
+    "def.pane.errorTitle" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在执行某一操作时出现了致命错误。"
+          }
+        }
+      }
+    },
     "def.refresh" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -2585,6 +2637,27 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "刷新"
+          }
+        }
+      }
+    },
+    "def.unknownError" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "未知错误，服务器未返回错误原因。"
+          }
+        }
+      }
+    },
+    "def.warning" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "警告"
           }
         }
       }
@@ -4039,104 +4112,180 @@
         }
       }
     },
-    "wizard.final.description" : {
-      "extractionState" : "manual",
+    "whats.exp" : {
       "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "By making some minor adjustments, you will complete the initialization settings."
-          }
-        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "再进行一些细微的调整，你就将完成初始化设置。"
+            "value" : "我们正努力让体验更便捷，欢迎感受本次更新。"
           }
         }
       }
     },
-    "wizard.final.finish" : {
+    "whats.n1.exp" : {
       "extractionState" : "manual",
       "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Finish"
-          }
-        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "完成"
+            "value" : "我们全面改进了此前的交互逻辑与方式，以期更加清晰。"
           }
         }
       }
     },
-    "wizard.final.noticeCheck" : {
+    "whats.n1.title" : {
       "extractionState" : "manual",
       "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Grant"
-          }
-        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "授权"
+            "value" : "新的界面交互"
           }
         }
       }
     },
-    "wizard.final.notification" : {
+    "whats.n2.exp" : {
       "extractionState" : "manual",
       "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Notification permission"
-          }
-        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "授权通知权限"
+            "value" : "我们带来了包括深渊数据、培养档案等新内容。"
           }
         }
       }
     },
-    "wizard.final.notificationTip" : {
+    "whats.n3.exp" : {
       "extractionState" : "manual",
       "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Notification permission allows us to send you some information prompts through the system's unified notification center, such as operation completion status, in-game status, etc."
-          }
-        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "通知权限允许我们通过系统统一的通知中心向你发出一些信息提示，如操作完成状况、游戏内状态等。"
+            "value" : "我们调整了代码与算法，以期运行更加高效。"
           }
         }
       }
     },
-    "wizard.final.tip" : {
+    "whats.n3.title" : {
       "extractionState" : "manual",
       "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "At this point, all pre settings have been completed. After clicking the \"Finish\" button, the application will automatically restart for the settings to take effect."
-          }
-        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "至此，全部预设置已经完成，点按「完成」按钮后应用会自动重启使设置生效。"
+            "value" : "新的代码结构"
+          }
+        }
+      }
+    },
+    "whats.ok" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "开始探索"
+          }
+        }
+      }
+    },
+    "whats.title" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "旅者行囊的新变化"
+          }
+        }
+      }
+    },
+    "wizard.doc.agree" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "同意并继续"
+          }
+        }
+      }
+    },
+    "wizard.doc.disagree" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "不同意"
+          }
+        }
+      }
+    },
+    "wizard.doc.exp" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "除此之外，旅者行囊还包含"
+          }
+        }
+      }
+    },
+    "wizard.doc.exp.and" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "和"
+          }
+        }
+      }
+    },
+    "wizard.doc.exp.f1" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "数据与隐私申明"
+          }
+        }
+      }
+    },
+    "wizard.doc.exp.f2" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "开放源代码许可"
+          }
+        }
+      }
+    },
+    "wizard.doc.exp2" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "，你需要阅读并同意这些文件才能继续使用。"
+          }
+        }
+      }
+    },
+    "wizard.doc.title" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "旅者行囊·用户服务协议"
+          }
+        }
+      }
+    },
+    "wizard.final.exp" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "至此，全部预设置已经完成，点按下方箭头按钮后应用会自动重启使设置生效。"
           }
         }
       }
@@ -4158,70 +4307,104 @@
         }
       }
     },
-    "wizard.lang.apply" : {
-      "extractionState" : "manual",
+    "wizard.hello.exp" : {
       "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Apply"
-          }
-        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "应用更改"
+            "value" : "旅者行囊是一款为 macOS 平台设计的功能丰富的原神游戏工具集软件。只需要遵循一些简单的配置流程，你就可以在此延续旅行了。"
           }
         }
       }
     },
-    "wizard.lang.choose" : {
-      "extractionState" : "manual",
+    "wizard.hello.privacy" : {
       "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Choose your language"
-          }
-        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "选择一种语言"
+            "value" : "我们注重保护你的隐私"
           }
         }
       }
     },
-    "wizard.lang.description" : {
-      "extractionState" : "manual",
+    "wizard.hello.privacy.sec" : {
       "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "We will automatically set the display language based on your operating system language to match your system language. In the current translation situation, if your operating system displays language text other than 简体中文 and English, then 简体中文 will be displayed."
-          }
-        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "旅者行囊将根据你的操作系统语言自动设置显示语言以与你的系统语言匹配。在当前的翻译情况下，如果你的操作系统显示的是简体中文与English以外的语言文字，那么将显示简体中文。"
+            "value" : "你的全部数据均在应用沙盒内存储，在需要上传时我们会先征得你的同意，且没有第三方会获取到你的个人标识性数据。"
           }
         }
       }
     },
-    "wizard.lang.next" : {
-      "extractionState" : "manual",
+    "wizard.hello.title" : {
       "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Next"
-          }
-        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "下一步"
+            "value" : "欢迎使用旅者行囊"
+          }
+        }
+      }
+    },
+    "wizard.lang.exp" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "我们致力于提供语言友好的页面交互。根据你的系统语言，我们认为当前选中的语言是适合你的。"
+          }
+        }
+      }
+    },
+    "wizard.lang.select" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "选择显示语言"
+          }
+        }
+      }
+    },
+    "wizard.lang.select.en" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "English (US)"
+          }
+        }
+      }
+    },
+    "wizard.lang.select.zh" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "简体中文"
+          }
+        }
+      }
+    },
+    "wizard.lang.set" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "设置并重启"
+          }
+        }
+      }
+    },
+    "wizard.lang.skip" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "跳过"
           }
         }
       }
@@ -4231,14 +4414,14 @@
       "localizations" : {
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "After readjusting the language, you will need to manually restart the application for the changes to be applied."
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "重新调整语言后需要你手动重启应用程序以使更改被应用。"
+            "value" : "修改语言之后需要重新启动应用才能使其生效。如果你认为这很繁琐，你可以先继续以当前的显示语言继续，在完成初始化之后前往「系统设置」—「通用」—「语言和地区」中单独为旅者行囊设置语言。"
           }
         }
       }
@@ -4248,303 +4431,74 @@
       "localizations" : {
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Choose Display Text"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "选择你的显示语言"
+            "value" : "语言选项"
           }
         }
       }
     },
-    "wizard.lang.typeCN" : {
-      "extractionState" : "manual",
+    "wizard.res.error.jsonDownload" : {
       "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "简体中文"
-          }
-        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "简体中文"
+            "value" : "无法完成下载，%@。"
           }
         }
       }
     },
-    "wizard.lang.typeEN" : {
-      "extractionState" : "manual",
+    "wizard.res.exp" : {
       "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "English"
-          }
-        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "English"
+            "value" : "为确保应用程序运行，我们在将旅者行囊发布之前已经内置了一份角色、武器、圣遗物等游戏内容信息。但我们不确保它们仍与当前版本同步，因此你可以选择先用我们内置的资源继续，或者更新一份拷贝到本地。"
           }
         }
       }
     },
-    "wizard.license.description" : {
-      "extractionState" : "manual",
+    "wizard.res.img.exp" : {
       "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "The following documents are important documents used to constrain your behavior with us. They will tell you within what scope you should use this software, what rights and obligations each of us has, and how you can communicate with us through “Issues”."
-          }
-        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "下列的若干文件是用于约束你与我们的行为的重要文件，它们将告诉你应当在何种范围内使用本软件、你与我们都各有哪些权利与义务以及你如何与我们通过Issues沟通等。"
+            "value" : "你可以不下载这些图像，则我们将在需要显示这些图像时加载远程图像并将它们缓存到本地，你可以随时清理缓存以腾出空间。但在流量吃紧时，事先下载一份拷贝能缓解流量开支。"
           }
         }
       }
     },
-    "wizard.license.read" : {
-      "extractionState" : "manual",
+    "wizard.res.img.title" : {
       "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "I have fully read, understood, and agree to:"
-          }
-        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "我已经充分阅读、理解并同意: "
+            "value" : "图像类资源"
           }
         }
       }
     },
-    "wizard.license.tip" : {
-      "extractionState" : "manual",
+    "wizard.res.info.jsonDownloadFinished" : {
       "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "You should read and agree to all the above documents before continuing."
-          }
-        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "你应当在阅读完并同意上述全部文件后再继续。"
+            "value" : "下载完成，你可以选择继续或下载图像资源。"
           }
         }
       }
     },
-    "wizard.license.title" : {
-      "extractionState" : "manual",
+    "wizard.res.sheetImageTitle" : {
       "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Normative documents"
-          }
-        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "旅者行囊 规范性文件"
-          }
-        }
-      }
-    },
-    "wizard.license.typeInfoCollection" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "“User Information Collection Statement”"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "《用户信息收集声明》"
-          }
-        }
-      }
-    },
-    "wizard.license.typeIssue" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "“How to use Github repository issues”"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "关于Github仓库Issues的使用方法"
-          }
-        }
-      }
-    },
-    "wizard.license.typeOpenSource" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "“Open Source License (GNU GPL v3.0)”"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "《开放源代码许可（GNU GPL v3.0）》"
-          }
-        }
-      }
-    },
-    "wizard.license.typeUser" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "“User Service Agreement”"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "《用户服务协议》"
-          }
-        }
-      }
-    },
-    "wizard.res.description" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "This will allow you to choose the data source for each loading of images and partial text resources. We have built-in a set of accompanying resources for you (including character, weapon, and relic information, but they may be outdated)"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "这里将允许你选择每次加载图片和部分文字资源时的数据来源。我们为你内置了一份随附资源（包含角色、武器和圣遗物信息，但它们可能已经过时了）"
-          }
-        }
-      }
-    },
-    "wizard.res.download" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Download"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "下载"
-          }
-        }
-      }
-    },
-    "wizard.res.errorNotExist" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "You haven't downloaded the resources yet, so we can't index them!"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "你还未下载资源，无法索引！"
-          }
-        }
-      }
-    },
-    "wizard.res.errorNotFull" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "The resources you downloaded are incomplete, please download again."
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "你下载的资源不完整，请重新下载。"
-          }
-        }
-      }
-    },
-    "wizard.res.imageSee" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Slide the mouse to view all downloadable image assets. (All downloads will occupy approximately 200MB of disk space after decompression)"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "滑动鼠标查看所有可下载的图像资产。（全部下载在解压后将占用大约200MB的磁盘空间）"
-          }
-        }
-      }
-    },
-    "wizard.res.imageTitle" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Images"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "图像类资产"
-          }
-        }
-      }
-    },
-    "wizard.res.index" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Index"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "索引资产"
+            "value" : "我们正在处理图像资源"
           }
         }
       }
@@ -4571,82 +4525,24 @@
       "localizations" : {
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "We are now downloading…"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "我们正在下载资产…"
+            "value" : "我们正在处理文本资源"
           }
         }
       }
     },
-    "wizard.res.staticBeforeDl" : {
-      "extractionState" : "manual",
+    "wizard.res.source" : {
       "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Check before download"
-          }
-        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "下载前检查"
-          }
-        }
-      }
-    },
-    "wizard.res.staticExplanation" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "These resources include character information (name, element, talent, etc.), weapon information (name, entry, etc.), relic information (entry, set information), historical gacha activities, game achievement entries, and other content closely related to the basic functions of the software. If you choose to download a new asset, you must complete the download and ‘Inde’x before continuing, otherwise the program will not run in the future."
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "这些资源包含角色信息（名字、元素力、天赋、命座等）、武器信息（名字、词条等）、圣遗物信息（词条、套装信息）、历史祈愿活动、游戏成就词条等与软件基础功能密切相关的内容。如果你选择下载新资产，则必须要完成下载和「资源索引」后才能继续，否则程序后续将无法运行。"
-          }
-        }
-      }
-    },
-    "wizard.res.staticTitle" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Text*"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "文本类资产*"
-          }
-        }
-      }
-    },
-    "wizard.res.tip" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "If you don't do anything, the next step is to use the \"online acquisition\" method to obtain all image assets and use embedded text assets (you can update them later). The resources you downloaded are collected by DGP Studio."
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "如果在什么都不做的情况下直接下一步将全部使用「在线获取」的方式获取图像类资产并使用内嵌的文本类资产（你可以在之后更新它们）。你所下载的这些资源来自DGP Studio的整理。"
+            "value" : "你下载的资源来自 DGP Studio 的整理。"
           }
         }
       }
@@ -4656,65 +4552,54 @@
       "localizations" : {
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Resource utilization strategy"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "资源使用策略"
+            "value" : "资源文件配置"
           }
         }
       }
     },
-    "wizard.wave.description" : {
-      "extractionState" : "manual",
+    "wizard.res.txt.get" : {
       "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "TravelersBag is a tool set software designed for modern macOS, open source based on GPLv3.0 protocol, and designed to improve Mac users' Genshin Impact out-of-game experience. Please follow our next configuration, and then you can continue to 'explore' the continent of open-world on Mac!"
-          }
-        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "旅者行囊是一款专为现代macOS设计的，基于GPLv3.0协议开源的，旨在改善Mac用户的原神游戏外体验的工具集软件。 请遵循我们接下来的配置，然后你就可以在Mac上继续「游历」提瓦特大陆了！"
+            "value" : "获取最新拷贝"
           }
         }
       }
     },
-    "wizard.wave.go" : {
-      "extractionState" : "manual",
+    "wizard.res.txt.title" : {
       "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Start"
-          }
-        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "开始"
+            "value" : "文本类资源"
           }
         }
       }
     },
-    "wizard.wave.title" : {
-      "extractionState" : "manual",
+    "wizard.res.txt.version" : {
       "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Welcome to use TravellersBag"
-          }
-        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "欢迎使用旅者行囊"
+            "value" : "内置资源对应的游戏版本"
+          }
+        }
+      }
+    },
+    "wizard.res.txt.versionAct" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Version 5.1"
           }
         }
       }
