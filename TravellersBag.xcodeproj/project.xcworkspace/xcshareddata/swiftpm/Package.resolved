@@ -1,58 +1,13 @@
 {
-  "originHash" : "d9910e99ae663f4b93ca1a24e037cf81fbd9d2e22385ef74d3e2cafbffdf3ba1",
+  "originHash" : "fcf67a9db9788265e09977e3d5ab385a46c46f9a061ceafae520f7f630a5f372",
   "pins" : [
-    {
-      "identity" : "kingfisher",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/onevcat/Kingfisher.git",
-      "state" : {
-        "revision" : "e6749919f9761d573d37a7d7e78b1b854c191d7f",
-        "version" : "8.1.3"
-      }
-    },
-    {
-      "identity" : "sentry-cocoa",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/getsentry/sentry-cocoa.git",
-      "state" : {
-        "revision" : "f45e9c62d7a4d9258ac3cf35a3acf9dbab4481d1",
-        "version" : "8.43.0"
-      }
-    },
     {
       "identity" : "sparkle",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/sparkle-project/Sparkle",
+      "location" : "https://bgithub.xyz/sparkle-project/Sparkle",
       "state" : {
-        "revision" : "0ef1ee0220239b3776f433314515fd849025673f",
-        "version" : "2.6.4"
-      }
-    },
-    {
-      "identity" : "swiftyjson",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/SwiftyJSON/SwiftyJSON.git",
-      "state" : {
-        "branch" : "master",
-        "revision" : "c761b43aa03f15f00df64744e70399d78c3bee96"
-      }
-    },
-    {
-      "identity" : "xxhash-swift",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/daisuke-t-jp/xxHash-Swift.git",
-      "state" : {
-        "revision" : "e86a07ab4867f81481d430e1370a5ec97b6e3359",
-        "version" : "1.1.1"
-      }
-    },
-    {
-      "identity" : "zip",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/marmelroy/Zip.git",
-      "state" : {
-        "revision" : "67fa55813b9e7b3b9acee9c0ae501def28746d76",
-        "version" : "2.1.2"
+        "revision" : "0ca3004e98712ea2b39dd881d28448630cce1c99",
+        "version" : "2.7.0"
       }
     }
   ],

@@ -1,0 +1,9 @@
+/* 
+  InfoPlist.strings
+  TravellersBag
+
+  Created by 鸳汐 on 2025/3/2.
+  
+*/
+"CFBundleDisplayName"="TravellersBag";
+"NSHumanReadableCopyright"="Copyright © YuanShine 2024-present. All rights reserved. This app is open-source app following GNU GPLv3.0 license.";
