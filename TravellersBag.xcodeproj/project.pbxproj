@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5DB9B2772D77654100CCD98E /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 5DB9B2762D77654100CCD98E /* LICENSE */; };
+		5DB9B2792D77656000CCD98E /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 5DB9B2782D77656000CCD98E /* README.md */; };
 		5DC1F6252D753BAD006B376D /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = 5DC1F6242D753BAD006B376D /* Sparkle */; };
 /* End PBXBuildFile section */
 
@@ -24,7 +26,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		5D89820B2D74704400801D12 /* TravellersBag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravellersBag.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5D89820B2D74704400801D12 /* TravellersBag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = TravellersBag.app; path = /Users/yuanshine/WorkSpace/TravellersBag/build/Debug/TravellersBag.app; sourceTree = "<absolute>"; };
+		5DB9B2762D77654100CCD98E /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		5DB9B2782D77656000CCD98E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -64,16 +68,9 @@
 			isa = PBXGroup;
 			children = (
 				5D89820D2D74704400801D12 /* TravellersBag */,
-				5D89820C2D74704400801D12 /* Products */,
+				5DB9B2762D77654100CCD98E /* LICENSE */,
+				5DB9B2782D77656000CCD98E /* README.md */,
 			);
-			sourceTree = "<group>";
-		};
-		5D89820C2D74704400801D12 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				5D89820B2D74704400801D12 /* TravellersBag.app */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -131,7 +128,7 @@
 				5DC1F6232D753BAD006B376D /* XCRemoteSwiftPackageReference "Sparkle" */,
 			);
 			preferredProjectObjectVersion = 77;
-			productRefGroup = 5D89820C2D74704400801D12 /* Products */;
+			productRefGroup = 5D8982022D74704400801D12;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -145,6 +142,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5DB9B2792D77656000CCD98E /* README.md in Resources */,
+				5DB9B2772D77654100CCD98E /* LICENSE in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
