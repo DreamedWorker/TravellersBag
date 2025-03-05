@@ -10,6 +10,9 @@
 		5DB9B2772D77654100CCD98E /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 5DB9B2762D77654100CCD98E /* LICENSE */; };
 		5DB9B2792D77656000CCD98E /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 5DB9B2782D77656000CCD98E /* README.md */; };
 		5DC1F6252D753BAD006B376D /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = 5DC1F6242D753BAD006B376D /* Sparkle */; };
+		5DF7A6B62D78AE30002DB01E /* xxHash-Swift in Frameworks */ = {isa = PBXBuildFile; productRef = 5DF7A6B52D78AE30002DB01E /* xxHash-Swift */; };
+		5DF7A6B92D78AEBC002DB01E /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 5DF7A6B82D78AEBC002DB01E /* SwiftyJSON */; };
+		5DF7A6C12D78B226002DB01E /* Zip in Frameworks */ = {isa = PBXBuildFile; productRef = 5DF7A6C02D78B226002DB01E /* Zip */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,9 +29,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		5D89820B2D74704400801D12 /* TravellersBag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = TravellersBag.app; path = /Users/yuanshine/WorkSpace/TravellersBag/build/Debug/TravellersBag.app; sourceTree = "<absolute>"; };
 		5DB9B2762D77654100CCD98E /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		5DB9B2782D77656000CCD98E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		5DF7A68B2D782FE9002DB01E /* TravellersBag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravellersBag.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -57,6 +60,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5DF7A6B92D78AEBC002DB01E /* SwiftyJSON in Frameworks */,
+				5DF7A6B62D78AE30002DB01E /* xxHash-Swift in Frameworks */,
+				5DF7A6C12D78B226002DB01E /* Zip in Frameworks */,
 				5DC1F6252D753BAD006B376D /* Sparkle in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -70,6 +76,7 @@
 				5D89820D2D74704400801D12 /* TravellersBag */,
 				5DB9B2762D77654100CCD98E /* LICENSE */,
 				5DB9B2782D77656000CCD98E /* README.md */,
+				5DF7A68B2D782FE9002DB01E /* TravellersBag.app */,
 			);
 			sourceTree = "<group>";
 		};
@@ -95,9 +102,12 @@
 			name = TravellersBag;
 			packageProductDependencies = (
 				5DC1F6242D753BAD006B376D /* Sparkle */,
+				5DF7A6B52D78AE30002DB01E /* xxHash-Swift */,
+				5DF7A6B82D78AEBC002DB01E /* SwiftyJSON */,
+				5DF7A6C02D78B226002DB01E /* Zip */,
 			);
 			productName = TravellersBag;
-			productReference = 5D89820B2D74704400801D12 /* TravellersBag.app */;
+			productReference = 5DF7A68B2D782FE9002DB01E /* TravellersBag.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -126,6 +136,9 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				5DC1F6232D753BAD006B376D /* XCRemoteSwiftPackageReference "Sparkle" */,
+				5DF7A6B42D78AE30002DB01E /* XCRemoteSwiftPackageReference "xxHash-Swift" */,
+				5DF7A6B72D78AEBC002DB01E /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+				5DF7A6BF2D78B226002DB01E /* XCRemoteSwiftPackageReference "Zip" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 5D8982022D74704400801D12;
@@ -376,6 +389,30 @@
 				minimumVersion = 2.7.0;
 			};
 		};
+		5DF7A6B42D78AE30002DB01E /* XCRemoteSwiftPackageReference "xxHash-Swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://bgithub.xyz/daisuke-t-jp/xxHash-Swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.1;
+			};
+		};
+		5DF7A6B72D78AEBC002DB01E /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://bgithub.xyz/SwiftyJSON/SwiftyJSON.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.2;
+			};
+		};
+		5DF7A6BF2D78B226002DB01E /* XCRemoteSwiftPackageReference "Zip" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://bgithub.xyz/marmelroy/Zip.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.1.2;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -383,6 +420,21 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 5DC1F6232D753BAD006B376D /* XCRemoteSwiftPackageReference "Sparkle" */;
 			productName = Sparkle;
+		};
+		5DF7A6B52D78AE30002DB01E /* xxHash-Swift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5DF7A6B42D78AE30002DB01E /* XCRemoteSwiftPackageReference "xxHash-Swift" */;
+			productName = "xxHash-Swift";
+		};
+		5DF7A6B82D78AEBC002DB01E /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5DF7A6B72D78AEBC002DB01E /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
+		};
+		5DF7A6C02D78B226002DB01E /* Zip */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5DF7A6BF2D78B226002DB01E /* XCRemoteSwiftPackageReference "Zip" */;
+			productName = Zip;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

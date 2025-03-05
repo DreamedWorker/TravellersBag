@@ -35,12 +35,24 @@
         }
       }
     },
-    "Hello, World!" : {
+    "def.info" : {
+      "extractionState" : "manual",
       "localizations" : {
-        "en" : {
+        "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "H"
+            "value" : "提示"
+          }
+        }
+      }
+    },
+    "def.warning" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "警告"
           }
         }
       }
@@ -48,6 +60,12 @@
     "wizard.hello.announce" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Learn about game activities"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -59,10 +77,33 @@
     "wizard.hello.announceMore" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Check the ongoing and upcoming events."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "检视正在进行和即将发生的事件。"
+          }
+        }
+      }
+    },
+    "wizard.hello.continue" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Continue"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "继续"
           }
         }
       }
@@ -73,13 +114,98 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "There are gacha analysis, character analysis and cultivation plans, which also bring a good out-of-game ecological experience."
+            "value" : "There are prayer analysis, character analysis and cultivation files here, and it also provides a good out-of-game ecological experience."
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "这里有祈愿分析、角色分析和养成档案，也带来了良好的游戏外生态体验。"
+            "value" : "这里有祈愿分析、角色分析和养成档案，同时提供了良好的游戏外生态体验。"
+          }
+        }
+      }
+    },
+    "wizard.hello.game" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Install the game quickly"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "快速安装游戏"
+          }
+        }
+      }
+    },
+    "wizard.hello.gameMore" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You only need a simple configuration to install the PC version."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "只需简单配置即可安装 PC 版本。"
+          }
+        }
+      }
+    },
+    "wizard.hello.plan" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Make a full plan"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "做好充分规划"
+          }
+        }
+      }
+    },
+    "wizard.hello.planMore" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Check the role situation and establish a cultivation plan."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "查看角色情况并且建立培养档案。"
+          }
+        }
+      }
+    },
+    "wizard.hello.privacy" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your information will be used by us to obtain the relevant information of the Miyoushe pass and the relevant information of the bound game characters. With your consent, the relevant information of your game characters will also be uploaded to Hutao Cloud for permanent preservation. In a secure local and network environment, no third party will access your information."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "你的信息将被我们用于获取米游社通行证相关信息、绑定的游戏角色相关信息。在你的同意下，你的游戏角色相关信息还将被上传到胡桃云用于持久化保存。在安全的本地和网络环境中，没有第三人将获取到你的信息。"
           }
         }
       }
@@ -97,6 +223,193 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "欢迎使用旅者行囊"
+          }
+        }
+      }
+    },
+    "wizard.res.error.jsonDownload" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法完成下载，%@。"
+          }
+        }
+      }
+    },
+    "wizard.res.finish" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "完成并重启"
+          }
+        }
+      }
+    },
+    "wizard.res.img.exp" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "你可以不下载这些图像，则我们将在需要显示这些图像时加载远程图像并将它们缓存到本地，你可以随时清理缓存以腾出空间。但在流量吃紧时，事先下载一份拷贝能缓解流量开支。"
+          }
+        }
+      }
+    },
+    "wizard.res.img.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "图像类资源"
+          }
+        }
+      }
+    },
+    "wizard.res.info.jsonDownloadFinished" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "下载完成，你可以选择继续或下载图像资源。"
+          }
+        }
+      }
+    },
+    "wizard.res.noticeMsg" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This software is a non-profit open source software. Before using it, please make sure that you have read, fully understood and agreed to the open source agreement we placed in the warehouse. Otherwise, please uninstall this software immediately. At the same time, the game launch method provided by this software is to use a third-party client to start the game, which has the risk of blocking the account. Please weigh the pros and cons. We have fulfilled our obligation to inform you!"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "本软件系非营利性质的开放源代码软件，在使用之前请先确保你已经阅读、充分理解并同意我们放置在仓库中的开放源代码协议，否则请立即卸载本软件。同时，本软件提供的游戏启动方式属于使用第三方客户端启动游戏，具有封号风险，请衡量利弊。我们已向你履行了告知义务！"
+          }
+        }
+      }
+    },
+    "wizard.res.noticeTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Note: This is a prerequisite for you to use this software."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "需要注意：这是你使用旅者行囊的前提条件"
+          }
+        }
+      }
+    },
+    "wizard.res.sheetImageTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "我们正在处理图像资源"
+          }
+        }
+      }
+    },
+    "wizard.res.sheetJsonStatus" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "正在下载第%@个文件，总共%@个文件。请在此过程中不要关闭本弹窗或本程序。"
+          }
+        }
+      }
+    },
+    "wizard.res.sheetJsonTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "我们正在处理文本资源"
+          }
+        }
+      }
+    },
+    "wizard.res.source" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "我们所使用的文本和图像资源由 DGP Studio 整理。"
+          }
+        }
+      }
+    },
+    "wizard.res.txt.download" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "下载资源"
+          }
+        }
+      }
+    },
+    "wizard.res.txt.get" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "获取拷贝"
+          }
+        }
+      }
+    },
+    "wizard.res.txt.more" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "为确保应用程序运行，我们在将旅者行囊发布之前已经内置了一份角色、武器、圣遗物等游戏内容信息。但我们不确保它们仍与当前版本同步，因此你可以选择先用我们内置的资源继续，或者更新一份拷贝到本地。"
+          }
+        }
+      }
+    },
+    "wizard.res.txt.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "文本类资源"
+          }
+        }
+      }
+    },
+    "wizard.res.txt.version" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "我们内置的资源版本与游戏 5.4.0 上半相匹配。"
           }
         }
       }

@@ -1,5 +1,5 @@
 {
-  "originHash" : "fcf67a9db9788265e09977e3d5ab385a46c46f9a061ceafae520f7f630a5f372",
+  "originHash" : "3b0a4b950be7fac617cfdc6a7ebed2d4a73dc18bb4c003f95e4b8c4d91800481",
   "pins" : [
     {
       "identity" : "sparkle",
@@ -8,6 +8,33 @@
       "state" : {
         "revision" : "0ca3004e98712ea2b39dd881d28448630cce1c99",
         "version" : "2.7.0"
+      }
+    },
+    {
+      "identity" : "swiftyjson",
+      "kind" : "remoteSourceControl",
+      "location" : "https://bgithub.xyz/SwiftyJSON/SwiftyJSON.git",
+      "state" : {
+        "revision" : "af76cf3ef710b6ca5f8c05f3a31307d44a3c5828",
+        "version" : "5.0.2"
+      }
+    },
+    {
+      "identity" : "xxhash-swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://bgithub.xyz/daisuke-t-jp/xxHash-Swift.git",
+      "state" : {
+        "revision" : "e86a07ab4867f81481d430e1370a5ec97b6e3359",
+        "version" : "1.1.1"
+      }
+    },
+    {
+      "identity" : "zip",
+      "kind" : "remoteSourceControl",
+      "location" : "https://bgithub.xyz/marmelroy/Zip.git",
+      "state" : {
+        "revision" : "67fa55813b9e7b3b9acee9c0ae501def28746d76",
+        "version" : "2.1.2"
       }
     }
   ],
