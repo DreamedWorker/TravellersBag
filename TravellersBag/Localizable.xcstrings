@@ -1,6 +1,282 @@
 {
   "sourceLanguage" : "zh-Hans",
   "strings" : {
+    "account.action.checkAccessible" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "检查可访问性"
+          }
+        }
+      }
+    },
+    "account.action.clickToDisplay" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "点按以显示"
+          }
+        }
+      }
+    },
+    "account.action.copyCookies" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "复制 Cookies"
+          }
+        }
+      }
+    },
+    "account.action.delete" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "退出登录"
+          }
+        }
+      }
+    },
+    "account.action.login" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "添加通行证"
+          }
+        }
+      }
+    },
+    "account.action.logOut" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "移除此通行证"
+          }
+        }
+      }
+    },
+    "account.error.cannot_copy_hk4e_detail" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法查询该通行证下的绑定游戏角色，可能并未有游戏角色与该通行证关联。"
+          }
+        }
+      }
+    },
+    "account.error.cannotCreateQRCode" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法创建登录用二维码，%@"
+          }
+        }
+      }
+    },
+    "account.error.emptyFromQr" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "二维码信息异常。"
+          }
+        }
+      }
+    },
+    "account.error.emptyFromServer" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "远端服务器返回了一个错误。"
+          }
+        }
+      }
+    },
+    "account.error.fp" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "你的设备指纹格式不合法，任何查询操作都可能导致错误。"
+          }
+        }
+      }
+    },
+    "account.error.noLoggedInUsers" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "当前暂无已登录的通行证。"
+          }
+        }
+      }
+    },
+    "account.error.noSelectedUser" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "尚未选中任何通行证。"
+          }
+        }
+      }
+    },
+    "account.error.same" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "本地已存在同名通行证，本次登录操作已被阻止。"
+          }
+        }
+      }
+    },
+    "account.error.update" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "出现了未知问题，我们无法更新你的通行证。请删除并重新登录以更新状态。"
+          }
+        }
+      }
+    },
+    "account.info.avatarName" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "旅行者名字"
+          }
+        }
+      }
+    },
+    "account.info.avatarUID" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "角色 UID"
+          }
+        }
+      }
+    },
+    "account.info.level" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "冒险等阶"
+          }
+        }
+      }
+    },
+    "account.info.reDef" : {
+
+    },
+    "account.info.stoken" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "账号 SToken"
+          }
+        }
+      }
+    },
+    "account.tip.delete" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "删除通行证操作会将你的信息从本地的数据库中移除，这不会影响你的云端数据，同时你将无法访问本地数据库中与该通行证相关联的任何其他数据除非你重新登录该通行证。"
+          }
+        }
+      }
+    },
+    "account.tip.noUpdate" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "你的通行证还能够被正常访问。"
+          }
+        }
+      }
+    },
+    "account.tip.reDef" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "我们已经重新将列表的第一个通行证设为默认。"
+          }
+        }
+      }
+    },
+    "account.tip.updated" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "我们已经更新了你的通行证。"
+          }
+        }
+      }
+    },
+    "account.win.tip" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请在完成扫码后点按确认按钮。我们将在你扫描完成确认登录后通过此二维码背后的服务获取你的必要个人信息以便实现登录状态。你的个人信息将被我们存储在本地的沙盒中。"
+          }
+        }
+      }
+    },
+    "account.win.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "扫码以登录"
+          }
+        }
+      }
+    },
     "app.name" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -35,9 +311,59 @@
         }
       }
     },
+    "def.cancel" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "取消"
+          }
+        }
+      }
+    },
+    "def.confirm" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "确认"
+          }
+        }
+      }
+    },
+    "def.error.updateFP" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "获取或更新本地设备指纹时出现问题，请重试。"
+          }
+        }
+      }
+    },
+    "def.finished" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "操作完成。"
+          }
+        }
+      }
+    },
     "def.info" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Notice"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -49,10 +375,50 @@
     "def.warning" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Warning"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "警告"
+          }
+        }
+      }
+    },
+    "stage.side.myAccount" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "My passports"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "通行证"
+          }
+        }
+      }
+    },
+    "stage.side.tip.account" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Accounts"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "账号相关"
           }
         }
       }
@@ -230,6 +596,12 @@
     "wizard.res.error.jsonDownload" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cannot download, %@."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -241,6 +613,12 @@
     "wizard.res.finish" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Finish & Relaunch"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -252,6 +630,12 @@
     "wizard.res.img.exp" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "There is no need for you to download these images, and we will load the remote images and cache them locally when we need to display them. You can clean up the cache at any time to free up space. However, when the data is tight, downloading a copy in advance can reduce traffic expenses."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -263,6 +647,12 @@
     "wizard.res.img.title" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Images"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -274,6 +664,12 @@
     "wizard.res.info.jsonDownloadFinished" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The download is completed, you can choose to continue or download the image resources."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -319,6 +715,12 @@
     "wizard.res.sheetImageTitle" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "We are dealing with image resources."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -329,6 +731,12 @@
     },
     "wizard.res.sheetJsonStatus" : {
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Downloading %@ files, a total of %@ files. Please do not close this pop-up window or this program during this process."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -340,6 +748,12 @@
     "wizard.res.sheetJsonTitle" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "We are dealing with text resources."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -351,6 +765,12 @@
     "wizard.res.source" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The text and image resources we use are organized by DGP Studio."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -362,6 +782,12 @@
     "wizard.res.txt.download" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Download"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -373,6 +799,12 @@
     "wizard.res.txt.get" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fetch"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -384,6 +816,12 @@
     "wizard.res.txt.more" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "In order to ensure the operation of the application, we have built in a game content information such as characters, weapons, etc. before the release of the software. But we don't make sure that they are still synchronized with the current game version, so you can choose to continue with our built-in resources first, or update a copy to the local version."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -395,6 +833,12 @@
     "wizard.res.txt.title" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Texts"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -406,10 +850,16 @@
     "wizard.res.txt.version" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Our built-in resource version matches the first half of the game version 5.4.0."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "我们内置的资源版本与游戏 5.4.0 上半相匹配。"
+            "value" : "我们内置的资源版本与游戏 5.4.0 版本的上半期相匹配。"
           }
         }
       }

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 import Sparkle
 
 @main
@@ -19,6 +20,7 @@ struct TravellersBagApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .modelContainer(for: [MihoyoAccount.self])
                 .frame(minWidth: 1024, minHeight: 600)
         }
         .commands {

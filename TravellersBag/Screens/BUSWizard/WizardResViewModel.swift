@@ -107,7 +107,7 @@ extension WizardResViewModel {
     /// 下载元数据文件并写入下载时间（读取本地的除外）
     private func downloadMetaFile() async -> [String : String] {
         func writeDownloadTime() {
-            UserDefaults.standard.set(Int(Date().timeIntervalSince1970), forKey: "metaLastDownloaded")
+            PreferenceMgr.default.setValue(key: "metaLastDownloaded", val: Int(Date().timeIntervalSince1970))
         }
         func readLocalFile() -> [String : String] {
             let contents = try? JSONSerialization.jsonObject(with: Data(contentsOf: metaFile)) as? [String:String]
@@ -136,7 +136,7 @@ extension WizardResViewModel {
         let metaRequest = URLRequest(url: URL(string: meta)!)
         if FileManager.default.fileExists(atPath: metaFile.toStringPath()) {
             let currentTime = Int(Date().timeIntervalSince1970)
-            let lastTime = UserDefaults.standard.integer(forKey: "metaLastDownloaded")
+            let lastTime = PreferenceMgr.default.getValue(key: "metaLastDownloaded", def: 0)
             if currentTime - lastTime >= 432000 {
                 return await downloadIt()
             } else {
