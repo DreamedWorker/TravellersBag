@@ -210,15 +210,6 @@ struct WizardResourceScreen: View {
         .alert(vm.alertMate.title, isPresented: $vm.alertMate.showIt, actions: {}, message: { Text(verbatim: vm.alertMate.msg) })
         .sheet(isPresented: $vm.showJsonDownloading, content: { JsonDownloadSheet })
         .sheet(isPresented: $vm.showImageDownloading, content: { ImageDownloadSheet })
-        .onAppear {
-            NSEvent.addLocalMonitorForEvents(matching: .keyDown) { event in
-                if event.keyCode == 53 {
-                    return nil
-                } else {
-                    return event
-                }
-            }
-        }
     }
     
     private var JsonDownloadSheet: some View {
@@ -239,9 +230,21 @@ struct WizardResourceScreen: View {
         return NavigationStack {
             Text("wizard.res.sheetImageTitle").font(.title).bold().padding(.bottom, 4)
             ProgressView(value: vm.downloadProgress, total: 1.0)
+            Text("wizard.res.sheetImageTip")
+                .font(.footnote).foregroundStyle(.secondary)
+                .padding(.top, 4)
         }
         .padding(20)
         .frame(maxWidth: 300)
+        .onAppear {
+            NSEvent.addLocalMonitorForEvents(matching: .keyDown) { event in
+                if event.keyCode == 53 {
+                    return nil
+                } else {
+                    return event
+                }
+            }
+        }
     }
 }
 

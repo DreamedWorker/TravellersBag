@@ -9,6 +9,7 @@ import SwiftUI
 import SwiftData
 import Kingfisher
 
+// MARK: - 页面
 struct AccountMgrScreen: View {
     @Query(sort: \MihoyoAccount.misheNicname) private var users: [MihoyoAccount]
     @State private var selectedUser: MihoyoAccount?
@@ -38,7 +39,7 @@ struct AccountMgrScreen: View {
                                                 let neoAccount = users.first!
                                                 neoAccount.active = true
                                                 try! dao.save()
-                                                service.alertMate.showAlert(msg: NSLocalizedString("account.info.reDef", comment: ""))
+                                                service.alertMate.showAlert(msg: NSLocalizedString("account.tip.reDef", comment: ""))
                                             }
                                         }
                                     }
@@ -65,7 +66,7 @@ struct AccountMgrScreen: View {
                             let neoAccount = users.first!
                             neoAccount.active = true
                             try! dao.save()
-                            service.alertMate.showAlert(msg: NSLocalizedString("account.info.reDef", comment: ""))
+                            service.alertMate.showAlert(msg: NSLocalizedString("account.tip.reDef", comment: ""))
                         }
                     }
                 },
@@ -164,7 +165,6 @@ extension AccountMgrScreen {
                     .resizable()
                     .symbolRenderingMode(.multicolor)
                     .foregroundStyle(.accent)
-                    .padding(.top, 8)
                     .frame(width: 18, height: 18)
                 Text("account.win.tip")
                     .foregroundStyle(.secondary)
@@ -251,7 +251,7 @@ extension AccountMgrScreen {
                             DetailRow(title: "account.info.stoken", value: user.cookies.stoken, click2display: true)
                         }
                         .formStyle(.grouped)
-                        .scrollDisabled(true)
+                        //.scrollDisabled(true)
                         Form {
                             Button(action: checkUser, label: { ActionRow(actionName: "account.action.checkAccessible", actionIcon: "person.fill.checkmark") })
                                 .buttonStyle(.borderless)

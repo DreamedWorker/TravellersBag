@@ -19,7 +19,7 @@ class AccountMgrService: ObservableObject, @unchecked Sendable {
     func queryStatusAndLogin(
         hasSame: (String) -> Bool,
         counts: Int,
-        dismiss: () -> Void
+        dismiss: @escaping () -> Void
     ) async -> MihoyoAccount? {
         let comps = URLComponents(string: picURL)
         do {
@@ -62,18 +62,24 @@ class AccountMgrService: ObservableObject, @unchecked Sendable {
                         )
                     }
                 } else {
-                    dismiss()
-                    alertMate.showAlert(msg: NSLocalizedString("account.error.same", comment: ""))
+                    DispatchQueue.main.async { [self] in
+                        dismiss()
+                        alertMate.showAlert(msg: NSLocalizedString("account.error.same", comment: ""))
+                    }
                     return nil
                 }
             } else {
-                dismiss()
-                alertMate.showAlert(msg: NSLocalizedString("account.error.emptyFromServer", comment: ""))
+                DispatchQueue.main.async { [self] in
+                    dismiss()
+                    alertMate.showAlert(msg: NSLocalizedString("account.error.emptyFromServer", comment: ""))
+                }
                 return nil
             }
         } catch {
-            dismiss()
-            alertMate.showAlert(msg: NSLocalizedString("account.error.emptyFromQr", comment: ""))
+            DispatchQueue.main.async { [self] in
+                dismiss()
+                alertMate.showAlert(msg: NSLocalizedString("account.error.emptyFromQr", comment: ""))
+            }
             return nil
         }
     }
