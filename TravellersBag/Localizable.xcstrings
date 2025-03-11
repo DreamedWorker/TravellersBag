@@ -220,6 +220,23 @@
         }
       }
     },
+    "account.error.qrState" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The QR code status is wrong. You have not completed the scanning login operation!"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "二维码状态错误，你尚未完成扫码登录操作！"
+          }
+        }
+      }
+    },
     "account.error.same" : {
       "extractionState" : "manual",
       "localizations" : {

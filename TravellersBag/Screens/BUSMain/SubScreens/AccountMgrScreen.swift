@@ -14,7 +14,7 @@ struct AccountMgrScreen: View {
     @Query(sort: \MihoyoAccount.misheNicname) private var users: [MihoyoAccount]
     @State private var selectedUser: MihoyoAccount?
     @Environment(\.modelContext) private var dao
-    @StateObject private var service = AccountMgrService()
+    @StateObject private var service = AccountMgrModel()
     @State private var showLoginWin: Bool = false
     
     var body: some View {
@@ -28,7 +28,7 @@ struct AccountMgrScreen: View {
                                 Button(
                                     "account.action.logOut", role: .destructive,
                                     action: {
-                                        let requiredUser = selectedUser!
+                                        let requiredUser = user
                                         selectedUser = nil
                                         dao.delete(requiredUser)
                                         try! dao.save()
