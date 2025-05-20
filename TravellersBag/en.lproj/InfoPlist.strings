@@ -1,9 +1,9 @@
 /* 
-  InfoPlist.strings
+  InfoList.strings
   TravellersBag
 
-  Created by 鸳汐 on 2025/3/2.
+  Created by Yuan Shine on 2025/5/13.
   
 */
-"CFBundleDisplayName"="TravellersBag";
-"NSHumanReadableCopyright"="Copyright © YuanShine 2024-present. All rights reserved. This app is open-source app following GNU GPLv3.0 license.";
+"CFBundleDisplayName"="旅者行囊";
+"NSHumanReadableCopyright"="Copyright © YuanShine 2024-present, all rights reserved.";

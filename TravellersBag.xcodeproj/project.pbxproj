@@ -7,167 +7,129 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5D9BACC72D7AF38100D4B31D /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 5D9BACC62D7AF38100D4B31D /* Kingfisher */; };
-		5DB9B2772D77654100CCD98E /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 5DB9B2762D77654100CCD98E /* LICENSE */; };
-		5DB9B2792D77656000CCD98E /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 5DB9B2782D77656000CCD98E /* README.md */; };
-		5DC1F6252D753BAD006B376D /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = 5DC1F6242D753BAD006B376D /* Sparkle */; };
-		5DF7A6B62D78AE30002DB01E /* xxHash-Swift in Frameworks */ = {isa = PBXBuildFile; productRef = 5DF7A6B52D78AE30002DB01E /* xxHash-Swift */; };
-		5DF7A6B92D78AEBC002DB01E /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 5DF7A6B82D78AEBC002DB01E /* SwiftyJSON */; };
-		5DF7A6C12D78B226002DB01E /* Zip in Frameworks */ = {isa = PBXBuildFile; productRef = 5DF7A6C02D78B226002DB01E /* Zip */; };
+		5D1764782DD86AB7005E5AC8 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 5D1764772DD86AB7005E5AC8 /* SwiftyJSON */; };
+		5D1764F82DD9BE28005E5AC8 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 5D1764F72DD9BE28005E5AC8 /* Kingfisher */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		5DC1F6512D755C8C006B376D /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
-		5DB9B2762D77654100CCD98E /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		5DB9B2782D77656000CCD98E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		5DF7A68B2D782FE9002DB01E /* TravellersBag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravellersBag.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5DB19A8C2DD3469500F8E5C1 /* TravellersBag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravellersBag.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		5DC1F6272D753C66006B376D /* Exceptions for "TravellersBag" folder in "TravellersBag" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-			);
-			target = 5D89820A2D74704400801D12 /* TravellersBag */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		5D89820D2D74704400801D12 /* TravellersBag */ = {
+		5DB19A8E2DD3469500F8E5C1 /* TravellersBag */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				5DC1F6272D753C66006B376D /* Exceptions for "TravellersBag" folder in "TravellersBag" target */,
-			);
 			path = TravellersBag;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		5D8982082D74704400801D12 /* Frameworks */ = {
+		5DB19A892DD3469500F8E5C1 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5DF7A6B92D78AEBC002DB01E /* SwiftyJSON in Frameworks */,
-				5DF7A6B62D78AE30002DB01E /* xxHash-Swift in Frameworks */,
-				5DF7A6C12D78B226002DB01E /* Zip in Frameworks */,
-				5DC1F6252D753BAD006B376D /* Sparkle in Frameworks */,
-				5D9BACC72D7AF38100D4B31D /* Kingfisher in Frameworks */,
+				5D1764F82DD9BE28005E5AC8 /* Kingfisher in Frameworks */,
+				5D1764782DD86AB7005E5AC8 /* SwiftyJSON in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5D8982022D74704400801D12 = {
+		5DB19A832DD3469500F8E5C1 = {
 			isa = PBXGroup;
 			children = (
-				5D89820D2D74704400801D12 /* TravellersBag */,
-				5DB9B2762D77654100CCD98E /* LICENSE */,
-				5DB9B2782D77656000CCD98E /* README.md */,
-				5DF7A68B2D782FE9002DB01E /* TravellersBag.app */,
+				5DB19A8E2DD3469500F8E5C1 /* TravellersBag */,
+				5DB19A8D2DD3469500F8E5C1 /* Products */,
 			);
+			sourceTree = "<group>";
+		};
+		5DB19A8D2DD3469500F8E5C1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5DB19A8C2DD3469500F8E5C1 /* TravellersBag.app */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5D89820A2D74704400801D12 /* TravellersBag */ = {
+		5DB19A8B2DD3469500F8E5C1 /* TravellersBag */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5D89821A2D74704500801D12 /* Build configuration list for PBXNativeTarget "TravellersBag" */;
+			buildConfigurationList = 5DB19A982DD3469700F8E5C1 /* Build configuration list for PBXNativeTarget "TravellersBag" */;
 			buildPhases = (
-				5D8982072D74704400801D12 /* Sources */,
-				5D8982082D74704400801D12 /* Frameworks */,
-				5D8982092D74704400801D12 /* Resources */,
-				5DC1F6512D755C8C006B376D /* Embed Frameworks */,
+				5DB19A882DD3469500F8E5C1 /* Sources */,
+				5DB19A892DD3469500F8E5C1 /* Frameworks */,
+				5DB19A8A2DD3469500F8E5C1 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				5D89820D2D74704400801D12 /* TravellersBag */,
+				5DB19A8E2DD3469500F8E5C1 /* TravellersBag */,
 			);
 			name = TravellersBag;
 			packageProductDependencies = (
-				5DC1F6242D753BAD006B376D /* Sparkle */,
-				5DF7A6B52D78AE30002DB01E /* xxHash-Swift */,
-				5DF7A6B82D78AEBC002DB01E /* SwiftyJSON */,
-				5DF7A6C02D78B226002DB01E /* Zip */,
-				5D9BACC62D7AF38100D4B31D /* Kingfisher */,
+				5D1764772DD86AB7005E5AC8 /* SwiftyJSON */,
+				5D1764F72DD9BE28005E5AC8 /* Kingfisher */,
 			);
 			productName = TravellersBag;
-			productReference = 5DF7A68B2D782FE9002DB01E /* TravellersBag.app */;
+			productReference = 5DB19A8C2DD3469500F8E5C1 /* TravellersBag.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		5D8982032D74704400801D12 /* Project object */ = {
+		5DB19A842DD3469500F8E5C1 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1620;
-				LastUpgradeCheck = 1620;
+				LastSwiftUpdateCheck = 1630;
+				LastUpgradeCheck = 1630;
 				TargetAttributes = {
-					5D89820A2D74704400801D12 = {
-						CreatedOnToolsVersion = 16.2;
+					5DB19A8B2DD3469500F8E5C1 = {
+						CreatedOnToolsVersion = 16.3;
 					};
 				};
 			};
-			buildConfigurationList = 5D8982062D74704400801D12 /* Build configuration list for PBXProject "TravellersBag" */;
+			buildConfigurationList = 5DB19A872DD3469500F8E5C1 /* Build configuration list for PBXProject "TravellersBag" */;
 			developmentRegion = "zh-Hans";
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				"zh-Hans",
+				Base,
 			);
-			mainGroup = 5D8982022D74704400801D12;
+			mainGroup = 5DB19A832DD3469500F8E5C1;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				5DC1F6232D753BAD006B376D /* XCRemoteSwiftPackageReference "Sparkle" */,
-				5DF7A6B42D78AE30002DB01E /* XCRemoteSwiftPackageReference "xxHash-Swift" */,
-				5DF7A6B72D78AEBC002DB01E /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
-				5DF7A6BF2D78B226002DB01E /* XCRemoteSwiftPackageReference "Zip" */,
-				5D9BACC52D7AF38100D4B31D /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				5D1764762DD86AB7005E5AC8 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+				5D1764F62DD9BE28005E5AC8 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			preferredProjectObjectVersion = 77;
-			productRefGroup = 5D8982022D74704400801D12;
+			productRefGroup = 5DB19A8D2DD3469500F8E5C1 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5D89820A2D74704400801D12 /* TravellersBag */,
+				5DB19A8B2DD3469500F8E5C1 /* TravellersBag */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		5D8982092D74704400801D12 /* Resources */ = {
+		5DB19A8A2DD3469500F8E5C1 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5DB9B2792D77656000CCD98E /* README.md in Resources */,
-				5DB9B2772D77654100CCD98E /* LICENSE in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		5D8982072D74704400801D12 /* Sources */ = {
+		5DB19A882DD3469500F8E5C1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -177,7 +139,7 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		5D8982182D74704500801D12 /* Debug */ = {
+		5DB19A962DD3469700F8E5C1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -212,6 +174,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = NV65B8VFUD;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -230,7 +193,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MACOSX_DEPLOYMENT_TARGET = 15.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -241,7 +204,7 @@
 			};
 			name = Debug;
 		};
-		5D8982192D74704500801D12 /* Release */ = {
+		5DB19A972DD3469700F8E5C1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -276,6 +239,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = NV65B8VFUD;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -288,7 +252,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MACOSX_DEPLOYMENT_TARGET = 15.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
@@ -297,7 +261,7 @@
 			};
 			name = Release;
 		};
-		5D89821B2D74704500801D12 /* Debug */ = {
+		5DB19A992DD3469700F8E5C1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -305,13 +269,11 @@
 				CODE_SIGN_ENTITLEMENTS = TravellersBag/TravellersBag.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 20250302;
-				DEVELOPMENT_ASSET_PATHS = "\"TravellersBag/Preview Content\"";
+				CURRENT_PROJECT_VERSION = 10000;
 				DEVELOPMENT_TEAM = NV65B8VFUD;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = TravellersBag/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = CFBundleDisplayName;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSHumanReadableCopyright = NSHumanReadableCopyright;
@@ -320,16 +282,16 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 0.1.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = icu.bluedream.TravellersBag;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				VALID_ARCHS = arm64;
+				SWIFT_VERSION = 6.0;
 			};
 			name = Debug;
 		};
-		5D89821C2D74704500801D12 /* Release */ = {
+		5DB19A9A2DD3469700F8E5C1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -337,13 +299,11 @@
 				CODE_SIGN_ENTITLEMENTS = TravellersBag/TravellersBag.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 20250302;
-				DEVELOPMENT_ASSET_PATHS = "\"TravellersBag/Preview Content\"";
+				CURRENT_PROJECT_VERSION = 10000;
 				DEVELOPMENT_TEAM = NV65B8VFUD;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = TravellersBag/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = CFBundleDisplayName;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSHumanReadableCopyright = NSHumanReadableCopyright;
@@ -352,32 +312,32 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 0.1.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = icu.bluedream.TravellersBag;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				VALID_ARCHS = arm64;
+				SWIFT_VERSION = 6.0;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5D8982062D74704400801D12 /* Build configuration list for PBXProject "TravellersBag" */ = {
+		5DB19A872DD3469500F8E5C1 /* Build configuration list for PBXProject "TravellersBag" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5D8982182D74704500801D12 /* Debug */,
-				5D8982192D74704500801D12 /* Release */,
+				5DB19A962DD3469700F8E5C1 /* Debug */,
+				5DB19A972DD3469700F8E5C1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5D89821A2D74704500801D12 /* Build configuration list for PBXNativeTarget "TravellersBag" */ = {
+		5DB19A982DD3469700F8E5C1 /* Build configuration list for PBXNativeTarget "TravellersBag" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5D89821B2D74704500801D12 /* Debug */,
-				5D89821C2D74704500801D12 /* Release */,
+				5DB19A992DD3469700F8E5C1 /* Debug */,
+				5DB19A9A2DD3469700F8E5C1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -385,75 +345,36 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		5D9BACC52D7AF38100D4B31D /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+		5D1764762DD86AB7005E5AC8 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://bgithub.xyz/onevcat/Kingfisher.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 8.3.0;
-			};
-		};
-		5DC1F6232D753BAD006B376D /* XCRemoteSwiftPackageReference "Sparkle" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://bgithub.xyz/sparkle-project/Sparkle";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.7.0;
-			};
-		};
-		5DF7A6B42D78AE30002DB01E /* XCRemoteSwiftPackageReference "xxHash-Swift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://bgithub.xyz/daisuke-t-jp/xxHash-Swift.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.1.1;
-			};
-		};
-		5DF7A6B72D78AEBC002DB01E /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://bgithub.xyz/SwiftyJSON/SwiftyJSON.git";
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 5.0.2;
 			};
 		};
-		5DF7A6BF2D78B226002DB01E /* XCRemoteSwiftPackageReference "Zip" */ = {
+		5D1764F62DD9BE28005E5AC8 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://bgithub.xyz/marmelroy/Zip.git";
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 2.1.2;
+				minimumVersion = 8.3.2;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		5D9BACC62D7AF38100D4B31D /* Kingfisher */ = {
+		5D1764772DD86AB7005E5AC8 /* SwiftyJSON */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 5D9BACC52D7AF38100D4B31D /* XCRemoteSwiftPackageReference "Kingfisher" */;
-			productName = Kingfisher;
-		};
-		5DC1F6242D753BAD006B376D /* Sparkle */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 5DC1F6232D753BAD006B376D /* XCRemoteSwiftPackageReference "Sparkle" */;
-			productName = Sparkle;
-		};
-		5DF7A6B52D78AE30002DB01E /* xxHash-Swift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 5DF7A6B42D78AE30002DB01E /* XCRemoteSwiftPackageReference "xxHash-Swift" */;
-			productName = "xxHash-Swift";
-		};
-		5DF7A6B82D78AEBC002DB01E /* SwiftyJSON */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 5DF7A6B72D78AEBC002DB01E /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			package = 5D1764762DD86AB7005E5AC8 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
 			productName = SwiftyJSON;
 		};
-		5DF7A6C02D78B226002DB01E /* Zip */ = {
+		5D1764F72DD9BE28005E5AC8 /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 5DF7A6BF2D78B226002DB01E /* XCRemoteSwiftPackageReference "Zip" */;
-			productName = Zip;
+			package = 5D1764F62DD9BE28005E5AC8 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
-	rootObject = 5D8982032D74704400801D12 /* Project object */;
+	rootObject = 5DB19A842DD3469500F8E5C1 /* Project object */;
 }

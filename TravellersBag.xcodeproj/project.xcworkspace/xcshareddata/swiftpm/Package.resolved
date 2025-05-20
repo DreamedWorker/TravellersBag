@@ -1,49 +1,22 @@
 {
-  "originHash" : "e8e9a8bd7792b8e6bfe8fe71367f09b8bd19f5e1225fae33f3a31da7f63e0d29",
+  "originHash" : "b1de36887740bde919107653d5e3adf184fa729e01dba409e541252efa1ed57c",
   "pins" : [
     {
       "identity" : "kingfisher",
       "kind" : "remoteSourceControl",
-      "location" : "https://bgithub.xyz/onevcat/Kingfisher.git",
+      "location" : "https://github.com/onevcat/Kingfisher.git",
       "state" : {
-        "revision" : "b450a3b30e0767277a6eed7e02dbdebd7d173da0",
-        "version" : "8.3.0"
-      }
-    },
-    {
-      "identity" : "sparkle",
-      "kind" : "remoteSourceControl",
-      "location" : "https://bgithub.xyz/sparkle-project/Sparkle",
-      "state" : {
-        "revision" : "0ca3004e98712ea2b39dd881d28448630cce1c99",
-        "version" : "2.7.0"
+        "revision" : "7deda23bbdca612076c5c315003d8638a08ed0f1",
+        "version" : "8.3.2"
       }
     },
     {
       "identity" : "swiftyjson",
       "kind" : "remoteSourceControl",
-      "location" : "https://bgithub.xyz/SwiftyJSON/SwiftyJSON.git",
+      "location" : "https://github.com/SwiftyJSON/SwiftyJSON",
       "state" : {
         "revision" : "af76cf3ef710b6ca5f8c05f3a31307d44a3c5828",
         "version" : "5.0.2"
-      }
-    },
-    {
-      "identity" : "xxhash-swift",
-      "kind" : "remoteSourceControl",
-      "location" : "https://bgithub.xyz/daisuke-t-jp/xxHash-Swift.git",
-      "state" : {
-        "revision" : "e86a07ab4867f81481d430e1370a5ec97b6e3359",
-        "version" : "1.1.1"
-      }
-    },
-    {
-      "identity" : "zip",
-      "kind" : "remoteSourceControl",
-      "location" : "https://bgithub.xyz/marmelroy/Zip.git",
-      "state" : {
-        "revision" : "67fa55813b9e7b3b9acee9c0ae501def28746d76",
-        "version" : "2.1.2"
       }
     }
   ],
