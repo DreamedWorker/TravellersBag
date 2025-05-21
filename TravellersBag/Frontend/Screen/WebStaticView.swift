@@ -42,9 +42,27 @@ struct WebStaticWebView: NSViewRepresentable {
         self.webURL = webURL
     }
     
+    // 删除部分cookie并要求重新设置 以便于切换默认账号后页面响应正常
+    private func removeSomeCookie(name: String) -> Bool {
+        let list: [String] = ["ltoken", "ltuid", "cookie_token", "account_id"]
+        return list.contains(name)
+    }
+    
     func makeNSView(context: Context) -> WKWebView {
         webView.configuration.websiteDataStore = .default()
         webView.configuration.userContentController.add(context.coordinator, name: "miHoYo")
+        Task {
+            let cks = webView.configuration.websiteDataStore.httpCookieStore
+            await cks.allCookies().forEach { ck in
+                if removeSomeCookie(name: ck.name) {
+                    cks.delete(ck)
+                }
+            }
+            await cks.setCookie(.init(properties: [.domain:".mihoyo.com", .path:"/", .version:"1", .name:"ltoken", .value:account.cookie.ltoken])!)
+            await cks.setCookie(.init(properties: [.domain:".mihoyo.com", .path:"/", .version:"1", .name:"ltuid", .value:account.cookie.stuid])!)
+            await cks.setCookie(.init(properties: [.domain:".mihoyo.com", .path:"/", .version:"1", .name:"cookie_token", .value:account.cookie.cookieToken])!)
+            await cks.setCookie(.init(properties: [.domain:".mihoyo.com", .path:"/", .version:"1", .name:"account_id", .value:account.cookie.stuid])!)
+        }
         return webView
     }
     
