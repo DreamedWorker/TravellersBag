@@ -12,13 +12,16 @@ struct ContentView: View {
     @State private var lastOpenedAppVersion = ConfigManager.getSettingsValue(key: ConfigKey.APP_LAST_USED_VERSION, value: "0.0.0")
     @State private var showWizardWindow = false
     @Query(filter: #Predicate<HoyoAccount> { $0.activedAccount }) private var defAccount: [HoyoAccount]
-    @State private var panePart: StagePart = .account
+    @State private var panePart: StagePart = .announcement
     
     var body: some View {
         NavigationSplitView(sidebar: {
             if lastOpenedAppVersion == "1.0.0-10000" {
                 List(selection: $panePart) {
                     AccountCapsule(des: .account, account: defAccount.first)
+                    Section("content.side.title.general") {
+                        NavigationLink(value: StagePart.announcement, label: { Label("content.side.label.anno", systemImage: "bell.badge")})
+                    }
                     Section("content.side.title.web") {
                         NavigationLink(value: StagePart.bbsIndex, label: { Label("content.side.label.home", systemImage: "house") })
                         NavigationLink(value: StagePart.adopt, label: { Label("content.side.label.adopt", systemImage: "figure.child") })
@@ -39,6 +42,8 @@ struct ContentView: View {
                     WebStaticView(requiredPage: "https://webstatic.mihoyo.com/ys/event/e20200923adopt_calculator/")
                 case .sign:
                     WebStaticView(requiredPage: "https://act.mihoyo.com/bbs/event/signin/hk4e/index.html?act_id=e202311201442471")
+                case .announcement:
+                    AnnouncementView()
                 }
             }
         })
@@ -61,6 +66,7 @@ struct ContentView: View {
         case bbsIndex
         case adopt
         case sign
+        case announcement
     }
 }
 

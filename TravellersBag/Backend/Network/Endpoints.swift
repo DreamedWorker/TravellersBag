@@ -15,6 +15,8 @@ class Endpoints {
     static let Hk4eSdk = "hk4e-sdk.mihoyo.com"
     static let BbsApi = "bbs-api.mihoyo.com"
     static let PassportApi = "passport-api.mihoyo.com"
+    static let Hk4eAnnApi = "hk4e-ann-api.mihoyo.com"
+    static let ActApiTakumi = "act-api-takumi.mihoyo.com"
     
     // MARK: - Snap.Hutao Apis
     static let HutaoMetadataApi = "hutao-metadata-pages.snapgenshin.cn"
