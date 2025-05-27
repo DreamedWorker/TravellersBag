@@ -21,6 +21,7 @@ struct AnnouncementView: View {
                             .filter({ $0.typeID == 1 }).first!.list
                             .filter({ $0.tagLabel == .扭蛋 })
                         Carousel(neoList: gachaAnnoList, gachaPools: viewModel.uiState.gachaFeed)
+                        AnnoHotActivity()
                     }
                 }
             } else {
