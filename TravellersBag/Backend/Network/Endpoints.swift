@@ -22,6 +22,8 @@ class Endpoints {
     static let PassportApi = "passport-api.mihoyo.com"
     static let Hk4eAnnApi = "hk4e-ann-api.mihoyo.com"
     static let ActApiTakumi = "act-api-takumi.mihoyo.com"
+    static let TakumiMiyousheApi = "api-takumi.miyoushe.com"
+    static let PublicOperationApi = "public-operation-hk4e.mihoyo.com"
     
     // MARK: - Snap.Hutao Apis
     static let HutaoMetadataApi = "hutao-metadata-pages.snapgenshin.cn"

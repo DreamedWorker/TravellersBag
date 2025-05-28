@@ -20,7 +20,10 @@ struct ContentView: View {
                 List(selection: $panePart) {
                     AccountCapsule(des: .account, account: defAccount.first)
                     Section("content.side.title.general") {
-                        NavigationLink(value: StagePart.announcement, label: { Label("content.side.label.anno", systemImage: "bell.badge")})
+                        NavigationLink(value: StagePart.announcement, label: { Label("content.side.label.anno", systemImage: "bell.badge") })
+                    }
+                    Section("content.side.title.feature") {
+                        NavigationLink(value: StagePart.gacha, label: { Label("content.side.label.gacha", systemImage: "app.gift") })
                     }
                     Section("content.side.title.web") {
                         NavigationLink(value: StagePart.bbsIndex, label: { Label("content.side.label.home", systemImage: "house") })
@@ -44,6 +47,8 @@ struct ContentView: View {
                     WebStaticView(requiredPage: "https://act.mihoyo.com/bbs/event/signin/hk4e/index.html?act_id=e202311201442471")
                 case .announcement:
                     AnnouncementView()
+                case .gacha:
+                    GachaView().navigationTitle(Text("content.side.label.gacha"))
                 }
             }
         })
@@ -67,6 +72,7 @@ struct ContentView: View {
         case adopt
         case sign
         case announcement
+        case gacha
     }
 }
 

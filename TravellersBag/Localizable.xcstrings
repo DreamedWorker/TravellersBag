@@ -457,6 +457,23 @@
         }
       }
     },
+    "content.side.label.gacha" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gacha records"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "祈愿记录"
+          }
+        }
+      }
+    },
     "content.side.label.home" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -486,6 +503,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "社区签到"
+          }
+        }
+      }
+    },
+    "content.side.title.feature" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Features"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "功能"
           }
         }
       }
@@ -552,6 +586,141 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "警告"
+          }
+        }
+      }
+    },
+    "gacha.action.sync" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Synchronize records"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "从官方同步数据"
+          }
+        }
+      }
+    },
+    "gacha.blocked.needAccount" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You need to log in to view this page"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "本页面需要登录账号才能查看"
+          }
+        }
+      }
+    },
+    "gacha.def.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fetching the gacha record..."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "正在获取祈愿记录…"
+          }
+        }
+      }
+    },
+    "gacha.def.waiting" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The official will provide you with a record for 1 year. The time consumption of this operation mainly depends on the number of your records. Please do not close this pop-up window during our acquisition of records."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "官方将为你提供1年内的记录保存，本操作的耗时主要取决于你的记录数量。在我们获取记录的过程中请不要关闭本弹窗。"
+          }
+        }
+      }
+    },
+    "gacha.empty.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "There is no local record for this account"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "此账号没有本地祈愿记录"
+          }
+        }
+      }
+    },
+    "gacha.error.sync" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unable to complete the record data synchronization, %@"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法完成祈愿数据同步，%@"
+          }
+        }
+      }
+    },
+    "gacha.error.syncPool" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unable to synchronize gacha-pools data, %@"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法同步卡池数据，%@"
+          }
+        }
+      }
+    },
+    "gacha.info.finishedSync" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This synchronous completion, and the joint steps of %@ records have been completed. Among them, there are %@ gacha-pool synchronization failures, which are: %@."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "本次同步完成，共同步了%@条记录。其中有%@个卡池同步失败，它们是：%@。"
           }
         }
       }
