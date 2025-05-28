@@ -17,7 +17,7 @@ struct AnnoHotActivity: View {
             if !vm.activities.isEmpty {
                 LazyHStack(spacing: 8) {
                     let start = Date.now
-                    ForEach(vm.activities, id: \.title) { activity in
+                    ForEach(vm.activities, id: \.abstract) { activity in
                         VStack(alignment: .leading) {
                             HStack(spacing: 8) {
                                 KFImage.url(URL(string: activity.icon))

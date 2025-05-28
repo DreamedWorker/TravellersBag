@@ -12,11 +12,6 @@ class AnnounceRepo: AutocheckedKey, @unchecked Sendable {
     private let annoRoot = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
         .appending(path: "Anno")
     private let annoFile = "AnnoList.json"
-    private let annoQuery: [URLQueryItem] = [
-        .init(name: "game", value: "hk4e"), .init(name: "game_biz", value: "hk4e_cn"), .init(name: "lang", value: "zh-cn"),
-        .init(name: "bundle_id", value: "hk4e_cn"), .init(name: "platform", value: "pc"), .init(name: "region", value: "cn_gf01"),
-        .init(name: "level", value: "55"), .init(name: "uid", value: "100000000")
-    ]
     
     init() {
         super.init(configKey: repoKey, dailyCheckedKey: true)
@@ -51,7 +46,7 @@ class AnnounceRepo: AutocheckedKey, @unchecked Sendable {
     // 从官方获取数据
     func fetchAnnouncements() async throws -> AnnoStruct {
         let annoRequest = RequestBuilder.buildRequest(
-            method: .GET, host: Endpoints.Hk4eAnnApi, path: "/common/hk4e_cn/announcement/api/getAnnList", queryItems: annoQuery
+            method: .GET, host: Endpoints.Hk4eAnnApi, path: "/common/hk4e_cn/announcement/api/getAnnList", queryItems: Endpoints.annoQuery
         )
         let annoResult = try await NetworkClient.simpleDataClient(request: annoRequest, type: AnnoStruct.self)
         if annoResult.retcode == 0 {

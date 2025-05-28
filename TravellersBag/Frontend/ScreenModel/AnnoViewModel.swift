@@ -10,6 +10,7 @@ import Foundation
 class AnnoViewModel: ObservableObject, @unchecked Sendable {
     let annoRepo = AnnounceRepo()
     let annoGachaRepo = AnnoGachaPoolRepo()
+    let annoDetailRepo = AnnoDetailRepo()
     @Published var uiState: AnnoUiState = .init()
     
     func loadFeed() async {
@@ -32,6 +33,13 @@ class AnnoViewModel: ObservableObject, @unchecked Sendable {
             uiState.gachaFeed = result
         }
     }
+    
+    func loadAnnoDetail() async {
+        let result = try? await annoDetailRepo.readAsync()
+        await MainActor.run {
+            uiState.annoDetail = result
+        }
+    }
 }
 
 extension AnnoViewModel {
@@ -40,5 +48,6 @@ extension AnnoViewModel {
         var annoFeed: AnnounceRepo.AnnoStruct? = nil
         var gachaFeed: AnnoGachaPoolRepo.GachaPools? = nil
         var alert: AlertMate = .init()
+        var annoDetail: AnnoDetailStruct? = nil
     }
 }

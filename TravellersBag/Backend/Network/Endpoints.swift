@@ -8,6 +8,11 @@
 import Foundation
 
 class Endpoints {
+    static let annoQuery: [URLQueryItem] = [
+        .init(name: "game", value: "hk4e"), .init(name: "game_biz", value: "hk4e_cn"), .init(name: "lang", value: "zh-cn"),
+        .init(name: "bundle_id", value: "hk4e_cn"), .init(name: "platform", value: "pc"), .init(name: "region", value: "cn_gf01"),
+        .init(name: "level", value: "55"), .init(name: "uid", value: "100000000")
+    ]
     // MARK: - MiHoYo Apis
     static let ApiSDK = "api-sdk.mihoyo.com"
     static let ApiTakumi = "api-takumi.mihoyo.com"
