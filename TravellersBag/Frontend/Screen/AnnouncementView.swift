@@ -17,7 +17,7 @@ struct AnnouncementView: View {
         NavigationStack {
             if !viewModel.uiState.isLoading {
                 ScrollView(showsIndicators: false) {
-                    LazyVStack {
+                    VStack {
                         let gachaAnnoList = viewModel.uiState.annoFeed!.data.list
                             .filter({ $0.typeID == 1 }).first!.list
                             .filter({ $0.tagLabel == .扭蛋 })
@@ -55,6 +55,7 @@ struct AnnouncementView: View {
                     }
             }
         }
+        .navigationTitle(Text("content.side.label.anno"))
         .alert(
             viewModel.uiState.alert.title,
             isPresented: $viewModel.uiState.alert.showIt,

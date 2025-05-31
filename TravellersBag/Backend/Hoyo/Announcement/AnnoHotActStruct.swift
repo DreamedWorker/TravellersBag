@@ -41,7 +41,8 @@ extension AnnoHotActStruct.ActivityList {
 }
 
 extension AnnoHotActStruct.ActivityList.ChildElement {
-    struct PurpleList: Codable {
+    struct PurpleList: Codable, Identifiable {
+        let id = UUID().uuidString
         let recommendID, contentID: Int
         let title, ext: String
         let type: Int
