@@ -27,4 +27,15 @@ extension String {
         dateFormatter.timeZone = TimeZone.autoupdatingCurrent
         return dateFormatter.date(from: self) ?? Date.now
     }
+    
+    func dateFromISOFormattedString() -> Date {
+        let isoDateString = self
+        let formatter = ISO8601DateFormatter()
+        formatter.formatOptions = [.withInternetDateTime] // 可选，如果你有毫秒
+        if let date = formatter.date(from: isoDateString) {
+            return date
+        } else {
+            return Date.now
+        }
+    }
 }

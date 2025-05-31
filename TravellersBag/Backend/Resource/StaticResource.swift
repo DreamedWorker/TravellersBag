@@ -19,6 +19,10 @@ class StaticResource {
             try! FileManager.default.createDirectory(at: resourceRoot, withIntermediateDirectories: true)
         }
     }
+    
+    static func getRequiredFile(name: String) -> URL {
+        return resourceRoot.appending(component: name)
+    }
 }
 
 // MARK: - 资源下载

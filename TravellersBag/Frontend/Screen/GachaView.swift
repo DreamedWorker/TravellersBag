@@ -25,9 +25,26 @@ struct GachaView: View {
             NavigationStack {
                 if viewModel.uiState.gachaRecords.count > 0 {
                     if !viewModel.uiState.showLogic {
-                        ScrollView {
-                            LazyVStack {
-                                Text(viewModel.uiState.gachaRecords.count.description)
+                        ScrollView(.horizontal, showsIndicators: false) {
+                            let character = viewModel.uiState.gachaRecords
+                                .filter { $0.gachaType == viewModel.characterGacha || $0.gachaType == "400" }
+                                .sorted(by: { Int($0.id)! < Int($1.id)! })
+                            let weapon = viewModel.uiState.gachaRecords
+                                .filter({ $0.gachaType == viewModel.weaponGacha }).sorted(by: { Int($0.id)! < Int($1.id)! })
+                            let resident = viewModel.uiState.gachaRecords
+                                .filter({ $0.gachaType == viewModel.residentGacha }).sorted(by: { Int($0.id)! < Int($1.id)! })
+                            let collection = viewModel.uiState.gachaRecords
+                                .filter({ $0.gachaType == viewModel.collectionGacha }).sorted(by: { Int($0.id)! < Int($1.id)! })
+                            let history = viewModel.getGachaEvents()
+                            LazyHStack(alignment: .top) {
+                                GachaBulletin(specificData: character, gachaTitle: "gacha.home.avatar", event: history)
+                                    .padding(.vertical, 8).padding(.horizontal, 4)
+                                GachaBulletin(specificData: weapon, gachaTitle: "gacha.home.weapon", event: history)
+                                    .padding(.vertical, 8).padding(.trailing, 4)
+                                GachaBulletin(specificData: resident, gachaTitle: "gacha.home.resident", event: history)
+                                    .padding(.vertical, 8)
+                                GachaBulletin(specificData: collection, gachaTitle: "gacha.home.collection", event: history)
+                                    .padding(.vertical, 8).padding(.horizontal, 4)
                             }
                         }
                     } else {

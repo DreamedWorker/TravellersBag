@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftData
+import SwiftyJSON
 
 class GachaViewModel: ObservableObject, @unchecked Sendable {
     @Published var uiState: GachaViewUiState = .init()
@@ -32,6 +33,17 @@ class GachaViewModel: ObservableObject, @unchecked Sendable {
         } catch {
             uiState.alertMate.showAlert(msg: "Failed to load gacha records, \(error.localizedDescription)", type: .Error)
         }
+    }
+    
+    func getGachaEvents() -> GachaEvent {
+        let file = StaticResource.getRequiredFile(name: "GachaEvent.json")
+        if !FileManager.default.fileExists(atPath: file.path(percentEncoded: false)) {
+            return []
+        }
+        guard let result = try? JSONDecoder().decode(GachaEvent.self, from: Data(contentsOf: file)) else {
+            return []
+        }
+        return result
     }
     
     func updateDataFromCloud(
