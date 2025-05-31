@@ -389,6 +389,23 @@
         }
       }
     },
+    "app.cancel" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancel"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "取消"
+          }
+        }
+      }
+    },
     "app.close" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -590,6 +607,23 @@
         }
       }
     },
+    "gacha.action.downloadImg" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Download( or Update) image packs"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "下载或更新图像包"
+          }
+        }
+      }
+    },
     "gacha.action.sync" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -704,6 +738,125 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "无法同步卡池数据，%@"
+          }
+        }
+      }
+    },
+    "gacha.image.download" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Download now"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "现在下载"
+          }
+        }
+      }
+    },
+    "gacha.image.forceEntrance" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ignore warnings & Go"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "忽视警告并进入"
+          }
+        }
+      }
+    },
+    "gacha.image.sheet.current" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Downloading file: %@"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "正在下载的文件：%@"
+          }
+        }
+      }
+    },
+    "gacha.image.sheet.retry" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Retry"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "重试"
+          }
+        }
+      }
+    },
+    "gacha.image.sheet.tip" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "After the download is completed, this window will disappear automatically. Please do not close this window during the download. If there is no progress for a long time, you can try again many times after making sure that your network connection is normal. If the situation still does not improve, it is recommended to try again after a while."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在完成下载后，此窗口会自动消失。在下载期间，请勿关闭此窗口。如果长时间没有进度，在确保你的网络连接正常后可以多次重试。如果情况仍然没有改善，建议一段时间后再试。"
+          }
+        }
+      }
+    },
+    "gacha.image.sheet.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Downloading the necessary icons"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "正在下载必要的图标资源"
+          }
+        }
+      }
+    },
+    "gacha.image.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Icons are required to continue."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "需要角色与武器图标以继续"
           }
         }
       }

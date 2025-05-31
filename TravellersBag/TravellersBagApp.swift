@@ -34,6 +34,7 @@ class TravellersBagDelegate: NSObject, NSApplicationDelegate {
         Task.detached {
             DeviceEnv.checkEnvironment() // 检查 deviceID 和 bbsDeviceID 是否存在
             StaticResource.checkExistWhenLaunching() // 检查 json 文件目录是否存在
+            PicResource.checkWhenLaunching()
             switch await DeviceEnv.deviceFp.getDeviceFp() {
             case .success(let fp):
                 print("设备指纹是：\(fp)")

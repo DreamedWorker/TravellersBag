@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5D1764782DD86AB7005E5AC8 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 5D1764772DD86AB7005E5AC8 /* SwiftyJSON */; };
 		5D1764F82DD9BE28005E5AC8 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 5D1764F72DD9BE28005E5AC8 /* Kingfisher */; };
+		5D83B1FA2DEB0552003CEBAF /* Zip in Frameworks */ = {isa = PBXBuildFile; productRef = 5D83B1F92DEB0552003CEBAF /* Zip */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D83B1FA2DEB0552003CEBAF /* Zip in Frameworks */,
 				5D1764F82DD9BE28005E5AC8 /* Kingfisher in Frameworks */,
 				5D1764782DD86AB7005E5AC8 /* SwiftyJSON in Frameworks */,
 			);
@@ -74,6 +76,7 @@
 			packageProductDependencies = (
 				5D1764772DD86AB7005E5AC8 /* SwiftyJSON */,
 				5D1764F72DD9BE28005E5AC8 /* Kingfisher */,
+				5D83B1F92DEB0552003CEBAF /* Zip */,
 			);
 			productName = TravellersBag;
 			productReference = 5DB19A8C2DD3469500F8E5C1 /* TravellersBag.app */;
@@ -107,6 +110,7 @@
 			packageReferences = (
 				5D1764762DD86AB7005E5AC8 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 				5D1764F62DD9BE28005E5AC8 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				5D83B1F82DEB0552003CEBAF /* XCRemoteSwiftPackageReference "Zip" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 5DB19A8D2DD3469500F8E5C1 /* Products */;
@@ -361,6 +365,14 @@
 				minimumVersion = 8.3.2;
 			};
 		};
+		5D83B1F82DEB0552003CEBAF /* XCRemoteSwiftPackageReference "Zip" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/marmelroy/Zip";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.1.2;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -373,6 +385,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 5D1764F62DD9BE28005E5AC8 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		5D83B1F92DEB0552003CEBAF /* Zip */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5D83B1F82DEB0552003CEBAF /* XCRemoteSwiftPackageReference "Zip" */;
+			productName = Zip;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

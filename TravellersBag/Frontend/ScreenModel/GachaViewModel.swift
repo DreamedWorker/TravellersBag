@@ -17,6 +17,13 @@ class GachaViewModel: ObservableObject, @unchecked Sendable {
     let weaponGacha = "302" //武器
     let collectionGacha = "500" //混池
     
+    let downloader = PicResource.SequentialDownloader()
+    
+    func checkImageResources() {
+        uiState.showImageSheet = !PicResource.hasLocalImgs()
+        uiState.showLogic = uiState.showImageSheet
+    }
+    
     func queryRecords(_ user: HoyoAccount, context: ModelContext) {
         do {
             let requiredUid = user.game.genshinUID
@@ -110,5 +117,7 @@ extension GachaViewModel {
     struct GachaViewUiState {
         var alertMate: AlertMate = .init()
         var gachaRecords: [GachaItem] = []
+        var showImageSheet: Bool = false
+        var showLogic: Bool = false
     }
 }

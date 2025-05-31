@@ -15,6 +15,8 @@ struct GachaView: View {
     @Query private var accounts: [HoyoAccount]
     @State private var selectedAccount: HoyoAccount? = nil
     @State private var showWaitingSheet: Bool = false
+    @State private var fileDownloadState: Float = 0
+    @State private var filename: String = ""
     
     var body: some View {
         if accounts.isEmpty {
@@ -22,10 +24,24 @@ struct GachaView: View {
         } else {
             NavigationStack {
                 if viewModel.uiState.gachaRecords.count > 0 {
-                    ScrollView {
-                        LazyVStack {
-                            Text(viewModel.uiState.gachaRecords.count.description)
+                    if !viewModel.uiState.showLogic {
+                        ScrollView {
+                            LazyVStack {
+                                Text(viewModel.uiState.gachaRecords.count.description)
+                            }
                         }
+                    } else {
+                        Image(systemName: "storefront")
+                            .resizable().foregroundStyle(.accent)
+                            .frame(width: 72, height: 72)
+                        Text("gacha.image.title").font(.title.bold())
+                        Button("gacha.image.download", action: {
+                            viewModel.uiState.showImageSheet = true
+                        }).buttonStyle(.borderedProminent)
+                        Button("gacha.image.forceEntrance", action: {
+                            viewModel.uiState.showImageSheet = false
+                            viewModel.uiState.showLogic = true
+                        })
                     }
                 } else {
                     Image(systemName: "tray")
@@ -45,12 +61,22 @@ struct GachaView: View {
             .onAppear {
                 selectedAccount = accounts.first!
                 viewModel.queryRecords(accounts.first!, context: operation)
+                viewModel.checkImageResources()
             }
             .toolbar {
                 ToolbarItem {
                     Button(
                         action: { startSync() },
-                        label: { Image(systemName: "square.and.arrow.down.fill").help("gacha.action.sync") }
+                        label: { Image(systemName: "arrow.2.circlepath.circle").help("gacha.action.sync") }
+                    )
+                }
+                ToolbarItem {
+                    Button(
+                        action: {
+                            viewModel.uiState.showLogic = false
+                            viewModel.uiState.showImageSheet = true
+                        },
+                        label: { Image(systemName: "photo.stack").help("gacha.action.downloadImg") }
                     )
                 }
             }
@@ -61,6 +87,70 @@ struct GachaView: View {
                 actions: {},
                 message: { Text(viewModel.uiState.alertMate.msg) }
             )
+            .sheet(isPresented: $viewModel.uiState.showImageSheet, content: {
+                NavigationStack {
+                    Text("gacha.image.sheet.title")
+                        .font(.title.bold())
+                        .padding(.bottom, 8)
+                    ProgressView(value: fileDownloadState, total: 1.0)
+                        .progressViewStyle(.linear)
+                        .padding()
+                    HStack {
+                        Text(String.localizedStringWithFormat(NSLocalizedString("gacha.image.sheet.current", comment: ""), filename))
+                        Spacer()
+                    }
+                    Text("gacha.image.sheet.tip").font(.footnote).foregroundStyle(.secondary)
+                }
+                .padding()
+                .toolbar {
+                    ToolbarItem(placement: .cancellationAction, content: {
+                        Button("gacha.image.sheet.retry", action: {
+                            Task.detached {
+                                await viewModel.downloader.pause()
+                                try! await Task.sleep(for: .seconds(3))
+                                await viewModel.downloader.resume()
+                            }
+                        })
+                    })
+                    ToolbarItem(placement: .destructiveAction, content: {
+                        Button("app.cancel", action: {
+                            viewModel.downloader.cancel()
+                            viewModel.uiState.showImageSheet = false
+                        })
+                    })
+                }
+                .onAppear {
+                    var urls: [URL] = []
+                    PicResource.imagesDownloadList.forEach { single in
+                        urls.append(URL(string: "https://api.snapgenshin.com/static/zip/\(single).zip")!)
+                    }
+                    Task.detached {
+                        await viewModel.downloader.startDownload(
+                            urls: urls,
+                            progressHandler: { url, progress in
+                                DispatchQueue.main.async {
+                                    self.fileDownloadState = Float(progress)
+                                    self.filename = url.lastPathComponent
+                                }
+                            },
+                            completion: { result in
+                                switch result {
+                                case .success(_):
+                                    DispatchQueue.main.async {
+                                        self.viewModel.uiState.showImageSheet = false
+                                        self.viewModel.checkImageResources()
+                                    }
+                                case .failure(let failure):
+                                    DispatchQueue.main.async {
+                                        self.viewModel.uiState.showImageSheet = false
+                                        self.viewModel.uiState.alertMate.showAlert(msg: "下载失败：\(failure.localizedDescription)", type: .Error)
+                                    }
+                                }
+                            }
+                        )
+                    }
+                }
+            })
         }
     }
     
