@@ -12,12 +12,15 @@ struct GachaBulletin: View {
     let goldenCharacter: [GachaItem] // 5星物品表
     let gachaTitle: String
     let gachaHistory: GachaEvent
+    let showUp: Bool
     
     @State private var showDetail: Bool = true
+    @State private var fiveStars: [FiveStarAnalysis] = []
     
-    init(specificData: [GachaItem], gachaTitle: String, event: GachaEvent) {
+    init(specificData: [GachaItem], gachaTitle: String, event: GachaEvent, showUp: Bool = false) {
         self.specificData = specificData
         self.gachaHistory = event
+        self.showUp = showUp
         self.goldenCharacter = specificData.filter { $0.rankType == "5" }.sorted(by: { Int($0.id)! < Int($1.id)! })
         self.gachaTitle = gachaTitle
     }
@@ -44,7 +47,7 @@ struct GachaBulletin: View {
             )
             ScrollView(showsIndicators: false) {
                 LazyVStack {
-                    ForEach(analyzeFiveStars()) { single in
+                    ForEach(fiveStars) { single in
                         Text("\(single.itemName)在\(single.pullsSinceLastFiveStar)抽时出现，歪：\(!single.isUpItem)")
                             .font(.footnote).foregroundStyle(.secondary)
                     }
@@ -54,6 +57,14 @@ struct GachaBulletin: View {
         .padding(8)
         .background(RoundedRectangle(cornerRadius: 8, style: .continuous).fill(BackgroundStyle()))
         .frame(minWidth: 230, idealWidth: 250)
+        .onAppear {
+            Task {
+                let result = analyzeFiveStars()
+                DispatchQueue.main.async {
+                    self.fiveStars = result
+                }
+            }
+        }
     }
     
     func extractFiveStars() -> [(record: GachaItem, pullsSinceLast: Int)] {

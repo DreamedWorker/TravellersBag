@@ -37,9 +37,9 @@ struct GachaView: View {
                                 .filter({ $0.gachaType == viewModel.collectionGacha }).sorted(by: { Int($0.id)! < Int($1.id)! })
                             let history = viewModel.getGachaEvents()
                             LazyHStack(alignment: .top) {
-                                GachaBulletin(specificData: character, gachaTitle: "gacha.home.avatar", event: history)
+                                GachaBulletin(specificData: character, gachaTitle: "gacha.home.avatar", event: history, showUp: true)
                                     .padding(.vertical, 8).padding(.horizontal, 4)
-                                GachaBulletin(specificData: weapon, gachaTitle: "gacha.home.weapon", event: history)
+                                GachaBulletin(specificData: weapon, gachaTitle: "gacha.home.weapon", event: history, showUp: true)
                                     .padding(.vertical, 8).padding(.trailing, 4)
                                 GachaBulletin(specificData: resident, gachaTitle: "gacha.home.resident", event: history)
                                     .padding(.vertical, 8)
