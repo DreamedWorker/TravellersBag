@@ -96,6 +96,41 @@ struct GachaView: View {
                         label: { Image(systemName: "photo.stack").help("gacha.action.downloadImg") }
                     )
                 }
+                ToolbarItem {
+                    Button(
+                        action: {
+                            Task {
+                                let panel = NSOpenPanel()
+                                panel.canCreateDirectories = true
+                                panel.canChooseFiles = false
+                                panel.canChooseDirectories = true
+                                panel.message = NSLocalizedString("gacha.panel.saveTitle", comment: "")
+                                await panel.begin()
+                                if let url = panel.url {
+                                    do {
+                                        try UIGFStandard.exportGachaRecords(
+                                            account: selectedAccount!.game.genshinUID, targetFolder: url, context: operation
+                                        )
+                                        DispatchQueue.main.async {
+                                            self.viewModel.uiState.alertMate.showAlert(msg: NSLocalizedString("app.done", comment: ""))
+                                        }
+                                    } catch {
+                                        DispatchQueue.main.async {
+                                            self.viewModel.uiState.alertMate.showAlert(
+                                                msg: String.localizedStringWithFormat(
+                                                    NSLocalizedString("gacha.panel.error.export", comment: ""),
+                                                    error.localizedDescription
+                                                ),
+                                                type: .Error
+                                            )
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        label: { Image(systemName: "square.and.arrow.up").help("gacha.action.exportRecords") }
+                    )
+                }
             }
             .sheet(isPresented: $showWaitingSheet, content: { WaitingSheet })
             .alert(

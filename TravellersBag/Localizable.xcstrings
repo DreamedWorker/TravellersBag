@@ -423,6 +423,23 @@
         }
       }
     },
+    "app.done" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Operation done."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "操作完成。"
+          }
+        }
+      }
+    },
     "app.wait.normal" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -620,6 +637,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "下载或更新图像包"
+          }
+        }
+      }
+    },
+    "gacha.action.exportRecords" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Export"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "导出记录"
           }
         }
       }
@@ -1044,6 +1078,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "总抽数"
+          }
+        }
+      }
+    },
+    "gacha.panel.error.export" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Failed to export gacha records, %@"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法导出祈愿记录，%@"
+          }
+        }
+      }
+    },
+    "gacha.panel.saveTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Select a location where you need to export the record."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "选择一个你需要将记录导出到的位置"
           }
         }
       }
