@@ -17,6 +17,9 @@ struct TravellersBagApp: App {
             ContentView()
                 .modelContainer(for: [HoyoAccount.self, GachaItem.self])
         }
+        .commands(content: {
+            CommandGroup(replacing: .newItem) {}
+        })
         Settings {
             SettingsPane()
         }

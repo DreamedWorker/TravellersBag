@@ -76,8 +76,8 @@ struct GachaView: View {
                 }
             }
             .onAppear {
-                selectedAccount = accounts.first!
-                viewModel.queryRecords(accounts.first!, context: operation)
+                selectedAccount = accounts.filter({ $0.activedAccount }).first!
+                viewModel.queryRecords(accounts.filter({ $0.activedAccount }).first!, context: operation)
                 viewModel.checkImageResources()
             }
             .toolbar {
