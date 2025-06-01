@@ -25,6 +25,14 @@ class PicResource {
         let lastOne = imagesDownloadList.last!
         return FileManager.default.fileExists(atPath: imageRoot.appending(component: lastOne).path(percentEncoded: false))
     }
+    
+    static func getRequiredImage(type: String, name: String) -> URL? {
+        let path = imageRoot.appending(components: type).appending(components: name)
+        if FileManager.default.fileExists(atPath: path.path(percentEncoded: false)) {
+            return path
+        }
+        return nil
+    }
 }
 
 extension PicResource {

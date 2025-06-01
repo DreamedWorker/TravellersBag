@@ -963,6 +963,40 @@
         }
       }
     },
+    "gacha.overview.displayByGrid" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Displayed as a grid"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "显示为网格"
+          }
+        }
+      }
+    },
+    "gacha.overview.displayByList" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Displayed as a list"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "显示为列表"
+          }
+        }
+      }
+    },
     "gacha.overview.last_five" : {
       "extractionState" : "manual",
       "localizations" : {

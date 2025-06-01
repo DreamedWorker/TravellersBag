@@ -16,6 +16,7 @@ struct GachaBulletin: View {
     
     @State private var showDetail: Bool = true
     @State private var fiveStars: [FiveStarAnalysis] = []
+    @State private var displayByList: Bool = true
     
     init(specificData: [GachaItem], gachaTitle: String, event: GachaEvent, showUp: Bool = false) {
         self.specificData = specificData
@@ -45,13 +46,42 @@ struct GachaBulletin: View {
                 icon: "4.circle", title: "gacha.overview.last_four",
                 count: (!goldenCharacter.isEmpty) ? String(specificData.count - lastWantedItem(rank: 4)): "\(0)"
             )
-            ScrollView(showsIndicators: false) {
-                LazyVStack {
-                    ForEach(fiveStars) { single in
-                        Text("\(single.itemName)在\(single.pullsSinceLastFiveStar)抽时出现，歪：\(!single.isUpItem)")
-                            .font(.footnote).foregroundStyle(.secondary)
+            if showDetail {
+                HStack {
+                    Spacer()
+                    Button(
+                        action: {
+                            withAnimation(.linear, { displayByList = true })
+                        },
+                        label: { Image(systemName: "list.bullet.rectangle") }
+                    ).help("gacha.overview.displayByList")
+                    Button(
+                        action: {
+                            withAnimation(.linear, { displayByList = false })
+                        },
+                        label: { Image(systemName: "circle.grid.2x2") }
+                    ).help("gacha.overview.displayByGrid")
+                }
+                ScrollView(showsIndicators: false) {
+                    if displayByList {
+                        LazyVStack {
+                            ForEach(fiveStars) { single in
+                                ItemByList(single: single)
+                            }
+                        }
+                    } else {
+                        LazyVGrid(
+                            columns: [.init(.flexible()), .init(.flexible()), .init(.flexible()), .init(.flexible()), .init(.flexible())],
+                            content: {
+                                ForEach(fiveStars) { single in
+                                    ItemByGrid(single: single)
+                                }
+                            }
+                        )
                     }
                 }
+            } else {
+                Spacer()
             }
         }
         .padding(8)
@@ -59,7 +89,7 @@ struct GachaBulletin: View {
         .frame(minWidth: 230, idealWidth: 250)
         .onAppear {
             Task {
-                let result = analyzeFiveStars()
+                let result = analyzeFiveStars().sorted(by: { Int($0.id)! > Int($1.id)! })
                 DispatchQueue.main.async {
                     self.fiveStars = result
                 }
@@ -94,8 +124,11 @@ struct GachaBulletin: View {
             let matchedEvent = matchEvent(for: record, from: gachaHistory)
             // 如果找不到匹配活动，则认为没有歪
             let upItemId = matchedEvent?.upOrangeList.first ?? 10008
-            let isUp = String(upItemId) == StaticHelper.getIdByName(name: record.name)
-            return FiveStarAnalysis(id: record.id, itemName: record.name, pullsSinceLastFiveStar: pullsSinceLast, isUpItem: isUp)
+            let thisItemId = StaticHelper.getIdByName(name: record.name)
+            let isUp = String(upItemId) == thisItemId || upItemId == 10008
+            return FiveStarAnalysis(
+                id: record.id, itemId: thisItemId, itemName: record.name, pullsSinceLastFiveStar: pullsSinceLast, isUpItem: isUp
+            )
         }
     }
     
@@ -106,6 +139,60 @@ struct GachaBulletin: View {
             return (Int(exactly: specificData.lastIndex(where: { $0.rankType == "\(rank)" })!)! + 1)
         } else {
             return 0
+        }
+    }
+}
+
+extension GachaBulletin {
+    struct ItemByList: View {
+        let single: FiveStarAnalysis
+        
+        var body: some View {
+            HStack(spacing: 8) {
+                ZStack {
+                    Image("UI_QUALITY_ORANGE")
+                        .resizable()
+                        .scaledToFill()
+                        .clipShape(RoundedRectangle(cornerRadius: 8))
+                        .frame(width: 36, height: 36)
+                    Image(nsImage: StaticHelper.getIconById(id: single.itemId))
+                        .resizable()
+                        .clipShape(RoundedRectangle(cornerRadius: 8))
+                        .frame(width: 36, height: 36)
+                }
+                Text(single.itemName).bold()
+                Spacer()
+                Text(String.localizedStringWithFormat(
+                    NSLocalizedString("gacha.overview.count", comment: ""),
+                    String(single.pullsSinceLastFiveStar))
+                ).foregroundStyle((single.isUpItem) ? .green : .red)
+            }
+        }
+    }
+    
+    struct ItemByGrid: View {
+        let single: FiveStarAnalysis
+        
+        var body: some View {
+            VStack(spacing: 8) {
+                ZStack {
+                    Image("UI_QUALITY_ORANGE")
+                        .resizable()
+                        .scaledToFill()
+                        .clipShape(RoundedRectangle(cornerRadius: 8))
+                        .frame(width: 36, height: 36)
+                    Image(nsImage: StaticHelper.getIconById(id: single.itemId))
+                        .resizable()
+                        .clipShape(RoundedRectangle(cornerRadius: 8))
+                        .help(single.itemName)
+                        .frame(width: 36, height: 36)
+                }
+                .padding(.bottom, 2)
+                Text(String.localizedStringWithFormat(
+                    NSLocalizedString("gacha.overview.count", comment: ""),
+                    String(single.pullsSinceLastFiveStar))
+                ).foregroundStyle((single.isUpItem) ? .green : .red)
+            }
         }
     }
 }
@@ -130,6 +217,7 @@ extension GachaBulletin {
 extension GachaBulletin {
     struct FiveStarAnalysis: Identifiable {
         let id: String
+        let itemId: String
         let itemName: String
         let pullsSinceLastFiveStar: Int
         let isUpItem: Bool

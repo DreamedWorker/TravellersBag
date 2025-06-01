@@ -5,6 +5,7 @@
 //  Created by Yuan Shine on 2025/6/1.
 //
 
+import AppKit
 import Foundation
 @preconcurrency import SwiftyJSON
 
@@ -22,6 +23,34 @@ class StaticHelper {
             return String(result["Id"].intValue)
         } else {
             return "0"
+        }
+    }
+    
+    static func getIconById(id: String) -> NSImage {
+        if id.count == 5 {
+            if (weapon?.contains(where: { $0["Id"].intValue == Int(id) }) ?? false) {
+                let entry = weapon!.filter({ $0["Id"].intValue == Int(id) }).first!
+                let imgKey = "\(entry["Icon"].stringValue).png"
+                guard let imgPath = PicResource.getRequiredImage(type: "EquipIcon", name: imgKey) else {
+                    return NSImage(systemSymbolName: "questionmark.app.dashed", accessibilityDescription: nil)!
+                }
+                return NSImage(contentsOf: imgPath)!
+            } else {
+                return NSImage(systemSymbolName: "questionmark.app.dashed", accessibilityDescription: nil)!
+            }
+        } else if id.count == 8 {
+            if (avatars?.contains(where: { $0["Id"].intValue == Int(id) }) ?? false) {
+                let entry = avatars!.filter({ $0["Id"].intValue == Int(id) }).first!
+                let imgKey = "\(entry["Icon"].stringValue).png"
+                guard let imgPath = PicResource.getRequiredImage(type: "AvatarIcon", name: imgKey) else {
+                    return NSImage(systemSymbolName: "questionmark.app.dashed", accessibilityDescription: nil)!
+                }
+                return NSImage(contentsOf: imgPath)!
+            } else {
+                return NSImage(systemSymbolName: "questionmark.app.dashed", accessibilityDescription: nil)!
+            }
+        } else {
+            return NSImage(systemSymbolName: "questionmark.app.dashed", accessibilityDescription: nil)!
         }
     }
 }
