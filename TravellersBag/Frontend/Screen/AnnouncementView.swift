@@ -12,6 +12,7 @@ import Kingfisher
 struct AnnouncementView: View {
     @Query private var accounts: [HoyoAccount]
     @StateObject private var viewModel = AnnoViewModel()
+    @State private var selectedURL: AnnoDetailStruct.DetailList.AnnoUnit? = nil
     
     var body: some View {
         NavigationStack {
@@ -31,19 +32,24 @@ struct AnnouncementView: View {
                                 .filter({ $0.typeID == 2 }).first!.list
                             let type3 = type1 + type2
                             ForEach(type3, id: \.annID) { a in
-                                NoticeNormalDetail(a: a) { annId in
-                                    if let details = viewModel.uiState.annoDetail {
-                                        if let content = details.data.list.filter({ $0.annId == annId }).first {
-                                            return content
-                                        }
-                                        return nil
+                                NoticeNormalDetail(a: a)
+                                    .onTapGesture {
+                                        selectedURL = viewModel.getRequiredAnnoDetail(annId: a.annID)
                                     }
-                                    return nil
-                                }
                             }
                         }
                     }
                 }
+                .sheet(item: $selectedURL, content: { con in
+                    AnnoDetailViewer(detail: con)
+                        .toolbar {
+                            ToolbarItem(placement: .cancellationAction, content: {
+                                Button("app.close") {
+                                    selectedURL = nil
+                                }
+                            })
+                        }
+                })
             } else {
                 ContentUnavailableView("app.wait.normal", systemImage: "timer")
                     .onAppear {
@@ -65,73 +71,4 @@ struct AnnouncementView: View {
         .padding(.horizontal)
         .padding(.vertical, 4)
     }
-}
-
-extension AnnouncementView {
-    struct NoticeNormalDetail: View {
-        let a: AnnounceRepo.AnnoStruct.AnnoList
-        let showDetail: (Int) -> AnnoDetailStruct.DetailList.AnnoUnit?
-        @State private var showSheet: Bool = false
-        
-        private func convertDateString(_ input: String) -> String {
-            let inputFormat = "yyyy-MM-dd HH:mm:ss"
-            let outputFormat = "yyyy/MM/dd HH:mm"
-            let dateFormatter = DateFormatter()
-            dateFormatter.locale = Locale(identifier: "en_US_POSIX")
-            dateFormatter.dateFormat = inputFormat
-            guard let date = dateFormatter.date(from: input) else {
-                return input
-            }
-            dateFormatter.dateFormat = outputFormat
-            return dateFormatter.string(from: date)
-        }
-        
-        var body: some View {
-            VStack {
-                KFImage(URL(string: a.banner))
-                    .loadDiskFileSynchronously(true)
-                    .resizable()
-                    .frame(height: 72)
-                Text(a.subtitle).bold()
-                Text(a.title).font(.footnote).foregroundStyle(.secondary)
-                    .padding(.bottom, 4).lineLimit(1).padding(.horizontal, 2)
-                HStack {
-                    Spacer()
-                    Text(a.typeLabel.rawValue).font(.footnote).foregroundStyle(.secondary)
-                }.padding(.horizontal, 2)
-                HStack() {
-                    Label(
-                        String.localizedStringWithFormat(
-                            NSLocalizedString("anno.label.date", comment: ""),
-                            convertDateString(a.startTime),
-                            convertDateString(a.endTime)
-                        ),
-                        systemImage: "calendar"
-                    ).font(.footnote)
-                    Spacer()
-                }.padding(.horizontal, 2).padding(.bottom, 2)
-            }
-            .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
-            .background(RoundedRectangle(cornerRadius: 8, style: .continuous).fill(BackgroundStyle()))
-            .onTapGesture {
-                showSheet = true
-            }
-            .sheet(isPresented: $showSheet, content: {
-                NavigationStack {
-                    AnnoDetailViewer(detail: showDetail(a.annID))
-                }
-                .toolbar {
-                    ToolbarItem(placement: .cancellationAction, content: {
-                        Button("app.close", action: {
-                            showSheet = false
-                        })
-                    })
-                }
-            })
-        }
-    }
-}
-
-#Preview {
-    AnnouncementView()
 }

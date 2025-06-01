@@ -40,6 +40,12 @@ class AnnoViewModel: ObservableObject, @unchecked Sendable {
             uiState.annoDetail = result
         }
     }
+    
+    func getRequiredAnnoDetail(annId: Int) -> AnnoDetailStruct.DetailList.AnnoUnit? {
+        let datalist = uiState.annoDetail?.data
+        let result = datalist?.list.filter({ $0.annId == annId }).first
+        return result
+    }
 }
 
 extension AnnoViewModel {

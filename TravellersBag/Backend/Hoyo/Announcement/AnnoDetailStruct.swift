@@ -75,7 +75,8 @@ extension AnnoDetailStruct {
 }
 
 extension AnnoDetailStruct.DetailList {
-    struct AnnoUnit: Codable {
+    struct AnnoUnit: Codable, Identifiable {
+        let id: String = UUID().uuidString
         let annId: Int
         let title: String
         let subtitle: String
