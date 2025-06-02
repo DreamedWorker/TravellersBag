@@ -30,6 +30,9 @@ struct ContentView: View {
                         NavigationLink(value: StagePart.adopt, label: { Label("content.side.label.adopt", systemImage: "figure.child") })
                         NavigationLink(value: StagePart.sign, label: { Label("content.side.label.sign", systemImage: "calendar") })
                     }
+                    Section("content.side.title.community") {
+                        NavigationLink(value: StagePart.syncService, label: { Label("content.side.label.sync", systemImage: "clock.arrow.2.circlepath") })
+                    }
                 }.frame(minWidth: 180, idealWidth: 210)
             }
         }, detail: {
@@ -49,6 +52,8 @@ struct ContentView: View {
                     AnnouncementView()
                 case .gacha:
                     GachaView().navigationTitle(Text("content.side.label.gacha"))
+                case .syncService:
+                    SyncServiceView().navigationTitle(Text("content.side.label.sync"))
                 }
             }
         })
@@ -73,6 +78,7 @@ struct ContentView: View {
         case sign
         case announcement
         case gacha
+        case syncService
     }
 }
 

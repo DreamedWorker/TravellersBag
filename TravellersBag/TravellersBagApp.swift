@@ -15,7 +15,7 @@ struct TravellersBagApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .modelContainer(for: [HoyoAccount.self, GachaItem.self])
+                .modelContainer(for: [HoyoAccount.self, GachaItem.self, HutaoPassport.self])
         }
         .commands(content: {
             CommandGroup(replacing: .newItem) {}

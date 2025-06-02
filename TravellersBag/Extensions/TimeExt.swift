@@ -38,4 +38,13 @@ extension String {
             return Date.now
         }
     }
+    
+    func dateFromISO2NormalString() -> String {
+        let date = self.dateFromISOFormattedString()
+        let displayFormatter = DateFormatter()
+        displayFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        displayFormatter.timeZone = TimeZone.autoupdatingCurrent
+        let formattedStr = displayFormatter.string(from: date)
+        return formattedStr
+    }
 }

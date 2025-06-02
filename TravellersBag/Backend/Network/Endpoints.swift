@@ -27,6 +27,7 @@ class Endpoints {
     
     // MARK: - Snap.Hutao Apis
     static let HutaoMetadataApi = "hutao-metadata-pages.snapgenshin.cn"
+    static let HomaSnapGenshin = "homa.snapgenshin.com"
 }
 
 extension Endpoints {
