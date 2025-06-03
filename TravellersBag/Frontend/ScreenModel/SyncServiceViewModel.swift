@@ -17,6 +17,15 @@ class SyncServiceViewModel: ObservableObject, @unchecked Sendable {
         operation = model
     }
     
+    func deletePassword4Keychain(account: String) {
+        let query: [String: Any] = [
+            kSecClass as String: kSecClassInternetPassword,
+            kSecAttrAccount as String: account,
+            kSecAttrServer as String: "TravellersBag"
+        ]
+        SecItemDelete(query as CFDictionary)
+    }
+    
     func savePassword2Keychain() {
         let password = uiState.password.data(using: .utf8)!
         

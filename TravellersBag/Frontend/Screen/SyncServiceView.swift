@@ -53,6 +53,18 @@ struct SyncServiceView: View {
                     }
                 }
                 .formStyle(.grouped)
+                .toolbar {
+                    ToolbarItem {
+                        Button(
+                            action: {
+                                viewModel.deletePassword4Keychain(account: account.userName)
+                                operation.delete(account)
+                                try! operation.save()
+                            },
+                            label: { Image(systemName: "clear").help("sync.service.logout") }
+                        )
+                    }
+                }
                 .onAppear {
                     viewModel.initSomething(model: operation)
                     Task {

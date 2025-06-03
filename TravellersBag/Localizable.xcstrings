@@ -1605,6 +1605,23 @@
         }
       }
     },
+    "sync.service.logout" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Log out"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "退出登录"
+          }
+        }
+      }
+    },
     "sync.service.uid" : {
       "extractionState" : "manual",
       "localizations" : {
