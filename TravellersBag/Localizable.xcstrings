@@ -692,6 +692,23 @@
         }
       }
     },
+    "gacha.action.import" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Import"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "导入祈愿记录"
+          }
+        }
+      }
+    },
     "gacha.action.sync" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1133,6 +1150,23 @@
         }
       }
     },
+    "gacha.panel.importTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choose a UIGF4.0 standard record file"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "选择一个UIGF4.0标准的记录文件"
+          }
+        }
+      }
+    },
     "gacha.panel.saveTitle" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1146,6 +1180,108 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "选择一个你需要将记录导出到的位置"
+          }
+        }
+      }
+    },
+    "gacha.uigf.app" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "App name"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "导出软件名称"
+          }
+        }
+      }
+    },
+    "gacha.uigf.confirm" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Import this"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "导入此项"
+          }
+        }
+      }
+    },
+    "gacha.uigf.error.import" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unable to import gacha record, %@"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法导入祈愿数据，%@"
+          }
+        }
+      }
+    },
+    "gacha.uigf.info.import" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Import records successfully. This time, a total of %@ records were imported for %@."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "导入数据成功。本次共为%@导入了%@条记录。"
+          }
+        }
+      }
+    },
+    "gacha.uigf.time" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Export date"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "导出时间"
+          }
+        }
+      }
+    },
+    "gacha.uigf.version" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "App version"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "导出软件版本号"
           }
         }
       }

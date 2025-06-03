@@ -17,6 +17,8 @@ struct GachaView: View {
     @State private var showWaitingSheet: Bool = false
     @State private var fileDownloadState: Float = 0
     @State private var filename: String = ""
+    @State private var selectedFile: UIGFStandard.UIGF4Inner? = nil
+    @State private var showImportDialog: Bool = false
     
     var body: some View {
         if accounts.isEmpty {
@@ -100,6 +102,22 @@ struct GachaView: View {
                     Button(
                         action: {
                             Task {
+                                let result = await UIGFStandard.readImputRecords()
+                                DispatchQueue.main.async {
+                                    self.selectedFile = result
+                                    if result != nil {
+                                        self.showImportDialog = true
+                                    }
+                                }
+                            }
+                        },
+                        label: { Image(systemName: "square.and.arrow.down").help("gacha.action.import") }
+                    )
+                }
+                ToolbarItem {
+                    Button(
+                        action: {
+                            Task {
                                 let panel = NSOpenPanel()
                                 panel.canCreateDirectories = true
                                 panel.canChooseFiles = false
@@ -133,6 +151,55 @@ struct GachaView: View {
                 }
             }
             .sheet(isPresented: $showWaitingSheet, content: { WaitingSheet })
+            .sheet(item: $selectedFile) { con in
+                NavigationStack {
+                    let appInfo = con.context.info
+                    Text("gacha.action.import").font(.title.bold()).padding(.bottom, 8)
+                    HStack {
+                        Label("gacha.uigf.app", systemImage: "apple.terminal")
+                        Spacer()
+                        Text(appInfo.export_app).foregroundStyle(.secondary)
+                    }
+                    .padding(.bottom, 2)
+                    HStack {
+                        Label("gacha.uigf.version", systemImage: "textformat.123")
+                        Spacer()
+                        Text(appInfo.export_app_version).foregroundStyle(.secondary)
+                    }
+                    .padding(.bottom, 2)
+                    HStack {
+                        Label("gacha.uigf.time", systemImage: "clock.arrow.circlepath")
+                        Spacer()
+                        Text(appInfo.export_timestamp.formatTimestamp()).foregroundStyle(.secondary)
+                    }
+                    .padding(.bottom)
+                    ForEach(con.context.hk4e, id: \.uid) { single in
+                        HStack {
+                            Label(
+                                String.localizedStringWithFormat(NSLocalizedString("sync.service.uid", comment: ""), single.uid),
+                                systemImage: "list.bullet.clipboard.fill"
+                            )
+                            Text(String.localizedStringWithFormat(
+                                NSLocalizedString("sync.service.uidCount", comment: ""),
+                                String(single.list.count)
+                            )).foregroundStyle(.secondary)
+                            Spacer()
+                            Button("gacha.uigf.confirm", action: {
+                                selectedFile = nil
+                                viewModel.importRecordFromUIGF(single: single, operation: operation)
+                            })
+                        }
+                    }
+                }
+                .padding()
+                .toolbar {
+                    ToolbarItem(placement: .cancellationAction, content: {
+                        Button("app.close") {
+                            selectedFile = nil
+                        }
+                    })
+                }
+            }
             .alert(
                 viewModel.uiState.alertMate.title,
                 isPresented: $viewModel.uiState.alertMate.showIt,

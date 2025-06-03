@@ -123,6 +123,45 @@ class GachaViewModel: ObservableObject, @unchecked Sendable {
             }
         }
     }
+    
+    func importRecordFromUIGF(single: UIGFStandard.UIGF4.Hk4eGame, operation: ModelContext) {
+        do {
+            let localRecords = uiState.gachaRecords
+            let remoteRecords = single.list
+            var count = 0
+            for record in remoteRecords {
+                if localRecords.contains(where: { $0.id == record.id} ) {
+                    continue
+                }
+                let name = StaticHelper.getNameById(id: record.item_id)
+                if name == "?" {
+                    continue
+                }
+                let rank = StaticHelper.getItemRank(key: record.item_id)
+                if rank == "0" {
+                    continue
+                }
+                let neo = GachaItem(
+                    uid: single.uid, id: record.id, name: name, time: record.time, rankType: rank,
+                    itemType: (record.item_id.count == 5) ? "武器" : "角色", gachaType: record.gacha_type
+                )
+                operation.insert(neo)
+                count += 1
+            }
+            try operation.save()
+            uiState.alertMate.showAlert(
+                msg: String.localizedStringWithFormat(NSLocalizedString("gacha.uigf.info.import", comment: ""), single.uid, String(count))
+            )
+        } catch {
+            uiState.alertMate.showAlert(
+                msg: String.localizedStringWithFormat(
+                    NSLocalizedString("gacha.uigf.error.import", comment: ""),
+                    error.localizedDescription
+                ),
+                type: .Error
+            )
+        }
+    }
 }
 
 extension GachaViewModel {

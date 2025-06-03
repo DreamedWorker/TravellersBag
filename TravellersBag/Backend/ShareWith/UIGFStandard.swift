@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftData
+import AppKit
 
 class UIGFStandard {
     static func exportGachaRecords(account: String, targetFolder: URL, context: ModelContext) throws {
@@ -30,6 +31,34 @@ class UIGFStandard {
         let result = UIGF4(info: fileHead, hk4e: [UIGF4.Hk4eGame(uid: account, list: formattedRecords)])
         let file = targetFolder.appending(component: "GachaRecords_\(account)_\(currentTime.timeIntervalSince1970).json")
         try FileManager.default.createFile(atPath: file.path(percentEncoded: false), contents: JSONEncoder().encode(result))
+    }
+    
+    @MainActor static func readImputRecords() async -> UIGF4Inner? {
+        do {
+            let panel = NSOpenPanel()
+            panel.canChooseDirectories = false
+            panel.allowsMultipleSelection = false
+            panel.canChooseFiles = true
+            panel.message = NSLocalizedString("gacha.panel.importTitle", comment: "")
+            await panel.begin()
+            if let url = panel.url {
+                let structure = try JSONDecoder().decode(UIGF4.self, from: Data(contentsOf: url))
+                return UIGF4Inner(
+                    context: structure
+                )
+            } else {
+                return nil
+            }
+        } catch {
+            return nil
+        }
+    }
+}
+
+extension UIGFStandard {
+    struct UIGF4Inner: Codable, Identifiable {
+        var id: String = UUID().uuidString
+        var context: UIGF4
     }
 }
 

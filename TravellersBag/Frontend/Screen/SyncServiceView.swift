@@ -148,12 +148,20 @@ extension SyncServiceView {
                                         if records.contains(where: { $0.id == String(singleCloudRecord.id) }) {
                                             continue
                                         }
+                                        let name = StaticHelper.getNameById(id: String(singleCloudRecord.itemID))
+                                        if name == "?" {
+                                            continue
+                                        }
+                                        let rank = StaticHelper.getItemRank(key: String(singleCloudRecord.itemID))
+                                        if rank == "0" {
+                                            continue
+                                        }
                                         let item = GachaItem(
                                             uid: thisUID,
                                             id: String(singleCloudRecord.id),
-                                            name: StaticHelper.getNameById(id: String(singleCloudRecord.itemID)),
+                                            name: name,
                                             time: singleCloudRecord.time.dateFromISO2NormalString(),
-                                            rankType: StaticHelper.getItemRank(key: String(singleCloudRecord.itemID)),
+                                            rankType: rank,
                                             itemType: (String(singleCloudRecord.itemID).count == 5) ? "武器" : "角色",
                                             gachaType: String(singleCloudRecord.gachaType)
                                         )
