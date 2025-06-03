@@ -123,9 +123,9 @@ struct GachaBulletin: View {
         return extractFiveStars().map { (record: GachaItem, pullsSinceLast: Int) in
             let matchedEvent = matchEvent(for: record, from: gachaHistory)
             // 如果找不到匹配活动，则认为没有歪
-            let upItemId = matchedEvent?.upOrangeList.first ?? 10008
+            let upItemId = matchedEvent?.upOrangeList ?? [10008]
             let thisItemId = StaticHelper.getIdByName(name: record.name)
-            let isUp = String(upItemId) == thisItemId || upItemId == 10008
+            let isUp = upItemId.contains(where: { $0 == Int(thisItemId)! }) || upItemId.first! == 10008
             return FiveStarAnalysis(
                 id: record.id, itemId: thisItemId, itemName: record.name, pullsSinceLastFiveStar: pullsSinceLast, isUpItem: isUp
             )
