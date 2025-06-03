@@ -7,6 +7,7 @@
 
 import SwiftUI
 import SwiftData
+import SwiftyJSON
 
 struct SyncServiceView: View {
     @Environment(\.modelContext) private var operation
@@ -48,6 +49,7 @@ struct SyncServiceView: View {
                                 viewModel.uiState.alertMate.showAlert(msg: info)
                             }
                         }
+                        Text("sync.service.errorTip").font(.footnote).foregroundStyle(.secondary)
                     }
                 }
                 .formStyle(.grouped)
@@ -95,6 +97,31 @@ extension SyncServiceView {
                 }
                 HStack(spacing: 8) {
                     Spacer()
+                    Button(
+                        action: {
+                            Task {
+                                do {
+                                    let thisUID = entry.uid
+                                    var delete = RequestBuilder.buildRequest(method: .GET, host: Endpoints.HomaSnapGenshin, path: "/GachaLog/Delete", queryItems: [.init(name: "Uid", value: thisUID)])
+                                    delete.setValue("Bearer \(account.auth)", forHTTPHeaderField: "Authorization")
+                                    let (result, _) = try await URLSession.shared.data(for: delete)
+                                    let response = try JSON(data: result)
+                                    DispatchQueue.main.async {
+                                        sendMsg(response["message"].stringValue)
+                                    }
+                                } catch {
+                                    DispatchQueue.main.async {
+                                        sendMsg(String.localizedStringWithFormat(
+                                            NSLocalizedString("sync.service.error.delete", comment: ""), error.localizedDescription)
+                                        )
+                                    }
+                                }
+                            }
+                        },
+                        label: {
+                            Text("sync.service.action.delete").foregroundStyle(.red)
+                        }
+                    )
                     Button("sync.service.action.download") {
                         let thisUID = entry.uid
                         let records = try! operation.fetch(
@@ -139,14 +166,24 @@ extension SyncServiceView {
                     }
                     Button("sync.service.action.upload") {
                         let thisUID = entry.uid
-                        let records = try! operation.fetch(
-                            FetchDescriptor(predicate: #Predicate<GachaItem>{ $0.uid == thisUID })
-                        )
-                        for i in records {
-                            operation.delete(i)
+                        let auth = account.auth
+                        Task {
+                            do {
+                                let records = try! operation.fetch(
+                                    FetchDescriptor(predicate: #Predicate<GachaItem>{ $0.uid == thisUID })
+                                )
+                                let msg = try await HutaoService.uploadRecords(records: records, auth: auth, uid: thisUID)
+                                DispatchQueue.main.async {
+                                    sendMsg(msg)
+                                }
+                            } catch {
+                                DispatchQueue.main.async {
+                                    sendMsg(String.localizedStringWithFormat(
+                                        NSLocalizedString("sync.service.error.upload", comment: ""), error.localizedDescription)
+                                    )
+                                }
+                            }
                         }
-                        try! operation.save()
-                        //print(records.first!.id)
                     }
                 }
             }

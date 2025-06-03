@@ -47,4 +47,15 @@ extension String {
         let formattedStr = displayFormatter.string(from: date)
         return formattedStr
     }
+    
+    func dateFromNormal2ISO8601() -> String {
+        let date = self.dateFromFormattedString()
+//        let format = DateFormatter()
+//        format.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'+00:00'"
+//        return format.string(from: date)
+        let isoFormatter = ISO8601DateFormatter()
+        isoFormatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
+        isoFormatter.timeZone = TimeZone(secondsFromGMT: 8)
+        return isoFormatter.string(from: date)
+    }
 }

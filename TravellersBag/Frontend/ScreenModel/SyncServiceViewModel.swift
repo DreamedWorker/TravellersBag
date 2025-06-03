@@ -94,11 +94,9 @@ class SyncServiceViewModel: ObservableObject, @unchecked Sendable {
                 if let password = password {
                     let auth = try await HutaoService.tryLogin(username: username, password: password)
                     DispatchQueue.main.async {
-                        //                        account = auth
-                        //                        try! self.operation.save()
                         refresh(auth)
                     }
-                    let result = try await HutaoService.fetchGachaEntries(auth: account.auth)
+                    let result = try await HutaoService.fetchGachaEntries(auth: auth)
                     DispatchQueue.main.async {
                         self.uiState.gachaEntries.removeAll()
                         self.uiState.gachaEntries.append(contentsOf: result.data)

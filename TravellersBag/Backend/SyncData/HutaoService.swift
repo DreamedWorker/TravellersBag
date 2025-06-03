@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftyJSON
 
 // MARK: - 登录部分
 class HutaoService {
@@ -170,6 +171,88 @@ extension HutaoService {
             return result
         }
     }
+    
+    @MainActor static func uploadRecords(
+        records: [GachaItem],
+        auth: String,
+        uid: String
+    ) async throws -> String {
+        var uploadCounts = 0
+        var confirmedList: [GachaCloudRecord.Datum] = []
+        
+        func dealList(list: [GachaItem]){
+            for singleLocalRecord in list {
+                let itemGameId = StaticHelper.getIdByName(name: singleLocalRecord.name)
+                if itemGameId == "0" {
+                    continue
+                }
+                confirmedList.append(
+                    .init(
+                        gachaType: Int(singleLocalRecord.gachaType)!,
+                        queryType: (singleLocalRecord.gachaType == "400") ? 301 : Int(singleLocalRecord.gachaType)!,
+                        itemID: Int(itemGameId)!,
+                        time: singleLocalRecord.time.dateFromNormal2ISO8601(),
+                        id: Int(singleLocalRecord.id)!
+                    )
+                )
+                uploadCounts += 1
+            }
+        }
+        
+        let uploadLimited = try await HutaoService.getEndIds(auth: auth, uid: uid)
+        let beginner = records.filter({ $0.gachaType == "100"}).sorted(by: { Int($0.id)! < Int($1.id)! })
+        let character = records.filter({ $0.gachaType == "301" || $0.gachaType == "400" }).sorted(by: { Int($0.id)! < Int($1.id)! })
+        let weapon = records.filter({ $0.gachaType == "302" }).sorted(by: { Int($0.id)! < Int($1.id)! })
+        let resident = records.filter({ $0.gachaType == "200" }).sorted(by: { Int($0.id)! < Int($1.id)! })
+        let collection = records.filter({ $0.gachaType == "500" }).sorted(by: { Int($0.id)! < Int($1.id)! })
+        
+        if !beginner.isEmpty {
+            if uploadLimited.data["100"]! <= Int(beginner.last!.id)! {
+                dealList(list: beginner.filter({ Int($0.id)! > uploadLimited.data["100"]! }))
+            }
+        }
+        if !character.isEmpty {
+            if uploadLimited.data["301"]! <= Int(character.last!.id)! {
+                dealList(list: character.filter({ Int($0.id)! > uploadLimited.data["301"]! }))
+            }
+        }
+        if !weapon.isEmpty {
+            if uploadLimited.data["302"]! <= Int(weapon.last!.id)! {
+                dealList(list: weapon.filter({ Int($0.id)! > uploadLimited.data["302"]! }))
+            }
+        }
+        if !resident.isEmpty {
+            if uploadLimited.data["200"]! <= Int(resident.last!.id)! {
+                dealList(list: resident.filter({ Int($0.id)! > uploadLimited.data["200"]! }))
+            }
+        }
+        if !collection.isEmpty {
+            if uploadLimited.data["500"]! <= Int(collection.last!.id)! {
+                dealList(list: collection.filter({ Int($0.id)! > uploadLimited.data["500"]! }))
+            }
+        }
+        
+        let requestBody = HutaoService.UploadBody(uid: uid, item: confirmedList)
+        let data = try JSONEncoder().encode(requestBody)
+        var uploadRequest = RequestBuilder.buildRequest(
+            method: .POST, host: Endpoints.HomaSnapGenshin, path: "/GachaLog/Upload", queryItems: [],
+            body: data
+        )
+        uploadRequest.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
+        uploadRequest.setValue("Bearer \(auth)", forHTTPHeaderField: "Authorization")
+        uploadRequest.setValue("\(data.count)", forHTTPHeaderField: "Content-Length")
+        let (result, _) = try await URLSession(configuration: .ephemeral).data(for: uploadRequest)
+        let response = try JSON(data: result)
+        if response["retcode"].intValue == 0 {
+            return String.localizedStringWithFormat(
+                NSLocalizedString("sync.service.info.upload", comment: ""), String(uploadCounts))
+        } else {
+            throw NSError(
+                domain: "SyncService", code: -10,
+                userInfo: [NSLocalizedDescriptionKey: "Failed to upload records, \(response["message"].stringValue)"]
+            )
+        }
+    }
 }
 
 extension HutaoService {
@@ -197,7 +280,7 @@ extension HutaoService.HutaoGachaEntry {
 
 extension HutaoService {
     struct GachaEndIDS: Codable {
-        let data: [String: Double]
+        let data: [String: Int]
         let retcode: Int
         let message: String
     }
@@ -223,6 +306,18 @@ extension HutaoService.GachaCloudRecord {
             case itemID = "ItemId"
             case time = "Time"
             case id = "Id"
+        }
+    }
+}
+
+extension HutaoService {
+    struct UploadBody: Codable {
+        let uid: String
+        let item: [GachaCloudRecord.Datum]
+        
+        enum CodingKeys: String, CodingKey {
+            case uid = "Uid"
+            case item = "Items"
         }
     }
 }

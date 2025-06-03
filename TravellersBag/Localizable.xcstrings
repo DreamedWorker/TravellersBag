@@ -1418,6 +1418,23 @@
         }
       }
     },
+    "sync.service.action.delete" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Delete"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "删除云端记录"
+          }
+        }
+      }
+    },
     "sync.service.action.download" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1469,6 +1486,23 @@
         }
       }
     },
+    "sync.service.error.delete" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Failed to delete the gacha record, %@"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "祈愿记录删除失败，%@"
+          }
+        }
+      }
+    },
     "sync.service.error.recordDownload" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1482,6 +1516,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "我们无法从云端同步记录到本地，%@"
+          }
+        }
+      }
+    },
+    "sync.service.error.upload" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The upload of the gacha record failed, %@"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "祈愿记录上传失败，%@"
+          }
+        }
+      }
+    },
+    "sync.service.errorTip" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "If the upload record fails, you can download the data locally first, then delete the cloud record data and upload it again."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "如果上传记录失败，可以先将数据下载到本地，然后删除云端记录数据后重新上传。"
           }
         }
       }
@@ -1516,6 +1584,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "我们已为%@从云端同步了%@条祈愿记录到本地。"
+          }
+        }
+      }
+    },
+    "sync.service.info.upload" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The gacha records have been uploaded, and a total of %@ records have been uploaded to the cloud difference this time."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "祈愿数据上传完毕，本次共向云端差异上传了%@条记录。"
           }
         }
       }
