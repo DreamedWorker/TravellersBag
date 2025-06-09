@@ -94,6 +94,16 @@ class AchieveViewModel: ObservableObject {
         uiState.records = record
     }
     
+    func changeArch(name: String, operation: ModelContext) {
+        let record = try? operation.fetch(FetchDescriptor(predicate: #Predicate<AchieveItem> { $0.archiveName == name }))
+        if let confirmedRecord = record {
+            if !confirmedRecord.isEmpty {
+                uiState.records = confirmedRecord
+                uiState.archName = name
+            }
+        }
+    }
+    
     @MainActor func exportRecords() async {
         let panel = NSOpenPanel()
         panel.canChooseFiles = false

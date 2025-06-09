@@ -11,10 +11,12 @@ import SwiftData
 struct AchievementView: View {
     @Environment(\.modelContext) private var operation
     @StateObject private var viewModel = AchieveViewModel()
+    @Query private var arches: [AchieveArchive]
     @State private var showAddSheet: Bool = false
     @State private var archNameInput: String = ""
     @State private var selectedGroup: AchievementGroupElement? = nil
     @State private var showSearch: Bool = false
+    @State private var showOthers: Bool = false
     
     var body: some View {
         NavigationStack {
@@ -41,44 +43,7 @@ struct AchievementView: View {
                         LazyVStack {
                             if let selected = selectedGroup {
                                 ForEach(viewModel.uiState.records.filter({ $0.goal == selected.id })) { item in
-                                    HStack {
-                                        Toggle(isOn: .constant(item.finished), label: {})
-                                            .toggleStyle(.checkbox)
-                                            .controlSize(.large)
-                                        VStack(alignment: .leading) {
-                                            Text(item.title)
-                                            Text(item.des).foregroundStyle(.secondary).font(.footnote)
-                                        }
-                                        Spacer()
-                                        if item.finished {
-                                            Text(item.timestamp.formatTimestamp()).font(.callout)
-                                        }
-                                        ZStack {
-                                            Image("UI_QUALITY_ORANGE").resizable().frame(width: 36, height: 36)
-                                            Image("原石").resizable().frame(width: 36, height: 36)
-                                            VStack {
-                                                Spacer()
-                                                HStack {
-                                                    Spacer()
-                                                    Text(String(item.reward)).foregroundStyle(.white).font(.footnote)
-                                                    Spacer()
-                                                }.background(.gray.opacity(0.6))
-                                            }
-                                        }
-                                        .frame(width: 36, height: 36)
-                                        .clipShape(RoundedRectangle(cornerRadius: 8))
-                                        Button(
-                                            action: {
-                                                item.finished = !item.finished
-                                                item.timestamp = Int(Date().timeIntervalSince1970)
-                                                try! operation.save()
-                                            },
-                                            label: { Image(systemName: (item.finished) ? "xmark" : "checkmark") }
-                                        )
-                                    }
-                                    .padding(.horizontal, 4)
-                                    .padding(.vertical, 4)
-                                    .background(RoundedRectangle(cornerRadius: 8, style: .continuous).fill(.background))
+                                    AchieveItemEntry(item: item, operation: operation)
                                 }
                             }
                         }
@@ -118,9 +83,38 @@ struct AchievementView: View {
                 })
             }
         })
+        .sheet(isPresented: $showOthers, content: {
+            NavigationStack {
+                Text("achieve.arches.title").font(.title.bold())
+                List {
+                    ForEach(arches) { arch in
+                        HStack {
+                            Label(arch.archName, systemImage: "list.bullet.clipboard")
+                            Spacer()
+                            Button("achieve.arches.use") {
+                                viewModel.changeArch(name: arch.archName, operation: operation)
+                                showOthers = false
+                            }
+                        }
+                    }
+                }
+                .frame(height: 200)
+            }
+            .padding()
+            .toolbar {
+                ToolbarItem {
+                    Button("app.cancel") {
+                        showOthers = false
+                    }
+                }
+            }
+        })
         .toolbar {
             ToolbarItem {
                 Button(action: { showAddSheet = true }, label: { Image(systemName: "plus") })
+            }
+            ToolbarItem {
+                Button(action: { showOthers = true }, label: { Image(systemName: "list.bullet.clipboard") })
             }
             ToolbarItem {
                 Button(
