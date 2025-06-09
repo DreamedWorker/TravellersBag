@@ -1,6 +1,16 @@
 {
   "sourceLanguage" : "zh-Hans",
   "strings" : {
+    "%lld/%lld - %lld%%" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$lld/%2$lld - %3$lld%%"
+          }
+        }
+      }
+    },
     "account.action.checkAccessible" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -304,6 +314,113 @@
         }
       }
     },
+    "achieve.add.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "档案名称"
+          }
+        }
+      }
+    },
+    "achieve.add.tip" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "档案名称不应当以特殊字符或数字开头。"
+          }
+        }
+      }
+    },
+    "achieve.add.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "新增成就档案"
+          }
+        }
+      }
+    },
+    "achieve.error.loadArch" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法加载成就档案，%@"
+          }
+        }
+      }
+    },
+    "achieve.lackArchs" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "暂无本地成就"
+          }
+        }
+      }
+    },
+    "achieve.lackArchs.exp" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请先创建一个成就记录档案后再继续。"
+          }
+        }
+      }
+    },
+    "achieve.lackFiles" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "缺失必要的资源文件！"
+          }
+        }
+      }
+    },
+    "achieve.search.clear" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "清空"
+          }
+        }
+      }
+    },
+    "achieve.search.do" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "搜索"
+          }
+        }
+      }
+    },
+    "achieve.search.type" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "输入名称或简介"
+          }
+        }
+      }
+    },
     "anno.action.visit" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -423,6 +540,16 @@
         }
       }
     },
+    "app.confirm" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "确定"
+          }
+        }
+      }
+    },
     "app.done" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -453,6 +580,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "请等待加载完成"
+          }
+        }
+      }
+    },
+    "content.side.label.achieve" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "成就档案"
           }
         }
       }

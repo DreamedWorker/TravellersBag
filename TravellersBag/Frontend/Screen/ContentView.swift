@@ -21,6 +21,7 @@ struct ContentView: View {
                     AccountCapsule(des: .account, account: defAccount.first)
                     Section("content.side.title.general") {
                         NavigationLink(value: StagePart.announcement, label: { Label("content.side.label.anno", systemImage: "bell.badge") })
+                        NavigationLink(value: StagePart.achieve, label: { Label("content.side.label.achieve", systemImage: "flag.checkered.2.crossed") })
                     }
                     Section("content.side.title.feature") {
                         NavigationLink(value: StagePart.gacha, label: { Label("content.side.label.gacha", systemImage: "app.gift") })
@@ -54,6 +55,8 @@ struct ContentView: View {
                     GachaView().navigationTitle(Text("content.side.label.gacha"))
                 case .syncService:
                     SyncServiceView().navigationTitle(Text("content.side.label.sync"))
+                case .achieve:
+                    AchievementView().navigationTitle(Text("content.side.label.achieve"))
                 }
             }
         })
@@ -79,6 +82,7 @@ struct ContentView: View {
         case announcement
         case gacha
         case syncService
+        case achieve
     }
 }
 
