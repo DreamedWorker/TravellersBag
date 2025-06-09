@@ -18,8 +18,7 @@ struct AchieveGroupEntry: View {
                 .frame(width: 36, height: 36)
             VStack(alignment: .leading, content: {
                 Text(entry.name).bold()
-                let progress = Double((Double(summary.completed) / Double(summary.total)) * 100)
-                Text("\(summary.completed)/\(summary.total) - \(Int(progress))%")
+                Text("\(summary.completed)/\(summary.total)")
                     .font(.footnote).foregroundStyle(.secondary)
             })
         }

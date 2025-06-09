@@ -40,8 +40,7 @@ struct AchievementView: View {
                     ScrollView(showsIndicators: false) {
                         LazyVStack {
                             if let selected = selectedGroup {
-                                let items = viewModel.uiState.records.filter({ $0.goal == selected.id })
-                                ForEach(items) { item in
+                                ForEach(viewModel.uiState.records.filter({ $0.goal == selected.id })) { item in
                                     HStack {
                                         Toggle(isOn: .constant(item.finished), label: {})
                                             .toggleStyle(.checkbox)
@@ -88,6 +87,7 @@ struct AchievementView: View {
                 }
             }
         }
+        .alert(viewModel.uiState.mate.title, isPresented: $viewModel.uiState.mate.showIt, actions: {}, message: { Text(viewModel.uiState.mate.msg) })
         .sheet(isPresented: $showAddSheet, content: {
             NavigationStack {
                 Text("achieve.add.title").font(.title.bold()).padding(.bottom)
@@ -123,11 +123,31 @@ struct AchievementView: View {
                 Button(action: { showAddSheet = true }, label: { Image(systemName: "plus") })
             }
             ToolbarItem {
-                HStack {
-                    if showSearch {
-                        SearchBar(searchEvt: { it in}, clearResultEvt: {})
-                    } else {
-                        Button(action: { showSearch = true }, label: { Image(systemName: "magnifyingglass") })
+                Button(
+                    action: {
+                        Task {
+                            await viewModel.exportRecords()
+                        }
+                    },
+                    label: { Image(systemName: "square.and.arrow.up") }
+                )
+            }
+            if selectedGroup != nil {
+                ToolbarItem {
+                    HStack {
+                        if showSearch {
+                            SearchBar(
+                                searchEvt: { it in
+                                    viewModel.doSearch(words: it)
+                                },
+                                clearResultEvt: {
+                                    viewModel.remake(operation: operation)
+                                    showSearch = false
+                                }
+                            )
+                        } else {
+                            Button(action: { showSearch = true }, label: { Image(systemName: "magnifyingglass") })
+                        }
                     }
                 }
             }

@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftData
+import AppKit
 
 class AchieveViewModel: ObservableObject {
     @Published var uiState: AchievementUiState = .init()
@@ -35,6 +36,7 @@ class AchieveViewModel: ObservableObject {
         try operation.save()
         let record = try operation.fetch(FetchDescriptor(predicate: #Predicate<AchieveItem> { $0.archiveName == name }))
         uiState.records = record
+        uiState.archName = name
         uiState.showLogic = .fine
     }
     
@@ -48,6 +50,7 @@ class AchieveViewModel: ObservableObject {
                     let archName = archives.first!.archName
                     let record = try operation.fetch(FetchDescriptor(predicate: #Predicate<AchieveItem> { $0.archiveName == archName }))
                     uiState.records = record
+                    uiState.archName = archName
                     uiState.showLogic = .fine
                 } catch {
                     uiState.mate.showAlert(
@@ -78,6 +81,45 @@ class AchieveViewModel: ObservableObject {
         }
         return (total, completed)
     }
+    
+    func doSearch(words: String) {
+        var tempList = uiState.records
+        tempList = tempList.filter({ $0.des.contains(words) || $0.title.contains(words) })
+        uiState.records = tempList
+    }
+    
+    func remake(operation: ModelContext) {
+        let name = uiState.archName
+        let record = try! operation.fetch(FetchDescriptor(predicate: #Predicate<AchieveItem> { $0.archiveName == name }))
+        uiState.records = record
+    }
+    
+    @MainActor func exportRecords() async {
+        let panel = NSOpenPanel()
+        panel.canChooseFiles = false
+        panel.canChooseDirectories = true
+        panel.canCreateDirectories = true
+        panel.allowsMultipleSelection = false
+        panel.message = NSLocalizedString("gacha.panel.saveTitle", comment: "")
+        await panel.begin()
+        if let path = panel.url {
+            do {
+               try UIAFStandard.exportAchievementRecords(records: uiState.records, selectedPath: path, name: uiState.archName)
+                DispatchQueue.main.async {
+                    self.uiState.mate.showAlert(msg: NSLocalizedString("app.done", comment: ""))
+                }
+            } catch {
+                DispatchQueue.main.async {
+                    self.uiState.mate.showAlert(
+                        msg: String.localizedStringWithFormat(
+                            NSLocalizedString("achieve.error.export", comment: ""), error.localizedDescription
+                        ),
+                        type: .Error
+                    )
+                }
+            }
+        }
+    }
 }
 
 extension AchieveViewModel {
@@ -86,6 +128,7 @@ extension AchieveViewModel {
         var records: [AchieveItem] = []
         var achievementGroup: AchievementGroup = .init()
         var mate: AlertMate = .init()
+        var archName: String = ""
         
         enum UiPart {
             case waiting
