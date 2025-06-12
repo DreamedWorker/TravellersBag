@@ -91,7 +91,7 @@ class HoyoAccountHelper {
     }
     
     // 返回账号的stoken 同时还包含了mid
-    private static func fetchUserSToken(uid: String, token: String) async throws -> STokenRelated {
+    static func fetchUserSToken(uid: String, token: String) async throws -> STokenRelated {
         let stokenRequest = RequestBuilder.buildRequest(
             method: .POST, host: Endpoints.ApiTakumi, path: "/account/ma-cn-session/app/getTokenByGameToken", queryItems: [],
             body: try JSONSerialization.data(withJSONObject: ["account_id": Int(uid)!, "game_token": token]),
@@ -106,7 +106,7 @@ class HoyoAccountHelper {
     }
     
     // 返回账号的cookie token
-    private static func fetchCookieToken(uid: String, token: String) async throws -> CookieTokenRelated {
+    static func fetchCookieToken(uid: String, token: String) async throws -> CookieTokenRelated {
         let cookieTokenRequest = RequestBuilder.buildRequest(
             method: .GET, host: Endpoints.ApiTakumi, path: "/auth/api/getCookieAccountInfoByGameToken",
             queryItems: [.init(name: "account_id", value: uid), .init(name: "game_token", value: token)]
@@ -214,13 +214,13 @@ extension HoyoAccountHelper {
 }
 
 extension HoyoAccountHelper {
-    private struct STokenRelated: Codable {
+    struct STokenRelated: Codable {
         let retcode: Int
         let message: String
         let data: STokenData
     }
     
-    private struct STokenData: Codable {
+    struct STokenData: Codable {
         let token: SToken
         let userInfo: UserInfo
         let needRealperson: Bool
@@ -232,7 +232,7 @@ extension HoyoAccountHelper {
         }
     }
     
-    private struct SToken: Codable {
+    struct SToken: Codable {
         let tokenType: Int
         let token: String
 
@@ -242,7 +242,7 @@ extension HoyoAccountHelper {
         }
     }
     
-    private struct UserInfo: Codable {
+    struct UserInfo: Codable {
         let aid, mid, accountName, email: String
         let isEmailVerify: Int
         let areaCode, mobile, safeAreaCode, safeMobile: String
@@ -277,13 +277,13 @@ extension HoyoAccountHelper {
 }
 
 extension HoyoAccountHelper {
-    private struct CookieTokenRelated: Codable {
+    struct CookieTokenRelated: Codable {
         let retcode: Int
         let message: String
         let data: CookieTokenData
     }
 
-    private struct CookieTokenData: Codable {
+    struct CookieTokenData: Codable {
         let uid, cookieToken: String
 
         enum CodingKeys: String, CodingKey {

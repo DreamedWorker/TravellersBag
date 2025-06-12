@@ -11,17 +11,6 @@ import AppKit
 class AccountViewModel: ObservableObject, @unchecked Sendable {
     @Published var uiState: AccountUiState = .init()
     
-    func checkAccountState(account: HoyoAccount, remove: @escaping @Sendable (Bool) -> Void) async {
-        do {
-            _ = try await HoyoAccountHelper.fetchLtoken(uid: account.cookie.stuid, stoken: account.cookie.stoken, mid: account.cookie.mid)
-            await MainActor.run {
-                uiState.uiAlert.showAlert(msg: NSLocalizedString("account.info.checkAccessibleOK", comment: ""))
-            }
-        } catch { // 需要更新账号
-            remove(account.activedAccount)
-        }
-    }
-    
     func fetchImage() async {
         do {
             guard let nsImageCode = try await HoyoAccountHelper.generateQRCode() else {
@@ -68,7 +57,6 @@ class AccountViewModel: ObservableObject, @unchecked Sendable {
 
 extension AccountViewModel {
     struct AccountUiState {
-        var uiAlert: AlertMate = .init()
         var loginAlert: AlertMate = .init()
         var qrcode: NSImage? = nil
     }

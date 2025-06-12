@@ -22,14 +22,14 @@
       "localizations" : {
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Check accessiblility"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "检查联通性"
+            "value" : "刷新 SToken"
           }
         }
       }
@@ -81,6 +81,28 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "移除账号"
+          }
+        }
+      }
+    },
+    "account.empty" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "你需要先添加一个账号。"
+          }
+        }
+      }
+    },
+    "account.error.refresh" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法刷新账号的 SToken，请删除账号并重新添加。%@"
           }
         }
       }
@@ -154,6 +176,7 @@
       }
     },
     "account.info.checkAccessibleOK" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -291,14 +314,14 @@
       "localizations" : {
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "We persist certain information to give you a login status, but this information is time-effective. If there is an error in subsequent use, you may need to check the connectivity to refresh some status."
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "我们通过持久化某些信息以使你拥有登录状态，但这些信息有时效性，如果在后续使用中出现报错，则你可能需要检查联通性以刷新某些状态。"
+            "value" : "我们通过持久化某些信息以使你拥有登录状态，但这些信息有时效性，如果在后续使用中出现报错，则你可能需要重新获取 SToken 以更新登录状态。"
           }
         }
       }
