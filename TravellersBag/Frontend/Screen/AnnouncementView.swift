@@ -23,7 +23,13 @@ struct AnnouncementView: View {
                             .filter({ $0.typeID == 1 }).first!.list
                             .filter({ $0.tagLabel == .扭蛋 })
                         Carousel(neoList: gachaAnnoList, gachaPools: viewModel.uiState.gachaFeed)
-                        AnnoHotActivity()
+                        AnnoHotActivity().padding(.bottom)
+                        Divider()
+                        HStack {
+                            Text("anno.label.moreFlows").font(.title2.bold())
+                            Spacer()
+                            Link("anno.link.commnuity", destination: URL(string: "https://www.miyoushe.com/ys/")!)
+                        }
                         LazyVGrid(columns: [.init(.flexible()), .init(.flexible()), .init(.flexible())]) {
                             let type1 = viewModel.uiState.annoFeed!.data.list
                                 .filter({ $0.typeID == 1 }).first!.list
@@ -40,6 +46,7 @@ struct AnnouncementView: View {
                         }
                     }
                 }
+                .padding(.horizontal)
                 .sheet(item: $selectedURL, content: { con in
                     AnnoDetailViewer(detail: con)
                         .toolbar {
@@ -62,13 +69,12 @@ struct AnnouncementView: View {
             }
         }
         .navigationTitle(Text("content.side.label.anno"))
+        .background(Rectangle().fill(.background))
         .alert(
             viewModel.uiState.alert.title,
             isPresented: $viewModel.uiState.alert.showIt,
             actions: {},
             message: { Text(viewModel.uiState.alert.msg) }
         )
-        .padding(.horizontal)
-        .padding(.vertical, 4)
     }
 }

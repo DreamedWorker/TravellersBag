@@ -130,6 +130,21 @@ class AchieveViewModel: ObservableObject {
             }
         }
     }
+    
+    func removeArch(operation: ModelContext) {
+        let name = uiState.archName
+        uiState.showLogic = .waiting
+        let archFile = try! operation.fetch(FetchDescriptor(predicate: #Predicate<AchieveArchive> { $0.archName == name } )).first!
+        operation.delete(archFile)
+        try! operation.save()
+        for i in uiState.records {
+            if i.archiveName == name {
+                operation.delete(i)
+            }
+        }
+        try! operation.save()
+        initView(operation: operation)
+    }
 }
 
 extension AchieveViewModel {

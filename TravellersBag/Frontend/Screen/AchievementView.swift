@@ -17,6 +17,7 @@ struct AchievementView: View {
     @State private var selectedGroup: AchievementGroupElement? = nil
     @State private var showSearch: Bool = false
     @State private var showOthers: Bool = false
+    @State private var selectedInputFile: UIAFStandard.UIAF11Inner? = nil
     
     var body: some View {
         NavigationStack {
@@ -109,12 +110,21 @@ struct AchievementView: View {
                 }
             }
         })
+        .sheet(item: $selectedInputFile, content: { file in
+            AchieveImportSheet(con: file, arches: arches)
+        })
         .toolbar {
             ToolbarItem {
                 Button(action: { showAddSheet = true }, label: { Image(systemName: "plus") })
+                    .help("achieve.action.add")
+            }
+            ToolbarItem {
+                Button(action: { viewModel.removeArch(operation: operation) }, label: { Image(systemName: "trash") })
+                    .help("achieve.action.trash")
             }
             ToolbarItem {
                 Button(action: { showOthers = true }, label: { Image(systemName: "list.bullet.clipboard") })
+                    .help("achieve.action.showOthers")
             }
             ToolbarItem {
                 Button(
@@ -125,6 +135,21 @@ struct AchievementView: View {
                     },
                     label: { Image(systemName: "square.and.arrow.up") }
                 )
+                .help("achieve.action.export")
+            }
+            ToolbarItem {
+                Button(
+                    action: {
+                        Task {
+                            let result = await UIAFStandard.readUIAFFile()
+                            DispatchQueue.main.async {
+                                self.selectedInputFile = result
+                            }
+                        }
+                    },
+                    label: { Image(systemName: "square.and.arrow.down") }
+                )
+                .help("achieve.action.import")
             }
             if selectedGroup != nil {
                 ToolbarItem {
@@ -141,6 +166,7 @@ struct AchievementView: View {
                             )
                         } else {
                             Button(action: { showSearch = true }, label: { Image(systemName: "magnifyingglass") })
+                                .help("achieve.action.search")
                         }
                     }
                 }

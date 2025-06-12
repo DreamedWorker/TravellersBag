@@ -11,64 +11,13 @@ import Kingfisher
 struct AnnoHotActivity: View {
     @StateObject private var vm = HotActivityHelper()
     
-    @ViewBuilder
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             if !vm.activities.isEmpty {
                 LazyHStack(spacing: 8) {
                     let start = Date.now
                     ForEach(vm.activities) { activity in
-                        VStack(alignment: .leading) {
-                            HStack(spacing: 8) {
-                                KFImage.url(URL(string: activity.icon))
-                                    .loadDiskFileSynchronously(true)
-                                    .resizable()
-                                    .clipShape(RoundedRectangle(cornerRadius: 8))
-                                    .frame(width: 32, height: 32)
-                                VStack(alignment: .leading, content: {
-                                    Text(activity.title).bold()
-                                    Text(activity.abstract).font(.footnote).foregroundStyle(.secondary)
-                                })
-                                Spacer()
-                                Button("anno.action.visit", action: {
-                                    NSWorkspace.shared.open(URL(string: activity.url) ?? URL(string: "https://miyoushe.com")!)
-                                }).buttonStyle(BorderedProminentButtonStyle())
-                            }
-                            Label(
-                                String.localizedStringWithFormat(
-                                    NSLocalizedString("anno.label.date", comment: ""),
-                                    activity.createTime,
-                                    vm.timestamp2string(time: Int(activity.endTime)!)
-                                ),
-                                systemImage: "calendar"
-                            )
-                            .font(.callout)
-                            .padding(.bottom, 2)
-                            if activity.endTime != "0" {
-                                let end = vm.timestamp2string(time: Int(activity.endTime)!).dateFromFormattedString()
-                                let gap = Calendar.autoupdatingCurrent.dateComponents([.hour, .minute], from: start, to: end)
-                                HStack {
-                                    Spacer()
-                                    Label(
-                                        String.localizedStringWithFormat(
-                                            NSLocalizedString("anno.label.timer", comment: ""),
-                                            String(gap.hour ?? 0), String(gap.minute ?? 0)
-                                        ),
-                                        systemImage: "timer"
-                                    ).font(.callout)
-                                }
-                            } else {
-                                HStack {
-                                    Spacer()
-                                    Label("anno.label.unknown", systemImage: "timer").font(.callout)
-                                }
-                            }
-                        }
-                        .padding(8)
-                        .background(
-                            RoundedRectangle(cornerRadius: 8, style: .continuous)
-                                .fill(.background)
-                        )
+                        HotItem(activity: activity, start: start)
                     }
                 }
             }
@@ -78,6 +27,61 @@ struct AnnoHotActivity: View {
                 await vm.loadFileAndParse()
             }
         }
+    }
+}
+
+fileprivate struct HotItem: View {
+    let activity: AnnoHotActStruct.ActivityList.ChildElement.PurpleList
+    let start: Date
+    
+    var body: some View {
+        VStack {
+            HStack(alignment: .top) {
+                VStack(alignment: .leading) {
+                    Text(activity.abstract).font(.footnote.bold()).foregroundStyle(.secondary)
+                    Text(activity.title).font(.title3.bold()).padding(.bottom)
+                    Label(
+                        String.localizedStringWithFormat(
+                            NSLocalizedString("anno.label.date", comment: ""),
+                            activity.createTime,
+                            HotActivityHelper.timestamp2string(time: Int(activity.endTime)!)
+                        ),
+                        systemImage: "calendar"
+                    )
+                    .font(.callout).foregroundStyle(.secondary)
+                    if activity.endTime != "0" {
+                        let end = HotActivityHelper.timestamp2string(time: Int(activity.endTime)!).dateFromFormattedString()
+                        let gap = Calendar.autoupdatingCurrent.dateComponents([.hour, .minute], from: start, to: end)
+                        if (gap.minute ?? 0) >= 0 {
+                            Label(
+                                String.localizedStringWithFormat(
+                                    NSLocalizedString("anno.label.timer", comment: ""),
+                                    String(gap.hour ?? 0), String(gap.minute ?? 0)
+                                ),
+                                systemImage: "timer"
+                            ).font(.callout).foregroundStyle(.secondary)
+                        } else {
+                            Label("anno.label.ended", systemImage: "timer").font(.callout).foregroundStyle(.secondary)
+                        }
+                    } else {
+                        Label("anno.label.unknown", systemImage: "timer").font(.callout).foregroundStyle(.secondary)
+                    }
+                }
+                KFImage.url(URL(string: activity.icon))
+                    .loadDiskFileSynchronously(true)
+                    .resizable()
+                    .clipShape(Circle())
+                    .frame(width: 64, height: 64)
+            }
+            Spacer()
+        }
+        .onTapGesture {
+            NSWorkspace.shared.open(URL(string: activity.url) ?? URL(string: "https://miyoushe.com")!)
+        }
+        .frame(minHeight: 100)
+        .padding(8)
+        .background(.thinMaterial)
+        .clipShape(RoundedRectangle(cornerRadius: 12))
     }
 }
 
@@ -135,7 +139,7 @@ fileprivate class HotActivityHelper: AutocheckedKey, ObservableObject, @unchecke
         }
     }
     
-    func timestamp2string(time: Int) -> String {
+    static func timestamp2string(time: Int) -> String {
         if time == 0 {
             return NSLocalizedString("anno.label.unknown", comment: "")
         }
@@ -143,7 +147,7 @@ fileprivate class HotActivityHelper: AutocheckedKey, ObservableObject, @unchecke
         return confirmedTime.formatTimestamp()
     }
     
-    private func convert13DigitsTo10(_ input: String) -> Int {
+    static private func convert13DigitsTo10(_ input: String) -> Int {
         if input.count > 10 {
             let startIndex = input.startIndex
             let endIndex = input.index(startIndex, offsetBy: 10)

@@ -32,19 +32,6 @@ struct Carousel: View {
         } else {
             self.contentList = list
         }
-//        if list.count <= 3 {
-//            self.contentList = list
-//        } else {
-//            if list.count <= 4 {
-//                self.contentList = list
-//            } else {
-//                if Date.now >= DateHelper.string2date(str: list.first!.startTime) {
-//                    self.contentList = list[3...].shuffled()
-//                } else {
-//                    self.contentList = list[..<3].shuffled()
-//                }
-//            }
-//        }
     }
     
     var body: some View {
@@ -59,8 +46,26 @@ struct Carousel: View {
                                     .frame(width: geometry.size.width, height: geometry.size.height / 2)
                             }
                             .resizable()
-                            .clipShape(RoundedRectangle(cornerRadius: 8))
+                            .clipShape(RoundedRectangle(cornerRadius: 12))
                             .frame(width: geometry.size.width, height: 230)
+                        VStack {
+                            HStack {
+                                Text("notice.gacha.title").font(.title2).bold()
+                                Spacer()
+                            }.padding(.bottom, 2)
+                            HStack {
+                                Text(
+                                    String.localizedStringWithFormat(
+                                        NSLocalizedString("notice.gacha.exp", comment: ""),
+                                        (wikiGachaPoolList == nil) ? contentList.first!.startTime : wikiGachaPoolList!.data.list.first!.startTime,
+                                        (wikiGachaPoolList == nil) ? contentList.first!.endTime : wikiGachaPoolList!.data.list.first!.endTime
+                                    )
+                                ).font(.callout)
+                                Spacer()
+                            }
+                        }
+                        .padding(8)
+                        .background(RoundedRectangle(cornerRadius: 12, style: .continuous).fill(.tertiary.opacity(0.3)))
                     }
                     HStack {
                         if isLeftArrowVisible {
@@ -113,28 +118,6 @@ struct Carousel: View {
                 }
             }
             .frame(height: 230)
-            VStack {
-                HStack {
-                    Text("notice.gacha.title").font(.title2).bold()
-                    Spacer()
-                }.padding(.bottom, 2)
-                HStack {
-                    Text(
-                        String.localizedStringWithFormat(
-                            NSLocalizedString("notice.gacha.exp", comment: ""),
-                            (wikiGachaPoolList == nil) ? contentList.first!.startTime : wikiGachaPoolList!.data.list.first!.startTime,
-                            (wikiGachaPoolList == nil) ? contentList.first!.endTime : wikiGachaPoolList!.data.list.first!.endTime
-                        )
-                    ).foregroundStyle(.secondary).font(.callout)
-                    Spacer()
-                }
-            }
-            .padding(8)
-            .background(RoundedRectangle(cornerRadius: 8, style: .continuous).fill(.tertiary.opacity(0.3)))
         }
     }
-}
-
-#Preview {
-    Carousel(neoList: [])
 }

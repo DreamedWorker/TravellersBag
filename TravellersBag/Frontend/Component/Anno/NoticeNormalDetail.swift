@@ -51,8 +51,8 @@ extension AnnouncementView {
                 }
                 .padding(.horizontal, 2).padding(.bottom, 2)
             }
+            .background(.regularMaterial)
             .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
-            .background(RoundedRectangle(cornerRadius: 8, style: .continuous).fill(BackgroundStyle()))
         }
     }
 }

@@ -320,6 +320,72 @@
         }
       }
     },
+    "achieve.action.add" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "新建档案"
+          }
+        }
+      }
+    },
+    "achieve.action.export" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "导出成就档案"
+          }
+        }
+      }
+    },
+    "achieve.action.import" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "导入成就档案"
+          }
+        }
+      }
+    },
+    "achieve.action.search" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "发起搜索"
+          }
+        }
+      }
+    },
+    "achieve.action.showOthers" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "查看其他账号"
+          }
+        }
+      }
+    },
+    "achieve.action.trash" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "删除档案"
+          }
+        }
+      }
+    },
     "achieve.add.name" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -490,6 +556,17 @@
         }
       }
     },
+    "achieve.panel.importTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请选择一个符合 UIAF v1.1 标准的文件"
+          }
+        }
+      }
+    },
     "achieve.search.clear" : {
       "localizations" : {
         "en" : {
@@ -538,6 +615,17 @@
         }
       }
     },
+    "achieve.uiaf.count" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "包含记录数量"
+          }
+        }
+      }
+    },
     "anno.action.visit" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -572,6 +660,27 @@
         }
       }
     },
+    "anno.label.ended" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "活动已结束"
+          }
+        }
+      }
+    },
+    "anno.label.moreFlows" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "更多通知与信息"
+          }
+        }
+      }
+    },
     "anno.label.timer" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -602,6 +711,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "未知"
+          }
+        }
+      }
+    },
+    "anno.link.commnuity" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "访问社区"
           }
         }
       }

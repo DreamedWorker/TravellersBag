@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import AppKit
 
 class UIAFStandard {
     static func exportAchievementRecords(records: [AchieveItem], selectedPath: URL, name: String) throws {
@@ -21,9 +22,33 @@ class UIAFStandard {
         let file = selectedPath.appending(component: "AchievementRecords_\(name)_\(currentTime.timeIntervalSince1970).json")
         try FileManager.default.createFile(atPath: file.path(percentEncoded: false), contents: JSONEncoder().encode(result))
     }
+    
+    @MainActor static func readUIAFFile() async -> UIAF11Inner? {
+        let panel = NSOpenPanel()
+        panel.canChooseDirectories = false
+        panel.allowsMultipleSelection = false
+        panel.canChooseFiles = true
+        panel.message = NSLocalizedString("achieve.panel.importTitle", comment: "")
+        await panel.begin()
+        do {
+            if let url = panel.url {
+                let structure = try JSONDecoder().decode(UIAF.self, from: Data(contentsOf: url))
+                return UIAF11Inner(context: structure)
+            } else {
+                return nil
+            }
+        } catch {
+            return nil
+        }
+    }
 }
 
 extension UIAFStandard {
+    struct UIAF11Inner: Codable, Identifiable {
+        var id: String = UUID().uuidString
+        var context: UIAF
+    }
+    
     struct UIAF: Codable {
         var info: UIAFInfo
         var list: [UIAFUnit]
