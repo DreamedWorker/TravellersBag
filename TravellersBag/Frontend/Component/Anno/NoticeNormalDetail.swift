@@ -51,7 +51,7 @@ extension AnnouncementView {
                 }
                 .padding(.horizontal, 2).padding(.bottom, 2)
             }
-            .background(.regularMaterial)
+            .background(.secondary.opacity(0.35))
             .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
         }
     }

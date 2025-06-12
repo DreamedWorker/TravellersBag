@@ -80,7 +80,7 @@ fileprivate struct HotItem: View {
         }
         .frame(minHeight: 100)
         .padding(8)
-        .background(.thinMaterial)
+        .background(.secondary.opacity(0.35))
         .clipShape(RoundedRectangle(cornerRadius: 12))
     }
 }

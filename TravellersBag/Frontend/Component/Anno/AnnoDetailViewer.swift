@@ -18,6 +18,7 @@ struct AnnoDetailViewer: View {
                 AnnoBrowser(detail: confirmed.content)
                     .frame(width: 600, height: 450)
             }
+            .background(.thinMaterial)
         } else {
             Image(systemName: "camera.metering.none").resizable().frame(width: 72, height: 72)
         }

@@ -22,8 +22,8 @@
       "localizations" : {
         "en" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Check accessiblility"
+            "state" : "translated",
+            "value" : "Refresh SToken"
           }
         },
         "zh-Hans" : {
@@ -88,6 +88,12 @@
     "account.empty" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You need to add an account first."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -99,6 +105,12 @@
     "account.error.refresh" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unable to refresh the account's SToken, please delete the account and add it again. %@"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -154,40 +166,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "添加账号"
-          }
-        }
-      }
-    },
-    "account.info.checkAccessibleFailed" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "This account can no longer be accessed. We have removed it for you. Please log in again."
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "该账号已经不能访问了，我们已经为你移除了它，请重新登录。"
-          }
-        }
-      }
-    },
-    "account.info.checkAccessibleOK" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Your account can still be accessed normally."
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "你的账号还能正常访问。"
           }
         }
       }
@@ -260,23 +238,6 @@
         }
       }
     },
-    "account.login.action.reobtain" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Refresh"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "刷新"
-          }
-        }
-      }
-    },
     "account.login.tip.login" : {
       "localizations" : {
         "en" : {
@@ -314,8 +275,8 @@
       "localizations" : {
         "en" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "We persist certain information to give you a login status, but this information is time-effective. If there is an error in subsequent use, you may need to check the connectivity to refresh some status."
+            "state" : "translated",
+            "value" : "We perpetuate certain information to give you a login status, but this information is time-effective. If an error occurs in subsequent use, you may need to re-obtain SToken to update the login status."
           }
         },
         "zh-Hans" : {
@@ -685,6 +646,12 @@
     },
     "anno.label.ended" : {
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ended."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -696,6 +663,12 @@
     "anno.label.moreFlows" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "More notices and information"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -741,6 +714,12 @@
     "anno.link.commnuity" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Visit the community"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
